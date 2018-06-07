@@ -68,8 +68,8 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('auth/register.html', form=form)
 
-@auth.route('/login_with_dacebook',)
-
+# @auth.route('/login_with_dacebook')
+# def login_with_facebook():
 
 @auth.route('/confirm/<token>')
 @login_required
