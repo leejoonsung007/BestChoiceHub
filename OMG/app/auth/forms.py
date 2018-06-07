@@ -30,11 +30,14 @@ class RegistrationForm(FlaskForm):
                'underscores')])
 
     password = PasswordField('Password', validators=[
-        DataRequired(), Length(6,15),Regexp(regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}",message='The password is at least 8 characters, at least 1 uppercase letters, 1 lowercase letters, 1 numbers and 1 special characters.'),
-        EqualTo('password2', message='Passwords must match.')])
+                            DataRequired(), Length(6,15),
+                            Regexp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}', 0,
+                                    'The password must include at least 1 uppercase letter, '
+                                    '1 lowercase letter, 1 numbers and 1 special character.')])
     # 这里可以加一个正则表达式，比如必须有大小写字母必须有数字，然后长度一定要大于6位，格式模仿上面,(密码至少6个字符，至少1个大写字母，1个小写字母，1个数字和1个特殊字符)
 
-    password2 = PasswordField('Confirm password', validators=[DataRequired()])
+    password2 = PasswordField('Confirm password', validators=[DataRequired(),
+                                                              EqualTo('password', message='Passwords must match.')])
     submit = SubmitField('Register')
 
     def validate_email(self, field):

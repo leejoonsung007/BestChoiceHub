@@ -12,8 +12,9 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASKY_MAIL_SENDER = 'Flasky Admin <@gmail.com>' #这里也需要改成你的邮箱
+    FLASKY_MAIL_SENDER = 'Flasky Admin <schoolselectionie@gmail.com>' #这里也需要改成你的邮箱
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
+    FLASKY_MODERATOR = os.environ.get('MODERATOR')
     # FLASKY_MAIL_SENDER = os.environ.get('MAIL_USERNAME')
     # POSTS_PER_PAGE = os.environ.get('POSTS_PER_PAGE')
     # FLASKY_SLOW_DB_QUERY_TIME = 0.5
@@ -40,22 +41,21 @@ class DevelopmentConfig(Config):
         'mysql+pymysql://root:1234@localhost/school'
 
 
-class TestingConfig(Config):
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-        'mysql+pymysql://root:1234@localhost/school'
-
-
-class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'mysql+pymysql://root:1234@localhost/school'
+# class TestingConfig(Config):
+#     TESTING = True
+#     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
+#         'mysql+pymysql://root:1234@localhost/school'
+#
+#
+# class ProductionConfig(Config):
+#     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+#         'mysql+pymysql://root:1234@localhost/school'
 
 
 config = {
     'development': DevelopmentConfig,
-    'testing': TestingConfig,
-    'production': ProductionConfig,
-
+    # 'testing': TestingConfig,
+    # 'production': ProductionConfig,
     'default': DevelopmentConfig
 }
 # 配置和数据库的连接信息

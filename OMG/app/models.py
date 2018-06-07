@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from flask import current_app, request, url_for
+from flask import current_app
 from flask_login import UserMixin
 from . import db, login_manager
 from utils import log
@@ -8,11 +8,14 @@ from datetime import datetime
 
 #
 class Permission:
-    USER_LIKE = 0x01             # 关注school
-    COMMENT = 0x02            # 发表评论
-    WRITE_COMMENTS = 0x04     # 写comments
-    MODERATE_COMMENTS = 0x08  # 管理他人发表的评论
-    ADMINISTRATOR = 0xff      # 管理者权限
+    USER_LIKE = 1      # 关注school
+    COMMENTS = 2    # 写comments
+    COMMENTS_MANAGEMENT = 4  # 管理他人发表的评论
+    POST_SCHOOL_INFORMATION = 8 #post学校信息
+    SCHOOL_INFORMATION_MANAGEMENT = 16 #管理学校信息
+    MODERATE = 32 # 协调者权限 - 不知是否多余 先留着
+    ACCOUNT_MANAGEMENT = 64 #账号管理
+    ADMINISTRATOR = 128      # 管理者权限
 
 class Role(db.Model):
     __tablename__ = 'role'
@@ -22,25 +25,34 @@ class Role(db.Model):
     name = db.Column(db.String(50), unique=True)
     user = db.relationship('User', backref='role', lazy='dynamic')
 
-    # def __repr__(self):
-    #     return '<Role %r>' % self.name
     @staticmethod
     def insert_roles():
+        # 这里应该是字典格式
         roles = {
-            'User': (Permission.USER_LIKE | Permission.COMMENT |
-                     Permission.WRITE_COMMENTS, True),  # 只有普通用户的default为True
-            'Moderare': (Permission.USER_LIKE | Permission.COMMENT |
-                         Permission.WRITE_COMMENTS | Permission.MODERATE_COMMENTS, False),
-            'Administrator': (0xff, False)
+            'User': [Permission.USER_LIKE, Permission.COMMENTS],  # 只有普通用户的default为True
+            'Moderator': [Permission.USER_LIKE, Permission.COMMENTS, Permission.COMMENTS_MANAGEMENT,
+                         Permission.POST_SCHOOL_INFORMATION, Permission.SCHOOL_INFORMATION_MANAGEMENT,
+                         Permission.MODERATE
+                         ],
+            'Administrator': [Permission.USER_LIKE, Permission.COMMENTS, Permission.COMMENTS_MANAGEMENT,
+                             Permission.POST_SCHOOL_INFORMATION, Permission.SCHOOL_INFORMATION_MANAGEMENT,
+                             Permission.MODERATE, Permission.ACCOUNT_MANAGEMENT, Permission.ADMINISTRATOR
+                              ],
         }
+        # 这里你之前写的有点问题，我给改过来了
         for r in roles:
             role = Role.query.filter_by(name=r).first()
             if role is None:
                 role = Role(name=r)
-            role.permissions = roles[r][0]
-            role.default = roles[r][1]
+            role.permissions = sum(roles[r])
+            # print(role.permissions)
+            if role.name == 'User':
+                role.default = True
             db.session.add(role)
         db.session.commit()
+
+    def __repr__(self):
+        return '<Role %r>' % self.name
 
 
 class User(UserMixin, db.Model):
@@ -55,16 +67,26 @@ class User(UserMixin, db.Model):
     confirmed = db.Column(db.Boolean, default=False)  # 邮箱令牌是否点击
     # member_since = db.Column(db.DateTime(), default=datetime.utcnow)
     # last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
-    def to_json(self):
-        user_json = {
-            'url': url_for('api.get_user', id=self.id, _external=True),
-            'username': self.username,
-            'member_since': self.member_since,
-            'last_seen': self.last_seen,
-            'post_count': self.posts.count()
-        }
-        return user_json
 
+    # def to_json(self):
+    #     user_json = {
+    #         'url': url_for('api.get_user', id=self.id, _external=True),
+    #         'username': self.username,
+    #         'member_since': self.member_since,
+    #         'last_seen': self.last_seen,
+    #         'post_count': self.posts.count()
+    #     }
+    #     return user_json
+
+    def __init__(self, **kwargs):
+        super(User, self).__init__(**kwargs)        # 初始化父类
+        if self.role is None:
+            if self.email == current_app.config['FLASKY_ADMIN']:                  # 邮箱与管理者邮箱相同
+                self.role = Role.query.filter_by(name='Administrator').first() # 权限为管理者
+            # elif self.email == current_app.config['MODERATOR']:
+            #     self.role = Role.query.filter_by(name='Moderator').first()
+            else:
+                self.role = Role.query.filter_by(default=True).first()       # 默认用户
 
     @property
     def password(self):
@@ -92,16 +114,6 @@ class User(UserMixin, db.Model):
         self.confirmed = True
         db.session.add(self)
         return True
-
-    def __init__(self, **kwargs):
-        super(User, self).__init__(**kwargs)        # 初始化父类
-        if self.role is None:
-            if self.email == current_app.config['FLASKY_ADMIN']:                  # 邮箱与管理者邮箱相同
-                self.role = Role.query.filter_by(permissions=0xff).first()    # 权限为管理者
-            else:
-                self.role = Role.query.filter_by(default=True).first()       # 默认用户
-
-
 
 @login_manager.user_loader
 def load_user(user_id):
