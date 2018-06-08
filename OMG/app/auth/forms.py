@@ -49,3 +49,21 @@ class RegistrationForm(FlaskForm):
         if User.query.filter_by(username=field.data).first():
             raise ValidationError('Username already in use. please use another name')
 
+
+class PasswordResetRequestForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Length(1, 64),
+                                             Email()])
+    submit = SubmitField('Reset')
+
+
+class PasswordResetForm(FlaskForm):
+    new_password1 = PasswordField('New Password', validators=[
+        DataRequired(), Length(6, 15),
+        Regexp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}', 0,
+               'The password must include at least 1 uppercase letter, '
+               '1 lowercase letter, 1 numbers and 1 special character.')])
+
+    new_password2 = PasswordField('Confirm password', validators=[DataRequired(),
+                                                             EqualTo('new_password1', message='Passwords must match.')])
+    submit = SubmitField('Reset')
+
