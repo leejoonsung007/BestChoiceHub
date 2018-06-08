@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afcc6cc6-90e9-49f8-91f5-cd63c786c095" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/app/auth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/app/auth/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/app/auth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/app/auth/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/app/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/app/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/flasky.py" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/flasky.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OMG/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html" beforeDir="false" afterPath="$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,20 +39,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reset_password.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="reset_password.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OMG/app/templates/auth/email/reset_password.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="15">
+              <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="email.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OMG/app/email.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OMG/app/auth/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
+            <state relative-caret-position="142">
+              <caret line="111" column="65" lean-forward="true" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -69,8 +75,8 @@
       <file leaf-file-name="reset_password.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="105">
+              <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -138,10 +144,10 @@
         <option value="$PROJECT_DIR$/OMG/log.txt" />
         <option value="$PROJECT_DIR$/OMG/app/auth/forms.py" />
         <option value="$PROJECT_DIR$/OMG/app/models.py" />
-        <option value="$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html" />
         <option value="$PROJECT_DIR$/OMG/app/templates/auth/email/reset_password.txt" />
         <option value="$PROJECT_DIR$/OMG/app/templates/auth/email/reset_password.html" />
         <option value="$PROJECT_DIR$/OMG/app/auth/views.py" />
+        <option value="$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html" />
       </list>
     </option>
   </component>
@@ -155,8 +161,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-298" />
-    <option name="y" value="60" />
+    <option name="x" value="166" />
+    <option name="y" value="110" />
     <option name="width" value="1168" />
     <option name="height" value="878" />
   </component>
@@ -191,6 +197,21 @@
               <item name="School" type="462c0819:PsiDirectoryNode" />
               <item name="OMG" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School" type="462c0819:PsiDirectoryNode" />
+              <item name="OMG" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School" type="462c0819:PsiDirectoryNode" />
+              <item name="OMG" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -321,8 +342,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="337" y="22" width="1168" height="878" extended-state="0" />
-    <editor active="true" />
+    <frame x="166" y="110" width="1168" height="878" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32962447" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -331,8 +351,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32823366" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32823366" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35979512" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28063944" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35979512" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28063944" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -580,16 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OMG/app/email.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/OMG/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -668,10 +678,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OMG/app/main/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OMG/app/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="111" column="65" lean-forward="true" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OMG/app/templates/auth/reset_password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="105">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OMG/app/email.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -682,23 +715,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OMG/app/main/views.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/OMG/app/templates/auth/email/reset_password.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OMG/app/auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="120" column="56" selection-start-line="120" selection-start-column="56" selection-end-line="120" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="49" lean-forward="true" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
         </state>
       </provider>
     </entry>
