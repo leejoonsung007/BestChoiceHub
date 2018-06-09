@@ -6,3 +6,4 @@
 10:28:40 models.py data {'confirm': 1}
 10:28:40 models.py data.get('confirm') {'confirm': 1}
 10:45:51 what is next None
+23:34:34 what is next None
