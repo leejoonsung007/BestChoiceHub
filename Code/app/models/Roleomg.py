@@ -28,7 +28,6 @@ class Role(db.Model):
             if role is None:
                 role = Role(name=r)
             role.permissions = sum(roles[r])
-            # print(role.permissions)
             if role.name == 'User':
                 role.default = True
             db.session.add(role)

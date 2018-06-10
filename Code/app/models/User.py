@@ -5,7 +5,7 @@ from flask_login import UserMixin
 from app import db, login_manager
 from utils import log
 from datetime import datetime
-from .Role import Role
+from .Roleomg import Role
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
