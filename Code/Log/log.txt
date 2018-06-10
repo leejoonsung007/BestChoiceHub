@@ -1,0 +1,20 @@
+12:22:47 form <app.auth.forms.LoginForm object at 0x10fe8a630>
+12:22:47 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:22:47 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:22:55 what is next None
+12:22:55 what is new next /
+12:23:00 form <app.auth.forms.LoginForm object at 0x10febdda0>
+12:23:00 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:23:00 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:24:10 form <app.auth.forms.LoginForm object at 0x10ff02b38>
+12:24:10 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:24:10 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:24:15 form <app.auth.forms.LoginForm object at 0x10ff02978>
+12:24:15 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:24:15 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:25:58 form <app.auth.forms.LoginForm object at 0x10ed479b0>
+12:25:58 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:25:58 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:26:11 form <app.auth.forms.LoginForm object at 0x10edc8208>
+12:26:11 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:26:11 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">

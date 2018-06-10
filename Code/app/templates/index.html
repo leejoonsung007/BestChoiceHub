@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h2>Welcome to School Selection Helper</h2>
+    <h3>{% if current_user.is_authenticated %} Hello, {{ current_user.username }}!{% endif %}</h3>
+</div>
+{% endblock %}

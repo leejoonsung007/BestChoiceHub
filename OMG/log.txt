@@ -1,9 +1,0 @@
-09:55:10 /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyODQ0ODA0MSwiZXhwIjoxNTI4NDUxNjQxfQ.eyJjb25maXJtIjoyfQ.ft-aFpa7WPIPGlwrtsrTXB9AepfibfJ2aN6aLRyXL1M
-10:15:55 None
-10:18:43 None
-10:26:04 what is next None
-10:28:40 what is next /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyODQ0OTk1NSwiZXhwIjoxNTI4NDUzNTU1fQ.eyJjb25maXJtIjoxfQ.h2nN2wj7-F18PJ1LQ8LLCal2kV73Wh_ZTuzV60iA9O8
-10:28:40 models.py data {'confirm': 1}
-10:28:40 models.py data.get('confirm') {'confirm': 1}
-10:45:51 what is next None
-23:34:34 what is next None
