@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Main Style Sheet -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Modernizr -->
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <!-- Respond.js for IE 8 or less only -->
+  <!--[if (lt IE 9) & (!IEMobile)]>
+  <script src="js/vendor/respond.min.js"></script>
+  <![endif]-->
+  <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+  <link rel="stylesheet" href="Airbnb.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.common.min.js"></script>
+
+  <style>
+  .jumbotron {
+  background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAApvZQJbiffqnPNES7KXGrTq4y683Qz3qTDTHnvyHv7dXiXvyeP5iX_Zmot2vX3RZnA5h9gnRnF43NQXlLc97S9VbIAU5ppsW9_ElvpmUkSRuo7Hn5Rt3XAPGK_XR3LJ1mEhB0FupsNnRHO-4pMUCecGhhGhSVRKrgaGDC-VyPs0XB1rxKeM1ROw&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
+  height: 400px;margin:0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*.imgGb{
+  background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAApvZQJbiffqnPNES7KXGrTq4y683Qz3qTDTHnvyHv7dXiXvyeP5iX_Zmot2vX3RZnA5h9gnRnF43NQXlLc97S9VbIAU5ppsW9_ElvpmUkSRuo7Hn5Rt3XAPGK_XR3LJ1mEhB0FupsNnRHO-4pMUCecGhhGhSVRKrgaGDC-VyPs0XB1rxKeM1ROw&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blueBg{
+  background: blue;
+}*/
+/*.jumbotron .banner{
+  height: 100%;display: block;
+}*/
+
+.jumbotron .container {
+  position: relative;
+  top:100px;
+}
+
+.jumbotron h1 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 20px;
+  color: #fff;
+}
+.navbar{margin-bottom: 0}
+.page-contents{
+  margin: 0 3%;
+}
+ </style>
+
+</head>
+<body>
+
+<!--[if lte IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<header role="banner">
+  <nav role="navigation" class="navbar navbar-static-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Bootstrappin'" width="120"></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav pull-left">
+          <li class="active"><a href="index.html">
+            <span class="icon fa fa-home"></span> Home
+          </a></li>
+          <li><a href="#">
+            <span class="icon fa fa-desktop"></span> Search
+          </a></li>
+          <li><a href="#">
+            <span class="icon fa fa-group"></span> Compare
+          </a></li>  </ul> <ul class="nav navbar-nav pull-right">
+          <li><a href="#">
+            <span class="icon fa fa-envelope"></span> Login
+          </a></li>
+        <li><a href="#">
+          <span class="icon fa fa-envelope"></span> Sign up
+        </a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container -->
+  </nav>
+</header>
+
+<main role="main" id='#app'>
+
+  <div class="jumbotron" >
+<!--   <img src="" class="banner"> -->
+    <div class="container">
+      <h1>Blackrock College</h1>
+
+      <a href="#">View more</a>
+    </div>
+  </div>
+  <div class="page-contents" >
+    <div class="row">
+      <div class="col-sm-2">
+        <h3>Blackrock College</h3>
+        <p>Rock Road Dublin</p>
+        <p>Boys</p>
+        <p>CATHOLIC</p>
+        <p>Fees</p>
+        <p><a href="https://www.blackrockcollege.com/">https://www.blackrockcollege.com/</a></p>
+      </div>
+      <div class="col-sm-5">
+        <div id="tu1" style="width: 100%;height:400px;"></div>
+      </div>
+      <div class="col-sm-5">
+        <div id="tu2" style="width: 100%;height:400px;"></div>
+        <div class="col-sm-5">
+        <select class="form-control">
+  <option>2015</option>
+  <option>2016</option>
+  <option>2017</option>
+</select></div>
+
+      <div class="col-sm-5">
+        <select class="form-control">
+  <option>All institution</option>
+  <option>University only</option>
+</select></div>
+      </div>
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</main>
+
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+  <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+       var myChart = echarts.init(document.getElementById('tu1'));
+// 显示标题，图例和空的坐标轴
+myChart.setOption({
+    title: {
+        text:'School-to-institution progression',x:'left'
+    },
+    tooltip: {trigger: 'axis'},
+    legend: {
+       y : '5%',
+       orient : 'vertical',
+       align:'left',
+        data:["School's raise of progression to 3rd level","School's raise of progression to univerity only"]
+    },
+    xAxis: {
+         type: 'category',
+        boundaryGap: false,
+        data: ['2015','2016','2017']
+    },
+    yAxis: {type:'value'},
+    series: [{
+            name:"School's raise of progression to 3rd level",
+            type:'line',
+            data:[95, 96, 97]
+        },
+        {
+            name:"School's raise of progression to univerity only",
+            type:'line',
+            data:[80, 85, 80]
+        },]
+});
+
+// 异步加载数据
+// $.get('data.json').done(function (data) {
+//     // 填入数据
+//     myChart.setOption({
+//         xAxis: {
+//             data: data.categories
+//         },
+//         series: [{
+//             // 根据名字对应到相应的系列
+//             name: '销量',
+//             data: data.data
+//         }]
+//     });
+// });
+
+    </script>
+        <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart2 = echarts.init(document.getElementById('tu2'));
+
+        var option2 = {
+          title : {//标题设置‘参保情况’
+                 x : 'left',//标题位置
+                 text : "Institution School",//传入标题名称‘参保情况’
+                 textStyle:{//标题字体颜色等设置
+                     fontSize:16,
+                     fontWeight:'bold'
+                 }
+             },
+    tooltip: {
+      show :'false',
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        icon:'circle',
+        itemGap: 3,
+        itemWidth : 4,
+        x: '80%',
+        align:'left',
+         textStyle:{//属性名的字体样式设置
+                     fontSize:10,
+                     color: '#666'
+                 },
+        data:['UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI',]
+    },
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['30%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '15',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+            'UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI',
+                {value:85, name:'UCD'},
+                {value:39, name:'TCD'},
+                {value:7, name:'DCU'},
+                {value:3, name:'UL'},
+                {value:3, name:'Maynooth University'},
+                {value:7, name:'NUIG'},
+                {value:0, name:'UCC'},
+                {value:1, name:'Nat Col. of Irl'},
+                {value:37, name:'DIT'},
+                {value:2, name:'Tallaght IT'},
+                {value:0, name:'Athlone IT'},
+                {value:1, name:'Cork IT'},
+                {value:0, name:'Dundalk IT'},
+                {value:1, name:'GMIT'},
+                {value:3, name:'IADT'},
+                {value:2, name:'NCAD'},
+                {value:3, name:'RCSI'},
+                {value:0, name:'Shannon College of Hotel Management'}
+            ]
+        }
+    ]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option2);
+    </script>
+</body>
+</html>

@@ -4,37 +4,15 @@
 {% block title %}login{% endblock %}
 
 {% block page_content %}
-
-    <!-- Wrapper for slides -->
-
-    <div><p><button><a href="#"><img src="../../static/login/facebook.png" width="50%" align="middle"></a></button></p></div>
-
-    <div><p><button><a href="#"><img src="../../static/login/google.png" width="50%" align="middle"></a></button></p></div>
-
-    <div><p><img src="../../static/login/or.png" width="100%" align="center"></div></p>
-
-    <div>
-        <form class="form form-horizontal" method="post" role="form" style="text-align: center">
-{#           参考网址 https://pythonhosted.org/Flask-Bootstrap/forms.html#}
-          {{ form.hidden_tag() }}
-          {{ wtf.form_errors(form, hiddens="only") }}
-          {{ wtf.form_field(form.email) }}
-          {{ wtf.form_field(form.password) }}
-        <button type="submit"><img src="../../static/login/login.png" width="50%"></button>
-        </form>
-
-        <div style="text-align: center">
-            <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
-        </div>
-
-        <p><img src="../../static/login/line.png" width="90%" align="middle"></p>
-
-        <div style="text-align: center">
-            <p>Forget your password? <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset your password</a></p>
-        </div>
-    </div>
+<div class="page-header">
+    <h1>Login</h1>
 </div>
-
-</body>
-</html>
+<div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+    <br>
+    <p>New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.</p>
+    <p>Forget your password? <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset your password</a></p>
+    <p>Login with google <a href="{{ url_for('auth.login_with_google') }}">click</a></p>
+    <p>Login with facebook <a href="{{ url_for('auth.login_with_facebook') }}">click</a></p>
+</div>
 {% endblock %}

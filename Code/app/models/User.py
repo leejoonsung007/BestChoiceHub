@@ -16,7 +16,10 @@ class User(UserMixin, db.Model):
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)  # last seen
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
     password_hash = db.Column(db.String(128))
-    confirmed = db.Column(db.Boolean, default=False)  # whether the account is confirmed
+    confirmed = db.Column(db.Boolean, default=False)
+    facebook_id = db.Column(db.String(50))
+    photo = db.Column(db.String(256))
+    # whether the account is confirmed
     # member_since = db.Column(db.DateTime(), default=datetime.utcnow)
     # last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
 
@@ -83,10 +86,10 @@ class User(UserMixin, db.Model):
         user = User.query.get(data.get('reset'))
         if user is None:
             return False
+
         user.password = new_password
         db.session.add(user)
         return True
-
 
 @login_manager.user_loader
 def load_user(user_id):

@@ -12,9 +12,9 @@ class LoginForm(FlaskForm):
     # validators=[the requirements need to satisfy]
     # DataRequired（）must input
     # email: the input should be email format(@)
-    email = StringField('Email', validators=[DataRequired(), Length(1, 64),
-                                             Email()], render_kw={"placeholder":"Please input your email"})
-    password = PasswordField('Password', validators=[DataRequired()], render_kw={"placeholder":"Please input your password"})
+    email = StringField(validators=[DataRequired(), Length(1, 64),
+                                             Email()], render_kw={"placeholder":"Email Address"})
+    password = PasswordField('Password', validators=[DataRequired()], render_kw={"placeholder":"Password"})
     remember_me = BooleanField('Keep me logged in')
     submit = SubmitField('log In')
 

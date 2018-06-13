@@ -18,6 +18,14 @@ class Config:
     # POSTS_PER_PAGE = os.environ.get('POSTS_PER_PAGE')
     # FLASKY_SLOW_DB_QUERY_TIME = 0.5
     SQLALCHEMY_TRACK_MODIFICATIONS = True
+    GOOGLE_OAUTH_CLIENT_ID = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
+    GOOGLE_OAUTH_CLIENT_SECRET = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+
+    # FACEBOOK_OAUTH_CLIENT_ID = os.environ.get("FACEBOOK_OAUTH_CLIENT_ID")
+    # FACEBOOK_OAUTH_CLIENT_SECRET = os.environ.get("FACEBOOK_OAUTH_CLIENT_SECRET")
+
+    OAUTHLIB_RELAX_TOKEN_SCOPE = True
+    OAUTHLIB_INSECURE_TRANSPORT = True
 
     @staticmethod
     def init_app(app):
@@ -26,8 +34,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-      'mysql+pymysql://root:1234@localhost/mysql'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost/mysql'
 
 
 # class TestingConfig(Config):
