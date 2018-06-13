@@ -1,14 +1,26 @@
-from flask import render_template, redirect, request, url_for, flash
-from flask_login import login_user, logout_user, login_required, \
-    current_user
 from . import auth
 from app import db
 from app.models.User import User
 from app.email import send_email
-from .forms import LoginForm, RegistrationForm, PasswordResetForm, PasswordResetRequestForm
 from utils import log
 from flask_dance.contrib.google import google
 from flask_dance.contrib.facebook import facebook
+import os
+from flask import (render_template,
+                   redirect,
+                   request,
+                   url_for,
+                   flash, )
+from flask_login import (login_user,
+                         logout_user,
+                         login_required,
+                         current_user, )
+from .forms import (LoginForm,
+                    RegistrationForm,
+                    PasswordResetForm,
+                    PasswordResetRequestForm,
+                    ChangePasswordForm,
+                    EditForm,)
 
 
 
@@ -49,7 +61,7 @@ def login():
     log("form", form)
     log("form.email", form.email)
     log("form.password", form.password)
-    return render_template('auth/login1.html', form=form)
+    return render_template('auth/login/login.html', form=form)
 
 
 @auth.route('/logout')
@@ -74,7 +86,7 @@ def register():
                    'auth/email/confirm', user=user, token=token)
         flash('A confirmation email has been sent to you by email.')
         return redirect(url_for('auth.login'))
-    return render_template('auth/register.html', form=form)
+    return render_template('auth/login/register.html', form=form)
 
 
 # @auth.route('/login_with_dacebook')
@@ -110,6 +122,7 @@ def password_reset_request():
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
+        log("check whether it works", user)
         if user:
             token = user.generate_reset_token()
             send_email(user.email, 'Reset Your Password',
@@ -118,14 +131,15 @@ def password_reset_request():
                        next=request.args.get('next'))
         flash('An email with instructions to reset your password has been '
               'sent to you.')
+        # here need to add a page
         return redirect(url_for('auth.login'))
-    return render_template('auth/reset_password.html', form=form)
+    return render_template('auth/login/forgot.html', form=form)
 
 
 @auth.route('/reset/<token>', methods=['GET', 'POST'])
 def password_reset(token):
-    if not current_user.is_anonymous:
-        return redirect(url_for('main.index'))
+    # if not current_user.is_anonymous:
+    #     return redirect(url_for('main.index'))
     form = PasswordResetForm()
     if form.validate_on_submit():
         if User.reset_password(token, form.new_password1.data):
@@ -134,15 +148,15 @@ def password_reset(token):
             return redirect(url_for('auth.login'))
         else:
             return redirect(url_for('main.index'))
-    return render_template('auth/reset_password.html', form=form)
+    return render_template('auth/login/reset.html', form=form)
 
 
 @auth.route("/login_with_google")
 def login_with_google():
-
     if not google.authorized:
         return redirect(url_for("google.login"))
 
+    # get google user information
     google_user = google.get("/plus/v1/people/me").json()
     log("what is in resp", google_user)
     email = google_user["emails"][0]["value"]
@@ -153,6 +167,7 @@ def login_with_google():
 
     user_now = User.query.filter_by(username=username).first()
 
+    # add google user information to Database
     if user_now is None:
         db.session.add(user)
         db.session.commit()
@@ -191,3 +206,45 @@ def login_with_facebook():
     if next is None or not next.startswith('/'):
         next = url_for('main.index')
     return redirect(next)
+
+
+@auth.route('/change_password', methods=['GET', 'POST'])
+@login_required  # only login user can change password
+def change_password():
+    form = ChangePasswordForm()
+    if form.validate_on_submit():
+        if current_user.verify_password(form.old_password.data):
+            current_user.password = form.password.data
+            db.session.add(current_user)
+            db.session.commit()
+            flash('Your password has been updated.')
+            return redirect(url_for('main.index'))
+        else:
+            flash('Invalid password.')
+    return render_template("auth/change_password.html", form=form)
+
+
+# @auth.route('/collection', method=['GET','POST'])
+# def collection_list():
+#     data = db.session.query(user.id,school.roll_number,)
+
+@auth.route('user/<username>')  # Individual information page
+def edit_info():
+    form = EditForm()
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        photo = request.files['photo']
+        fname = photo.filename
+        upload_photo = os.getcwd() + '\\app\\static\\photo\\'
+        allowed_extensions = ['png', 'gif', 'jpeg', 'jpg']
+        type = '.' in fname and fname.rsplit('.', 1)[1] in allowed_extensions
+        if not type:
+            flash('wrong file type')
+            return redirect(url_for('.user', current_user.username))
+        photo.save('{}{}{}'.format(upload_photo, current_user.name, current_user.email))
+
+        db.session.add(current_user)
+        flash('success update your photo')
+        return redirect(url_for('.user'), username=current_user.username)
+    return render_template('user/<username>.html', form=form)

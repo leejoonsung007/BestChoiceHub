@@ -19,33 +19,33 @@ $(function () {
       test("should activate element by tab id", function () {
         var tabsHTML =
             '<ul class="tabs">'
-          + '<li><a href="#home">Home</a></li>'
+          + '<li><a href="#main">Home</a></li>'
           + '<li><a href="#profile">Profile</a></li>'
           + '</ul>'
 
-        $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
+        $('<ul><li id="main"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
 
         $(tabsHTML).find('li:last a').tab('show')
         equal($("#qunit-fixture").find('.active').attr('id'), "profile")
 
         $(tabsHTML).find('li:first a').tab('show')
-        equal($("#qunit-fixture").find('.active').attr('id'), "home")
+        equal($("#qunit-fixture").find('.active').attr('id'), "main")
       })
 
       test("should activate element by tab id", function () {
         var pillsHTML =
             '<ul class="pills">'
-          + '<li><a href="#home">Home</a></li>'
+          + '<li><a href="#main">Home</a></li>'
           + '<li><a href="#profile">Profile</a></li>'
           + '</ul>'
 
-        $('<ul><li id="home"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
+        $('<ul><li id="main"></li><li id="profile"></li></ul>').appendTo("#qunit-fixture")
 
         $(pillsHTML).find('li:last a').tab('show')
         equal($("#qunit-fixture").find('.active').attr('id'), "profile")
 
         $(pillsHTML).find('li:first a').tab('show')
-        equal($("#qunit-fixture").find('.active').attr('id'), "home")
+        equal($("#qunit-fixture").find('.active').attr('id'), "main")
       })
 
 

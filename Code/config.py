@@ -1,5 +1,6 @@
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 
 class Config:
@@ -11,7 +12,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
-    FLASKY_MAIL_SENDER = 'Flasky Admin <schoolselectionie@gmail.com>'
+    FLASKY_MAIL_SENDER = 'School Selection Team <schoolselectionie@gmail.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     FLASKY_MODERATOR = os.environ.get('MODERATOR')
     # FLASKY_MAIL_SENDER = os.environ.get('MAIL_USERNAME')
@@ -20,6 +21,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     GOOGLE_OAUTH_CLIENT_ID = os.environ.get("GOOGLE_OAUTH_CLIENT_ID")
     GOOGLE_OAUTH_CLIENT_SECRET = os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET")
+
 
     # FACEBOOK_OAUTH_CLIENT_ID = os.environ.get("FACEBOOK_OAUTH_CLIENT_ID")
     # FACEBOOK_OAUTH_CLIENT_SECRET = os.environ.get("FACEBOOK_OAUTH_CLIENT_SECRET")
@@ -34,7 +36,9 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost/mysql'
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:1234@localhost/mysql'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
+        'mysql+pymysql://root:1234@localhost/mysql'
 
 
 # class TestingConfig(Config):

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/js/main.js"></script>
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<html lang="en">
+{% import "bootstrap/wtf.html" as wtf %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Modernizr -->
+    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="js/vendor/respond.src.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header role="banner">
+    <nav role="navigation" class="navbar navbar-static-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="'main.index'"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="active"><a href="'main.index'">
+                        <span class="icon fa fa-home"></span> Home
+                    </a></li>
+                    <li><a href="{{ url_for("main.index") }}">
+                        <span class="icon fa fa-desktop"></span> Search
+                    </a></li>
+                    <li><a href="#">
+                        <span class="icon fa fa-group"></span> Compare
+                    </a></li>  </ul> <ul class="nav navbar-nav pull-right">
+                <li><a href="#">
+                    <span class="icon fa fa-envelope"></span> Login
+                </a></li>
+                <li><a href="{{ url_for('auth.register') }}">
+                    <span class="icon fa fa-envelope"></span> Sign up
+                </a></li>
+            </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </nav>
+</header>
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6 col-xs-10">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">
+                            Forgot your password?
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form  novalidate="novalidate" id="formSignUp" method = "post">
+                            <div id="errorSignUp">
+
+                            </div>
+
+                            <p>Don't worry. Just enter your email address below — we'll send you a link to reset it.</p>
+                            {{ form.hidden_tag() }}
+                            {{ wtf.form_errors(form, hiddens="only") }}
+                            <div class="form-group">
+                                <label >Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+{#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="email" type="email">#}
+                                    {{ wtf.form_field(form.email) }}
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btnLogin" class="btn btn-primary" style="width: 127px;text-align: center">Send</button>
+                        </form>
+
+                        <div class="modal-footer">
+                            <small><a href= "{{ url_for('auth.login') }}">Cancel</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

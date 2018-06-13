@@ -6,6 +6,7 @@ from app import db, login_manager
 from utils import log
 from datetime import datetime
 from .Roleomg import Role
+from .User_operation import Follow
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
@@ -19,6 +20,8 @@ class User(UserMixin, db.Model):
     confirmed = db.Column(db.Boolean, default=False)
     facebook_id = db.Column(db.String(50))
     photo = db.Column(db.String(256))
+
+
     # whether the account is confirmed
     # member_since = db.Column(db.DateTime(), default=datetime.utcnow)
     # last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
@@ -86,10 +89,22 @@ class User(UserMixin, db.Model):
         user = User.query.get(data.get('reset'))
         if user is None:
             return False
-
         user.password = new_password
         db.session.add(user)
         return True
+
+    def follow(self, school):                          # 关注school
+        if not self.is_following(school):
+            f = Follow(follower=self, followed=school)     # self为关注者,follower_id与之对应，与此同时self.followed(self关注了其它school)添加一个新值
+            db.session.add(f)                            # user为被关注者,followed_id与之对应,与此同时user.followers(school被其它用户关注)添加一个新值
+            db.session.commit()
+
+    def unfollow(self, school):                        # 取消对school的关注
+        f = self.followed.filter_by(followed_id=school.id).first()       # 从该用户关注的其它用户中找出followed_id=user.id的用户
+        if f is not None:
+            db.session.delete(f)
+            db.session.commit()
+
 
 @login_manager.user_loader
 def load_user(user_id):

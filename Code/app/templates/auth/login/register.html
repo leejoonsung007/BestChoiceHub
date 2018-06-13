@@ -3,6 +3,8 @@
 <script src="/js/main.js"></script>
 <script src="/js/vendor/jquery-3.3.1.min.js"></script>
 <html lang="en">
+{% import "bootstrap/wtf.html" as wtf %}
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -26,11 +28,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Bootstrappin'" width="120"></a>
+                <a class="navbar-brand" href="{{ url_for('auth.login') }}"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href="index.html">
+                    <li class="active"><a href="{{ url_for('auth.login') }}">
                         <span class="icon fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#">
@@ -63,16 +65,28 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <form novalidate="novalidate" id="formSignUp">
+                        <form novalidate="novalidate" id="formSignUp" method="post">
                             <div id="errorSignUp">
-
                             </div>
+
+                            {{ form.hidden_tag() }}
+                            {{ wtf.form_errors(form, hiddens="only") }}
 
                             <div class="form-group">
                                 <label >Email</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="emailSignUp" type="email">
+{#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="emailSignUp" type="email">#}
+                                    {{ wtf.form_field(form.email) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label >Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+{#                                    <input class="form-control" placeholder="Username" name="emailSignUp" id="emailSignUp" type="email">#}
+                                    {{ wtf.form_field(form.username) }}
                                 </div>
                             </div>
 
@@ -80,7 +94,8 @@
                                 <label>Password</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input class="form-control" placeholder="Create a password" name="passwordSignUp" id="passwordSignUp" type="password">
+{#                                    <input class="form-control" placeholder="Create a password" name="passwordSignUp" id="passwordSignUp" type="password">#}
+                                    {{ wtf.form_field(form.password) }}
                                 </div>
                             </div>
 
@@ -88,7 +103,8 @@
                                 <label>Confirm password</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                    <input class="form-control" placeholder="Confirm password" name="passwordConfirmSignUp" id="passwordConfirmSignUp" type="password">
+{#                                    <input class="form-control" placeholder="Confirm password" name="passwordConfirmSignUp" id="passwordConfirmSignUp" type="password">#}
+                                    {{ wtf.form_field(form.password2) }}
                                 </div>
                             </div>
 
@@ -104,7 +120,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <small>Already have an account? <a class="alreadySignUp" href="login.html">Login</a></small>
+                        <small>Already have an account? <a class="alreadySignUp" href="{{ url_for('auth.login') }}">Login</a></small>
                     </div>
                 </div>
             </div>

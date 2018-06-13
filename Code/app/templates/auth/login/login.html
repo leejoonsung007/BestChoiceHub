@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/js/main.js"></script>
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<html lang="en">
+{% import "bootstrap/wtf.html" as wtf %}
+
+<style>
+    .login-or {
+        position: relative;
+        font-size: 18px;
+        color: #aaa;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .span-or {
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: -2px;
+        margin-left: -25px;
+        background-color: #fff;
+        width: 50px;
+        text-align: center;
+    }
+    .hr-or {
+        background-color: #cdcdcd;
+        height: 1px;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Main Style Sheet -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- Modernizr -->
+        <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+        <!-- Respond.js for IE 8 or less only -->
+        <!--[if (lt IE 9) & (!IEMobile)]>
+        <script src="js/vendor/respond.src.js"></script>
+        <![endif]-->
+</head>
+<body>
+
+<header role="banner">
+    <nav role="navigation" class="navbar navbar-static-top navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-left">
+                    <li class="active"><a href="{{ url_for('main.index') }}">
+                        <span class="icon fa fa-home"></span> Home
+                    </a></li>
+                    <li><a href="#">
+                        <span class="icon fa fa-desktop"></span> Search
+                    </a></li>
+                    <li><a href="#">
+                        <span class="icon fa fa-group"></span> Compare
+                    </a></li>  </ul> <ul class="nav navbar-nav pull-right">
+                <li><a href="#">
+                    <span class="icon fa fa-envelope"></span> Login
+                </a></li>
+                <li><a href="#">
+                    <span class="icon fa fa-envelope"></span> Sign up
+                </a></li>
+            </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </nav>
+</header>
+
+
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">
+                            Login
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <form  novalidate="novalidate" id="formSignUp" method="post">
+                            <div id="errorSignUp">
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-15">
+                                    <a href="{{ url_for('auth.login_with_facebook') }}" class="btn btn-primary btn-block" style="background-color: #3b5998">
+                                        <span class="icon fa fa-facebook"></span>    Login with Facebook
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-15">
+                                    <a href="{{ url_for('auth.login_with_google') }}" class="btn btn-block" style="background-color: #5bc0de;color: white">
+                                        <span class="icon fa-google-plus-square"></span>    Login with Google
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="login-or">
+                                <hr class="hr-or">
+                                <span class="span-or">or</span>
+                            </div>
+
+                            {{ form.hidden_tag() }}
+                            {{ wtf.form_errors(form, hiddens="only") }}
+                            <div class="form-group">
+{#                                <label >Email</label>#}
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+{#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="email" type="email">#}
+                                    {{ wtf.form_field(form.email) }}
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+{#                                <label>Password</label>#}
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+{#                                    <input class="form-control" placeholder="Password" name="passwordSignUp" id="password" type="password">#}
+                                    {{ wtf.form_field(form.password) }}
+                                </div>
+                            </div>
+
+                            <div style="text-align: left">
+{#                                <label><input type="checkbox"> Remember me </label>#}
+                                {{ wtf.form_field(form.remember_me) }}
+                            </div>
+
+                            <button type="submit" id="btnLogin" class="btn btn-primary" style="width: 127px;text-align: center">Login</button>
+                        </form>
+
+                        <div class="modal-footer">
+                            <small>Don't have an account? <a class="notSignUp" href="{{ url_for('auth.register') }}">Sign up</a></small>
+                        </div>
+
+                        <div class="modal-footer">
+                            <small>Forget your password? <a class="notRest" href="{{ url_for('auth.password_reset_request') }}">Reset</a></small>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

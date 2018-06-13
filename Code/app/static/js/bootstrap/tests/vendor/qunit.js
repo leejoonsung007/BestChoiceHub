@@ -759,7 +759,7 @@ addEvent(window, "load", QUnit.load);
 function done() {
 	config.autorun = true;
 
-	// Log the last module results
+	// log the last module results
 	if ( config.currentModule ) {
 		QUnit.moduleDone( {
 			name: config.currentModule,
