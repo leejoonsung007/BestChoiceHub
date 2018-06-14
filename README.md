@@ -2,7 +2,7 @@
 
 week4
 
-1. SETTING ENV VARIABLE
+#### 1. SETTING ENV VARIABLE
 
 `(venv) LeejoonsungdeMacBook-Pro: sudo vim ./~bashrc`
 
@@ -28,7 +28,7 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 
 ### NOTE: YOU MUST CREATE A DATABASE NAMED mysql FRIST, THE ACCOUNT OF IT IS ROOT AND PASSWORD IS 1234
 
-2. INSTALL LIBRARIES
+#### 2. INSTALL LIBRARIES
 
 `(venv) LeejoonsungdeMacBook-Pro:   cd Code`
 
@@ -37,7 +37,7 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 `(venv) LeejoonsungdeMacBook-Pro:   pip install -r requirements.txt`
 
 
-3. DATABASE MIGRATION
+#### 3. DATABASE MIGRATION
 
 mac
 
@@ -57,7 +57,7 @@ run in Terminal
 
 `(venv) LeejoonsungdeMacBook-Pro:   flask db upgrade`
 
-4. RUN
+#### 4. RUN
 
 `(venv) LeejoonsungdeMacBook-Pro: flask run`
 
