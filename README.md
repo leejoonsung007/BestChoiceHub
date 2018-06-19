@@ -3,7 +3,11 @@
 week4
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 1. SETTING ENV VARIABLE
+=======
+#### 1. SETTING ENV VARIABLE
+>>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 =======
 #### 1. SETTING ENV VARIABLE
 >>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
@@ -15,8 +19,11 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 `export PATH="$PATH:$HOME/.rvm/bin"`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 `export MAIL_USERNAME="schoolselectionie@gmail.com"`
 
+=======
+>>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 =======
 >>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 `export MAIL_PASSWORD="ABC12345!"`
@@ -37,6 +44,7 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 
 ### NOTE: YOU MUST CREATE A DATABASE NAMED mysql FRIST, THE ACCOUNT OF IT IS ROOT AND PASSWORD IS 1234
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ## 2. INSTALL LIBRARIES
 
@@ -56,10 +64,22 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 
 `(venv) LeejoonsungdeMacBook-Pro:   cd requirement`
 
+=======
+
+#### 2. INSTALL LIBRARIES
+
+`(venv) LeejoonsungdeMacBook-Pro:   cd Code`
+
+`(venv) LeejoonsungdeMacBook-Pro:   cd requirement`
+
+>>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 `(venv) LeejoonsungdeMacBook-Pro:   pip install -r requirements.txt`
 
 
 #### 3. DATABASE MIGRATION
+<<<<<<< HEAD
+>>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
+=======
 >>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 
 mac
@@ -81,7 +101,11 @@ run in Terminal
 `(venv) LeejoonsungdeMacBook-Pro:   flask db upgrade`
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## 4. RUN
+=======
+#### 4. RUN
+>>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 =======
 #### 4. RUN
 >>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
