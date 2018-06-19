@@ -4,10 +4,10 @@ from datetime import datetime
 
 class Follow(db.Model):
     __tablename__ = 'follow'
-    follower_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)     # 代表关注者,与relationship的follower对应
-    followed_id = db.Column(db.String(50), db.ForeignKey('school.roll_number'), primary_key=True)     # 代表被关注者,与relationship的followed对应
+    follower_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)  # 代表关注者,与relationship的follower对应
+    followed_id = db.Column(db.String(50), db.ForeignKey('school.roll_number'),
+                            primary_key=True)  # 代表被关注者,与relationship的followed对应
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 # class History(db.Model):
 #     _tablename_ = 'user_history'

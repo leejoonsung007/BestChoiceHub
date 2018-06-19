@@ -33,7 +33,8 @@ def create_app(config_name):
     app.wsgi_app = ProxyFix(app.wsgi_app)
     sentry = Sentry(app)
     google_bp = make_google_blueprint(scope=["profile", "email"],
-                                      offline=True, redirect_url='http://localhost:5000/auth/login_with_google')
+                                      offline=True, reprompt_consent=True,
+                                      redirect_url='http://localhost:5000/auth/login_with_google')
 
     facebook_bp = make_facebook_blueprint(scope=['email'],
                                           redirect_url='http://localhost:5000/auth/login_with_facebook',

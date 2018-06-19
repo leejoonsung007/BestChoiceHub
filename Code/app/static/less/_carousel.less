@@ -2,13 +2,12 @@
 // Customized Carousel
 // --------------------------------------------------
 
-
 // Wrapper for the slide container and indicators
 .carousel {
   position: relative;
 
   padding: 2px 2px 20px; // added
-  background-color: hsla(0,0%,0%,0.1); // added
+  background-color: hsla(0, 0%, 0%, 0.1); // added
 
 }
 
@@ -42,7 +41,9 @@
 
   > .active,
   > .next,
-  > .prev { display: block; }
+  > .prev {
+    display: block;
+  }
 
   > .active {
     left: 0;
@@ -115,7 +116,7 @@
   .icon-next,
   .glyphicon-chevron-left,
   .glyphicon-chevron-right,
-  .icon {  // added
+  .icon { // added
     position: absolute;
     top: 50%;
     z-index: 5;
@@ -134,7 +135,7 @@
   .icon-prev,
   .icon-next,
   .icon { // added to grab our icons
-    width:  20px;
+    width: 20px;
     height: 20px;
     margin-top: -14px; // edited
     // margin-left: -10px; // not needed
@@ -143,12 +144,12 @@
 
   .icon-prev {
     &:before {
-      content: '\2039';// SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
+      content: '\2039'; // SINGLE LEFT-POINTING ANGLE QUOTATION MARK (U+2039)
     }
   }
   .icon-next {
     &:before {
-      content: '\203a';// SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
+      content: '\203a'; // SINGLE RIGHT-POINTING ANGLE QUOTATION MARK (U+203A)
     }
   }
 }
@@ -172,7 +173,7 @@
 
   li {
     display: inline-block;
-    width:  12px; // edited
+    width: 12px; // edited
     height: 12px; // edited
     // margin: 1px; // edited
     text-indent: -999px;
@@ -219,7 +220,6 @@
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
 }
-
 
 // Scale up controls for tablets and up
 @media screen and (min-width: @screen-sm-min) {

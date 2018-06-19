@@ -33,11 +33,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="'main.index'"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
+                <a class="navbar-brand" href="'main.index'"><img src="../../../static/img/logo.png" alt="Bootstrappin'"
+                                                                 width="120"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href="'main.index'">
+                    <li class="active"><a href={{ url_for('main.index') }}>
                         <span class="icon fa fa-home"></span> Home
                     </a></li>
                     <li><a href="{{ url_for("main.index") }}">
@@ -45,14 +46,16 @@
                     </a></li>
                     <li><a href="#">
                         <span class="icon fa fa-group"></span> Compare
-                    </a></li>  </ul> <ul class="nav navbar-nav pull-right">
-                <li><a href="#">
-                    <span class="icon fa fa-envelope"></span> Login
-                </a></li>
-                <li><a href="{{ url_for('auth.register') }}">
-                    <span class="icon fa fa-envelope"></span> Sign up
-                </a></li>
-            </ul>
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">
+                        <span class="icon fa fa-envelope"></span> Login
+                    </a></li>
+                    <li><a href="{{ url_for('auth.register') }}">
+                        <span class="icon fa fa-envelope"></span> Sign up
+                    </a></li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->
     </nav>
@@ -70,28 +73,36 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        <form  novalidate="novalidate" id="formSignUp" method = "post">
+                        <form novalidate="novalidate" id="formSignUp" method="post">
                             <div id="errorSignUp">
-
+                                {% for message in get_flashed_messages() %}
+                                    <div class="alert alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
                             </div>
 
                             <p>Don't worry. Just enter your email address below — we'll send you a link to reset it.</p>
                             {{ form.hidden_tag() }}
                             {{ wtf.form_errors(form, hiddens="only") }}
-                            <div class="form-group">
-                                <label >Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-{#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="email" type="email">#}
+                            <div class="form-group" >
+                                <label>Email</label>
+                                <div class="input-group" style="width:100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-user"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="email" type="email">#}
                                     {{ wtf.form_field(form.email) }}
                                 </div>
                             </div>
 
-                            <button type="submit" id="btnLogin" class="btn btn-primary" style="width: 127px;text-align: center">Send</button>
+                            <button type="submit" id="btnLogin" class="btn btn-primary"
+                                    style="width: 127px;text-align: center">Send
+                            </button>
                         </form>
 
                         <div class="modal-footer">
-                            <small><a href= "{{ url_for('auth.login') }}">Cancel</a></small>
+                            <small><a href="{{ url_for('auth.login') }}">Cancel</a></small>
                         </div>
                     </div>
                 </div>

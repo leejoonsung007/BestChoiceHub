@@ -19,21 +19,18 @@ from .forms import (LoginForm,
                     RegistrationForm,
                     PasswordResetForm,
                     PasswordResetRequestForm,
-                    ChangePasswordForm,
-                    EditForm,)
+                    )
 
-
-
-# route function
 
 @auth.before_app_request
 def before_request():
-    if current_user.is_authenticated \
-            and not current_user.confirmed \
-            and request.endpoint \
-            and request.blueprint != 'auth' \
-            and request.endpoint != 'static':
-        return redirect(url_for('auth.unconfirmed'))
+    if current_user.is_authenticated:
+        current_user.ping()
+        if not current_user.confirmed \
+                and request.endpoint \
+                and request.blueprint != 'auth' \
+                and request.endpoint != 'static':
+            return redirect(url_for('auth.unconfirmed'))
 
 
 @auth.route('/unconfirmed')
@@ -41,7 +38,7 @@ def before_request():
 def unconfirmed():
     if current_user.is_anonymous or current_user.confirmed:
         return redirect(url_for('main.index'))
-    return render_template('auth/unconfirmed.html')
+    return render_template('auth/login/unconfirmed.html')
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -78,7 +75,8 @@ def register():
     if form.validate_on_submit():
         user = User(email=form.email.data,
                     username=form.username.data,
-                    password=form.password.data)
+                    password=form.password.data,
+                    login_type='website')
         db.session.add(user)
         db.session.commit()
         token = user.generate_confirmation_token()
@@ -88,9 +86,6 @@ def register():
         return redirect(url_for('auth.login'))
     return render_template('auth/login/register.html', form=form)
 
-
-# @auth.route('/login_with_dacebook')
-# def login_with_facebook():
 
 @auth.route('/confirm/<token>')
 @login_required
@@ -162,8 +157,10 @@ def login_with_google():
     email = google_user["emails"][0]["value"]
     username = google_user['displayName']
     picture = google_user['image']['url']
+    picture_resized = picture.split("?sz=50")[0] + "?sz=" + "512"
     confirmed = True
-    user = User(email=email, username=username, confirmed=confirmed, photo=picture)
+    login_type = 'google'
+    user = User(email=email, username=username, confirmed=confirmed, photo=picture_resized, login_type=login_type)
 
     user_now = User.query.filter_by(username=username).first()
 
@@ -186,13 +183,18 @@ def login_with_google():
 def login_with_facebook():
     if not facebook.authorized:
         return redirect(url_for("facebook.login"))
-    facebook_user = facebook.get('me?fields=id, name, picture').json()
+    facebook_user = facebook.get('me?fields=id, name, picture.width(512).height(512)').json()
+    # facebook_picture = facebook.get('/me/picture?width=180&height=180').json()
+    # log("test1", facebook_picture)
+
     facebook_id = facebook_user['id']
     username = facebook_user['name']
     picture = facebook_user['picture']['data']['url']
     email = "-"
+    login_type = 'facebook'
     confirmed = True
-    user = User(facebook_id=facebook_id, username=username, confirmed=confirmed, photo=picture, email=email)
+    user = User(facebook_id=facebook_id, username=username, confirmed=confirmed,
+                photo=picture, email=email, login_type=login_type)
 
     user_now = User.query.filter_by(username=username).first()
 
@@ -207,44 +209,6 @@ def login_with_facebook():
         next = url_for('main.index')
     return redirect(next)
 
-
-@auth.route('/change_password', methods=['GET', 'POST'])
-@login_required  # only login user can change password
-def change_password():
-    form = ChangePasswordForm()
-    if form.validate_on_submit():
-        if current_user.verify_password(form.old_password.data):
-            current_user.password = form.password.data
-            db.session.add(current_user)
-            db.session.commit()
-            flash('Your password has been updated.')
-            return redirect(url_for('main.index'))
-        else:
-            flash('Invalid password.')
-    return render_template("auth/change_password.html", form=form)
-
-
 # @auth.route('/collection', method=['GET','POST'])
 # def collection_list():
 #     data = db.session.query(user.id,school.roll_number,)
-
-@auth.route('user/<username>')  # Individual information page
-def edit_info():
-    form = EditForm()
-    if form.validate_on_submit():
-        current_user.name = form.name.data
-        current_user.email = form.email.data
-        photo = request.files['photo']
-        fname = photo.filename
-        upload_photo = os.getcwd() + '\\app\\static\\photo\\'
-        allowed_extensions = ['png', 'gif', 'jpeg', 'jpg']
-        type = '.' in fname and fname.rsplit('.', 1)[1] in allowed_extensions
-        if not type:
-            flash('wrong file type')
-            return redirect(url_for('.user', current_user.username))
-        photo.save('{}{}{}'.format(upload_photo, current_user.name, current_user.email))
-
-        db.session.add(current_user)
-        flash('success update your photo')
-        return redirect(url_for('.user'), username=current_user.username)
-    return render_template('user/<username>.html', form=form)

@@ -1,4 +1,6 @@
 import time
+
+
 # generate log
 def log(*args, **kwargs):
     # time.time() return unix time

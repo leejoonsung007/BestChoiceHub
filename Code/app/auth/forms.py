@@ -11,10 +11,6 @@ from wtforms.validators import (DataRequired,
                                 Email,
                                 Regexp,
                                 EqualTo, )
-from flask_wtf.file import (FileField,
-                            FileAllowed,
-                            FileRequired,
-                            FileStorage, )
 
 
 # Web Form
@@ -33,7 +29,7 @@ class LoginForm(FlaskForm):
 
 class RegistrationForm(FlaskForm):
     email = StringField('', validators=[DataRequired(), Length(1, 64),
-                                    Email()])
+                                        Email()])
     username = StringField('', validators=[
         DataRequired(), Length(1, 64),
         Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
@@ -74,30 +70,3 @@ class PasswordResetForm(FlaskForm):
     new_password2 = PasswordField('', validators=[DataRequired(),
                                                   EqualTo('new_password1', message='Passwords must match.')])
     submit = SubmitField('reset')
-
-
-class ChangePasswordForm(FlaskForm):
-    old_password = PasswordField('', validators=[DataRequired()])
-    password = PasswordField('New password', validators=[
-        DataRequired(), Length(6, 15),
-        Regexp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,}', 0,
-               'The password must include at least 1 uppercase letter, '
-               '1 lowercase letter, 1 numbers and 1 special character.')])
-
-    password2 = PasswordField('Confirm new password', validators=[
-        DataRequired(),
-        EqualTo('password', message='Passwords must match')])
-    submit = SubmitField('Update Password')
-
-
-class EditForm(FlaskForm):
-    name = StringField('', validators=[
-        DataRequired(), Length(1, 64),
-        Regexp('^[A-Za-z][A-Za-z0-9_.]*$', 0,
-               'Usernames must have only letters, numbers, dots or '
-               'underscores')])
-
-    email = StringField(validators=[DataRequired(), Length(1, 64),
-                                    Email()])
-    photo = FileField('photo')
-    submit = SubmitField('submit')

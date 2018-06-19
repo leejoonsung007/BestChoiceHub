@@ -1,0 +1,312 @@
+12:22:47 form <app.auth.forms.LoginForm object at 0x10fe8a630>
+12:22:47 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:22:47 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:22:55 what is next None
+12:22:55 what is new next /
+12:23:00 form <app.auth.forms.LoginForm object at 0x10febdda0>
+12:23:00 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:23:00 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:24:10 form <app.auth.forms.LoginForm object at 0x10ff02b38>
+12:24:10 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:24:10 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:24:15 form <app.auth.forms.LoginForm object at 0x10ff02978>
+12:24:15 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:24:15 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:25:58 form <app.auth.forms.LoginForm object at 0x10ed479b0>
+12:25:58 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:25:58 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:26:11 form <app.auth.forms.LoginForm object at 0x10edc8208>
+12:26:11 form.email <input id="email" name="email" placeholder="Please input your email" type="text" value="">
+12:26:11 form.password <input id="password" name="password" placeholder="Please input your password" type="password" value="">
+12:16:50 form <app.auth.forms.LoginForm object at 0x10f6c3eb8>
+12:16:50 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:16:50 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:17:23 form <app.auth.forms.LoginForm object at 0x10f735e10>
+12:17:23 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:17:23 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:17:57 omg.py data {'confirm': 1}
+12:17:57 omg.py data.get('confirm') {'confirm': 1}
+12:19:28 form <app.auth.forms.LoginForm object at 0x10e8c3a58>
+12:19:28 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:19:28 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:19:46 form <app.auth.forms.LoginForm object at 0x10ed4e9b0>
+12:19:46 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:19:46 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:19:50 form <app.auth.forms.LoginForm object at 0x10ed71b70>
+12:19:50 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:19:50 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:20:00 form <app.auth.forms.LoginForm object at 0x10ed21a90>
+12:20:00 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:20:00 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:20:25 what is next /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyODk3NTE4NiwiZXhwIjoxNTI4OTc4Nzg2fQ.eyJjb25maXJtIjoyfQ.CMywaYtm6_4Kv2W0zUErDMoeCqoNJel1-EgDaLe9kh0
+12:20:25 what is new next /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyODk3NTE4NiwiZXhwIjoxNTI4OTc4Nzg2fQ.eyJjb25maXJtIjoyfQ.CMywaYtm6_4Kv2W0zUErDMoeCqoNJel1-EgDaLe9kh0
+12:20:25 omg.py data {'confirm': 2}
+12:20:25 omg.py data.get('confirm') {'confirm': 2}
+12:41:43 form <app.auth.forms.LoginForm object at 0x110ef97b8>
+12:41:43 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:41:43 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:41:59 form <app.auth.forms.LoginForm object at 0x110ef9438>
+12:41:59 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:41:59 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:42:11 form <app.auth.forms.LoginForm object at 0x110f10cc0>
+12:42:11 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:42:11 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:42:14 form <app.auth.forms.LoginForm object at 0x110f10d68>
+12:42:14 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:42:14 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:42:20 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/BbztRHjOp47b2efQIxqQtr1UJAc"', 'emails': [{'value': 'schoolselectionie@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '115854518264102417956', 'displayName': 'Li Juncheng', 'name': {'familyName': 'Juncheng', 'givenName': 'Li'}, 'image': {'url': 'https://lh3.googleusercontent.com/-mo6hq8eFu8M/AAAAAAAAAAI/AAAAAAAAAAA/7VLqYjqP0Kc/photo.jpg?sz=50', 'isDefault': True}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+12:43:07 form <app.auth.forms.LoginForm object at 0x114405518>
+12:43:07 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:43:07 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:43:46 form <app.auth.forms.LoginForm object at 0x110c16be0>
+12:43:46 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:43:46 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:44:22 form <app.auth.forms.LoginForm object at 0x110b85ac8>
+12:44:22 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+12:44:22 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+12:44:52 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+13:13:11 form <app.auth.forms.LoginForm object at 0x110b156a0>
+13:13:11 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+13:13:11 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+14:23:57 form <app.auth.forms.LoginForm object at 0x110c04438>
+14:23:57 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+14:23:57 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+14:24:10 form <app.auth.forms.LoginForm object at 0x111f5b668>
+14:24:10 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+14:24:10 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+16:40:20 form <app.auth.forms.LoginForm object at 0x10fb11470>
+16:40:20 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+16:40:20 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+16:40:25 form <app.auth.forms.LoginForm object at 0x10fb22b38>
+16:40:25 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+16:40:25 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+16:50:53 form <app.auth.forms.LoginForm object at 0x110adbf98>
+16:50:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+16:50:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+16:51:04 what is next None
+16:51:04 what is new next /
+18:02:21 form <app.auth.forms.LoginForm object at 0x110e28d30>
+18:02:21 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:02:21 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:02:26 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:21:51 form <app.auth.forms.LoginForm object at 0x110c081d0>
+18:21:51 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:21:51 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:22:49 form <app.auth.forms.LoginForm object at 0x11461eda0>
+18:22:49 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:22:49 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:22:54 form <app.auth.forms.LoginForm object at 0x114678278>
+18:22:54 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:22:54 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:23:37 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:23:38 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:23:40 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:24:10 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:24:12 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:24:13 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:24:29 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:40:44 form <app.auth.forms.LoginForm object at 0x110ce7048>
+18:40:44 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:40:44 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:44:30 form <app.auth.forms.LoginForm object at 0x110ba7e80>
+18:44:30 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:44:30 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:44:33 test1 {'error': {'message': 'Unknown path components: /fields=picture', 'type': 'OAuthException', 'code': 2500, 'fbtrace_id': 'HXsCRG/Dp+I'}}
+18:44:33 test2 {'error': {'message': 'Syntax error "Expected end of string instead of "?"." at character 7: picture?width=256', 'type': 'OAuthException', 'code': 2500, 'fbtrace_id': 'Hf6QtPU1kMC'}}
+18:48:17 form <app.auth.forms.LoginForm object at 0x110e6fac8>
+18:48:17 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:48:17 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:48:32 form <app.auth.forms.LoginForm object at 0x110f4f048>
+18:48:32 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:48:32 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:49:08 form <app.auth.forms.LoginForm object at 0x10f1e7630>
+18:49:08 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:49:08 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:49:38 form <app.auth.forms.LoginForm object at 0x110bb8320>
+18:49:38 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:49:38 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:50:21 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+18:50:28 form <app.auth.forms.LoginForm object at 0x113d16c18>
+18:50:28 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:50:28 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:51:51 form <app.auth.forms.LoginForm object at 0x110ab96d8>
+18:51:51 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:51:51 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:52:18 form <app.auth.forms.LoginForm object at 0x1103bc3c8>
+18:52:18 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+18:52:18 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+18:53:19 test2 {'error': {'message': 'Syntax error "Expected end of string instead of "?"." at character 7: picture?width=256', 'type': 'OAuthException', 'code': 2500, 'fbtrace_id': 'H1o9PmDZ4uG'}}
+19:02:01 form <app.auth.forms.LoginForm object at 0x110707d30>
+19:02:01 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+19:02:01 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+19:02:20 test2 <Response [200]>
+22:12:51 form <app.auth.forms.LoginForm object at 0x110bed2e8>
+22:12:51 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:12:51 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:13:04 form <app.auth.forms.LoginForm object at 0x110c29358>
+22:13:04 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:13:04 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:13:53 form <app.auth.forms.LoginForm object at 0x110c27668>
+22:13:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:13:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:17:38 form <app.auth.forms.LoginForm object at 0x10fa79908>
+22:17:38 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:17:38 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:18:58 form <app.auth.forms.LoginForm object at 0x10ff64710>
+22:18:58 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:18:58 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:19:38 form <app.auth.forms.LoginForm object at 0x10ff714e0>
+22:19:38 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:19:38 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:21:54 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+22:22:53 form <app.auth.forms.LoginForm object at 0x113a14668>
+22:22:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:22:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:41:45 form <app.auth.forms.LoginForm object at 0x10f64b438>
+22:41:45 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+22:41:46 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+22:41:53 what is next None
+22:41:53 what is new next /
+00:50:50 form <app.auth.forms.LoginForm object at 0x10f0e4080>
+00:50:50 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+00:50:50 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:26:21 form <app.auth.forms.LoginForm object at 0x1105c7eb8>
+01:26:21 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:26:21 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:31:53 form <app.auth.forms.LoginForm object at 0x110f18550>
+01:31:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:31:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:32:43 form <app.auth.forms.LoginForm object at 0x110f29ef0>
+01:32:43 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:32:43 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:32:58 form <app.auth.forms.LoginForm object at 0x111349cc0>
+01:32:58 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:32:58 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:33:14 what is next /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyOTAyMjc2MywiZXhwIjoxNTI5MDI2MzYzfQ.eyJjb25maXJtIjoyfQ.alfeAj4lUOo15d6U-vRbU3AVXpSF2gWWhj9_9Cn7dYo
+01:33:14 what is new next /auth/confirm/eyJhbGciOiJIUzI1NiIsImlhdCI6MTUyOTAyMjc2MywiZXhwIjoxNTI5MDI2MzYzfQ.eyJjb25maXJtIjoyfQ.alfeAj4lUOo15d6U-vRbU3AVXpSF2gWWhj9_9Cn7dYo
+01:38:52 form <app.auth.forms.LoginForm object at 0x10f1eefd0>
+01:38:52 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:38:52 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:39:00 what is next None
+01:39:00 what is new next /
+01:55:37 form <app.auth.forms.LoginForm object at 0x110e358d0>
+01:55:37 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:55:37 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+01:56:14 form <app.auth.forms.LoginForm object at 0x110e29518>
+01:56:14 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+01:56:14 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+02:08:45 form <app.auth.forms.LoginForm object at 0x10f2029b0>
+02:08:45 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+02:08:45 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+02:15:03 form <app.auth.forms.LoginForm object at 0x11050c5f8>
+02:15:03 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+02:15:03 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+02:15:10 form <app.auth.forms.LoginForm object at 0x1145d1358>
+02:15:10 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+02:15:10 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+02:15:22 form <app.auth.forms.LoginForm object at 0x1145db1d0>
+02:15:22 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+02:15:22 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+02:16:01 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/ld-ATqGWVMAS-ICpOJK7z99hkOU"', 'emails': [{'value': 'junchengli2018@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '106979535439448654793', 'displayName': 'Juncheng Li', 'name': {'familyName': 'Li', 'givenName': 'Juncheng'}, 'image': {'url': 'https://lh5.googleusercontent.com/-d_08oR14O9Q/AAAAAAAAAAI/AAAAAAAAABI/WMufH1r6Zlo/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+09:33:47 form <app.auth.forms.LoginForm object at 0x1105103c8>
+09:33:47 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:33:47 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:33:53 form <app.auth.forms.LoginForm object at 0x1146397b8>
+09:33:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:33:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:36:32 form <app.auth.forms.LoginForm object at 0x110bb96a0>
+09:36:32 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:36:32 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:37:10 form <app.auth.forms.LoginForm object at 0x110b7c6a0>
+09:37:10 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:37:10 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:37:14 form <app.auth.forms.LoginForm object at 0x110ba5710>
+09:37:14 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:37:14 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:42:54 form <app.auth.forms.LoginForm object at 0x1103bd6a0>
+09:42:54 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:42:54 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:43:23 form <app.auth.forms.LoginForm object at 0x110abd6a0>
+09:43:23 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:43:23 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:46:06 form <app.auth.forms.LoginForm object at 0x11030c7f0>
+09:46:06 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:46:06 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:46:20 form <app.auth.forms.LoginForm object at 0x110355630>
+09:46:20 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:46:20 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:46:30 form <app.auth.forms.LoginForm object at 0x114a143c8>
+09:46:30 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:46:30 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:51:53 form <app.auth.forms.LoginForm object at 0x110dc9780>
+09:51:53 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:51:53 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:51:57 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/ld-ATqGWVMAS-ICpOJK7z99hkOU"', 'emails': [{'value': 'junchengli2018@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '106979535439448654793', 'displayName': 'Juncheng Li', 'name': {'familyName': 'Li', 'givenName': 'Juncheng'}, 'image': {'url': 'https://lh5.googleusercontent.com/-d_08oR14O9Q/AAAAAAAAAAI/AAAAAAAAABI/WMufH1r6Zlo/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+09:53:19 form <app.auth.forms.LoginForm object at 0x110e1c278>
+09:53:19 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:53:19 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+09:53:21 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/ld-ATqGWVMAS-ICpOJK7z99hkOU"', 'emails': [{'value': 'junchengli2018@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '106979535439448654793', 'displayName': 'Juncheng Li', 'name': {'familyName': 'Li', 'givenName': 'Juncheng'}, 'image': {'url': 'https://lh5.googleusercontent.com/-d_08oR14O9Q/AAAAAAAAAAI/AAAAAAAAABI/WMufH1r6Zlo/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+09:53:54 form <app.auth.forms.LoginForm object at 0x110f15d68>
+09:53:54 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+09:53:54 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:04:42 form <app.auth.forms.LoginForm object at 0x10fae0630>
+10:04:42 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:04:42 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:05:11 form <app.auth.forms.LoginForm object at 0x114629630>
+10:05:11 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:05:11 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:05:46 form <app.auth.forms.LoginForm object at 0x11464a940>
+10:05:46 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:05:46 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:05:49 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/ld-ATqGWVMAS-ICpOJK7z99hkOU"', 'emails': [{'value': 'junchengli2018@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '106979535439448654793', 'displayName': 'Juncheng Li', 'name': {'familyName': 'Li', 'givenName': 'Juncheng'}, 'image': {'url': 'https://lh5.googleusercontent.com/-d_08oR14O9Q/AAAAAAAAAAI/AAAAAAAAABI/WMufH1r6Zlo/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+10:06:09 form <app.auth.forms.LoginForm object at 0x11461ecc0>
+10:06:09 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:06:09 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:07:06 form <app.auth.forms.LoginForm object at 0x1146a8cc0>
+10:07:06 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:07:06 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:08:51 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/BbztRHjOp47b2efQIxqQtr1UJAc"', 'emails': [{'value': 'schoolselectionie@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '115854518264102417956', 'displayName': 'Li Juncheng', 'name': {'familyName': 'Juncheng', 'givenName': 'Li'}, 'image': {'url': 'https://lh3.googleusercontent.com/-mo6hq8eFu8M/AAAAAAAAAAI/AAAAAAAAAAA/7VLqYjqP0Kc/photo.jpg?sz=50', 'isDefault': True}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+10:12:59 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/yzZpImO4Bqzuyl9GJcIo29veaC8"', 'gender': 'male', 'emails': [{'value': 'leejoonsung007@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '105288659819850347083', 'displayName': 'joonsung Lee', 'name': {'familyName': 'Lee', 'givenName': 'joonsung'}, 'url': 'https://plus.google.com/105288659819850347083', 'image': {'url': 'https://lh6.googleusercontent.com/-4cjCqiWtN4o/AAAAAAAAAAI/AAAAAAAAABI/wb8_MWrMD6g/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': True, 'language': 'zh_CN', 'circledByCount': 0, 'verified': False}
+10:13:46 what is in resp {'kind': 'plus#person', 'etag': '"RKS4-q7QGL10FxltAebpjqjKQR0/ld-ATqGWVMAS-ICpOJK7z99hkOU"', 'emails': [{'value': 'junchengli2018@gmail.com', 'type': 'account'}], 'objectType': 'person', 'id': '106979535439448654793', 'displayName': 'Juncheng Li', 'name': {'familyName': 'Li', 'givenName': 'Juncheng'}, 'image': {'url': 'https://lh5.googleusercontent.com/-d_08oR14O9Q/AAAAAAAAAAI/AAAAAAAAABI/WMufH1r6Zlo/photo.jpg?sz=50', 'isDefault': False}, 'isPlusUser': False, 'language': 'zh_CN', 'verified': False}
+10:21:13 form <app.auth.forms.LoginForm object at 0x110e7c6d8>
+10:21:13 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:21:13 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:21:52 form <app.auth.forms.LoginForm object at 0x1103b96a0>
+10:21:52 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:21:52 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:33:38 form <app.auth.forms.LoginForm object at 0x110dc8b00>
+10:33:38 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:33:38 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:34:07 form <app.auth.forms.LoginForm object at 0x110f42e48>
+10:34:07 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="schoolselectionie@gmail.com">
+10:34:07 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:34:39 form <app.auth.forms.LoginForm object at 0x110bbd630>
+10:34:39 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="leejoonsung007@gmail.com">
+10:34:39 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:34:52 form <app.auth.forms.LoginForm object at 0x110dc84a8>
+10:34:52 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="leejoonsung007@gmail.com">
+10:34:52 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:42:09 form <app.auth.forms.LoginForm object at 0x110dc85c0>
+10:42:09 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:42:09 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:42:47 form <app.auth.forms.LoginForm object at 0x110e2dc18>
+10:42:47 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:42:47 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:45:04 form <app.auth.forms.LoginForm object at 0x110f52c18>
+10:45:04 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:45:04 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:45:33 form <app.auth.forms.LoginForm object at 0x110317b70>
+10:45:33 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:45:33 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:46:39 form <app.auth.forms.LoginForm object at 0x1101e3f60>
+10:46:39 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:46:39 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:48:20 form <app.auth.forms.LoginForm object at 0x110c06940>
+10:48:20 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:48:20 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:49:07 form <app.auth.forms.LoginForm object at 0x110aba6d8>
+10:49:07 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:49:07 form.password <input id="password" name="password" placeholder="Password" type="password" value="">
+10:51:08 form <app.auth.forms.LoginForm object at 0x10e91e320>
+10:51:08 form.email <input id="email" name="email" placeholder="Email Address" type="text" value="">
+10:51:08 form.password <input id="password" name="password" placeholder="Password" type="password" value="">

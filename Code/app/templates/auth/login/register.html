@@ -28,11 +28,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('auth.login') }}"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
+                <a class="navbar-brand" href="{{ url_for('auth.login') }}"><img src="../../../static/img/logo.png"
+                                                                                alt="Bootstrappin'" width="120"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href="{{ url_for('auth.login') }}">
+                    <li class="active"><a href="{{ url_for('main.index') }}">
                         <span class="icon fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#">
@@ -40,14 +41,16 @@
                     </a></li>
                     <li><a href="#">
                         <span class="icon fa fa-group"></span> Compare
-                    </a></li>  </ul> <ul class="nav navbar-nav pull-right">
-                <li><a href="#">
-                    <span class="icon fa fa-envelope"></span> Login
-                </a></li>
-                <li><a href="#">
-                    <span class="icon fa fa-envelope"></span> Sign up
-                </a></li>
-            </ul>
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">
+                        <span class="icon fa fa-envelope"></span> Login
+                    </a></li>
+                    <li><a href="#">
+                        <span class="icon fa fa-envelope"></span> Sign up
+                    </a></li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->
     </nav>
@@ -67,60 +70,72 @@
                     <div class="modal-body">
                         <form novalidate="novalidate" id="formSignUp" method="post">
                             <div id="errorSignUp">
+                                {% for message in get_flashed_messages() %}
+                                    <div class="alert alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
                             </div>
 
                             {{ form.hidden_tag() }}
                             {{ wtf.form_errors(form, hiddens="only") }}
 
-                            <div class="form-group">
-                                <label >Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-{#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="emailSignUp" type="email">#}
+                            <div class="form-group" >
+                                <label>Email</label>
+                                <div class="input-group" style="width: 100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-user"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Email address" name="emailSignUp" id="emailSignUp" type="email">#}
                                     {{ wtf.form_field(form.email) }}
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label >Username</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-{#                                    <input class="form-control" placeholder="Username" name="emailSignUp" id="emailSignUp" type="email">#}
+                                <label>Username</label>
+                                <div class="input-group" style="width: 100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-user"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Username" name="emailSignUp" id="emailSignUp" type="email">#}
                                     {{ wtf.form_field(form.username) }}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-{#                                    <input class="form-control" placeholder="Create a password" name="passwordSignUp" id="passwordSignUp" type="password">#}
+                                <div class="input-group" style="width: 100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-lock"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Create a password" name="passwordSignUp" id="passwordSignUp" type="password">#}
                                     {{ wtf.form_field(form.password) }}
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Confirm password</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-{#                                    <input class="form-control" placeholder="Confirm password" name="passwordConfirmSignUp" id="passwordConfirmSignUp" type="password">#}
-                                    {{ wtf.form_field(form.password2) }}
-                                </div>
+                                <div class="input-group" style="width: 100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-lock"></span></span>#}
+                                    {#          <input class="form-control" placeholder="Confirm password" name="passwordConfirmSignUp" id="passwordConfirmSignUp" type="password">#}
+                                {{ wtf.form_field(form.password2) }}
                             </div>
 
                             <div class="checkbox">
                                 <label>
                                     <input id="term" type="checkbox">
-                                    I have read and accepted  <a target="_blank" href="#">the terms and conditions of use.</a>
+                                    I have read and accepted <a target="_blank" href="#">the terms and conditions of
+                                    use.</a>
                                 </label>
                             </div>
 
-                            <button type="submit" id="btnSignUp" class="btn btn-primary" style="width: 127px;">Sign up</button>
+                            <button type="submit" id="btnSignUp" class="btn btn-primary" style="width: 127px;">Sign up
+                            </button>
                         </form>
 
                     </div>
                     <div class="modal-footer">
-                        <small>Already have an account? <a class="alreadySignUp" href="{{ url_for('auth.login') }}">Login</a></small>
+                        <small>Already have an account? <a class="alreadySignUp" href="{{ url_for('auth.login') }}">Login</a>
+                        </small>
                     </div>
                 </div>
             </div>

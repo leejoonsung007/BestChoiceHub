@@ -19,6 +19,4 @@ def send_email(to, subject, template, **kwargs):
     thr.start()
     return thr
 
-# 这里可以去改一下邮件的内容，改成适合我们的邮件 在templates/auth/email/confirm.txt
-# 其它的html文件也作出相应的更改 比如换个名字啊
-# 这些html文件比如index.html 都是用了jinja模版，去熟悉一下jinja模版
+

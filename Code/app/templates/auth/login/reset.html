@@ -3,6 +3,7 @@
 <script src="/js/main.js"></script>
 <script src="/js/vendor/jquery-3.3.1.min.js"></script>
 <html lang="en">
+{% import "bootstrap/wtf.html" as wtf %}
 
 <head>
     <meta charset="UTF-8">
@@ -32,11 +33,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="'main.index'"><img src="../../../static/img/logo.png" alt="Bootstrappin'" width="120"></a>
+                <a class="navbar-brand" href="'main.index'"><img src="../../../static/img/logo.png" alt="Bootstrappin'"
+                                                                 width="120"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href="'main.index'">
+                    <li class="active"><a href="{{ url_for('main.index') }}">
                         <span class="icon fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#">
@@ -44,14 +46,16 @@
                     </a></li>
                     <li><a href="#">
                         <span class="icon fa fa-group"></span> Compare
-                    </a></li>  </ul> <ul class="nav navbar-nav pull-right">
-                <li><a href="#">
-                    <span class="icon fa fa-envelope"></span> Login
-                </a></li>
-                <li><a href="#">
-                    <span class="icon fa fa-envelope"></span> Sign up
-                </a></li>
-            </ul>
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">
+                        <span class="icon fa fa-envelope"></span> Login
+                    </a></li>
+                    <li><a href="#">
+                        <span class="icon fa fa-envelope"></span> Sign up
+                    </a></li>
+                </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->
     </nav>
@@ -70,27 +74,42 @@
                     </div>
 
                     <div class="modal-body">
-                        <form  novalidate="novalidate" id="formSignUp">
+                        <form novalidate="novalidate" id="formSignUp" method="post">
+                            {{ form.hidden_tag() }}
+                            {{ wtf.form_errors(form, hiddens="only") }}
+
+                            <div id="errorSignUp">
+                                {% for message in get_flashed_messages() %}
+                                    <div class="alert alert-warning">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
                             <div class="form-group">
                                 <label>Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-{#                                    <input class="form-control" placeholder="Enter your new password" name="passwordReset" id="password" type="password">#}
+                                <div class="input-group" style="width:100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-lock"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Enter your new password" name="passwordReset" id="password" type="password">#}
                                     {{ wtf.form_field(form.new_password1) }}
                                 </div>
                             </div>
-                            {{ form.hidden_tag() }}
-                            {{ wtf.form_errors(form, hiddens="only") }}
+
                             <div class="form-group">
                                 <label>Password</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-{#                                    <input class="form-control" placeholder="Enter your new password" name="passwordReset" id="password" type="password">#}
+                                <div class="input-group" style="width:100%">
+{#                                    <span class="input-group-addon"><span#}
+{#                                            class="glyphicon glyphicon-lock"></span></span>#}
+                                    {#                                    <input class="form-control" placeholder="Enter your new password" name="passwordReset" id="password" type="password">#}
                                     {{ wtf.form_field(form.new_password2) }}
                                 </div>
                             </div>
 
-                            <button type="submit" id="btnLogin" class="btn btn-primary" style="width: 127px;text-align: center">Submit</button>
+                            <button type="submit" id="btnLogin" class="btn btn-primary"
+                                    style="width: 127px;text-align: center">Submit
+                            </button>
                         </form>
 
                     </div>
