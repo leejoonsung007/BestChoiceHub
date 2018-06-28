@@ -3,8 +3,7 @@ from app import db
 
 class Pro2016(db.Model):
     __tablename__ = 'pro2016'
-    roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'), primary_key=True)
-    # roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'))
+    place_id = db.Column(db.String(50), db.ForeignKey('school.place_id'), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     name2 = db.Column(db.String(255))
     Number_who_sat_Leaving_Cert_2015 = db.Column(db.Integer)
@@ -34,11 +33,9 @@ class Pro2016(db.Model):
     IT_Limerick = db.Column(db.Integer)
     WIT = db.Column(db.Integer)
     Marino_Instit_of_Ed = db.Column(db.Integer)
-    C_of_I_College_of_Ed = db.Column(db.Integer)
     Mary_Immac = db.Column(db.Integer)
     NCAD = db.Column(db.Integer)
     RCSI = db.Column(db.Integer)
-    Shannon_College_of_Hotel_Management = db.Column(db.Integer)
     Total_who_accepted_CAOplace = db.Column(db.Integer)
     Total_progression = db.Column(db.DECIMAL(10, 2))  # ?
 

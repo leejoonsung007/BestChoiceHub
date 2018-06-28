@@ -31,3 +31,7 @@ class EditForm(FlaskForm):
 class ChangeAvatars(FlaskForm):
     avatar = FileField('')
     submit = SubmitField('submit')
+
+class SearchForm(FlaskForm):
+    search = StringField('', validators=[DataRequired(), Length(0, 64)])
+    submit = SubmitField('submit')

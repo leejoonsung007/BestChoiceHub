@@ -2,7 +2,8 @@ from app import db
 
 
 class Rank2017(db.Model):
-    roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'), primary_key=True)
+    # roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'), primary_key=True)
+    place_id = db.Column(db.String(50), db.ForeignKey('school.place_id'), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     rank = db.Column(db.Integer)
     p_rank = db.Column(db.Integer)

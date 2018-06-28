@@ -1,6 +1,6 @@
 from wtforms import ValidationError
 from ..models.User import User
-from utils import log
+# from utils import log
 from flask_wtf import FlaskForm
 from wtforms import (StringField,
                      PasswordField,

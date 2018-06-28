@@ -28,6 +28,8 @@ def create_app(config_name):
     mail.init_app(app)
     moment.init_app(app)
     db.init_app(app)
+    with app.test_request_context():
+        db.create_all()
     login_manager.init_app(app)
 
     app.wsgi_app = ProxyFix(app.wsgi_app)

@@ -3,8 +3,8 @@ from app import db
 
 class Pro2015(db.Model):
     __tablename__ = 'pro2015'
-    roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'), primary_key=True)
-    # roll_number = db.Column(db.String(50), db.ForeignKey('school.roll_number'))
+
+    place_id = db.Column(db.String(50), db.ForeignKey('school.place_id'), primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     name2 = db.Column(db.String(255))
     Number_who_sat_Leaving_Cert_2015 = db.Column(db.Integer)
@@ -40,7 +40,8 @@ class Pro2015(db.Model):
     RCSI = db.Column(db.Integer)
     Shannon_College_of_Hotel_Management = db.Column(db.Integer)
     Total_who_accepted_CAOplace = db.Column(db.Integer)
-    Total_progression = db.Column(db.DECIMAL(10, 2))  # ?
+    Total_progression = db.Column(db.DECIMAL(10, 2))
+    sort= db.Column(db.Integer)# ?
 
     def __init__(self, name):
         self.name = name

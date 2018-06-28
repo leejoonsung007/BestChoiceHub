@@ -3,79 +3,87 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 
 <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
-  <!-- Main Style Sheet -->
-  <link rel="stylesheet" href="css/main.css">
-  <!-- Modernizr -->
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-  <!-- Respond.js for IE 8 or less only -->
-  <!--[if (lt IE 9) & (!IEMobile)]>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="../../static/css/main.css">
+    <!-- Modernizr -->
+    <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
   <script src="js/vendor/respond.min.js"></script>
   <![endif]-->
-  <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+    <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
 
-  <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
-  <link rel="stylesheet" href="Airbnb.css">
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.common.min.js"></script>
+    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+{#    <link rel="stylesheet" href="Airbnb.css">#}
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.common.min.js"></script>
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzE9xAESye6Kde-3hT-6B90nfwUkcS8Yw&callback=initMap">
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGOu1MCWVAvOQ24l6-tOdRpXgKXEDWvYs&language=en">
     </script>
-  <style>
-  .jumbotron {
-  {% if school.photo_ref1 %}
-      background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
-  {% else %}
-      background-image:url('https://dubsism.files.wordpress.com/2017/12/image-not-found.png');
-  {% endif %}
+    <style>
+        .jumbotron {
+        {% if school.photo_ref1 %}
+            background-image: url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0')
+            ;
+        {% else %}
+            background-image: url('https://dubsism.files.wordpress.com/2017/12/image-not-found.png');
+        {% endif %}
 
-  height: 400px;margin:0;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-/*.imgGb{
-  background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAApvZQJbiffqnPNES7KXGrTq4y683Qz3qTDTHnvyHv7dXiXvyeP5iX_Zmot2vX3RZnA5h9gnRnF43NQXlLc97S9VbIAU5ppsW9_ElvpmUkSRuo7Hn5Rt3XAPGK_XR3LJ1mEhB0FupsNnRHO-4pMUCecGhhGhSVRKrgaGDC-VyPs0XB1rxKeM1ROw&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.blueBg{
-  background: blue;
-}*/
-/*.jumbotron .banner{
-  height: 100%;display: block;
-}*/
+            height: 400px;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-.jumbotron .container {
-  position: relative;
-  top:100px;
-}
+        /*.imgGb{
+          background-image:url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAApvZQJbiffqnPNES7KXGrTq4y683Qz3qTDTHnvyHv7dXiXvyeP5iX_Zmot2vX3RZnA5h9gnRnF43NQXlLc97S9VbIAU5ppsW9_ElvpmUkSRuo7Hn5Rt3XAPGK_XR3LJ1mEhB0FupsNnRHO-4pMUCecGhhGhSVRKrgaGDC-VyPs0XB1rxKeM1ROw&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .blueBg{
+          background: blue;
+        }*/
+        /*.jumbotron .banner{
+          height: 100%;display: block;
+        }*/
 
-.jumbotron h1 {
-  color: #fff;
-  font-size: 48px;
-  font-family: 'Shift', sans-serif;
-  font-weight: bold;
-}
+        .jumbotron .container {
+            position: relative;
+            top: 100px;
+        }
 
-.jumbotron p {
-  font-size: 20px;
-  color: #fff;
-}
-.navbar{margin-bottom: 0}
-.page-contents{
-  margin: 0 3%;
-}
+        .jumbotron h1 {
+            color: #fff;
+            font-size: 48px;
+            font-family: 'Shift', sans-serif;
+            font-weight: bold;
+        }
 
+        .jumbotron p {
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .navbar {
+            margin-bottom: 0
+        }
+
+        .page-contents {
+            margin: 0 3%;
+        }
 
         /* jssor slider arrow navigator skin 05 css */
         /*
@@ -93,15 +101,33 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
-            background: url('img/a17.png') no-repeat;
+            background: url('../../../static/img/detail/a17.png') no-repeat;
             overflow: hidden;
         }
-        .jssora05l { background-position: -10px -40px; }
-        .jssora05r { background-position: -70px -40px; }
-        .jssora05l:hover { background-position: -130px -40px; }
-        .jssora05r:hover { background-position: -190px -40px; }
-        .jssora05l.jssora05ldn { background-position: -250px -40px; }
-        .jssora05r.jssora05rdn { background-position: -310px -40px; }
+
+        .jssora05l {
+            background-position: -10px -40px;
+        }
+
+        .jssora05r {
+            background-position: -70px -40px;
+        }
+
+        .jssora05l:hover {
+            background-position: -130px -40px;
+        }
+
+        .jssora05r:hover {
+            background-position: -190px -40px;
+        }
+
+        .jssora05l.jssora05ldn {
+            background-position: -250px -40px;
+        }
+
+        .jssora05r.jssora05rdn {
+            background-position: -310px -40px;
+        }
 
         /* jssor slider thumbnail navigator skin 01 css */
         /*
@@ -143,7 +169,7 @@
             height: 68px;
             border: #000 2px solid;
             box-sizing: content-box;
-            background: url('img/t01.png') -800px -800px no-repeat;
+            background: url('../../../static/img/detail/t01.png') -800px -800px no-repeat;
             _background: none;
         }
 
@@ -180,12 +206,38 @@
             width /**/: 72px;
             height /**/: 72px;
         }
-        .slider_contain{
-          position: absolute;top: 0;right: 0;left: 0;bottom: 0;width: 100%;height: 100%;background: #000;opacity: 0.8;display: none;z-index: 99999;padding-top: 20%;
+
+        .slider_contain {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.92;
+            display: none;
+            z-index: 99999;
+            padding-top: 20%;
         }
-        .slider_close{
-          position: absolute;right: 25px;top: 25px;
-          color: #fff;font-size: 15px;display: inline-block;width: 25px;height:25px;cursor: pointer;z-index: 999;
+
+        .slider_close {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            color: #fff;
+            font-size: 15px;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .rank {
+            color: #FF0000;
+            font-weight: bold;
         }
     </style>
 
@@ -291,136 +343,168 @@
       <span class="icon fa fa-chevron-right"></span>
     </a>
   </div><!-- /#homepage-feature.carousel -->
-  <div class="jumbotron" style="position: relative;" >
-<!--   <img src="" class="banner"> -->
-    <div class="container">
-      <h1>{{ school.official_school_name }}</h1>
-
-      <a href="#" id='view'>View more</a>
+    <div class="jumbotron" style="position: relative;">
+        <!--   <img src="" class="banner"> -->
+        <div class="container">
+            <h1>{{ school.official_school_name }}</h1>
+            {% if school.photo_ref2 %}
+                <a href='#' id='view'>View more</a>
+            {% endif %}
+        </div>
     </div>
-  </div>
-  <div class="page-contents" >
-    <div class="row">
-      <div class="col-sm-4">
-        <h3>{{ school.official_school_name }}</h3>
+    <div class="page-contents">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>{{ school.official_school_name }}</h3>
 
-          {% if school.address4 %}
-              <p>{{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}, {{ school.address4 }}</p>
-          {% elif school.address3 %}
-              <p>{{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}</p>
-          {% elif school.address2 %}
-              <p>{{ school.address1 }}, {{ school.address2 }}</p>
-          {% else %}
-              <p>{{ school.address1 }}}</p>
-          {% endif %}
+                {% if school.address4 %}
+                    <p>
+                        Address: {{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}, {{ school.address4 }}</p>
+                {% elif school.address3 %}
+                    <p>Address: {{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}</p>
+                {% elif school.address2 %}
+                    <p>Address: {{ school.address1 }}, {{ school.address2 }}</p>
+                {% else %}
+                    <p>Address: {{ school.address1 }}}</p>
+                {% endif %}
 
-        <p>school gender: {{ school.school_gender }}</p>
-        <p>Religion: {{ school.religion }}</p>
-        <p>Fee: {{ school.fee }}</p>
-        <p><a href="{{ school.website }}">{{ school.website }}/</a></p>
-      </div>
-      <div class="col-sm-8">
-         <div id="allmap" style="width: 100%;height: 300px;"></div>
-         <script type="text/javascript">
-            function initMap() {
-              var myLatLng = {lat: {{ school.lat }}, lng: {{ school.lng }}};
+                <span class = 'rank'><p>Rank: {{ university_going.sort }}</p></span>
+                <p>School gender: {{ school.school_gender }}</p>
+                <p>Religion: {{ school.religion }}</p>
+                <p>Irish classification: {{ school.irish_classification}}</p>
+                <p>Fee: {{ school.fee }}</p>
+                <p>Website: <a target="_blank" href="{{ school.website }}">{{ school.website }}/</a></p>
+            </div>
+            <div class="col-sm-8">
+                <div id="allmap" style="width: 100%;height: 300px; margin-top: 20px"></div>
+                <script type="text/javascript">
+                  // Map
+                  $(function(){
+                      initMap();
+                  });
 
-              var map = new google.maps.Map(document.getElementById('allmap'), {
-                zoom: 15,
-                center: myLatLng
-              });
+                    function initMap() {
+                        var myLatLng = {lat: {{ school.lat }}, lng: {{ school.lng }}};
 
-              var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: '{{ school.official_school_name }}'
-              });
-            }
-         </script>
-      </div>
-      </div>
-      <div class="row" style="margin-top: 30px;">
-      <div class="col-sm-6">
-        <div id="tu1" style="width: 100%;height:400px;"></div>
-      </div>
-      <div class="col-sm-6">
-        <div id="tu2" style="width: 100%;height:400px;"></div>
-        <div class="col-sm-5">
-        <select class="form-control" id='selyear'>
-  <option value='2015'>2015</option>
-  <option value='2016'>2016</option>
-  <option value='2017'>2017</option>
-</select></div>
+                        var map = new google.maps.Map(document.getElementById('allmap'), {
+                            zoom: 15,
+                            center: myLatLng,
+                            gestureHandling: 'greedy'
+                        });
 
-      <div class="col-sm-5" >
-        <select class="form-control" id='seltype'>
-  <option value='0'>All institution</option>
-  <option value='1'>University only</option>
-</select></div>
-      </div>
-    </div><!-- /.row -->
-  </div><!-- /.container -->
+                        var marker = new google.maps.Marker({
+                            position: myLatLng,
+                            map: map,
+                            title: '{{ school.official_school_name }}'
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-sm-6">
+                <div id="tu1" style="width: 100%;height:400px;"></div>
+            </div>
+            <div class="col-sm-6">
+                <div id="tu2" style="width: 100%;height:400px;"></div>
+                <div class="col-sm-5">
+                    <select class="form-control" id='selyear'>
+                        <option value='2015'>2015</option>
+                        <option value='2016'>2016</option>
+                        <option value='2017'>2017</option>
+                    </select></div>
+
+                <div class="col-sm-5">
+                    <select class="form-control" id='seltype'>
+                        <option value='0'>All institution</option>
+                        <option value='1'>University only</option>
+                    </select></div>
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
 </main>
+
 <div class="slider_contain">
-<span class="slider_close">X</span>
-        <div id="jssor_1" style="display:none;position: relative; margin: 0 auto; top: 0px;z-index:9; left:0; width: 800px; height: 456px; overflow: hidden; visibility: hidden; background-color: #24262e;">
+    <span class="slider_close">X</span>
+    <div id="jssor_1"
+         style="display:none;position: relative; margin: 0 auto; top: 0px;z-index:9; left:0; width: 800px; height: 456px; overflow: hidden; visibility: hidden; background-color: #24262e;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left:0;width: 800px; height: 356px; overflow: hidden;">
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/01.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-01.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/02.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-02.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/03.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-03.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/04.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-04.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/05.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-05.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/06.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-06.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/07.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-07.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/08.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-08.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/09.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-09.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/10.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-10.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/11.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-11.jpg" />
-            </div>
-            <div data-p="144.50" style="display: none;">
-                <img data-u="image" src="img/Details/12.jpg" />
-                <img data-u="thumb" src="img/Details/thumb-12.jpg" />
-            </div>
+        <div data-u="slides"
+             style="cursor: default; position: relative; top: 0px; left:0;width: 800px; height: 356px; overflow: hidden;">
+
+            {% if school.photo_ref1 %}
+                <div data-p="144.50" style="display: none;">
+                    <img data-u="image"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                    <img data-u="thumb"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         height="72px" width="72px">
+                </div>
+            {% endif %}
+
+            {% if school.photo_ref2 %}
+                <div data-p="144.50" style="display: none;">
+                    <img data-u="image"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref2 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                    <img data-u="thumb"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref2 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         height="72px" width="72px"/>
+                </div>
+            {% endif %}
+
+            {% if school.photo_ref3 %}
+                <div data-p="144.50" style="display: none;">
+                    <img data-u="image"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref3 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                    <img data-u="thumb"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref3 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         height="72px" width="72px"/>
+                </div>
+            {% endif %}
+
+            {% if school.photo_ref4 %}
+                <div data-p="144.50" style="display: none;">
+                    <img data-u="image"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref4 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                    <img data-u="thumb"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref4 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         height="72px" width="72px"/>
+                </div>
+            {% endif %}
+
+            {% if school.photo_ref5 %}
+                <div data-p="144.50" style="display: none;">
+                    <img data-u="image"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref5 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                    <img data-u="thumb"
+                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref5 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         height="72px" width="72px"/>
+                </div>
+            {% endif %}
+
+
+
+            {#      <div data-p="144.50" style="display: none;">#}
+            {#        <img data-u="image" src="../../static/img/Details/03.jpg"/>#}
+            {#        <img data-u="thumb" src="../../static/img/Details/thumb-03.jpg"/>#}
+            {#      </div>#}
+            {#      <div data-p="144.50" style="display: none;">#}
+            {#        <img data-u="image" src="../../static/img/Details/04.jpg"/>#}
+            {#        <img data-u="thumb" src="../../static/img/Details/thumb-04.jpg"/>#}
+            {#      </div>#}
+            {#      <div data-p="144.50" style="display: none;">#}
+            {#        <img data-u="image" src="../../static/img/Details/04.jpg"/>#}
+            {#        <img data-u="thumb" src="../../static/img/Details/thumb-04.jpg"/>#}
+            {#      </div>#}
         </div>
+
         <!-- Thumbnail Navigator -->
-        <div data-u="thumbnavigator" class="jssort01" style="position:absolute;bottom:0px;left:0;width:800px;height:100px;" data-autocenter="1">
+        <div data-u="thumbnavigator" class="jssort01"
+             style="position:absolute;bottom:0px;left:0;width:800px;height:100px;" data-autocenter="1">
             <!-- Thumbnail Item Skin Begin -->
             <div data-u="slides" style="cursor: default;">
                 <div data-u="prototype" class="p">
@@ -439,402 +523,570 @@
     </div>
 </div>
 
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-   <script type="text/javascript" src="js/jssor.slider.mini.js"></script>
-   <script>
-      jQuery(document).ready(function ($) {
-         
-     
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
+<script src="../../static/js/plugins.js"></script>
+<script src="../../static/js/school_detail.js"></script>
+<script type="text/javascript" src="../../static/js/jssor.slider.mini.js"></script>
+<script>
+    $(document).ready(function ($) {
 
-var _width=window.screen.width;
-          // $("#jssor_1").css("width",_width+'px');
 
-            var jssor_1_SlideshowTransitions = [
-              {$Duration:1200,x:0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$During:{$Left:[0.3,0.7]},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$SlideOut:true,$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$During:{$Top:[0.3,0.7]},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$SlideOut:true,$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Cols:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Rows:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:0.3,$Cols:2,$During:{$Top:[0.3,0.7]},$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,y:-0.3,$Cols:2,$SlideOut:true,$ChessMode:{$Column:12},$Easing:{$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,$Rows:2,$During:{$Left:[0.3,0.7]},$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:-0.3,$Rows:2,$SlideOut:true,$ChessMode:{$Row:3},$Easing:{$Left:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,x:0.3,y:0.3,$Cols:2,$Rows:2,$During:{$Left:[0.3,0.7],$Top:[0.3,0.7]},$SlideOut:true,$ChessMode:{$Column:3,$Row:12},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:3,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:3,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:12,$Assembly:260,$Easing:{$Clip:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
-              {$Duration:1200,$Delay:20,$Clip:12,$SlideOut:true,$Assembly:260,$Easing:{$Clip:$Jease$.$OutCubic,$Opacity:$Jease$.$Linear},$Opacity:2}
-            ];
+        var _width = window.screen.width;
+        // $("#jssor_1").css("width",_width+'px');
 
-            var jssor_1_options = {
-              $AutoPlay: true,
-              $SlideshowOptions: {
+        var jssor_1_SlideshowTransitions = [
+            {
+                $Duration: 1200,
+                x: 0.3,
+                $During: {$Left: [0.3, 0.7]},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: -0.3,
+                $SlideOut: true,
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: -0.3,
+                $During: {$Left: [0.3, 0.7]},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                $SlideOut: true,
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: 0.3,
+                $During: {$Top: [0.3, 0.7]},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: -0.3,
+                $SlideOut: true,
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: -0.3,
+                $During: {$Top: [0.3, 0.7]},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: 0.3,
+                $SlideOut: true,
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                $Cols: 2,
+                $During: {$Left: [0.3, 0.7]},
+                $ChessMode: {$Column: 3},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                $Cols: 2,
+                $SlideOut: true,
+                $ChessMode: {$Column: 3},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: 0.3,
+                $Rows: 2,
+                $During: {$Top: [0.3, 0.7]},
+                $ChessMode: {$Row: 12},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: 0.3,
+                $Rows: 2,
+                $SlideOut: true,
+                $ChessMode: {$Row: 12},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: 0.3,
+                $Cols: 2,
+                $During: {$Top: [0.3, 0.7]},
+                $ChessMode: {$Column: 12},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                y: -0.3,
+                $Cols: 2,
+                $SlideOut: true,
+                $ChessMode: {$Column: 12},
+                $Easing: {$Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                $Rows: 2,
+                $During: {$Left: [0.3, 0.7]},
+                $ChessMode: {$Row: 3},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: -0.3,
+                $Rows: 2,
+                $SlideOut: true,
+                $ChessMode: {$Row: 3},
+                $Easing: {$Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                y: 0.3,
+                $Cols: 2,
+                $Rows: 2,
+                $During: {$Left: [0.3, 0.7], $Top: [0.3, 0.7]},
+                $ChessMode: {$Column: 3, $Row: 12},
+                $Easing: {$Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                x: 0.3,
+                y: 0.3,
+                $Cols: 2,
+                $Rows: 2,
+                $During: {$Left: [0.3, 0.7], $Top: [0.3, 0.7]},
+                $SlideOut: true,
+                $ChessMode: {$Column: 3, $Row: 12},
+                $Easing: {$Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                $Delay: 20,
+                $Clip: 3,
+                $Assembly: 260,
+                $Easing: {$Clip: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                $Delay: 20,
+                $Clip: 3,
+                $SlideOut: true,
+                $Assembly: 260,
+                $Easing: {$Clip: $Jease$.$OutCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                $Delay: 20,
+                $Clip: 12,
+                $Assembly: 260,
+                $Easing: {$Clip: $Jease$.$InCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            },
+            {
+                $Duration: 1200,
+                $Delay: 20,
+                $Clip: 12,
+                $SlideOut: true,
+                $Assembly: 260,
+                $Easing: {$Clip: $Jease$.$OutCubic, $Opacity: $Jease$.$Linear},
+                $Opacity: 2
+            }
+        ];
+
+        var jssor_1_options = {
+            $AutoPlay: true,
+            $SlideshowOptions: {
                 $Class: $JssorSlideshowRunner$,
                 $Transitions: jssor_1_SlideshowTransitions,
                 $TransitionsOrder: 1
-              },
-              $ArrowNavigatorOptions: {
+            },
+            $ArrowNavigatorOptions: {
                 $Class: $JssorArrowNavigator$
-              },
-              $ThumbnailNavigatorOptions: {
+            },
+            $ThumbnailNavigatorOptions: {
                 $Class: $JssorThumbnailNavigator$,
                 $Cols: 10,
                 $SpacingX: 8,
                 $SpacingY: 8,
                 $Align: 360
-              }
-            };
-
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                // var _width=window.screen.width;
-                // console.log('_width',_width);
-
-                if (refSize) {
-                    refSize = Math.min(refSize, 800);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
             }
-            $('#view').click(function(){
-              $('#jssor_1').show()
-              $(".slider_contain").show()
-            })
-            $(".slider_close").click(function(){
-                 $('#jssor_1').hide()
-              $(".slider_contain").hide()
-            })
-            ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
-            //responsive code end
-        });
+        };
 
-    </script>
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        //responsive code begin
+        //you can remove responsive code if you don't want the slider scales while window resizing
+        function ScaleSlider() {
+            var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+            // var _width=window.screen.width;
+            // console.log('_width',_width);
+
+            if (refSize) {
+                refSize = Math.min(refSize, 800);
+                jssor_1_slider.$ScaleWidth(refSize);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+
+        $('#view').click(function () {
+            $('#jssor_1').show()
+            $(".slider_contain").show()
+        })
+        $(".slider_close").click(function () {
+            $('#jssor_1').hide()
+            $(".slider_contain").hide()
+        })
+        ScaleSlider();
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        //responsive code end
+    });
+
+</script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
-  var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+    var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+    (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
 </script>
-  <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-       var myChart = echarts.init(document.getElementById('tu1'));
-// 显示标题，图例和空的坐标轴
-myChart.setOption({
-    title: {
-        text:'School-to-institution progression',x:'left'
-    },
-    tooltip: {trigger: 'axis'},
-    legend: {
-       y : '5%',
-       orient : 'vertical',
-       align:'left',
-        data:["School's raise of progression to 3rd level","School's raise of progression to univerity only"]
-    },
-    xAxis: {
-         type: 'category',
-        boundaryGap: false,
-        data: ['2015','2016','2017']
-    },
-    yAxis: {type:'value'},
-    series: [{
-            name:"School's raise of progression to 3rd level",
-            type:'line',
-            data:[95, 96, 97]
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('tu1'));
+    // 显示标题，图例和空的坐标轴
+    myChart.setOption({
+        title: {
+            text: 'School-to-institution progression', x: 'left'
         },
-        {
-            name:"School's raise of progression to univerity only",
-            type:'line',
-            data:[80, 85, 80]
-        },]
-});
-
-// 异步加载数据
-// $.get('data.json').done(function (data) {
-//     // 填入数据
-//     myChart.setOption({
-//         xAxis: {
-//             data: data.categories
-//         },
-//         series: [{
-//             // 根据名字对应到相应的系列
-//             name: '销量',
-//             data: data.data
-//         }]
-//     });
-// });
-
-    </script>
-        <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-{#        {% if university_going %}#}
-        var myChart2 = echarts.init(document.getElementById('tu2'));
-var dataList={
-  2015:[
+        tooltip: {trigger: 'axis'},
+        legend: {
+            y: '5%',
+            orient: 'vertical',
+            align: 'left',
+            data: ["School's raise of progression to 3rd level", "School's raise of progression to univerity only"]
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['2015', '2016', '2017']
+        },
+        yAxis: {type: 'value'},
+        series: [{
+            name: "School's raise of progression to 3rd level",
+            type: 'line',
+            {% if university_going %}
+                data: [{{100 * university_going.Total_progression // 1}}, 96, 97],
+            {% else %}
+                data: [0, 96, 97]
+            {% endif %}
+        },
             {
-              name:['UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School'],
-                {#data:[#}
-                {#      'UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School',#}
-                {#          {value:{{ university_going.UCD }}, name:'UCD'},#}
-                {#          {value:{{ university_going.TCD }}, name:'TCD'},#}
-                {#          {value:{{ university_going.DCU }}, name:'DCU'},#}
-                {#          {value:{{ university_going.UL }}, name:'UL'},#}
-                {#          {value:{{ university_going.Maynooth_University }}, name:'Maynooth University'},#}
-                {#          {value:{{ university_going.NUIG }}, name:'NUIG'},#}
-                {#          {value:{{ university_going.UCC }}, name:'UCC'},#}
-                {#          {value:{{ university_going.St_Angela }}, name:'St Angela'},#}
-                {#          {value:{{ university_going.QUB }}, name:'QUB'},#}
-                {#          {value:{{ university_going.UU }}, name:'UU'},#}
-                {#          {value:{{ university_going.Blance_IT }}, name:'Blance IT'},#}
-                {#          {value:{{ university_going.Nat_Col_of_Irl }}, name:'Nat Col. of Irl'},#}
-                {#          {value:{{ university_going.DIT }}, name:'DIT'},#}
-                {#          {value:{{ university_going.Tallaght_IT }}, name:'Tallaght IT'},#}
-                {#          {value:{{ university_going.Athlone_IT }}, name:'Athlone IT'},#}
-                {#          {value:{{ university_going.Cork_IT }}, name:'Cork IT'},#}
-                {#          {value:{{ university_going.Dundalk_IT }}, name:'Dundalk IT'},#}
-                {#          {value:{{ university_going.GMIT }}, name:'GMIT'},#}
-                {#          {value:{{ university_going.IADT }}, name:'IADT'},#}
-                {#          {value:{{ university_going.IT_Carlow }}, name:'IT Carlow'},#}
-                {#          {value:{{ university_going.IT_Sligo }}, name:'IT Sligo'},#}
-                {#          {value:{{ university_going.IT_Tralee }}, name:'IT Tralee'},#}
-                {#          {value:{{ university_going.IT_Letter_kenny }}, name:'IT Letter kenny'},#}
-                {#          {value:{{ university_going.IT_Limerick }}, name:'IT Limerick'},#}
-                {#          {value:{{ university_going.WIT }}, name:'IT Waterford'},#}
-                {#          {value:{{ university_going.Marino_Instit_of_Ed }}, name:'Marino Instit of Ed'},#}
-                {#          {value:{{ university_going.C_of_I_College_of_Ed }}, name:'C of I Collegeo f Ed'},#}
-                {#          {value:{{ university_going.Shannon_College_of_Hotel_Management }}, name:'Shannon College of Hotel Management'},#}
-                          {#{value:{{ university_going.ucd }}, name:'National College of Ireland'},#}
-                          {#{value:{{ university_going.ucd }}, name:'Griffith College'},#}
-                          {#{value:{{ university_going.ucd }}, name:'Dublin Business School'},#}
-                {#          {value:{{ university_going.ucd }}, name:'NCAD'},#}
-                {#          {value:{{ university_going.ucd }}, name:'RCSI'},#}
-                {#    ]#}
-                data:[
-                      'UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School',
-                         {value:115, name:'UCD'},
-                          {value:33, name:'TCD'},
-                          {value:1, name:'DCU'},
-                          {value:2, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:2, name:'UCC'},
-                          {value:5, name:'NUIG'},
-                          {value:1, name:'Nat Col. of Irl'},
-                          {value:44, name:'DIT'},
-                          {value:1, name:'Tallaght IT'},
-                          {value:0, name:'Athlone IT'},
-                          {value:1, name:'Cork IT'},
-                          {value:0, name:'Dundalk IT'},
-                          {value:1, name:'GMIT'},
-                          {value:7, name:'IADT'},
-                          {value:3, name:'NCAD'},
-                          {value:3, name:'RCSI'},
-                          {value:0, name:'Shannon College of Hotel Management'},
-                          {value:0, name:'National College of Ireland'},
-                          {value:0, name:'IT Carlow'},
-                          {value:0, name:'IT Limerick'},
-                          {value:1, name:'IT Waterford'},
-                          {value:0, name:'Griffith College'},
-                          {value:0, name:'Dublin Business School'},
-                    ]
-                  },
-                  {
-              name:['UCD','TCD','DCU','UCC','UL','Maynooth University'],
-              data:[
-                     'UCD','TCD','DCU','UCC','UL','Maynooth University',
-                          {value:85, name:'UCD'},
-                          {value:39, name:'TCD'},
-                          {value:7, name:'DCU'},
-                          {value:3, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:0, name:'UCC'},
-                    ]
-                  },
-              ],
-               2016:[
-            {
-              name:['UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School'],
-              data:[
-                      'UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School',
-                         {value:115, name:'UCD'},
-                          {value:33, name:'TCD'},
-                          {value:1, name:'DCU'},
-                          {value:2, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:2, name:'UCC'},
-                          {value:5, name:'NUIG'},
-                          {value:1, name:'Nat Col. of Irl'},
-                          {value:44, name:'DIT'},
-                          {value:1, name:'Tallaght IT'},
-                          {value:0, name:'Athlone IT'},
-                          {value:1, name:'Cork IT'},
-                          {value:0, name:'Dundalk IT'},
-                          {value:1, name:'GMIT'},
-                          {value:7, name:'IADT'},
-                          {value:3, name:'NCAD'},
-                          {value:3, name:'RCSI'},
-                          {value:0, name:'Shannon College of Hotel Management'},
-                          {value:0, name:'National College of Ireland'},
-                          {value:0, name:'IT Carlow'},
-                          {value:0, name:'IT Limerick'},
-                          {value:1, name:'IT Waterford'},
-                          {value:0, name:'Griffith College'},
-                          {value:0, name:'Dublin Business School'},
-                    ]
-                  },
-                  {
-              name:['UCD','TCD','DCU','UCC','UL','Maynooth University'],
-              data:[
-                     'UCD','TCD','DCU','UCC','UL','Maynooth University',
-                          {value:115, name:'UCD'},
-                          {value:33, name:'TCD'},
-                          {value:1, name:'DCU'},
-                          {value:2, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:2, name:'UCC'},
-                    ]
-                  },
-              ],
-               2017:[
-            {
-              name:['UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School'],
-              data:[
-                      'UCD','TCD','DCU','UL','Maynooth University','NUIG','UCC','Nat Col. of Irl','DIT','Tallaght IT','Cork IT','GMIT','IADT','NCAD','RCSI','National College of Ireland','IT Carlow','IT Limerick','IT Waterford','Griffith College','Dublin Business School',
-                          {value:97, name:'UCD'},
-                          {value:33, name:'TCD'},
-                          {value:9, name:'DCU'},
-                          {value:1, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:2, name:'UCC'},
-                          {value:7, name:'NUIG'},
-                          {value:1, name:'Nat Col. of Irl'},
-                          {value:39, name:'DIT'},
-                          {value:2, name:'Tallaght IT'},
-                          {value:0, name:'Athlone IT'},
-                          {value:1, name:'Cork IT'},
-                          {value:0, name:'Dundalk IT'},
-                          {value:1, name:'GMIT'},
-                          {value:11, name:'IADT'},
-                          {value:1, name:'NCAD'},
-                          {value:0, name:'RCSI'},
-                          {value:0, name:'Shannon College of Hotel Management'},
-                          {value:2, name:'National College of Ireland'},
-                          {value:1, name:'IT Carlow'},
-                          {value:1, name:'IT Limerick'},
-                          {value:3, name:'IT Waterford'},
-                          {value:1, name:'Griffith College'},
-                          {value:5, name:'Dublin Business School'},
-                    ]
-                  },
-                  {
-              name:['UCD','TCD','DCU','UCC','UL','Maynooth University'],
-              data:[
-                     'UCD','TCD','DCU','UCC','UL','Maynooth University',
-                          {value:97, name:'UCD'},
-                          {value:33, name:'TCD'},
-                          {value:9, name:'DCU'},
-                          {value:1, name:'UL'},
-                          {value:3, name:'Maynooth University'},
-                          {value:2, name:'UCC'},
-                    ]
-                  },
-              ],
-            };
-            var selYear='2015',selType=0;
+                name: "School's raise of progression to university only",
+                type: 'line',
+                {% if university_going %}
+                    data: [{{ (100* (university_going.UCD+university_going.TCD+university_going.UCC+university_going.DCU+
+    university_going.UL +university_going.Maynooth_University + university_going.NUIG))//university_going.Number_who_sat_Leaving_Cert_2015}}, 85, 80],
+                {% else %}
+                    data: [0, 85, 80]
+                {% endif %}
+            },]
+    });
 
-        var option2 = {
-          title : {//标题设置‘参保情况’
-                 x : 'left',//标题位置
-                 text : "Institution School",//传入标题名称‘参保情况’
-                 textStyle:{//标题字体颜色等设置
-                     fontSize:16,
-                     fontWeight:'bold'
-                 }
-             },
-    tooltip: {
-      show :'false',
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        icon:'circle',
-        itemGap: 3,
-        itemWidth : 4,
-        x: '80%',
-        align:'left',
-         textStyle:{//属性名的字体样式设置
-                     fontSize:10,
-                     color: '#666'
-                 },
-        data:dataList[selYear][selType].name
-    },
-    series: [
-        {
-            name:'访问来源',
-            type:'pie',
-            radius: ['30%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-                normal: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    show: true,
-                    textStyle: {
-                        fontSize: '15',
-                        fontWeight: 'bold'
+    // 异步加载数据
+    // $.get('data.json').done(function (data) {
+    //     // 填入数据
+    //     myChart.setOption({
+    //         xAxis: {
+    //             data: data.categories
+    //         },
+    //         series: [{
+    //             // 根据名字对应到相应的系列
+    //             name: '销量',
+    //             data: data.data
+    //         }]
+    //     });
+    // });
+
+</script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart2 = echarts.init(document.getElementById('tu2'));
+    var dataList = {
+        2015: [
+            {
+                {% if university_going %}
+                    name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl',
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow',
+                        'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'C_of_I_College_of_Ed', 'Mary_Immac', 'NCAD', 'RCSI', 'Shannon College of Hotel Management'],
+                    data: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl',
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow',
+                        'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'C_of_I_College_of_Ed', 'Mary_Immac', 'NCAD', 'RCSI', 'Shannon College of Hotel Management',
+                        {value: {{ university_going.UCD }}, name: 'UCD'},
+                        {value: {{ university_going.TCD }}, name: 'TCD'},
+                        {value: {{ university_going.DCU }}, name: 'DCU'},
+                        {value: {{ university_going.UL }}, name: 'UL'},
+                        {value: {{ university_going.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going.NUIG }}, name: 'NUIG'},
+                        {value: {{ university_going.UCC }}, name: 'UCC'},
+                        {value: {{ university_going.St_Angela }}, name: 'St Angela'},
+                        {value: {{ university_going.QUB }}, name: 'QUB'},
+                        {value: {{ university_going.UU }}, name: 'UU'},
+                        {value: {{ university_going.Blanch_IT }}, name: 'Blanch IT'},
+                        {value: {{ university_going.Nat_Col_of_Irl }}, name: 'Nat_Col_of_Irl'},
+                        {value: {{ university_going.DIT }}, name: 'DIT'},
+                        {value: {{ university_going.Tallaght_IT }}, name: 'Tallaght IT'},
+                        {value: {{ university_going.Athlone_IT }}, name: 'Athlone IT'},
+                        {value: {{ university_going.Cork_IT }}, name: 'Cork IT'},
+                        {value: {{ university_going.Dundalk_IT }}, name: 'Dundalk IT'},
+                        {value: {{ university_going.GMIT }}, name: 'GMIT'},
+                        {value: {{ university_going.IADT }}, name: 'IADT'},
+                        {value: {{ university_going.IT_Carlow }}, name: 'IT Carlow'},
+                        {value: {{ university_going.IT_Sligo }}, name: 'IT Sligo'},
+                        {value: {{ university_going.IT_Tralee }}, name: 'IT Tralee'},
+                        {value: {{ university_going.IT_Letter_kenny }}, name: 'IT Letter kenny'},
+                        {value: {{ university_going.IT_Limerick }}, name: 'IT Limerick'},
+                        {value: {{ university_going.WIT }}, name: 'WIT'},
+                        {value: {{ university_going.Marino_Instit_of_Ed }}, name: 'Marino_Instit_of_Ed'},
+                        {value: {{ university_going.C_of_I_College_of_Ed }}, name: 'C_of_I_College_of_Ed'},
+                        {value: {{ university_going.Mary_Immac }}, name: 'Mary_Immac'},
+                        {value: {{ university_going.NCAD }}, name: 'NCAD'},
+                        {value: {{ university_going.RCSI }}, name: 'RCSI'},
+                        {
+                            value: {{ university_going.Shannon_College_of_Hotel_Management }},
+                            name: 'Shannon College of Hotel Management'
+                        },
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
+            },
+
+            {
+                {% if university_going %}
+                    name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG'],
+                    data: [
+                        'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG',
+                        {value: {{ university_going.UCD }}, name: 'UCD'},
+                        {value: {{ university_going.TCD }}, name: 'TCD'},
+                        {value: {{ university_going.DCU }}, name: 'DCU'},
+                        {value: {{ university_going.UL }}, name: 'UL'},
+                        {value: {{ university_going.UCC }}, name: 'UCC'},
+                        {value: {{ university_going.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going.NUIG }}, name: 'NUIG'},
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
+
+            },
+        ],
+        2016: [
+            {
+                name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School'],
+                data: [
+                    'UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School',
+                    {value: 115, name: 'UCD'},
+                    {value: 33, name: 'TCD'},
+                    {value: 1, name: 'DCU'},
+                    {value: 2, name: 'UL'},
+                    {value: 3, name: 'Maynooth University'},
+                    {value: 2, name: 'UCC'},
+                    {value: 5, name: 'NUIG'},
+                    {value: 1, name: 'Nat Col. of Irl'},
+                    {value: 44, name: 'DIT'},
+                    {value: 1, name: 'Tallaght IT'},
+                    {value: 0, name: 'Athlone IT'},
+                    {value: 1, name: 'Cork IT'},
+                    {value: 0, name: 'Dundalk IT'},
+                    {value: 1, name: 'GMIT'},
+                    {value: 7, name: 'IADT'},
+                    {value: 3, name: 'NCAD'},
+                    {value: 3, name: 'RCSI'},
+                    {value: 0, name: 'Shannon College of Hotel Management'},
+                    {value: 0, name: 'National College of Ireland'},
+                    {value: 0, name: 'IT Carlow'},
+                    {value: 0, name: 'IT Limerick'},
+                    {value: 1, name: 'IT Waterford'},
+                    {value: 0, name: 'Griffith College'},
+                    {value: 0, name: 'Dublin Business School'},
+                ]
+            },
+            {
+                name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University'],
+                data: [
+                    'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University',
+                    {value: 115, name: 'UCD'},
+                    {value: 33, name: 'TCD'},
+                    {value: 1, name: 'DCU'},
+                    {value: 2, name: 'UL'},
+                    {value: 3, name: 'Maynooth University'},
+                    {value: 2, name: 'UCC'},
+                ]
+            },
+        ],
+        2017: [
+            {
+                name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School'],
+                data: [
+                    'UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School',
+                    {value: 97, name: 'UCD'},
+                    {value: 33, name: 'TCD'},
+                    {value: 9, name: 'DCU'},
+                    {value: 1, name: 'UL'},
+                    {value: 3, name: 'Maynooth University'},
+                    {value: 2, name: 'UCC'},
+                    {value: 7, name: 'NUIG'},
+                    {value: 1, name: 'Nat Col. of Irl'},
+                    {value: 39, name: 'DIT'},
+                    {value: 2, name: 'Tallaght IT'},
+                    {value: 0, name: 'Athlone IT'},
+                    {value: 1, name: 'Cork IT'},
+                    {value: 0, name: 'Dundalk IT'},
+                    {value: 1, name: 'GMIT'},
+                    {value: 11, name: 'IADT'},
+                    {value: 1, name: 'NCAD'},
+                    {value: 0, name: 'RCSI'},
+                    {value: 0, name: 'Shannon College of Hotel Management'},
+                    {value: 2, name: 'National College of Ireland'},
+                    {value: 1, name: 'IT Carlow'},
+                    {value: 1, name: 'IT Limerick'},
+                    {value: 3, name: 'IT Waterford'},
+                    {value: 1, name: 'Griffith College'},
+                    {value: 5, name: 'Dublin Business School'},
+                ]
+            },
+            {
+                name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University'],
+                data: [
+                    'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University',
+                    {value: 97, name: 'UCD'},
+                    {value: 33, name: 'TCD'},
+                    {value: 9, name: 'DCU'},
+                    {value: 1, name: 'UL'},
+                    {value: 3, name: 'Maynooth University'},
+                    {value: 2, name: 'UCC'},
+                ]
+            },
+        ],
+    };
+    var selYear = '2015', selType = 0;
+
+    var option2 = {
+        title: {//标题设置‘参保情况’
+            x: 'left',//标题位置
+            text: "Institution School",//传入标题名称‘参保情况’
+            textStyle: {//标题字体颜色等设置
+                fontSize: 16,
+                fontWeight: 'bold'
+            }
+        },
+        tooltip: {
+            show: 'false',
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            icon: 'circle',
+            itemGap: 3,
+            itemWidth: 4,
+            x: '80%',
+            align: 'left',
+            textStyle: {//属性名的字体样式设置
+                fontSize: 10,
+                color: '#666'
+            },
+            data: dataList[selYear][selType].name
+        },
+        series: [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: ['30%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '15',
+                            fontWeight: 'bold'
+                        }
                     }
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data:dataList[selYear][selType].data
-        }
-    ]
-};
-myChart2.setOption(option2);
-$("#selyear").change(function(){
- selYear=$("#selyear").val();
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: dataList[selYear][selType].data
+            }
+        ]
+    };
+    myChart2.setOption(option2);
+    $("#selyear").change(function () {
+        selYear = $("#selyear").val();
 
- option2.legend.data=dataList[selYear][selType].name;
- option2.series[0].data=dataList[selYear][selType].data;
-  myChart2.setOption(option2);
-})
-$("#seltype").change(function(){
- selType=parseInt($("#seltype").val());
-  console.log('selYear',$("#seltype").val());
- console.log('selYear',dataList[selYear][selType]);
-  option2.legend.data=dataList[selYear][selType].name;
- option2.series[0].data=dataList[selYear][selType].data;
-  myChart2.setOption(option2);
-})
-        // 使用刚指定的配置项和数据显示图表。
+        option2.legend.data = dataList[selYear][selType].name;
+        option2.series[0].data = dataList[selYear][selType].data;
+        myChart2.setOption(option2);
+    })
+    $("#seltype").change(function () {
+        selType = parseInt($("#seltype").val());
+        console.log('selYear', $("#seltype").val());
+        console.log('selYear', dataList[selYear][selType]);
+        option2.legend.data = dataList[selYear][selType].name;
+        option2.series[0].data = dataList[selYear][selType].data;
+        myChart2.setOption(option2);
+    })
+    // 使用刚指定的配置项和数据显示图表。
 
 </script>
 
 </body>
 </html>
+

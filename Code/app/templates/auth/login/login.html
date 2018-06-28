@@ -83,7 +83,8 @@
                     <li><a href="#">
                         <span class="icon fa fa-envelope"></span> Login
                     </a></li>
-                    <li><a href="#">
+                    <!--<li><a href="/Code/app/templates/auth/signup/signup.html">-->
+                    <li class="signup"><a href="{{ url_for('auth.register') }}">
                         <span class="icon fa fa-envelope"></span> Sign up
                     </a></li>
                 </ul>
@@ -107,14 +108,13 @@
                     <div class="modal-body">
                         <form novalidate="novalidate" id="formSignUp" method="post">
                             <div id="errorSignUp">
-                                {% for message in get_flashed_messages() %}
-                                    <div class="alert alert-warning">
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
                             </div>
-
+                            {% for message in get_flashed_messages() %}
+                                <div class="alert alert-warning">
+{#                                    <button type="button" class="close" data-dismiss="alert">&times;</button>#}
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
                             <div class="form-group">
                                 <div class="col-md-15">
                                     <a href="{{ url_for('auth.login_with_facebook') }}"

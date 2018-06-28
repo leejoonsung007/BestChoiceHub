@@ -70,12 +70,6 @@
                     <div class="modal-body">
                         <form novalidate="novalidate" id="formSignUp" method="post">
                             <div id="errorSignUp">
-                                {% for message in get_flashed_messages() %}
-                                    <div class="alert alert-warning">
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
                             </div>
 
                             {{ form.hidden_tag() }}

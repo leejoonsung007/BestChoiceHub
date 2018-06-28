@@ -1,38 +1,100 @@
 from .. import db
 from . import main
+import geocoder
 from ..models.User import User
 from ..models.School import School
 from ..models.Pro2015 import Pro2015
+from ..models.Pro2016 import Pro2016
+from ..models.Pro2017 import Pro2017
+from ..models.School_rank import Rank2017
 from flask import (render_template,
                    abort,
                    current_app,
                    request, redirect,
                    url_for,
-                   flash,)
+                   flash,
+                   jsonify,)  # json conversion
 from flask_login import (login_required,
-                         current_user,)
+                         current_user, )
 from .forms import (EditForm,
                     ChangePasswordForm,
-                    ChangeAvatars)
-from utils import log
-
-
-# write a function to count the distance
-# get current location from front-end
+                    ChangeAvatars,
+                    SearchForm)
 
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
+    # get user current geolocation by IP address
+    loc = geocoder.ip('me')
+
+    # search engine
+    form = SearchForm()
+    if form.validate_on_submit():
+        input = form.search.data
+        like = '%' + input + '%'
+        return redirect(url_for('.result', like=like))
+
+    # get json from front-end via Ajax
+    data = request.get_json()
+    print(data)
+    if data is not None:
+        return jsonify({'BestChoice': 'we have got your location '})
+
+    school_collections = School.query.filter_by(county='Dublin')
+    first_distance_record = School.distance_calculator(float(school_collections[0].lat),
+                                                       float(school_collections[0].lng),
+                                                       loc.latlng[0], loc.latlng[1])
+
+    # if the records exit, no need to compute the distance again
+    if school_collections[0].distance == round(first_distance_record, 3):
+        # print("very good")
+        pass
+    else:
+        # add distance to database
+        for school in school_collections:
+            distance_computing = School.distance_calculator(float(school.lat), float(school.lng),
+                                                            loc.latlng[0], loc.latlng[1])
+            school.distance = round(distance_computing, 3)
+            db.session.commit()
+
+    # pagination
     page = request.args.get('page', 1, type=int)
-    log('what is current page', page)
-    pagination = School.query.order_by(School.roll_number).paginate(
+    # schools = School.query.filter_by(county='Dublin').order_by(School.distance)
+    schools = db.session.query(School.roll_number, School.official_school_name, School.website, School.email,
+                               School.deis,School.county, School.address1, School.eircode, School.fee,
+                               School.gaeltacht_area_location,School.address2, School.address3, School.address4, School.address, School.lat,
+                               School.lng, School.distance, School.total_boy, School.irish_classification,
+                               School.place_id, School.religion, School.total_girl, School.total_pupil, School.photo_ref1,
+                               School.photo_ref2, School.school_gender,School.photo_ref3, School.photo_ref4, School.photo_ref5,
+                               Pro2017.Total_progression, Rank2017.rank) \
+        .outerjoin(Pro2017, School.place_id == Pro2017.place_id).outerjoin(Rank2017, School.place_id == Rank2017.place_id).filter(School.county == 'Dublin').order_by(School.distance)
+
+    pagination = schools.paginate(
         page, per_page=6,
         error_out=False)
-    schools= pagination.items
-    log('schools',schools)
-    for school in schools:
-        log('schools', school)
-    return render_template('main/home.html', schools=schools, pagination=pagination)
+    schools_pagination = pagination.items
+
+    return render_template('main/home.html', schools=schools_pagination, pagination=pagination, form=form)
+
+
+@main.route('/result/<like>')
+def result(like):
+    join_search = db.session.query(School.roll_number, School.official_school_name, School.website, School.email,
+                               School.deis, School.county, School.address1, School.eircode, School.fee,
+                               School.gaeltacht_area_location, School.address2, School.address3, School.address4,
+                               School.address, School.lat,School.lng, School.distance, School.total_boy, School.irish_classification,
+                               School.place_id, School.religion, School.total_girl, School.total_pupil,
+                               School.photo_ref1,School.photo_ref2, School.school_gender, School.photo_ref3, School.photo_ref4,
+                               School.photo_ref5, Pro2017.Total_progression, Rank2017.rank) \
+        .outerjoin(Pro2017, School.place_id == Pro2017.place_id).outerjoin(Rank2017, School.place_id == Rank2017.place_id).filter(School.county == 'Dublin').order_by(School.distance)
+
+    result1 = join_search.filter(School.address.ilike(like)).all()
+    result2 = join_search.filter(School.official_school_name.ilike(like)).all()
+
+    if len(result1) != 0 :
+        return render_template('/main/search/search_result.html', school_result=result1)
+    else:
+        return render_template('/main/search/search_result.html', school_result=result2)
 
 
 @main.route('/user/<username>')
@@ -53,7 +115,8 @@ def edit_profile():
         if user is None:
             current_user.username = form.name.data
         else:
-            flash("This name has existed")
+            # flash("This name has existed")
+            pass
 
         current_user.location = form.location.data
         db.session.add(current_user._get_current_object())
@@ -109,18 +172,12 @@ def change_password():
     return render_template("main/user/change_password.html", form=form)
 
 
-@main.route('/school/<official_school_name>')
-def school_detail(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
-    # university_going = Pro2015.query.filter_by(roll_number=roll_number).first()
+@main.route('/school/<official_school_name>/<roll_number>')
+def school_detail(roll_number, official_school_name):
+    school = School.query.filter_by(roll_number=roll_number).first()
+    university_going2015 = Pro2015.query.filter_by(name2=official_school_name).first()
+    university_going2016 = Pro2016.query.filter_by(name2=official_school_name).first()
+    university_going2017 = Pro2016.query.filter_by(name2=official_school_name).first()
     if school is None:
         abort(404)
-    return render_template('main/detail/school_detail.html', school=school)
-
-
-# @main.route('/school/<roll_number>')
-# def find_school(roll_number):
-#     school = School.query.filter_by(roll_number=roll_number).first()
-#     if school is None:
-#         abort(404)
-#     return render_template('main/detail/school_detail.html', school=school)
+    return render_template('main/detail/school_detail.html', school=school, university_going=university_going2015)

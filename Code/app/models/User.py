@@ -3,10 +3,10 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
 from flask_login import UserMixin
 from app import db, login_manager
-from utils import log
+# from utils import log
 from datetime import datetime
 from .Roleomg import Role
-from .User_operation import Follow
+
 
 
 class User(UserMixin, db.Model):

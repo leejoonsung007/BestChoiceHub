@@ -2,15 +2,7 @@
 
 week4
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## 1. SETTING ENV VARIABLE
-=======
-#### 1. SETTING ENV VARIABLE
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
-=======
-#### 1. SETTING ENV VARIABLE
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 
 `(venv) LeejoonsungdeMacBook-Pro: sudo vim ./~bashrc`
 
@@ -18,14 +10,8 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 
 `export PATH="$PATH:$HOME/.rvm/bin"`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 `export MAIL_USERNAME="schoolselectionie@gmail.com"`
 
-=======
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
-=======
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 `export MAIL_PASSWORD="ABC12345!"`
 
 `export FLASKY_ADMIN="schoolselectionie@gmail.com"`
@@ -43,8 +29,6 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 `export FACEBOOK_OAUTH_CLIENT_SECRET="f549e71623d6c266bbce9a78a54b62b0"`
 
 ### NOTE: YOU MUST CREATE A DATABASE NAMED mysql FRIST, THE ACCOUNT OF IT IS ROOT AND PASSWORD IS 1234
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 ## 2. INSTALL LIBRARIES
 
@@ -56,31 +40,6 @@ AND COPY THEM INTO YOUR COMPUTER ENV
 
 
 ## 3. DATABASE MIGRATION
-=======
-
-#### 2. INSTALL LIBRARIES
-
-`(venv) LeejoonsungdeMacBook-Pro:   cd Code`
-
-`(venv) LeejoonsungdeMacBook-Pro:   cd requirement`
-
-=======
-
-#### 2. INSTALL LIBRARIES
-
-`(venv) LeejoonsungdeMacBook-Pro:   cd Code`
-
-`(venv) LeejoonsungdeMacBook-Pro:   cd requirement`
-
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
-`(venv) LeejoonsungdeMacBook-Pro:   pip install -r requirements.txt`
-
-
-#### 3. DATABASE MIGRATION
-<<<<<<< HEAD
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
-=======
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 
 mac
 
@@ -100,15 +59,7 @@ run in Terminal
 
 `(venv) LeejoonsungdeMacBook-Pro:   flask db upgrade`
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## 4. RUN
-=======
-#### 4. RUN
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
-=======
-#### 4. RUN
->>>>>>> 4853b580635f4484dc2c44eace9ee95867dbb26f
 
 `(venv) LeejoonsungdeMacBook-Pro: flask run`
 

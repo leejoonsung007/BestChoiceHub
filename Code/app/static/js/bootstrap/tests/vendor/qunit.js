@@ -473,7 +473,7 @@
             for (var i = 0; i < length; i++) {
                 current = params[i].split("=");
                 current[0] = decodeURIComponent(current[0]);
-                // allow just a key to turn on a flag, e.g., test.html?noglobals
+                // allow just a key to turn on a flag, e.g., search_result.html?noglobals
                 current[1] = current[1] ? decodeURIComponent(current[1]) : true;
                 urlParams[current[0]] = current[1];
             }

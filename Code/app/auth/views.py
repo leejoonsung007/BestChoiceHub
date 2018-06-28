@@ -2,7 +2,7 @@ from . import auth
 from app import db
 from app.models.User import User
 from app.email import send_email
-from utils import log
+# from utils import log
 from flask_dance.contrib.google import google
 from flask_dance.contrib.facebook import facebook
 import os
@@ -10,7 +10,8 @@ from flask import (render_template,
                    redirect,
                    request,
                    url_for,
-                   flash, )
+                   flash,
+                   session)
 from flask_login import (login_user,
                          logout_user,
                          login_required,
@@ -49,15 +50,10 @@ def login():
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
             next = request.args.get('next')
-            log('what is next', next)
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
-            log("what is new next", next)
             return redirect(next)
         flash('Invalid username or password.')
-    log("form", form)
-    log("form.email", form.email)
-    log("form.password", form.password)
     return render_template('auth/login/login.html', form=form)
 
 
@@ -65,6 +61,7 @@ def login():
 @login_required
 def logout():
     logout_user()
+    session.clear()
     flash('You have been logged out.')
     return redirect(url_for('main.index'))
 
@@ -117,7 +114,7 @@ def password_reset_request():
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        log("check whether it works", user)
+        # log("check whether it works", user)
         if user:
             token = user.generate_reset_token()
             send_email(user.email, 'Reset Your Password',
@@ -153,7 +150,7 @@ def login_with_google():
 
     # get google user information
     google_user = google.get("/plus/v1/people/me").json()
-    log("what is in resp", google_user)
+    # log("what is in resp", google_user)
     email = google_user["emails"][0]["value"]
     username = google_user['displayName']
     picture = google_user['image']['url']
@@ -190,7 +187,7 @@ def login_with_facebook():
     facebook_id = facebook_user['id']
     username = facebook_user['name']
     picture = facebook_user['picture']['data']['url']
-    email = "-"
+    email = "0"
     login_type = 'facebook'
     confirmed = True
     user = User(facebook_id=facebook_id, username=username, confirmed=confirmed,
