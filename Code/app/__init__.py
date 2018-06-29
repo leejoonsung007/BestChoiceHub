@@ -31,7 +31,8 @@ def create_app(config_name):
     with app.test_request_context():
         db.create_all()
     login_manager.init_app(app)
-
+    with app.test_request_context():
+        db.create_all()
     app.wsgi_app = ProxyFix(app.wsgi_app)
     sentry = Sentry(app)
     google_bp = make_google_blueprint(scope=["profile", "email"],

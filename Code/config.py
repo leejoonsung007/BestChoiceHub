@@ -40,11 +40,7 @@ class Config:
     MAIL_PASSWORD = 'ABC12345!'
     FLASKY_MAIL_SUBJECT_PREFIX = '[School Selection Helper]'
     FLASKY_MAIL_SENDER = 'School Selection Team <schoolselectionie@gmail.com>'
-    FLASKY_ADMIN = "schoolselectionie@gmail.com"
-    # FLASKY_MODERATOR = os.environ.get('MODERATOR')
-    # FLASKY_MAIL_SENDER = os.environ.get('MAIL_USERNAME')
-    # POSTS_PER_PAGE = os.environ.get('POSTS_PER_PAGE')
-    # FLASKY_SLOW_DB_QUERY_TIME = 0.5
+    POSTS_PER_PAGE = 10
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     GOOGLE_OAUTH_CLIENT_ID = "429221528820-0876ccgupb8rjtpl0730h2koa6vrklq7.apps.googleusercontent.com"
     GOOGLE_OAUTH_CLIENT_SECRET = "q3vtKBcD8MPvT6R8TN3d0J6s"
@@ -63,7 +59,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:12345678@schools.cjakbty4kyuc.eu-west-1.rds.amazonaws.com/testing'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:12345678@schools.cjakbty4kyuc.eu-west-1.rds.amazonaws.com/bestchoice'
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
     #                           'mysql+pymysql://root:1234@localhost/school'
 

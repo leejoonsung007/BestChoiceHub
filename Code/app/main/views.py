@@ -13,7 +13,7 @@ from flask import (render_template,
                    request, redirect,
                    url_for,
                    flash,
-                   jsonify,)  # json conversion
+                   jsonify, )  # json conversion
 from flask_login import (login_required,
                          current_user, )
 from .forms import (EditForm,
@@ -61,13 +61,16 @@ def index():
     page = request.args.get('page', 1, type=int)
     # schools = School.query.filter_by(county='Dublin').order_by(School.distance)
     schools = db.session.query(School.roll_number, School.official_school_name, School.website, School.email,
-                               School.deis,School.county, School.address1, School.eircode, School.fee,
-                               School.gaeltacht_area_location,School.address2, School.address3, School.address4, School.address, School.lat,
-                               School.lng, School.distance, School.total_boy, School.irish_classification,
-                               School.place_id, School.religion, School.total_girl, School.total_pupil, School.photo_ref1,
-                               School.photo_ref2, School.school_gender,School.photo_ref3, School.photo_ref4, School.photo_ref5,
+                               School.deis, School.county, School.address1, School.eircode, School.fee,
+                               School.gaeltacht_area_location, School.address2, School.address3, School.address4,
+                               School.address, School.lat, School.lng, School.distance, School.total_boy,
+                               School.irish_classification, School.place_id, School.religion,
+                               School.total_girl, School.total_pupil, School.photo_ref1, School.photo_ref2,
+                               School.school_gender,School.photo_ref3, School.photo_ref4, School.photo_ref5,
                                Pro2017.Total_progression, Rank2017.rank) \
-        .outerjoin(Pro2017, School.place_id == Pro2017.place_id).outerjoin(Rank2017, School.place_id == Rank2017.place_id).filter(School.county == 'Dublin').order_by(School.distance)
+        .outerjoin(Pro2017, School.place_id == Pro2017.place_id). \
+        outerjoin(Rank2017, School.place_id == Rank2017.place_id). \
+        filter(School.county == 'Dublin').order_by(School.distance)
 
     pagination = schools.paginate(
         page, per_page=6,
@@ -80,21 +83,36 @@ def index():
 @main.route('/result/<like>')
 def result(like):
     join_search = db.session.query(School.roll_number, School.official_school_name, School.website, School.email,
-                               School.deis, School.county, School.address1, School.eircode, School.fee,
-                               School.gaeltacht_area_location, School.address2, School.address3, School.address4,
-                               School.address, School.lat,School.lng, School.distance, School.total_boy, School.irish_classification,
-                               School.place_id, School.religion, School.total_girl, School.total_pupil,
-                               School.photo_ref1,School.photo_ref2, School.school_gender, School.photo_ref3, School.photo_ref4,
-                               School.photo_ref5, Pro2017.Total_progression, Rank2017.rank) \
-        .outerjoin(Pro2017, School.place_id == Pro2017.place_id).outerjoin(Rank2017, School.place_id == Rank2017.place_id).filter(School.county == 'Dublin').order_by(School.distance)
+                                   School.deis, School.county, School.address1, School.eircode, School.fee,
+                                   School.gaeltacht_area_location, School.address2, School.address3, School.address4,
+                                   School.address, School.lat, School.lng, School.distance, School.total_boy,
+                                   School.irish_classification,
+                                   School.place_id, School.religion, School.total_girl, School.total_pupil,
+                                   School.photo_ref1, School.photo_ref2, School.school_gender, School.photo_ref3,
+                                   School.photo_ref4,School.photo_ref5, Pro2017.Total_progression, Rank2017.rank) \
+        .outerjoin(Pro2017, School.place_id == Pro2017.place_id). \
+        outerjoin(Rank2017, School.place_id == Rank2017.place_id). \
+        filter(School.county == 'Dublin').order_by(School.distance)
 
     result1 = join_search.filter(School.address.ilike(like)).all()
     result2 = join_search.filter(School.official_school_name.ilike(like)).all()
 
-    if len(result1) != 0 :
+    if len(result1) != 0:
         return render_template('/main/search/search_result.html', school_result=result1)
     else:
         return render_template('/main/search/search_result.html', school_result=result2)
+
+
+@main.route('/school/<official_school_name>/<roll_number>')
+def school_detail(roll_number, official_school_name):
+
+    school = School.query.filter_by(roll_number=roll_number).first()
+    university_going2015 = Pro2015.query.filter_by(name2=official_school_name).first()
+    university_going2016 = Pro2016.query.filter_by(name2=official_school_name).first()
+    university_going2017 = Pro2016.query.filter_by(name2=official_school_name).first()
+    if school is None:
+        abort(404)
+    return render_template('main/detail/school_detail.html', school=school, university_going=university_going2015)
 
 
 @main.route('/user/<username>')
@@ -171,13 +189,52 @@ def change_password():
             flash('Invalid password.')
     return render_template("main/user/change_password.html", form=form)
 
-
-@main.route('/school/<official_school_name>/<roll_number>')
-def school_detail(roll_number, official_school_name):
-    school = School.query.filter_by(roll_number=roll_number).first()
-    university_going2015 = Pro2015.query.filter_by(name2=official_school_name).first()
-    university_going2016 = Pro2016.query.filter_by(name2=official_school_name).first()
-    university_going2017 = Pro2016.query.filter_by(name2=official_school_name).first()
+@main.route('/follow/<official_school_name>', methods=['GET', 'POST'])
+@login_required
+def follow(official_school_name):
+    school = School.query.filter_by(official_school_name=official_school_name).first()
     if school is None:
-        abort(404)
-    return render_template('main/detail/school_detail.html', school=school, university_going=university_going2015)
+        flash('Invalid school name.')
+        return redirect(url_for('.index'))
+    if current_user.is_following(school):
+        flash('You have already followed this school.')
+        return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
+                                roll_number=school.roll_number))
+    current_user.follow(school)
+    flash('You are now following %s.' % official_school_name)
+    return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
+                            roll_number=school.roll_number))
+
+
+@main.route('/unfollow/<official_school_name>', methods=['GET', 'POST'])
+@login_required
+def unfollow(official_school_name):
+    school = School.query.filter_by(official_school_name=official_school_name).first()
+    if school is None:
+        flash('Invalid school name.')
+        return redirect(url_for('.index'))
+    if not current_user.is_following(school):
+        flash('You have not followed this school.')
+        return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
+                                roll_number=school.roll_number))
+    current_user.unfollow(school)
+    flash('Cancel following %s.' % official_school_name)
+    return redirect(
+        url_for('.school_detail', official_school_name=school.official_school_name, roll_number=school.roll_number))
+
+
+# Add following function
+@main.route('/following/<username>', methods=['GET', 'POST'])
+@login_required
+def following(username):
+    user_ = User.query.filter_by(username=username).first()
+    page = request.args.get('page', 1, type=int)
+    pagination = user_.followed.paginate(
+        page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False)
+    # school = School.query.filter_by(place_id=item.followed_id).first()
+    follows = [{'school': School.query.filter_by(place_id=item.followed_id).first(), 'timestamp': item.timestamp}
+               for item in pagination.items]
+    # school = School.query.filter_by(place_id=user.followed).first()
+    return render_template('main/user/following.html', user=user_, title='',
+                           endpoint='.following', pagination=pagination,
+                           follows=follows)

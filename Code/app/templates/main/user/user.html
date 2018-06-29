@@ -127,6 +127,12 @@
         Last seen {{ user.last_seen }}
     </div>
 
+     <div>
+         {#Number of schools that the user followed#}
+         <a href="{{ url_for('.following',username=user.username) }}">
+              Following: {{ user.followed.count() }}
+         </a>
+    </div>
     {% if user == current_user %}
        <div> <a class="btn btn-default" href="{{ url_for('main.edit_profile') }}">Edit Profile
         </a></div>

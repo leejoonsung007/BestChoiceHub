@@ -1,10 +1,8 @@
 from app import db
 import googlemaps
 import mpu
+from app.models.User_operation import Follow
 
-
-
-# from app.models.User_operation import Follow
 
 class School(db.Model):
     _tablename_ = 'school'
@@ -46,10 +44,11 @@ class School(db.Model):
     distance = db.Column(db.Float(50))
     add = db.Column(db.Integer) #add school into own list, and the access+1
 
-    # followed = db.relationship('Follow',  # 该用户的关注者们，对于关注者们而言，关注者们关注了该用户
-    #                            backref=db.backref('follower'),  # corresponding followed_id
-    #                            lazy='joined',
-    #                            cascade='all, delete-orphan')
+    followers = db.relationship('Follow',
+                               foreign_keys=[Follow.followed_id],
+                               backref=db.backref('followed,lazy=joined'),  # corresponding followed_id
+                               lazy='dynamic',
+                               cascade='all, delete-orphan')
 
     # userlike = db.relationship('User_like', backref=db.backref('roll_number1'), lazy='dynamic')
     # history = db.relationship('History', backref=db.backref('roll_number2'), lazy='dynamic')
@@ -74,6 +73,9 @@ class School(db.Model):
         distance = mpu.haversine_distance((school_lat1, school_lng1), (user_lat2, user_lng2))
         return distance
 
+    def is_followed_by(self, user):
+        return self.followers.filter_by(
+            follower_id=user.id).first() is not None
 
     def __repr__(self):
         return "<Model School `{}`>".format(self.official_school_name)

@@ -52,9 +52,6 @@
     <!--[if (lt IE 9) & (!IEMobile)]>
         <script src="js/vendor/respond.src.js"></script>
         <![endif]-->
-</head>
-<body>
-
 <header role="banner">
     <nav role="navigation" class="navbar navbar-static-top navbar-default">
         <div class="container">
@@ -65,28 +62,52 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ url_for('main.index') }}"><img src="../../../static/img/logo.png"
-                                                                                alt="Bootstrappin'" width="120"></a>
+                                                                                alt="BestChoice'" width="120"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href="{{ url_for('main.index') }}">
+                    <li class="active"><a href='{{ url_for('main.index') }}'>
                         <span class="icon fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#">
-                        <span class="icon fa fa-desktop"></span> Search
+                        <span class="icon fa fa-desktop"></span> Rank
                     </a></li>
                     <li><a href="#">
                         <span class="icon fa fa-group"></span> Compare
                     </a></li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="#">
-                        <span class="icon fa fa-envelope"></span> Login
-                    </a></li>
-                    <!--<li><a href="/Code/app/templates/auth/signup/signup.html">-->
-                    <li class="signup"><a href="{{ url_for('auth.register') }}">
-                        <span class="icon fa fa-envelope"></span> Sign up
-                    </a></li>
+                    {% if current_user.is_authenticated %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {% if current_user.photo %}
+                                    <img src="{{ current_user.photo }}" height="23" width="23">
+                                {% else %}
+                                    <img class="img-rounded profile-thumbnail"
+                                         src="../../static/avatars/default_avatar.jpg" height="23"
+                                         width="23">
+                                {% endif %}
+                                {{ current_user.username }} <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                {% if current_user.login_type != 'website' %}
+                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
+                                    <li><a href="{{ url_for('main.following', username=current_user.username)}}">Watching List</a></li>
+                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+                                {% else %}
+                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
+                                    <li><a href="{{ url_for('main.following', username=current_user.username)}}">Watching List</a></li>
+                                    <li><a href="{{ url_for('main.change_password') }}">Change password</a></li>
+                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+                                {% endif %}
+                            </ul>
+
+                        </li>
+                    {% else %}
+                        <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+                    {% endif %}
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div><!--/.container -->
