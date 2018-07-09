@@ -1,7 +1,7 @@
 from app import db
 import googlemaps
 import mpu
-from app.models.User_operation import Follow
+from app.models.User_operation import Follow, Compare
 
 
 class School(db.Model):
@@ -33,8 +33,8 @@ class School(db.Model):
     total_girl = db.Column(db.Integer)
     total_boy = db.Column(db.Integer)
     total_pupil = db.Column(db.Integer)
-    lat = db.Column(db.DECIMAL(10, 6))
-    lng = db.Column(db.DECIMAL(10, 6))
+    lat = db.Column(db.Float(10))
+    lng = db.Column(db.Float(10))
     # coordinate = db.Column(db.String(50))
     photo_ref1 = db.Column(db.String(255))
     photo_ref2 = db.Column(db.String(255))
@@ -50,23 +50,22 @@ class School(db.Model):
                                lazy='dynamic',
                                cascade='all, delete-orphan')
 
+    comparators = db.relationship('Compare',
+                               foreign_keys=[Compare.compared_id],
+                               backref=db.backref('followed,lazy=joined'),  # corresponding followed_id
+                               lazy='dynamic',
+                               cascade='all, delete-orphan')
+
     # userlike = db.relationship('User_like', backref=db.backref('roll_number1'), lazy='dynamic')
     # history = db.relationship('History', backref=db.backref('roll_number2'), lazy='dynamic')
     # comments = db.relationship('Comments', backref=db.backref('roll_number3'), lazy='dynamic')
     pro2015 = db.relationship('Pro2015', backref=db.backref('roll_number4'), lazy=True, uselist=False)
-    pro2016 = db.relationship('Pro2016', backref=db.backref('roll_number5'), lazy='select', uselist=False)
-    pro2017 = db.relationship('Pro2017', backref=db.backref('roll_number6'), lazy='select', uselist=False)
-    rank2017 = db.relationship('Rank2017', backref=db.backref('roll_number3'), lazy='select', uselist=False)
+    pro2016 = db.relationship('Pro2016', backref=db.backref('roll_number5'), lazy=True, uselist=False)
+    pro2017 = db.relationship('Pro2017', backref=db.backref('roll_number6'), lazy=True, uselist=False)
+    rank2017 = db.relationship('Rank2017', backref=db.backref('roll_number3'), lazy=True, uselist=False)
 
-    # @staticmethod
-    # def distance_calculator(school_coordinate, user_coordinate):
-    #     KEY = "AIzaSyA7iRMGo1sAtQBU8KNethym3uc_dgUh5GU"
-    #     gmaps = googlemaps.Client(key=KEY)
-    #     directions_result = gmaps.directions(school_coordinate,
-    #                                          user_coordinate,
-    #                                          mode="walking",
-    #                                          )
-    #     return (directions_result[0]['legs'][0]['distance']['text'])
+    def __init__(self):
+        self.add = 0
 
     @staticmethod
     def distance_calculator(school_lat1,school_lng1, user_lat2,user_lng2):
@@ -79,3 +78,7 @@ class School(db.Model):
 
     def __repr__(self):
         return "<Model School `{}`>".format(self.official_school_name)
+
+    def __init__(self):
+        self.add = 0
+

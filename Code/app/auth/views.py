@@ -79,7 +79,7 @@ def register():
         token = user.generate_confirmation_token()
         send_email(user.email, 'Confirm Your Account',
                    'auth/email/confirm', user=user, token=token)
-        flash('A confirmation email has been sent to you by email.')
+        flash('A confirmation email has been sent to you by email, please check your mail')
         return redirect(url_for('auth.login'))
     return render_template('auth/login/register.html', form=form)
 
@@ -130,8 +130,8 @@ def password_reset_request():
 
 @auth.route('/reset/<token>', methods=['GET', 'POST'])
 def password_reset(token):
-    # if not current_user.is_anonymous:
-    #     return redirect(url_for('main.index'))
+    if not current_user.is_anonymous:
+        return redirect(url_for('main.index'))
     form = PasswordResetForm()
     if form.validate_on_submit():
         if User.reset_password(token, form.new_password1.data):

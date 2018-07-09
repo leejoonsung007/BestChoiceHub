@@ -40,7 +40,7 @@ class Pro2017(db.Model):
     Dublin_B_school = db.Column(db.Integer)
     ICHASciences = db.Column(db.Integer)
     Total_who_accepted_CAOplace = db.Column(db.Integer)
-    Total_progression = db.Column(db.DECIMAL(10, 2))  # ?
+    Total_progression = db.Column(db.Float(10))  # ?
 
     def __init__(self, name):
         self.name = name

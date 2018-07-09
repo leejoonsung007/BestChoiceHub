@@ -36,17 +36,27 @@ function geocodeLocation(geocoder, position) {
 
                 console.log(position);
 
-                $.ajax({
+                req = $.ajax({
                     type: 'POST',
                     url: 'http://localhost:5000',
                     data: JSON.stringify(position),
                     contentType: 'application/json; charset=UTF-8',
                     dataType: 'json',
-//                     success: function (data) {
-// +                        autoRefresh();
-//                          console.log(JSON.stringify(data));
-//                      }
+                    success: function (data) {
+                        // if (data.result == 'success'){
+                            console.log(data.result)
+                            // console.log(data.pagination)
+                            console.log(data.schools);
+                        // }
+
+                     }
                 });
+
+                // req.done(function(data){
+                //     $('#trying').fadeOut(1000).fadeIn(1000),
+                //     $('#trying').html(data)
+                //     console.log(JSON.stringify(data))
+                // });
 
 
             } else {

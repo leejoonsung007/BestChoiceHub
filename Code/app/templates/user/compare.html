@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>
+<html class="no-bootstrap lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-bootstrap lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-bootstrap lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+{% import "bootstrap/wtf.html" as wtf %}
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compare</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="../../static/css/main.css">
+
+    <!-- Modernizr -->
+    <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.bootstrap for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="bootstrap/vendor/respond.min.bootstrap"></script>
+    <![endif]-->
+
+    <script src="../../static/js/vendor/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#tabs a').click(function (e) {
+                e.preventDefault();
+                $('#tabs li').removeClass("current").removeClass("hoverItem");
+                $(this).parent().addClass("current");
+                $("#content div").removeClass("show");
+                $('#' + $(this).attr('title')).addClass('show');
+            });
+
+            $('#tabs a').hover(function () {
+                if (!$(this).parent().hasClass("current")) {
+                    $(this).parent().addClass("hoverItem");
+                }
+            }, function () {
+                $(this).parent().removeClass("hoverItem");
+            });
+        });
+    </script>
+    <style>
+        .tab-contain {
+            margin: 5px auto;
+            width: 80%;
+            padding: 10px;
+            background: white;
+        }
+
+        #tabs {
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #tabs li {
+            float: left;
+            margin: 0;
+        }
+
+        .li a {
+            position: relative;
+            background: #3945a7;
+            padding: 10px 110px;
+            float: left;
+            text-decoration: none;
+            color: #444;
+            /*text-shadow: 0 1px 0 rgba(255, 255, 255, .8);*/
+            /* border-radius: 20px 20px 0 0;*/
+            box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+        }
+
+        .current a {
+            outline: 0;
+            background: navy;
+            z-index: 4;
+        }
+
+        .hoverItem a {
+            background: navy;
+        }
+
+        #content {
+            background: #fff;
+            padding-top: 10px;
+            height: 220px;
+            position: relative;
+            border-radius: 0 5px 5px 5px;
+            box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+        }
+
+        .item {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .h3-responsive {
+            font-size: 22px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .quicktabs-tabs {
+            background-color: #3945a7;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .quicktabs-style-arrows {
+            border: 0 none;
+            margin-left: 0;
+            margin-right: 0;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+
+{% include 'base.html' %}
+
+
+<main role="main">
+    <div class="col-md-12">
+        <div class="tab-contain col-md-12">
+
+            <div class="col-md-12">
+                <h3 class="h3-responsive">Compare Schools</h3>
+            </div>
+
+            <!-- tab -->
+            <div class="quicktabs-tabs quicktabs-style-arrows">
+                <ul id="tabs">
+                    <li class="current li"><a href="#" title="tab1"><span
+                            style="color: white"> Basic Information </span></a></li>
+                    <li class="li"><a href="#" title="tab2"><span style="color: white">School Ranks</span></a></li>
+                    <li class="li"><a href="#" title="tab3"><span style="color: white">Progression Rate</span></a></li>
+                </ul>
+            </div>
+
+            <div id="content">
+                <div id="tab1" class="item show">
+                    <table class="table table-striped table-hover" width="100%">
+                        <tbody>
+                        <tr>
+                            <td></td>
+
+                            {% for school in schools %}
+                                <td>
+                                    <div class="field-item even">
+                                        {% if school.photo_ref1 %}
+                                            <img typeof="foaf:Image"
+                                                 src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                                                 width="150" height="100" alt={{ school.official_school_name }}/>
+                                        {% else %}
+                                            <img typeof="foaf:Image" src="../../static/img/search/not_found.png"
+                                                 width="150" height="100" alt={{ school.official_school_name }}/>
+                                        {% endif %}
+                                    </div>
+                                    <span class="compare-item"><a href="#">{{ school.official_school_name }}</a></span>
+                                </td>
+                            {% endfor %}
+
+                            {#                            <td>#}
+                            {#                                <div class="field-item even"><img typeof="foaf:Image" src="http://www.ukschool.net/sites/default/files/styles/thumbnail/public/school/logo/wycombe-abbey-school.jpg" width="100" height="98" alt="威雅公学" /></div>#}
+                            {#                                <span class="compare-item"><a href="#">威雅公学</a></span>#}
+                            {#                            </td>#}
+
+                        </tr>
+
+                        <tr>
+                            <td>Address</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.address1 }}                                   </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>School Gender</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.school_gender }}                                   </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>Religion</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.religion }}                                   </td>
+                            {% endfor %}                                  </td>
+                        </tr>
+
+                        <tr>
+                            <td>Total number of pupils</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.total_pupil }}                                   </td>
+                            {% endfor %}                                   </td>
+                        </tr>
+
+                        <tr>
+                            <td>Official Website</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.website }}                                   </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>Fees</td>
+                            {% for school in schools %}
+                                <td>
+                                    {{ school.fee }}                                   </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>Student-Teacher Ratio</td>
+                            {% for rank in ranks %}
+                                <td>
+                                    {% if rank.stu_tea_ratio %}
+                                        {{ rank.stu_tea_ratio }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tab2" class="item">
+                    <table class="table table-striped table-hover" width="100%">
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            {% for school in schools %}
+                                    <td>
+
+                                    {% if school.photo_ref1 %}
+                                       <div class="field-item even"><img typeof="foaf:Image" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                                                                          width="150" height="100" alt={{ school.official_school_name }}/></div>
+                                    {% else %}
+                                       <div class="field-item even"><img typeof="foaf:Image" src="../../static/img/search/not_found.png"
+                                                                          width="150" height="100" alt={{ school.official_school_name }}/></div>
+                                    {% endif %}
+                                        <span class="compare-item"><a href="#">{{ school.official_school_name }}</a></span>
+                                    </td>
+                            {% endfor %}
+
+                        </tr>
+
+                        <tr>
+                            <td>Rank in 2017</td>
+                            {% for rank in ranks %}
+                                <td>
+                                    {% if rank.rank %}
+                                        {{ rank.rank }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                             <td>Rank in 2016</td>
+                            {% for rank in ranks %}
+                                <td>
+                                    {% if rank.p_rank %}
+                                        {{ rank.p_rank }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tab3" class="item">
+                    <table class="table table-striped table-hover" width="100%">
+                        <tbody>
+                        <tr>
+                            <td></td>
+
+                            {% for school in schools %}
+                                    <td>
+
+                                    {% if school.photo_ref1 %}
+                                       <div class="field-item even"><img typeof="foaf:Image" src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                                                                          width="150" height="100" alt={{ school.official_school_name }}/></div>
+                                    {% else %}
+                                       <div class="field-item even"><img typeof="foaf:Image" src="../../static/img/search/not_found.png"
+                                                                          width="150" height="100" alt={{ school.official_school_name }}/></div>
+                                    {% endif %}
+                                        <span class="compare-item"><a href="#">{{ school.official_school_name }}</a></span>
+                                    </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td>2017 Progression</td>
+                            {% for pro in pro2017 %}
+                                <td>
+                                    {% if pro.Total_progression %}
+                                        {{ pro.Total_progression }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>2016 Progression</td>
+                            {% for pro in pro2016 %}
+                                <td>
+                                    {% if pro.Total_progression %}
+                                        {{ pro.Total_progression }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+                        <tr>
+                            <td>2017 Progression</td>
+                            {% for pro in pro2015 %}
+                                <td>
+                                    {% if pro.Total_progression %}
+                                        {{ pro.Total_progression }}
+                                    {% else %}
+                                        No Data
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>

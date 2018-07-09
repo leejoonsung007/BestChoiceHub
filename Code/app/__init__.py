@@ -28,11 +28,10 @@ def create_app(config_name):
     mail.init_app(app)
     moment.init_app(app)
     db.init_app(app)
-    with app.test_request_context():
-        db.create_all()
+
     login_manager.init_app(app)
-    with app.test_request_context():
-        db.create_all()
+    # with app.test_request_context():
+    #     db.create_all()
     app.wsgi_app = ProxyFix(app.wsgi_app)
     sentry = Sentry(app)
     google_bp = make_google_blueprint(scope=["profile", "email"],
@@ -50,5 +49,8 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
     app.register_blueprint(google_bp, url_prefix="/auth")
     app.register_blueprint(facebook_bp, url_prefix="/auth")
+
+    from .operation import operation as operation_blueprint
+    app.register_blueprint(operation_blueprint)
 
     return app

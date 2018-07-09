@@ -8,6 +8,13 @@ class Follow(db.Model):
     followed_id = db.Column(db.String(50), db.ForeignKey('school.place_id'),primary_key=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
+
+class Compare(db.Model):
+    __tablename__ = 'compare'
+    comparator_id = db.Column(db.Integer, db.ForeignKey('user.id'), primary_key=True)
+    compared_id = db.Column(db.String(50), db.ForeignKey('school.place_id'),primary_key=True)
+    # timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
 # class History(db.Model):
 #     _tablename_ = 'user_history'
 #     history_id = db.Column(db.String(50), primary_key=True)

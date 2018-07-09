@@ -4,7 +4,7 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" xmlns:Followers="http://www.w3.org/1999/xhtml"> <!--<![endif]-->
+<html class="no-js" xmlns:Followers="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
 
 <head>
 
@@ -16,6 +16,7 @@
 
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="../../static/css/main.css">
+    <link rel="stylesheet" href="../../static/css/like.css">
     <!-- Modernizr -->
     <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -36,7 +37,8 @@
     <style>
         .jumbotron {
         {% if school.photo_ref1 %}
-            background-image: url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=1600&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0');
+            background-image: url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=2400&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0')
+            ;
         {% else %}
             background-image: url('https://dubsism.files.wordpress.com/2017/12/image-not-found.png');
         {% endif %}
@@ -100,7 +102,7 @@
             width: 40px;
             height: 40px;
             cursor: pointer;
-            background: url('../../../static/img/detail/a17.png') no-repeat;
+            background: url('../../static/img/detail/a17.png') no-repeat;
             overflow: hidden;
         }
 
@@ -168,7 +170,7 @@
             height: 68px;
             border: #000 2px solid;
             box-sizing: content-box;
-            background: url('../../../static/img/detail/t01.png') -800px -800px no-repeat;
+            background: url('../../static/img/detail/t01.png') -800px -800px no-repeat;
             _background: none;
         }
 
@@ -218,7 +220,7 @@
             opacity: 0.92;
             display: none;
             z-index: 99999;
-            padding-top: 20%;
+            padding-top: 10%;
         }
 
         .slider_close {
@@ -238,7 +240,20 @@
             color: #FF0000;
             font-weight: bold;
         }
+
     </style>
+
+    <script>
+
+
+
+
+
+
+
+</script>
+
+
 
 </head>
 <body>
@@ -247,67 +262,7 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
-<header role="banner">
-    <nav role="navigation" class="navbar navbar-static-top navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}"><img src="../../../static/img/logo.png"
-                                                                                alt="BestChoice'" width="120"></a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav pull-left">
-                    <li class="active"><a href='{{ url_for('main.index') }}'>
-                        <span class="icon fa fa-home"></span> Home
-                    </a></li>
-                    <li><a href="#">
-                        <span class="icon fa fa-desktop"></span> Rank
-                    </a></li>
-                    <li><a href="#">
-                        <span class="icon fa fa-group"></span> Compare
-                    </a></li>
-                </ul>
-                <ul class="nav navbar-nav pull-right">
-                    {% if current_user.is_authenticated %}
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                {% if current_user.photo %}
-                                    <img src="{{ current_user.photo }}" height="23" width="23">
-                                {% else %}
-                                    <img class="img-rounded profile-thumbnail"
-                                         src="../../static/avatars/default_avatar.jpg" height="23"
-                                         width="23">
-                                {% endif %}
-                                {{ current_user.username }} <b class="caret"></b>
-                            </a>
-
-                            <ul class="dropdown-menu">
-                                {% if current_user.login_type != 'website' %}
-                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
-                                    <li><a href="{{ url_for('main.following', username=current_user.username)}}">Watching List</a></li>
-                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
-                                {% else %}
-                                    <li><a href="{{ url_for('main.user', username=current_user.username) }}">Profile</a></li>
-                                    <li><a href="{{ url_for('main.following', username=current_user.username)}}">Watching List</a></li>
-                                    <li><a href="{{ url_for('main.change_password') }}">Change password</a></li>
-                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
-                                {% endif %}
-                            </ul>
-
-                        </li>
-                    {% else %}
-                        <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
-                    {% endif %}
-
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div><!--/.container -->
-    </nav>
-</header>
+{% include 'base.html' %}
 
 <main role="main" id='#app'> <!--
   <div id="homepage-feature" class="carousel slide">
@@ -342,31 +297,270 @@
       <span class="icon fa fa-chevron-right"></span>
     </a>
   </div><!-- /#homepage-feature.carousel -->
+
+
+
+
+
+
+
     <div class="jumbotron" style="position: relative;">
         <!--   <img src="" class="banner"> -->
         <div class="container">
-            <h1>{{ school.official_school_name }}</h1>
-            {% if school.photo_ref2 %}
-                <a href='#' id='view'>View more</a>
-            {% endif %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>{{ school.official_school_name }}</h1>
+                    {% if school.photo_ref2 %}
+                        <a href='#' id='view'>View more</a>
+                    {% endif %}
+
+                    <br>
+
+
+                    <!-- Compare module Start ------------------------------------------------------------------------->
+                    <button type="compare_btn" class="btn btn-primary btn-lg" onclick="showModal();">Compare</button>
+                    <script>
+                        function showModal(){
+
+                            info = ajax_compare("{{ school.official_school_name }}");
+                            if(info == "success"){
+                                $("#myModal").modal();
+                            }
+
+                        };
+
+
+                        function ajax_compare(name) {
+                                req = $.ajax({
+                                        url: "/add_comparison/" + name,
+                                        success: function (data) {
+                                            console.log(data.result);
+                                            if (data.result == 'success') {
+                                                // data.increasable = 'True' or 'False'
+                                                if(data.increasable == 'False'){
+                                                    $("#warning").show();
+                                                } else {
+                                                    $("#warning").hide();
+                                                    // data.diverse = 'True'
+                                                    if(data.diverse == 'True'){
+                                                        $("#compare-list").append(
+                                                            '<li id="{{ school.official_school_name }}" class="list-group-item">' +
+                                                                '<div class="row">' +
+                                                                    '<div class="col-sm-8">' +
+                                                                        '{{ school.official_school_name }}' +
+                                                                    '</div>' +
+                                                                    '<div class="col-sm-4">' +
+                                                                        '<button type="button" onclick="remove(this)" class="btn btn-default" data-dismiss="modal">' +
+                                                                            'Remove'+
+                                                                        '</button>'+
+                                                                    '</div>' +
+                                                                '</div>' +
+                                                            '</li>'
+                                                        );
+                                                    }// -- end if
+                                                    if($("#compare-list").children().length > 0){
+                                                        $("#no-record").hide();
+                                                    }
+                                                }
+                                            }// -- end if success
+                                        } // -- end success data
+                                    });
+                                return "success";
+                        };
+
+                        function ajax_uncompare(name) {
+                            req = $.ajax({
+                                url: "/remove_comparison/" + name,
+                                success: function (data) {
+                                    if (data.result == 'success') {
+                                         console.log("Removed!")
+                                    }
+                                }
+                            });
+
+                            req.done();
+                        }
+
+                        function ajax_clearAll(){
+                            req = $.ajax({
+                                url: "/compare/clear_all",
+                                success: function (data) {
+                                    if (data.result == 'success') {
+                                         console.log("Removed!")
+                                    }
+                                }
+                            });
+
+                            req.done();
+                        }
+
+
+                        function ajax_follow(name) {
+                            req = $.ajax({
+                                url: "/follow/" + name,
+                                success: function (data) {
+                                    if (data.result == 'success') {
+                                        $("#follow").text("Unfollow")
+                                        $("#follow").attr('onclick', 'ajax_unfollow("{{ school.official_school_name }}")')
+                                    }
+                                }
+                            });
+
+                            req.done(function (data) {
+                                $("#followers").fadeOut(500).fadeIn(500);
+                                $("#followers").text(data.school_followers);
+
+                            });
+                        }
+
+
+                        function ajax_unfollow(name) {
+                            req1 = $.ajax({
+                                url: "/unfollow/" + name,
+                                success: function (data) {
+                                    if (data.result == 'success') {
+                                        $("#follow").text("Follow");
+                                        $("#follow").attr('onclick', 'ajax_follow("{{ school.official_school_name }}")')
+                                    }
+                                }
+                            });
+
+                            req1.done(function (data) {
+                                $("#followers").fadeOut(500).fadeIn(500);
+                                $("#followers").text(data.school_followers);
+
+                            });
+                        }
+
+
+                        function remove(self){
+                            var li = $(self).parent().parent().parent();
+                            console.log(li.attr("id"));
+                            ajax_uncompare(li.attr("id"));
+                            li.remove();
+
+                            if($("#compare-list").children().length <= 0){
+                                $("#no-record").show();
+                            }
+                        }
+
+                        function clearAll() {
+                            var lis = $("#compare-list").children();
+                            $.each(lis, function (i, val) {
+                                console.log(val.id);
+                                val.remove();
+                            });
+                            ajax_clearAll();
+
+                            if ($('#compare-list').children().length <= 0){
+                                $("#no-record").css('display','block');
+                            }
+                        }
+
+                    </script>
+
+
+                    <!-- （Modal） -->
+                    <div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Schools for Comparison
+                                    </h4>
+                                </div><!--modal-header -->
+
+                                <div class="modal-body">
+                                    <div id="no-record" style="display: none;" class="alert alert-info alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        No record added yet for comparisons.
+                                    </div>
+
+                                    <ul id="compare-list" class="list-group">
+                                        {% for school in school_names %}
+                                        <li id="{{ school }}" class="list-group-item">
+                                            <div class="row">
+                                                <div class="col-sm-8">
+                                                    {{ school }}
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button type="button" onclick="remove(this)" class="btn btn-default" >
+                                                        Remove
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% endfor %}
+
+                                    </ul>
+
+                                    <div id="warning" style="display: none;" class="alert alert-warning alert-dismissable">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+                                        Warning: You can only add no more than 4 schools in your comparison list!
+                                    </div>
+
+                                </div><!--modal-body -->
+
+
+                                <div class="modal-footer">
+                                    <button type="button" onclick="clearAll()" class="btn btn-default" >
+                                        Clear All
+                                    </button>
+                                    <button type="button" class="btn btn-primary"  onclick="window.open('{{ url_for('operation.compare') }}')">
+                                        Compare
+                                    </button>
+                                </div><!-- /.modal-footer -->
+
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- myModal-->
+                    <!-- Compare module End ------------------------------------------------------------------------->
+
+                </div><!-- col-sm 6 School name-->
+
+            </div><!-- col row-->
+
+
         </div>
     </div>
+
+
+
+
+
+
     <div class="page-contents">
         <div class="row">
             <div class="col-sm-4">
                 <h3>{{ school.official_school_name }}</h3>
-
-                <p>{% if current_user.is_authenticated %}
+                <p>{% if current_user.is_anonymous %}
+                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Follow</a>
+                    <b><font color="navy">&nbsp;&nbsp;&nbsp;View: <span class="badge">{{ school.add }}</span></font></b>
+                {% else %}
                     {% if not current_user.is_following(school) %}
-                        <a href="{{ url_for('.follow', username=username,official_school_name=school.official_school_name) }}"
-                           class="btn btn-primary">Add</a>
+                        <button id="follow" onclick='ajax_follow("{{ school.official_school_name }}")'
+                                class="btn btn-primary">Follow
+                        </button>
                     {% else %}
-                        <a href="{{ url_for('.unfollow',official_school_name=school.official_school_name) }}"
-                           class="btn btn-default">Remove</a>
-                        {% for message in get_flashed_messages() %} {% endfor %}
+                        <button id="follow" onclick='ajax_unfollow("{{ school.official_school_name }}")'
+                                class="btn btn-primary">Unfollow
+                        </button>
                     {% endif %}
-                    <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Followers: </font></b> <span class="badge">{{ school.followers.count() }}</span>
-                {% endif %}</p>
+
+                    <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Followers: </font></b>
+                    <span id="followers" class="badge">{{ school.followers.count() }}</span>
+
+                    <b><font color="navy">&nbsp;&nbsp;&nbsp;View: <span class="badge">{{ school.add }}</span></font></b>
+                    </p>{% endif %}
 
                 {% if school.address4 %}
                     <p>
@@ -386,6 +580,7 @@
                 <p>Fee: {{ school.fee }}</p>
                 <p>Website: <a target="_blank" href="{{ school.website }}">{{ school.website }}/</a></p>
             </div>
+
             <div class="col-sm-8">
                 <div id="allmap" style="width: 100%;height: 300px; margin-top: 20px"></div>
                 <script type="text/javascript">
@@ -534,6 +729,9 @@
     </div>
 </div>
 
+
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
 <script src="../../static/js/plugins.js"></script>
@@ -541,7 +739,14 @@
 <script type="text/javascript" src="../../static/js/jssor.slider.mini.js"></script>
 <script>
     $(document).ready(function ($) {
-
+        {#$(".like").click(function(){#}
+        {#    if ($(this).hasClass('yes')) {#}
+        {#        $(this).removeClass('yes').addClass('no')#}
+        {#     }else{#}
+        {#      $(this).removeClass('no').addClass('yes')#}
+        {#     }#}
+        {##}
+        {#  })#}
 
         var _width = window.screen.width;
         // $("#jssor_1").css("width",_width+'px');
@@ -820,21 +1025,39 @@
         series: [{
             name: "School's raise of progression to 3rd level",
             type: 'line',
-            {% if university_going %}
-                data: [{{100 * university_going.Total_progression // 1}}, 96, 97],
-            {% else %}
-                data: [0, 96, 97]
+        {% if university_going %}
+            {% set university_going_a = 100 * university_going.Total_progression // 1 %}
             {% endif %}
+        {% if university_going1 %}
+            {% set university_going_b = 100 * university_going1.Total_progression // 1 %}
+            {% endif %}
+        {% if university_going2 %}
+            {%set university_going_c = 100 * university_going2.Total_progression // 1 %}
+            {% endif %}
+                data: [{{university_going_a}}, {{university_going_b}}, {{university_going_c}}],
+{#            {% else %}#}
+{#                data: [0, 96, 97]#}
+{#            {% endif %}#}
         },
             {
                 name: "School's raise of progression to university only",
                 type: 'line',
-                {% if university_going %}
-                    data: [{{ (100* (university_going.UCD+university_going.TCD+university_going.UCC+university_going.DCU+
-    university_going.UL +university_going.Maynooth_University + university_going.NUIG))//university_going.Number_who_sat_Leaving_Cert_2015}}, 85, 80],
-                {% else %}
-                    data: [0, 85, 80]
+            {% if university_going %}
+                {% set university_only_a = (100* (university_going.UCD+university_going.TCD+university_going.UCC+university_going.DCU+
+    university_going.UL +university_going.Maynooth_University + university_going.NUIG))//university_going.Number_who_sat_Leaving_Cert_2015 %}
+            {% endif %}
+            {% if university_going1 %}
+                {% set university_only_b = (100* (university_going1.UCD+university_going1.TCD+university_going1.UCC+university_going1.DCU+
+    university_going1.UL +university_going1.Maynooth_University + university_going1.NUIG))//university_going1.Number_who_sat_Leaving_Cert_2015%}
                 {% endif %}
+            {% if university_going2 %}
+                {% set university_only_c =(100* (university_going2.UCD+university_going2.TCD+university_going2.UCC+university_going2.DCU+
+    university_going2.UL +university_going2.Maynooth_University + university_going2.NUIG))//university_going2.Number_who_sat_Leaving_Cert_2015   %}
+                {% endif %}
+                  data: [{{ university_only_a }},{{ university_only_b }},{{ university_only_c }}]
+{#                {% else %}#}
+{#                    data: [0, 85, 80]#}
+{#                {% endif %}#}
             },]
     });
 
@@ -855,7 +1078,6 @@
 
 </script>
 <script type="text/javascript">
-    // 基于准备好的dom，初始化echarts实例
     var myChart2 = echarts.init(document.getElementById('tu2'));
     var dataList = {
         2015: [
@@ -929,95 +1151,158 @@
                     data: ['',
                         {value: 0, name: 'No Information'}]
                 {% endif %}
-
             },
         ],
         2016: [
             {
-                name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School'],
-                data: [
-                    'UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School',
-                    {value: 115, name: 'UCD'},
-                    {value: 33, name: 'TCD'},
-                    {value: 1, name: 'DCU'},
-                    {value: 2, name: 'UL'},
-                    {value: 3, name: 'Maynooth University'},
-                    {value: 2, name: 'UCC'},
-                    {value: 5, name: 'NUIG'},
-                    {value: 1, name: 'Nat Col. of Irl'},
-                    {value: 44, name: 'DIT'},
-                    {value: 1, name: 'Tallaght IT'},
-                    {value: 0, name: 'Athlone IT'},
-                    {value: 1, name: 'Cork IT'},
-                    {value: 0, name: 'Dundalk IT'},
-                    {value: 1, name: 'GMIT'},
-                    {value: 7, name: 'IADT'},
-                    {value: 3, name: 'NCAD'},
-                    {value: 3, name: 'RCSI'},
-                    {value: 0, name: 'Shannon College of Hotel Management'},
-                    {value: 0, name: 'National College of Ireland'},
-                    {value: 0, name: 'IT Carlow'},
-                    {value: 0, name: 'IT Limerick'},
-                    {value: 1, name: 'IT Waterford'},
-                    {value: 0, name: 'Griffith College'},
-                    {value: 0, name: 'Dublin Business School'},
-                ]
+                {% if university_going1 %}
+                    name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl',
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow',
+                        'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'Mary_Immac', 'Mary_Immac', 'NCAD', 'RCSI', 'Shannon College of Hotel Management'],
+                    data: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl',
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow',
+                        'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'Mary_Immac', 'NCAD', 'RCSI',
+                        {value: {{ university_going1.UCD }}, name: 'UCD'},
+                        {value: {{ university_going1.TCD }}, name: 'TCD'},
+                        {value: {{ university_going1.DCU }}, name: 'DCU'},
+                        {value: {{ university_going1.UL }}, name: 'UL'},
+                        {value: {{ university_going1.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going1.NUIG }}, name: 'NUIG'},
+                        {value: {{ university_going1.UCC }}, name: 'UCC'},
+                        {value: {{ university_going1.St_Angela }}, name: 'St Angela'},
+                        {value: {{ university_going1.QUB }}, name: 'QUB'},
+                        {value: {{ university_going1.UU }}, name: 'UU'},
+                        {value: {{ university_going1.Blanch_IT }}, name: 'Blanch IT'},
+                        {value: {{ university_going1.Nat_Col_of_Irl }}, name: 'Nat_Col_of_Irl'},
+                        {value: {{ university_going1.DIT }}, name: 'DIT'},
+                        {value: {{ university_going1.Tallaght_IT }}, name: 'Tallaght IT'},
+                        {value: {{ university_going1.Athlone_IT }}, name: 'Athlone IT'},
+                        {value: {{ university_going1.Cork_IT }}, name: 'Cork IT'},
+                        {value: {{ university_going1.Dundalk_IT }}, name: 'Dundalk IT'},
+                        {value: {{ university_going1.GMIT }}, name: 'GMIT'},
+                        {value: {{ university_going1.IADT }}, name: 'IADT'},
+                        {value: {{ university_going1.IT_Carlow }}, name: 'IT Carlow'},
+                        {value: {{ university_going1.IT_Sligo }}, name: 'IT Sligo'},
+                        {value: {{ university_going1.IT_Tralee }}, name: 'IT Tralee'},
+                        {value: {{ university_going1.IT_Letter_kenny }}, name: 'IT Letter kenny'},
+                        {value: {{ university_going1.IT_Limerick }}, name: 'IT Limerick'},
+                        {value: {{ university_going1.WIT }}, name: 'WIT'},
+                        {value: {{ university_going1.Marino_Instit_of_Ed }}, name: 'Marino_Instit_of_Ed'},
+                        {value: {{ university_going1.Mary_Immac }}, name: 'Mary_Immac'},
+                        {value: {{ university_going1.NCAD }}, name: 'NCAD'},
+                        {value: {{ university_going1.RCSI }}, name: 'RCSI'},
+
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
             },
             {
-                name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University'],
-                data: [
-                    'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University',
-                    {value: 115, name: 'UCD'},
-                    {value: 33, name: 'TCD'},
-                    {value: 1, name: 'DCU'},
-                    {value: 2, name: 'UL'},
-                    {value: 3, name: 'Maynooth University'},
-                    {value: 2, name: 'UCC'},
-                ]
+                {% if university_going1 %}
+                    name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG'],
+                    data: [
+                        'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG',
+                        {value: {{ university_going1.UCD }}, name: 'UCD'},
+                        {value: {{ university_going1.TCD }}, name: 'TCD'},
+                        {value: {{ university_going1.DCU }}, name: 'DCU'},
+                        {value: {{ university_going1.UL }}, name: 'UL'},
+                        {value: {{ university_going1.UCC }}, name: 'UCC'},
+                        {value: {{ university_going1.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going1.NUIG }}, name: 'NUIG'},
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
             },
         ],
         2017: [
             {
-                name: ['UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School'],
-                data: [
-                    'UCD', 'TCD', 'DCU', 'UL', 'Maynooth University', 'NUIG', 'UCC', 'Nat Col. of Irl', 'DIT', 'Tallaght IT', 'Cork IT', 'GMIT', 'IADT', 'NCAD', 'RCSI', 'National College of Ireland', 'IT Carlow', 'IT Limerick', 'IT Waterford', 'Griffith College', 'Dublin Business School',
-                    {value: 97, name: 'UCD'},
-                    {value: 33, name: 'TCD'},
-                    {value: 9, name: 'DCU'},
-                    {value: 1, name: 'UL'},
-                    {value: 3, name: 'Maynooth University'},
-                    {value: 2, name: 'UCC'},
-                    {value: 7, name: 'NUIG'},
-                    {value: 1, name: 'Nat Col. of Irl'},
-                    {value: 39, name: 'DIT'},
-                    {value: 2, name: 'Tallaght IT'},
-                    {value: 0, name: 'Athlone IT'},
-                    {value: 1, name: 'Cork IT'},
-                    {value: 0, name: 'Dundalk IT'},
-                    {value: 1, name: 'GMIT'},
-                    {value: 11, name: 'IADT'},
-                    {value: 1, name: 'NCAD'},
-                    {value: 0, name: 'RCSI'},
-                    {value: 0, name: 'Shannon College of Hotel Management'},
-                    {value: 2, name: 'National College of Ireland'},
-                    {value: 1, name: 'IT Carlow'},
-                    {value: 1, name: 'IT Limerick'},
-                    {value: 3, name: 'IT Waterford'},
-                    {value: 1, name: 'Griffith College'},
-                    {value: 5, name: 'Dublin Business School'},
-                ]
+                {% if university_going2 %}
+                    name: ['UCD', 'TCD', 'DCU', 'UL'
+                        , 'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl'
+                        ,
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow'
+                        , 'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'Mary_Immac'
+                        , 'NCAD'
+                        , 'RCSI'
+                        {#, 'GC'#}
+                        {#, 'Dublin_B_school'#}
+                        {#,'ICHASciences'#}
+                    ],
+                    data: ['UCD', 'TCD', 'DCU', 'UL',
+                        'Maynooth University', 'NUIG', 'UCC', 'St Angela', 'QUB', 'UU', 'Blanch IT', 'Nat_Col_of_Irl',
+                        'DIT', 'Tallaght IT', 'Athlone IT', 'Cork IT', 'Dundalk IT', 'GMIT', 'IADT', 'IT Carlow',
+                        'IT Sligo', 'IT Tralee', 'IT Letter kenny', 'IT_Limerick', 'WIT', 'Marino_Instit_of_Ed',
+                        'Mary_Immac',
+                        'NCAD',
+                        'RCSI',
+                        {#'GC',#}
+                        {#'Dublin_B_school',#}
+                        {#'ICHASciences',#}
+                        {value: {{ university_going2.UCD }}, name: 'UCD'},
+                        {value: {{ university_going2.TCD }}, name: 'TCD'},
+                        {value: {{ university_going2.DCU }}, name: 'DCU'},
+                        {value: {{ university_going2.UL }}, name: 'UL'},
+                        {value: {{ university_going2.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going2.NUIG }}, name: 'NUIG'},
+                        {value: {{ university_going2.UCC }}, name: 'UCC'},
+                        {value: {{ university_going2.St_Angela }}, name: 'St Angela'},
+                        {value: {{ university_going2.QUB }}, name: 'QUB'},
+                        {value: {{ university_going2.UU }}, name: 'UU'},
+                        {value: {{ university_going2.Blanch_IT }}, name: 'Blanch IT'},
+                        {value: {{ university_going2.Nat_Col_of_Irl }}, name: 'Nat_Col_of_Irl'},
+                        {value: {{ university_going2.DIT }}, name: 'DIT'},
+                        {value: {{ university_going2.Tallaght_IT }}, name: 'Tallaght IT'},
+                        {value: {{ university_going2.Athlone_IT }}, name: 'Athlone IT'},
+                        {value: {{ university_going2.Cork_IT }}, name: 'Cork IT'},
+                        {value: {{ university_going2.Dundalk_IT }}, name: 'Dundalk IT'},
+                        {value: {{ university_going2.GMIT }}, name: 'GMIT'},
+                        {value: {{ university_going2.IADT }}, name: 'IADT'},
+                        {value: {{ university_going2.IT_Carlow }}, name: 'IT Carlow'},
+                        {value: {{ university_going2.IT_Sligo }}, name: 'IT Sligo'},
+                        {value: {{ university_going2.IT_Tralee }}, name: 'IT Tralee'},
+                        {value: {{ university_going2.IT_Letter_kenny }}, name: 'IT Letter kenny'},
+                        {value: {{ university_going2.IT_Limerick }}, name: 'IT Limerick'},
+                        {value: {{ university_going2.WIT }}, name: 'WIT'},
+                        {value: {{ university_going2.Marino_Instit_of_Ed }}, name: 'Marino_Instit_of_Ed'},
+                        {value: {{ university_going2.Mary_Immac }}, name: 'Mary_Immac'},
+                        {value: {{ university_going2.NCAD }}, name: 'NCAD'},
+                        {value: {{ university_going2.RCSI }}, name: 'RCSI'},
+                        {#{value: {{ university_going2.GC }}, name: 'GC'},#}
+                        {#{value: {{ university_going2.Dublin_B_school }}, name: 'Dublin_B_school'},#}
+                        {#{value: {{ university_going2.ICHASciences }}, name: 'ICHASciences'},#}
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
             },
             {
-                name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University'],
-                data: [
-                    'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University',
-                    {value: 97, name: 'UCD'},
-                    {value: 33, name: 'TCD'},
-                    {value: 9, name: 'DCU'},
-                    {value: 1, name: 'UL'},
-                    {value: 3, name: 'Maynooth University'},
-                    {value: 2, name: 'UCC'},
-                ]
+                {% if university_going2 %}
+                    name: ['UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG'],
+                    data: [
+                        'UCD', 'TCD', 'DCU', 'UCC', 'UL', 'Maynooth University', 'NUIG',
+                        {value: {{ university_going2.UCD }}, name: 'UCD'},
+                        {value: {{ university_going2.TCD }}, name: 'TCD'},
+                        {value: {{ university_going2.DCU }}, name: 'DCU'},
+                        {value: {{ university_going2.UL }}, name: 'UL'},
+                        {value: {{ university_going2.UCC }}, name: 'UCC'},
+                        {value: {{ university_going2.Maynooth_University }}, name: 'Maynooth University'},
+                        {value: {{ university_going2.NUIG }}, name: 'NUIG'},
+                    ],
+                {% else %}
+                    name: [''],
+                    data: ['',
+                        {value: 0, name: 'No Information'}]
+                {% endif %}
             },
         ],
     };

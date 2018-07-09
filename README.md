@@ -1,6 +1,7 @@
 # Schools-Repo
 
-week4
+Go to  Https://ucd-nlmsc-teamproject.github.io/SchoolBestChoice.github.io/
+to view the first blog content : the interim report
 
 ## 1. SETTING ENV VARIABLE
 

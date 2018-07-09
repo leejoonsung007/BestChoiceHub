@@ -1,0 +1,709 @@
+name official_school_name	Address 1	Address 2	Address 3	Address 4	Address 42	County
+Loreto Secondary School	Loreto Secondary School Balbriggan	Balbriggan	Co Dublin			"Balbriggan, Co Dublin"	Dublin
+St Marys Secondary School	Saint Mary?s School For Girls	Baldoyle	Dublin 13			"Baldoyle, Dublin 13"	Dublin
+Blackrock College	Blackrock College	Rock Road	Blackrock	Co. Dublin		"Rock Road, Blackrock, Co. Dublin"	Dublin
+Willow Park School	Willow Park School	Rock Road	Blackrock	Co Dublin		"Rock Road, Blackrock, Co Dublin"	Dublin
+Coláiste Eoin	Coláiste Eoin	Baile an Bhóthair	Bóthair Stigh Lorgan	Co Atha Cliath		"Baile an Bhóthair, Bóthair Stigh Lorgan, Co Atha Cliath"	Dublin
+Coláiste Íosagáin	Coláiste Íosagáin	Bóthar Stigh Lorgan	Baile an Bhóthair	Co Átha Cliath		"Bóthar Stigh Lorgan, Baile an Bhóthair, Co Átha Cliath"	Dublin
+Oatlands College	Oatlands College	Mount Merrion	Co Dublin			"Mount Merrion, Co Dublin"	Dublin
+Dominican College	Dominican College Sion Hill	Sion Hill	Blackrock	Co Dublin		"Sion Hill, Blackrock, Co Dublin"	Dublin
+Rockford Manor Secondary School	Rockford Manor Secondary School	Stradbrook Rd	Blackrock	Co Dublin		"Stradbrook Rd, Blackrock, Co Dublin"	Dublin
+Rathdown School	Rathdown School	Upper Glenageary Road	Glenageary	Co. Dublin		"Upper Glenageary Road, Glenageary, Co. Dublin"	Dublin
+Clonkeen College	Clonkeen College	Clonkeen Road	Blackrock	Co Dublin		"Clonkeen Road, Blackrock, Co Dublin"	Dublin
+Castleknock College	Castleknock College	Castleknock	Dublin 15			"Castleknock, Dublin 15"	Dublin
+Mount Sackville Secondary School	Mount Sackville Secondary School	Chapelizod	Dublin 20			"Chapelizod, Dublin 20"	Dublin
+Moyle Park College	Moyle Park College	Clondalkin	Dublin 22			"Clondalkin, Dublin 22"	Dublin
+Coláiste Bríde	Coláiste Bríde	New Road	Clondalkin	Dublin 22		"New Road, Clondalkin, Dublin 22"	Dublin
+Loreto Abbey Secondary School	Loreto Abbey Dalkey	Dalkey	Co Dublin			"Dalkey, Co Dublin"	Dublin
+Mount Anville Secondary School	Mount Anville Secondary School	Mount Anville Rd	Dublin 14			"Mount Anville Rd, Dublin 14"	Dublin
+Notre Dame Secondary School	Notre Dame School	Upper Churchtown Road	Dublin 14			"Upper Churchtown Road, Dublin 14"	Dublin
+Christian Brothers College	Christian Brothers College	Monkstown Park	Dun Laoghaire	Co Dublin		"Monkstown Park, Dun Laoghaire, Co Dublin"	Dublin
+Loreto College Foxrock	Loreto College	Foxrock	Dublin 18			"Foxrock, Dublin 18"	Dublin
+Holy Child Secondary School	Holy Child Secondary School	Military Road	Killiney	Co. Dublin		"Military Road, Killiney, Co. Dublin"	Dublin
+St Joseph Of Cluny Secondary School	St Joseph of Cluny Secondary School	Bellevue Park	Ballinclea Rd	Killiney	Co Dublin	"Bellevue Park, Ballinclea Rd, Killiney, Co Dublin"	Dublin
+St Benildus College	St. Benildus College	Upper Kilmacud Rd	Stillorgan	Blackrock	Co Dublin	"Upper Kilmacud Rd, Stillorgan, Blackrock, Co Dublin"	Dublin
+St Laurence College	St Laurence College	Loughlinstown	Dublin 18			"Loughlinstown, Dublin 18"	Dublin
+St Josephs College	St Josephs College	Lucan	Co Dublin			"Lucan, Co Dublin"	Dublin
+Coláiste Phádraig CBS	Coláiste Phádraig	Roselawn	Lucan	Co Dublin		"Roselawn, Lucan, Co Dublin"	Dublin
+The Kings Hospital	The King?s Hospital School	Palmerstown	Dublin 20			"Palmerstown, Dublin 20"	Dublin
+St Pauls College	St Pauls College	Sybil Hill	Raheny	Dublin 5		"Sybil Hill, Raheny, Dublin 5"	Dublin
+Árdscoil La Salle	Ardscoil La Salle	Raheny Road	Raheny	Dublin 5		"Raheny Road, Raheny, Dublin 5"	Dublin
+Manor House School	Manor House School	Watermill Road	Raheny	Dublin 5		"Watermill Road, Raheny, Dublin 5"	Dublin
+Da La Salle College	"DLS Gym, De Lasalle Sports Centre"	Upper Churchtown Road	Churchtown	Dublin 14		"Upper Churchtown Road, Churchtown, Dublin 14"	Dublin
+St Columba?s College	St. Columba?s College	Whitechurch	Dublin 16			"Whitechurch, Dublin 16"	Dublin
+Rockbrook Park School	Rockbrook Park School	Edmondstown Road	Rathfarnham	Dublin 16		"Edmondstown Road, Rathfarnham, Dublin 16"	Dublin
+Loreto High School	Loreto High School Beaufort	Beaufort	Grange Rd	Rathfarnham	Dublin 14	"Beaufort, Grange Rd, Rathfarnham, Dublin 14"	Dublin
+Sancta Maria College	Sancta Maria College	Ballyroan Crescent	Rathfarnham	Dublin 16		"Ballyroan Crescent, Rathfarnham, Dublin 16"	Dublin
+Coláiste Éanna	Coláiste Éanna	Ballyroan	Dublin16			"Ballyroan, Dublin16"	Dublin
+St Joseph?s Secondary School	St Joseph?s Secondary School	Convent Lane	Rush	Co. Dublin		"Convent Lane, Rush, Co. Dublin"	Dublin
+St Raphaela?s Secondary School	St Raphaelas Secondary School	Upper Kilmacud Road	Stillorgan	Co Dublin		"Upper Kilmacud Road, Stillorgan, Co Dublin"	Dublin
+St. Fintan?s High School	St Fintans High School	Dublin Road	Sutton	Dublin 13		"Dublin Road, Sutton, Dublin 13"	Dublin
+Santa Sabina Dominican College	Santa Sabina Dominican College	Greenfield Road	Sutton	Dublin 13		"Greenfield Road, Sutton, Dublin 13"	Dublin
+Sutton Park School	Sutton Park School	St Fintans Road	Sutton	Dublin 13		"St Fintans Road, Sutton, Dublin 13"	Dublin
+Coláiste Choilm	Colaiste Choilm	Dublin Road	Swords	Co Dublin		"Dublin Road, Swords, Co Dublin"	Dublin
+St Josephs C.B.S.	St. Joseph?s CBS Secondary School	Merville Ave	Fairview	Dublin 3		"Merville Ave, Fairview, Dublin 3"	Dublin
+St Vincents C.B.S. Glasnevin	St. Vincent?s Secondary School	Glasnevin	Dublin 11			"Glasnevin, Dublin 11"	Dublin
+C.B.S. James Street	C.B.S James Street	James?s Street	Dublin 8			"James?s Street, Dublin 8"	Dublin
+Árdscoil Rís	Ardscoil Rís Secondary School	Griffith Avenue	Dublin 9			"Griffith Avenue, Dublin 9"	Dublin
+St Pauls C.B.S.	St Pauls CBS	Christian Brothers	Nth Brunswick Street	Dublin 7		"Christian Brothers, Nth Brunswick Street, Dublin 7"	Dublin
+O?Connell School	O?Connell Secondary School	North Richmond Street	Dublin 1			"North Richmond Street, Dublin 1"	Dublin
+Coláiste Mhuire	Coláiste Mhuire	Bothar Rath Tó	Baile Atha Cliath 7			"Bothar Rath Tó, Baile Atha Cliath 7"	Dublin
+"Christian Brothers, Synge St."	Christian Brothers Secondary School	"Synge St.,"	Dublin 8.			"Synge St.,, Dublin 8."	Dublin
+St. David?s C.B.S.	St David?s CBS	Malahide Road	Artane	Dublin 5		"Malahide Road, Artane, Dublin 5"	Dublin
+Meanscoil Iognáid Rís	Drimnagh Castle Primary	Long Mile Road	Walkinstown	Dublin 12		"Long Mile Road, Walkinstown, Dublin 12"	Dublin
+St. Aidan?s C.B.S.	St. Aidan?s CBS	Collins Avenue Ext	Whitehall	Dublin 9		"Collins Avenue Ext, Whitehall, Dublin 9"	Dublin
+C.B.S. Westland Row	CBS Westland Row	Westland Row	Dublin 2			"Westland Row, Dublin 2"	Dublin
+St Declan?s College	St Declan?s College	Nephin Road	Cabra	Dublin 7		"Nephin Road, Cabra, Dublin 7"	Dublin
+Marian College	Marian College	Ballsbridge	Dublin 4			"Ballsbridge, Dublin 4"	Dublin
+St Johns College De La Salle	"St. John?s College, De La Salle"	Le Fanu Rd	Ballyfermot	Dublin 10		"Le Fanu Rd, Ballyfermot, Dublin 10"	Dublin
+Beneavin De La Salle College	Beneavin De La Salle College	Beneavin Road	Finglas	Dublin 11		"Beneavin Road, Finglas, Dublin 11"	Dublin
+Belvedere College S.J	Belvedere College SJ	6 Great Denmark Street	Dublin 1			"6 Great Denmark Street, Dublin 1"	Dublin
+Gonzaga College	Gonzaga College SJ	Sandford Road	Ranelagh	Dublin 6		"Sandford Road, Ranelagh, Dublin 6"	Dublin
+Catholic University School	Catholic University School	89 Lower Leeson Street	Dublin 2			"89 Lower Leeson Street, Dublin 2"	Dublin
+Chanel College	Chanel College	Coolock Village	Malahide Road	Dublin 5		"Coolock Village, Malahide Road, Dublin 5"	Dublin
+St Marys College	st.marys collage	Rathmines	Dublin 6			"Rathmines, Dublin 6"	Dublin
+St Michaels College	St.Michael?s College	Ailesbury Road	Dublin 4			"Ailesbury Road, Dublin 4"	Dublin
+Templeogue College	Templeogue College	Templeville Road	Dublin 6W			"Templeville Road, Dublin 6W"	Dublin
+Terenure College	Terenure College	Templeogue Road	Terenure	Dublin 6w		"Templeogue Road, Terenure, Dublin 6w"	Dublin
+St Kevins College	St Kevin?s College	Ballygall Rd East	Finglas	Dublin 11		"Ballygall Rd East, Finglas, Dublin 11"	Dublin
+St Conleths College	Saint Conleths College	28 Clyde Road	Ballsbridge	Dublin 4		"28 Clyde Road, Ballsbridge, Dublin 4"	Dublin
+St Kilian?s Deutsche Schule	St Kilian?s German School	Roebuck Road	Clonskeagh	Dublin 14		"Roebuck Road, Clonskeagh, Dublin 14"	Dublin
+Sandford Park School Ltd	Sandford Park School	Sandford Road	Ranelagh	Dublin 6		"Sandford Road, Ranelagh, Dublin 6"	Dublin
+St Andrews College	St. Andrew?s College	Booterstown Ave	Blackrock	Co Dublin		"Booterstown Ave, Blackrock, Co Dublin"	Dublin
+St Patricks Cathedral G.S	St. Patrick?s Cathedral Grammar School	St Patricks Close	Dublin 8			"St Patricks Close, Dublin 8"	Dublin
+The High School	The High School	Zion Road	Rathgar	Dublin 6		"Zion Road, Rathgar, Dublin 6"	Dublin
+Dominican College	Dominican College	Griffith Ave	Drumcondra	Dublin 9		"Griffith Ave, Drumcondra, Dublin 9"	Dublin
+Scoil Chaitriona	Scoil Chaitríona	Bóthar Mobhí	Glasnaíon	Ath Cliath 9		"Bóthar Mobhí, Glasnaíon, Ath Cliath 9"	Dublin
+Muckross Park College	Muckross Park College	Donnybrook	Dublin 4			"Donnybrook, Dublin 4"	Dublin
+Saint Dominic?s Secondary School	St Dominic?s College Ballyfermot	Kylemore Road	Ballyfermot	Dublin 10		"Kylemore Road, Ballyfermot, Dublin 10"	Dublin
+St Dominics College	St Dominic?s College	Cabra	Dublin 7			"Cabra, Dublin 7"	Dublin
+Caritas College	Caritas College	Drumfinn Road	Dublin 10			"Drumfinn Road, Dublin 10"	Dublin
+St Michaels Secondary School	St Michaels Secondary School	Wellmount Road	Finglas	Dublin 11		"Wellmount Road, Finglas, Dublin 11"	Dublin
+Holy Faith Secondary School	Holy Faith Secondary School	1 Belgrove Road	Clontarf	Dublin 3		"1 Belgrove Road, Clontarf, Dublin 3"	Dublin
+St Mary?s Secondary School	ST MARY?S SECONDARY SCHOOL	Holy Faith Convent	Glasnevin	Dublin 11		"Holy Faith Convent, Glasnevin, Dublin 11"	Dublin
+Presentation College	"Presentation Secondary School, Warrenmount"	Warrenmount	Dublin 8			"Warrenmount, Dublin 8"	Dublin
+Loreto College	Loreto College	Crumlin Road	Dublin 12			"Crumlin Road, Dublin 12"	Dublin
+Loreto College	Loreto College	Swords	Co Dublin			"Swords, Co Dublin"	Dublin
+Loreto College	"Loreto College, St. Stephen?s Green"	53 St Stephens Green	Dublin 2			"53 St Stephens Green, Dublin 2"	Dublin
+Maryfield College	Maryfield College	Glandore Road	Drumcondra	Dublin 9		"Glandore Road, Drumcondra, Dublin 9"	Dublin
+Rosary College	Rosary College	Armagh Road	Crumlin	Dublin 12		"Armagh Road, Crumlin, Dublin 12"	Dublin
+St Josephs Secondary School	Stanhope Street Girls (St Joseph?s) Secondary School	Stanhope St	Dublin 7			"Stanhope St, Dublin 7"	Dublin
+Assumption Secondary School	Assumption Secondary School Walkinstown	Walkinstown	Dublin 12			"Walkinstown, Dublin 12"	Dublin
+Mount Carmel Secondary School	Mount Carmel Secondary School	Kings Inn Street	Dublin 1			"Kings Inn Street, Dublin 1"	Dublin
+Our Ladys School	Our Ladys School	Templeogue Rd	Terenure	Dublin 6W		"Templeogue Rd, Terenure, Dublin 6W"	Dublin
+Our Lady Of Mercy College	Our Lady of Mercy College (Secondary School)	Beaumont	Dublin 9			"Beaumont, Dublin 9, "	Dublin
+Mercy College Coolock	Mercy College	St Brendans Drive	Coolock	Dublin 5		"St Brendans Drive, Coolock, Dublin 5"	Dublin
+Mercy Secondary School	Mercy Secondary School	Goldenbridge	Inchicore	Dublin 8		"Goldenbridge, Inchicore, Dublin 8"	Dublin
+St Louis High School	St Louis High School	Charleville Road	Rathmines	Dublin 6		"Charleville Road, Rathmines, Dublin 6"	Dublin
+Jesus and Mary College	"Jesus and Mary College, Our Lady?s Grove"	Our Lady?s Grove	Goatstown Road	Dublin 14		"Our Lady?s Grove, Goatstown Road, Dublin 14"	Dublin
+The Teresian School	The Teresian Junior School	12 Stillorgan Road	Donnybrook	Dublin 4		"12 Stillorgan Road, Donnybrook, Dublin 4"	Dublin
+St Pauls Secondary School	St Pauls Secondary School	Greenhills	Dublin 12			"Greenhills, Dublin 12"	Dublin
+Alexandra College	Alexandra College	Milltown	Dublin 6			"Milltown, Dublin 6"	Dublin
+Rosemont School	Rosemont School	Enniskerry Road	Sandyford	Dublin 18		"Enniskerry Road, Sandyford, Dublin 18"	Dublin
+Our Lady Of Mercy Secondary School	Our Lady of Mercy Secondary School	Mourne Road	Drimnagh	Dublin 12		"Mourne Road, Drimnagh, Dublin 12"	Dublin
+Wesley College	Wesley College	Ballinteer	Dublin 16			"Ballinteer, Dublin 16, "	Dublin
+Stratford College	Stratford College	1 Zion Road	Rathgar	Dublin 6		"1 Zion Road, Rathgar, Dublin 6"	Dublin
+St Clare?s College	St Clares College	Ballyjamesduff	Co. Cavan			"Ballyjamesduff, Co. Cavan"	Cavan
+St Patrick?s College	St Patrick?s College	Cavan	Co. Cavan			"Cavan, Co. Cavan"	Cavan
+Loreto College	Loreto College	Cavan	Co. Cavan			"Cavan, Co. Cavan"	Cavan
+Royal School Cavan	Royal School	College Street	Cavan	Co. Cavan		"College Street, Cavan, Co. Cavan"	Cavan
+St Mary?s Academy CBS	St Marys Academy CBS	Station Rd	Carlow			"Station Rd, Carlow"	Carlow
+St Mary?s Knockbeg College	St Marys Knockbeg College	Knockbeg	Co. Carlow			"Knockbeg, Co. Carlow"	Carlow
+St. Leo?s College	St Leo?s College	Dublin Road	Carlow			"Dublin Road, Carlow"	Carlow
+Presentation College	Presentation College Carlow	Askea	Carlow	Co. Carlow		"Askea, Carlow, Co. Carlow"	Carlow
+Presentation / De La Salle College	Presentation De La Salle College	Royal Oak Road	Muine Bheag	Co. Carlow		"Royal Oak Road, Muine Bheag, Co. Carlow"	Carlow
+St. Joseph?s Secondary School	St Josephs Secondary School	Doon Road	Ballybunion	Co. Kerry		"Doon Road, Ballybunion, Co. Kerry"	Kerry
+Meanscoil Phadraig Naofa	Colaiste Phadraig Naofa	Castleisland	Co Kerry			"Castleisland, Co Kerry"	Kerry
+Mean Scoil Naomh Ioseph	Presentation Secondary School Castleisland	Clochar na Toirbhirte	Castleisland	Co Kerry		"Clochar na Toirbhirte, Castleisland, Co Kerry"	Kerry
+Coláiste Íde	Coláiste Íde	Baile an Ghóilín	Daingean Uí Chúis	Co Chiarraí		"Baile an Ghóilín, Daingean Uí Chúis, Co Chiarraí"	Kerry
+St. Brendan?s College	St. Brendan?s College	Cill Airne	Co Chiarraí			"Cill Airne, Co Chiarraí"	Kerry
+St. Brigid?s Secondary School	St Brigids Secondary School (Presentation College)	New Street	Killarney	Co. Kerry		"New Street, Killarney, Co. Kerry"	Kerry
+The Intermediate School	Killorglin Intermediate School	Iveragh Road	Killorglin	Co. Kerry		"Iveragh Road, Killorglin, Co. Kerry"	Kerry
+St. Michael?s College	St. Michael?s College	Listowel	Co. Kerry			"Listowel, Co. Kerry"	Kerry
+Presentation Secondary School	Presentation Secondary School	Listowel	Co Kerry			"Listowel, Co Kerry"	Kerry
+Presentation Secondary School	Presentation Secondary School	Miltown	Killarney	Co Kerry		"Miltown, Killarney, Co Kerry"	Kerry
+C.B.S. Secondary School	Christian Brothers Secondary School	The Green	Tralee	Co. Kerry		"The Green, Tralee, Co. Kerry"	Kerry
+Presentation Secondary School	Presentation Secondary School	Tralee	Co Kerry			"Tralee, Co Kerry"	Kerry
+Coláiste Éamann Rís	Edmund Rice College	Callan	Co Kilkenny			"Callan, Co Kilkenny"	Kilkenny
+St. Brigid?s College	St Brigids College	Callan	Co. Kilkenny			"Callan, Co. Kilkenny"	Kilkenny
+Meánscoil na mBráithre Criostaí	Mean Scoil na mBraithre Criostai	Sráid Shéamais	Cill Channaigh			"Sráid Shéamais, Cill Channaigh"	Kilkenny
+St Kieran?s College	St Kieran?s College	Secondary School	College Rd	Kilkenny		"Secondary School, College Rd, Kilkenny"	Kilkenny
+Kilkenny College	Kilkenny College	Castlecomer Road	Kilkenny			"Castlecomer Road, Kilkenny"	Kilkenny
+Loreto Secondary School	Loreto Secondary School	Granges Road	Kilkenny			"Granges Road, Kilkenny"	Kilkenny
+Presentation Secondary School	Presentation Secondary School	Loughboy	Kilkenny			"Loughboy, Kilkenny"	Kilkenny
+Salesian College	Salesian College	Celbridge	Co. Kildare			"Celbridge, Co. Kildare"	Kildare
+Newbridge College	Newbridge College	Newbridge	Co. Kildare			"Newbridge, Co. Kildare"	Kildare
+Patrician Secondary School	Patrician Secondary School	Newbridge	Co Kildare			"Newbridge, Co Kildare"	Kildare
+Holy Family Secondary School	Holy Family Secondary School for Girls	Newbridge	Co. Kildare			"Newbridge, Co. Kildare"	Kildare
+Cross And Passion College	Cross & Passion College	Kilcullen	Co Kildare			"Kilcullen, Co Kildare"	Kildare
+Scoil Dara	Scoil Dara	Church St	Kilcock	Co Kildare		"Church St, Kilcock, Co Kildare"	Kildare
+St Pauls Secondary School	St Paul?s Secondary School	Monasterevin	Co Kildare			"Monasterevin, Co Kildare"	Kildare
+Meánscoil Iognáid Ris	Meánscoil Iognáid Rís	Naas	Co Kildare			"Naas, Co Kildare"	Kildare
+Clongowes Wood College	Clongowes Wood College SJ	Clane	Co Kildare			"Clane, Co Kildare"	Kildare
+Coláiste Naomh Mhuire	St Marys College	Convent Of Mercy	Sallins Rd.	Naas	Co Kildare	"Convent Of Mercy, Sallins Rd., Naas, Co Kildare"	Kildare
+Arklow CBS	St Kevins Arklow CBS	Coolgreaney Road	Arklow	Co Wicklow		"Coolgreaney Road, Arklow, Co Wicklow"	Wicklow
+St Marys College	St Mary?s College	St Mary?s Rd	Arklow	Co Wicklow		"St Mary?s Rd, Arklow, Co Wicklow"	Wicklow
+Woodbrook College	Woodbrook College	Woodbrook	Bray	Co Wicklow		"Woodbrook, Bray, Co Wicklow"	Wicklow
+Presentation College	Presentation College	Putland Road	Bray	Co. Wicklow		"Putland Road, Bray, Co. Wicklow"	Wicklow
+St Gerard?s School	St Gerard?s School	Thornhill Road	Bray			"Thornhill Road, Bray"	Wicklow
+Loreto Secondary School	Loreto Secondary School	Vevay Rd	Bray	Co Wicklow		"Vevay Rd, Bray, Co Wicklow"	Wicklow
+St David?s Holy Faith Secondary	Saint David?s Holy Faith	Co-Educational School	Greystones	Co Wicklow		"Co-Educational School, Greystones, Co Wicklow"	Wicklow
+Dominican College	Dominican College	Wicklow	Co. Wicklow			"Wicklow, Co. Wicklow"	Wicklow
+Rice College	Rice College	New Road	Ennis	Co Clare		"New Road, Ennis, Co Clare"	Clare
+St Flannan?s College	Saint Flannans College	Ennis	Co Clare			"Ennis, Co Clare"	Clare
+Coláiste Mhuire	Colaiste Muire	College Road	Ennis	Co Clare		"College Road, Ennis, Co Clare"	Clare
+Meánscoil Na mBráithre	"CBS Secondary School, Ennistymon"	Ennistymon	Co. Clare			"Ennistymon, Co. Clare"	Clare
+Scoil Mhuire	Scoil Mhuire	Ennistymon	Co Clare			"Ennistymon, Co Clare"	Clare
+Mary Immaculate Secondary School	Mary Immaculate Secondary School	Lisdoonvarna	Co Clare			"Lisdoonvarna, Co Clare"	Clare
+St. Joseph?s Secondary School	Saint Joseph?s Secondary School	Spanish Point	Miltown Malbay	Co Clare		"Spanish Point, Miltown Malbay, Co Clare"	Clare
+St. Joseph?s Secondary School	"St Joseph?s Secondary School, Tulla"	Tulla	Co. Clare			"Tulla, Co. Clare"	Clare
+Árdscoil Uí Urmoltaigh	Bandon	Droichead na Bandan	Co Chorcaí			"Droichead na Bandan, Co Chorcaí"	Cork
+Bandon Grammar School	Bandon Grammar School	Bandon	Co Cork			"Bandon, Co Cork"	Cork
+Coláiste Na Toirbhirte	Coláiste na Toirbhirte (Presentation College)	Árd Aoibhinn	Bandon	Co Cork		"Árd Aoibhinn, Bandon, Co Cork"	Cork
+Scoil Mhuire gan Smal	Scoil Mhuire Gan Smal	Blarney	Co Cork			"Blarney, Co Cork"	Cork
+Coláiste An Chroí Naofa	Colaiste An Chroi Naofa	Carraig na bhFear	Co Chorcaí			"Carraig na bhFear, Co Chorcaí"	Cork
+St Aloysius College	St Aloysius College	Carrigtwohill	Co Cork			"Carrigtwohill, Co Cork"	Cork
+Sacred Heart Secondary School	Sacred Heart Secondary School Clonakilty	Convent of Mercy	Clonakilty	Co. Cork		"Convent of Mercy, Clonakilty, Co. Cork"	Cork
+Coláiste Muire	Colaiste Muire	Bishop?s St	Cobh	Co Cork		"Bishop?s St, Cobh, Co Cork"	Cork
+Colaiste Muire	Colaiste Muire Crosshaven	Crosshaven	Co. Cork			"Crosshaven, Co. Cork"	Cork
+Nagle Rice Secondary School	Nagle Rice Secondary School	Doneraile	Co. Cork			"Doneraile, Co. Cork"	Cork
+Coláiste Cholmáin	St Colmans College	Mainistir Fhearmuí	Co Chorcai			"Mainistir Fhearmuí, Co Chorcai"	Cork
+Loreto Secondary School	Loreto Secondary School	Fermoy	Co Cork			"Fermoy, Co Cork"	Cork
+Scoil Mhuire	Scoil Mhuire Kanturk	Kanturk	Co Cork			"Kanturk, Co Cork"	Cork
+Colaiste An Phiarsaigh	Coláiste an Phiarsaigh	Gleann Maghair	Corcaigh			"Gleann Maghair, Corcaigh"	Cork
+De La Salle College	De La Salle College	Macroom	Co Cork			"Macroom, Co Cork"	Cork
+St Mary?S Secondary School	St. Mary?s Secondary School	Convent Of Mercy	Macroom	Co. Cork		"Convent Of Mercy, Macroom, Co. Cork"	Cork
+Patrician Academy	Patrician Academy	Mallow	Co Cork			"Mallow, Co Cork"	Cork
+St Mary?s Secondary School	St Mary?s Secondary School	Convent Of Mercy	Mallow	Co Cork		"Convent Of Mercy, Mallow, Co Cork"	Cork
+Christian Brothers Secondary School	Christian Brothers Secondary School	Castleredmond	Midleton	Co Cork		"Castleredmond, Midleton, Co Cork"	Cork
+Midleton College	Midleton College	Midleton	Co Cork			"Midleton, Co Cork"	Cork
+St Mary?s High School	St. Mary?s High School	Midleton	Co Cork			"Midleton, Co Cork"	Cork
+Christian Brothers Secondary School	Christian Brothers Secondary School	Mitchelstown	Co Cork			"Mitchelstown, Co Cork"	Cork
+Presentation Secondary School	Presentation Secondary School	Mitchelstown	Co Cork			"Mitchelstown, Co Cork"	Cork
+Scoil na mBráithre Chríostaí	Scoil na mBraithre	Bakers Road	Charleville	Co Cork		"Bakers Road, Charleville, Co Cork"	Cork
+St Francis Capuchin College	St Francis Capuchin College	Rochestown	Co Cork			"Rochestown, Co Cork"	Cork
+Mount St Michael	Mount Saint Michael?s Secondary School	Rosscarbery	Co Cork			"Rosscarbery, Co Cork"	Cork
+Christian Brothers College	Christian Brother?s College Cork	Sidney Hill	Wellington Road	Cork.		"Sidney Hill, Wellington Road, Cork."	Cork
+North Monastery Secondary School	North Monastery Secondary School	Our Lady?s Mount	North Monastery Rd.	Cork		"Our Lady?s Mount, North Monastery Rd., Cork"	Cork
+Gaelcholáiste Mhuire	"Gaelcholáiste Mhuire, A.G. North Monastery"	An Mhainistir Thuaidh	Corcaigh			"An Mhainistir Thuaidh, Corcaigh"	Cork
+Deerpark C.B.S.	Deerpark C.B.S.	St Patrick?s Road	Cork			"St Patrick?s Road, Cork"	Cork
+Coláiste Chríost Rí	Colaiste Chriost Ri	Capwell Road	Cork			"Capwell Road, Cork"	Cork
+Presentation Brothers College	Presentation Brothers College	The Mardyke	Cork			"The Mardyke, Cork"	Cork
+Coláiste An Spioraid Naoimh	Coláiste an Spioraid Naoimh	Bishopstown	Cork			"Bishopstown, Cork"	Cork
+St Vincent?s Secondary School	St Vincents Secondary School	St Mary?s Road	Cork			"St Mary?s Road, Cork"	Cork
+North Presentation Secondary School	North Presentation Secondary School	Farranree	Cork			"Farranree, Cork"	Cork
+St Aloysius School	St Maries of the Isle National School	St Maries Of The Isle	Sharman Crawford Street	Cork		"St Maries Of The Isle, Sharman Crawford Street, Cork"	Cork
+St. Angela?s College	ST.Angelas College	St Patrick?s Hill	Cork			"St Patrick?s Hill, Cork, "	Cork
+Ursuline Secondary School	Ursuline Girls Secondary School	Blackrock	Cork			"Blackrock, Cork, "	Cork
+Mount Mercy College	Mount Mercy College	Model Farm Road	Cork			"Model Farm Road, Cork, "	Cork
+Scoil Mhuire	Scoil Mhuire Junior School	2 Sidney Place	Wellington Road	Cork		"2 Sidney Place, Wellington Road, Cork"	Cork
+Regina Mundi College	Regina Mundi College	Douglas Road	Cork			"Douglas Road, Cork"	Cork
+Christ King Girls? Secondary School	Christ King Girls Secondary School	Half Moon Lane	South Douglas Road	Cork		"Half Moon Lane, South Douglas Road, Cork"	Cork
+Presentation Secondary School	Presentation Secondary School	Ballyphehane	Cork			"Ballyphehane, Cork"	Cork
+St Patricks College	St Patricks College	Gardiner?s Hill	Cork			"Gardiner?s Hill, Cork"	Cork
+Scoil Mhuire Secondary School	Scoil Mhuire Buncrana	St. Oran?s Road	Buncrana	Co. Donegal		"St. Oran?s Road, Buncrana, Co. Donegal"	Donegal
+St Eunan?s College	St Eunan?s College	Letterkenny	Co Donegal			"Letterkenny, Co Donegal"	Donegal
+Loreto Secondary School	Loreto Convent Letterkenny	Letterkenny	Co Donegal			"Letterkenny, Co Donegal"	Donegal
+St Columbas College	St Columba?s College	Stranorlar	Co. Donegal			"Stranorlar, Co. Donegal"	Donegal
+Presentation College	Presentation College	Athenry	Co Galway			"Athenry, Co Galway"	Galway
+Colaiste Sheosaimh	Garbally College	Gearrbhaile	Beál Áth na Slua	Co na Gaillimhe		"Gearrbhaile, Beál Áth na Slua, Co na Gaillimhe"	Galway
+Ardscoil Mhuire	Ard Scoil Mhuire ballinasloe	Mackney	Ballinasloe	Co Galway		"Mackney, Ballinasloe, Co Galway"	Galway
+Coláiste Mhuire	Colaiste Mhuire	Ballygar	Co. Galway			"Ballygar, Co. Galway"	Galway
+St. Cuan?s College	St Cuans College	Castleblakney	Ballinasloe	Co Galway		"Castleblakney, Ballinasloe, Co Galway"	Galway
+St Joseph?s College	Saint Joseph?s Patrician College - The Bish	Nun?s Island	Galway			"Nun?s Island, Galway"	Galway
+Coláiste Iognáid S.J.	Coláiste Iognáid (The Jes)	Br. Na Mara	Gaillimh			"Br. Na Mara, Gaillimh"	Galway
+St. Mary?s College	St Marys College	St. Mary?s Road	Galway			"St. Mary?s Road, Galway"	Galway
+Coláiste Einde	Coláiste Éinde - St. Enda?s College	Threadneedle Road	Galway			"Threadneedle Road, Galway"	Galway
+Dominican College	Dominican College	Taylors Hill	Galway			"Taylors Hill, Galway"	Galway
+Jesus & Mary Secondary School	Salerno Secondary School	Salerno Secondary School	Threadneedle Rd	Salthill	Galway	"Salerno Secondary School, Threadneedle Rd, Salthill, Galway"	Galway
+Presentation College	Presentation College	Headford	Co. Galway			"Headford, Co. Galway"	Galway
+Seamount College	Seamount College	Kinvara	Co Galway			"Kinvara, Co Galway"	Galway
+St Raphaels College	St Raphaels College	Loughrea	Co Galway			"Loughrea, Co Galway"	Galway
+Holy Rosary College	Holy Rosary College	Mountbellew	Co Galway			"Mountbellew, Co Galway"	Galway
+Calasanctius College	Calasanctius College	Oranmore	Co Galway			"Oranmore, Co Galway"	Galway
+St Pauls	St Pauls Secondary School	Oughterard	Co Galway			"Oughterard, Co Galway"	Galway
+Colaiste Chroi Mhuire	Coláiste Chroí Mhuire	An Spideal	Co Na Gaillimhe			"An Spideal, Co Na Gaillimhe"	Galway
+St. Brigid?s School	St Brigids School	Convent Of Mercy	Tuam	Co. Galway		"Convent Of Mercy, Tuam, Co. Galway"	Galway
+Presentation College	Presentation College	Currylea	Tuam	Co Galway		"Currylea, Tuam, Co Galway"	Galway
+Mercy College	Mercy College	Woodford	Co Galway			"Woodford, Co Galway"	Galway
+Marist College	Marist College	Retreat Road	Athlone	Co. Westmeath		"Retreat Road, Athlone, Co. Westmeath"	Westmeath
+Our Lady?s Bower	Our Lady?s Bower Convent	Retreat Rd.	Athlone	Co Westmeath		"Retreat Rd., Athlone, Co Westmeath"	Westmeath
+Meán Scoil an Chlochair	Scoil an Chlochair	Kilbeggan	Mullingar	Co Westmeath		"Kilbeggan, Mullingar, Co Westmeath"	Westmeath
+"Colaiste Mhuire,"	Coláiste Mhuire	Mullingar	Co. Westmeath			"Mullingar, Co. Westmeath"	Westmeath
+St Finian?s College	St Finians College	Mullingar	Co Westmeath			"Mullingar, Co Westmeath"	Westmeath
+Loreto College	Loreto College	Mullingar	Co Westmeath			"Mullingar, Co Westmeath"	Westmeath
+Wilson?s Hospital School	Wilson?s Hospital School	Multyfarnham	Co Westmeath			"Multyfarnham, Co Westmeath"	Westmeath
+St Joseph?s Secondary School	St Josephs Secondary School	Rochfortbridge	Co. Westmeath			"Rochfortbridge, Co. Westmeath"	Westmeath
+St. Mary?s C.B.S.	St. Mary?s CBS	Borris Road	Portlaoise	Co. Laois		"Borris Road, Portlaoise, Co. Laois"	Laois
+Scoil Chriost Ri	Scoil Chriost Ri	Presentation Secondary School	Borris Road	Portlaoise	Co Laois	"Presentation Secondary School, Borris Road, Portlaoise, Co Laois"	Laois
+F.C.J. Secondary School	FCJ Secondary School	Bunclody	Enniscorthy	Co Wexford		"Bunclody, Enniscorthy, Co Wexford"	Wexford
+St. Mary?s C.B.S.	St Marys CBS	Millpark Road	Enniscorthy	Co Wexford		"Millpark Road, Enniscorthy, Co Wexford"	Wexford
+Coláiste Bríde	"Coláiste Bríde, Enniscorthy"	Enniscorthy	Co Wexford			"Enniscorthy, Co Wexford"	Wexford
+Christian Brothers Secondary School	Christian Brothers Secondary School	Mountgarrett	New Ross	Co Wexford		"Mountgarrett, New Ross, Co Wexford"	Wexford
+Good Counsel College	Good Counsel College	New Ross	Co Wexford			"New Ross, Co Wexford"	Wexford
+St. Mary?s Secondary School	St Marys Secondary School	Irishtown	New Ross	Co Wexford		"Irishtown, New Ross, Co Wexford"	Wexford
+Our Lady of Lourdes Secondary School	Our Lady Of Lourdes Secondary School	Rosbercon	New Ross	Co Wexford		"Rosbercon, New Ross, Co Wexford"	Wexford
+Christian Brothers Secondary School	Wexford CBS	Thomas St	Wexford			"Thomas St, Wexford"	Wexford
+St Peter?s College	Saint Peter?s College Secondary School	Secondary School	Summerhill	Wexford		"Secondary School, Summerhill, Wexford"	Wexford
+Loreto Secondary School	Loreto Secondary School	Spawell Road	Wexford	Co Wexford		"Spawell Road, Wexford, Co Wexford"	Wexford
+Presentation Secondary School	Presentation Secondary School	Grogan?s Road	Wexford	Co. Wexford		"Grogan?s Road, Wexford, Co. Wexford"	Wexford
+Mercy Secondary School	Mercy Secondary School	Ballymahon	Co Longford			"Ballymahon, Co Longford"	Longford
+Cnoc Mhuire	Cnoc Mhuire Secondary School	Granard	Longford			"Granard, Longford"	Longford
+St. Mel?s College	St Mels College	Longford	Co. Longford			"Longford, Co. Longford"	Longford
+Meán Scoil Muire	Mean Scoil Mhuire	Convent Road	Longford Town	Co. Longford		"Convent Road, Longford Town, Co. Longford"	Longford
+St. Joseph?s C.B.S.	St Josephs Secondary School	Newfoundwell Rd	Drogheda	Co Louth		"Newfoundwell Rd, Drogheda, Co Louth"	Louth
+St Mary?s Diocesan School	Saint Mary?s Diocesan School	Beamore Road	Drogheda	Co. Louth		"Beamore Road, Drogheda, Co. Louth"	Louth
+Our Lady?s College	Our Lady?s College	Greenhills	Drogheda	Co Louth		"Greenhills, Drogheda, Co Louth"	Louth
+Sacred Heart Secondary School	Sacred Heart Secondary School	Sunnyside	Drogheda	Co Louth		"Sunnyside, Drogheda, Co Louth"	Louth
+Drogheda Grammar School	Drogheda Grammar School	Mornington Rd	Drogheda	Co Louth		"Mornington Rd, Drogheda, Co Louth"	Louth
+Colaiste Rís	Coláiste Rís	Sraid an tSéipéil	Dún Dealgan	Co Lú		"Sraid an tSéipéil, Dún Dealgan, Co Lú"	Louth
+St Mary?s College	St Mary?s College	Nicholas Street	Dundalk	Co Louth		"Nicholas Street, Dundalk, Co Louth"	Louth
+De La Salle College	De La Salle College	Castleblaney Road	Dundalk	Co. Louth		"Castleblaney Road, Dundalk, Co. Louth"	Louth
+St Vincent?s Secondary School	St Vincent?s Secondary School	Seatown Place	Dundalk	Co. Louth		"Seatown Place, Dundalk, Co. Louth"	Louth
+St Louis Secondary School	St Louis Secondary School	Dun Lughaidh	Dundalk	Co Louth		"Dun Lughaidh, Dundalk, Co Louth"	Louth
+Dundalk Grammar School	Dundalk Grammar School	The Crescent	Dundalk	Co Louth		"The Crescent, Dundalk, Co Louth"	Louth
+Scoil Pól	Scoil Pol	Kilfinane	Co. Limerick			"Kilfinane, Co. Limerick"	Limerick
+Glenstal Abbey School	Glenstal Abbey School	Murroe	Co Limerick			"Murroe, Co Limerick"	Limerick
+Scoil Mhuire & Íde	Scoil Mhuire agus Ide	Newcastle West	Co Limerick			"Newcastle West, Co Limerick"	Limerick
+Salesian Secondary College	Salesian Secondary College	Pallaskenry	Co Limerick			"Pallaskenry, Co Limerick"	Limerick
+Colaiste Mhichil	Coláiste Nano Nagle	Sexton Street	Limerick			"Sexton Street, Limerick"	Limerick
+Ardscoil Ris	Ardscoil Mhuire	North Circular Rd	Limerick			"North Circular Rd, Limerick"	Limerick
+St Clements College	St Clements Redemptorist College	Laurel Hill Avenue	South Circular Road	Limerick		"Laurel Hill Avenue, South Circular Road, Limerick"	Limerick
+St Munchin?s College	St Munchin?s College	Corbally	Limerick			"Corbally, Limerick"	Limerick
+Laurel Hill Secondary School FCJ	Laurel Hill Secondary School	Laurel Hill	South Circular Road	Limerick		"Laurel Hill, South Circular Road, Limerick"	Limerick
+Ardscoil Mhuire	Ardscoil Mhuire	Corbally	Limerick			"Corbally, Limerick"	Limerick
+Villiers Secondary School	Villiers Secondary School	North Circular Road	Limerick			"North Circular Road, Limerick"	Limerick
+St Patrick?s Classical School	St Patricks Classical School	Moatlands	Navan	Co Meath		"Moatlands, Navan, Co Meath"	Meath
+"St. Joseph?s Secondary School, Navan,"	St Josephs Mercy Secondary School	Brew?s Hill	Navan	Co Meath		"Brew?s Hill, Navan, Co Meath"	Meath
+Loreto Secondary School	Loreto Secondary School	St Michaels	Navan	Co Meath		"St Michaels, Navan, Co Meath"	Meath
+Eureka Secondary School	Eureka Secondary School	Kells	Co. Meath			"Kells, Co. Meath"	Meath
+Franciscan College	Franciscan College	Gormanston	Co Meath			"Gormanston, Co Meath"	Meath
+Scoil Mhuire	Scoil Mhuire	Convent Of Mercy	Trim	Co Meath		"Convent Of Mercy, Trim, Co Meath"	Meath
+Balla Secondary School	Balla Secondary School	Balla	Castlebar	Co Mayo		"Balla, Castlebar, Co Mayo"	Mayo
+St Muredachs College	St. Muredach?s College	Sligo Road	Ballina	Co Mayo		"Sligo Road, Ballina, Co Mayo"	Mayo
+St. Mary?s Secondary School	St. Mary?s Secondary School	Convent of Mercy	Ballina	Co Mayo		"Convent of Mercy, Ballina, Co Mayo"	Mayo
+Our Lady?s Secondary School	Our Lady?s Secondary School	Belmullet	Co Mayo			"Belmullet, Co Mayo"	Mayo
+St. Geralds College	St. Gerald?s College Castlebar	Newport Road	Castlebar	Co. Mayo		"Newport Road, Castlebar, Co. Mayo"	Mayo
+St Joseph?s Secondary School	St Joseph?s Secondary School	Castlebar	Co Mayo			"Castlebar, Co Mayo, "	Mayo
+Coláiste Cholmáin	Colaiste Cholmain	Claremorris	Co Mayo			"Claremorris, Co Mayo, "	Mayo
+Mount St Michael	Mount Saint Michael	Convent of Mercy	Claremorris	Co Mayo		"Convent of Mercy, Claremorris, Co Mayo"	Mayo
+Jesus & Mary Secondary School	"Jesus & Mary Secondary School, Gortnor Abbey"	Gortnor Abbey	Crossmolina	Co Mayo		"Gortnor Abbey, Crossmolina, Co Mayo"	Mayo
+St Joseph?s Secondary School	St Josephs Secondary School	Foxford	Co Mayo			"Foxford, Co Mayo"	Mayo
+Sancta Maria College	Sancta Maria College	Louisburgh	Co Mayo			"Louisburgh, Co Mayo"	Mayo
+Scoil Muire Agus Padraig	Scoil Muire agus Padraig	Swinford	Co Mayo			"Swinford, Co Mayo"	Mayo
+Coláiste Mhuire	Coláiste Muire	Tuar Mhic Éadaigh	Co Mhaigh Eo F12 H766			"Tuar Mhic Éadaigh, Co Mhaigh Eo F12 H766"	Mayo
+Rice College	Rice College	Castlebar Road	Westport	Co Mayo		"Castlebar Road, Westport, Co Mayo"	Mayo
+Sacred Heart School	Sacred Heart School	Westport	Co Mayo			"Westport, Co Mayo"	Mayo
+Patrician High School	Patrician High School	Carrickmacross	Co. Monaghan			"Carrickmacross, Co. Monaghan"	Monaghan
+St Louis Secondary School	Saint Louis Secondary School	Carrickmacross	Co. Monaghan			"Carrickmacross, Co. Monaghan"	Monaghan
+Our Lady?s Secondary School	Our Ladys Secondary School	Castleblayney	Co. Monaghan			"Castleblayney, Co. Monaghan"	Monaghan
+St. Macartan?s College	St Macartan?s College	Monaghan	Co. Monaghan			"Monaghan, Co. Monaghan"	Monaghan
+St. Louis Secondary School	St Louis Secondary School	Monaghan	Co. Monaghan			"Monaghan, Co. Monaghan"	Monaghan
+Monaghan Collegiate School	Monaghan Collegiate School	Corlatt	Monaghan	Co Monaghan		"Corlatt, Monaghan, Co Monaghan"	Monaghan
+Scoil na mBraithre	Dungarvan CBS	Dungarvan	Co Waterford			"Dungarvan, Co Waterford"	Waterford
+St Augustines College	St. Augustine?s College	Abbeyside	Dungarvan	Co Waterford		"Abbeyside, Dungarvan, Co Waterford"	Waterford
+Ard Scoil na nDeise	Ard Scoil na nDeise	Convent Rd	Dungarvan	Co Waterford		"Convent Rd, Dungarvan, Co Waterford"	Waterford
+"C.B.S. Mount Sion, Waterford"	Mount Sion CBS Secondary School	Barrack Street	Waterford			"Barrack Street, Waterford"	Waterford
+Waterpark College	Waterpark	Park Road	Waterford			"Park Road, Waterford"	Waterford
+De La Salle College	De La Salle College	Newtown	Waterford			"Newtown, Waterford"	Waterford
+Presentation Secondary School	Presentation Secondary School	Cannon Street	Waterford			"Cannon Street, Waterford"	Waterford
+Our Lady of Mercy Secondary School	Our Lady of Mercy Secondary School	Ozanam St.	Waterford			"Ozanam St., Waterford"	Waterford
+St Angela?s Secondary School	St Angela?s Ursuline Secondary School	Ursuline Convent	Waterford			"Ursuline Convent, Waterford"	Waterford
+Newtown School	Newtown School	Newtown Road	Waterford City	Co.Waterford		"Newtown Road, Waterford City, Co.Waterford"	Waterford
+C.B.S. Roscommon	Abbeytown	Abbeytown	Roscommon	Co. Roscommon		"Abbeytown, Roscommon, Co. Roscommon"	Roscommon
+Scoil Muire gan Smal	Scoil Muire gan Smal	Convent of Mercy	Roscommon Town			"Convent of Mercy, Roscommon Town"	Roscommon
+Scoil Mhuire	Scoil Mhuire Strokestown	Strokestown	Co Roscommon			"Strokestown, Co Roscommon"	Roscommon
+St Marys College	St Marys College	Ballysadare	Co Sligo			"Ballysadare, Co Sligo"	Sligo
+Coláiste Muire	Colaiste Muire	Ballymote	Co Sligo			"Ballymote, Co Sligo"	Sligo
+Jesus & Mary Secondary School	Jesus and Mary Secondary School	Enniscrone	Co Sligo			"Enniscrone, Co Sligo"	Sligo
+Summerhill College	Summerhill College	Sligo	Co. Sligo			"Sligo, Co. Sligo"	Sligo
+Ursuline College	Ursuline Convent	Finisklin	Sligo			"Finisklin, Sligo"	Sligo
+Mercy College	Mercy College	Chapel Hill	Sligo	Co. Sligo		"Chapel Hill, Sligo, Co. Sligo"	Sligo
+Sligo Grammar School	Sligo Grammar School	The Mall	Sligo			"The Mall, Sligo"	Sligo
+Presentation Secondary School	Scoil Mhuire Presentation Secondary School	Ballingarry	Thurles	Co. Tipperary		"Ballingarry, Thurles, Co. Tipperary"	Tipperary
+St Josephs College	St. Joseph?s College	Borrisoleigh	Thurles	Co Tipperary		"Borrisoleigh, Thurles, Co Tipperary"	Tipperary
+C.B.S.	CBS Carrick-on-Suir	Carrick-On-Suir	Co Tipperary			"Carrick-On-Suir, Co Tipperary"	Tipperary
+Scoil Mhuire	Scoil Mhuire	Greenhill	Carrick-On-Suir	Co Tipperary		"Greenhill, Carrick-On-Suir, Co Tipperary"	Tipperary
+Rockwell College	Rockwell College	Cashel	Co Tipperary			"Cashel, Co Tipperary"	Tipperary
+Árdscoil na mBráithre	Ard Scoil na mBraithre	Clonmel	Co Tipperary			"Clonmel, Co Tipperary"	Tipperary
+Loreto Secondary School	Loreto Secondary School	Coleville Rd.	Clonmel	Co Tipperary		"Coleville Rd., Clonmel, Co Tipperary"	Tipperary
+Presentation Secondary School	Presentation Secondary School	Clonmel	Co Tipperary			"Clonmel, Co Tipperary"	Tipperary
+Patrician Presentation	Patrician Presentation Secondary School	Rocklow Rd.	Fethard	Co Tipperary		"Rocklow Rd., Fethard, Co Tipperary"	Tipperary
+St. Joseph?s C.B.S	St. Joseph?s CBS	Summerhill	Nenagh	Co Tipperary		"Summerhill, Nenagh, Co Tipperary"	Tipperary
+St Mary?s Secondary School	St Marys Secondary School	Nenagh	Co Tipperary			"Nenagh, Co Tipperary"	Tipperary
+St. Mary?s Secondary School	Newport	Newport	Co. Tipperary			"Newport, Co. Tipperary"	Tipperary
+Cistercian College	Cistercian College Roscrea	Roscrea	Co. Tipperary			"Roscrea, Co. Tipperary"	Tipperary
+Our Ladys Secondary School	Our Ladys Secondary School	Templemore	Co. Tipperary			"Templemore, Co. Tipperary, "	Tipperary
+C.B.S. Thurles	Christian Brothers Secondary School	Rossa St	Thurles	Co Tipperary		"Rossa St, Thurles, Co Tipperary"	Tipperary
+Presentation Secondary School	Presentation Secondary School Thurles	Thurles	Co Tipperary			"Thurles, Co Tipperary"	Tipperary
+Ursuline Secondary School	Ursuline Secondary School	Thurles	Co. Tipperary			"Thurles, Co. Tipperary"	Tipperary
+The Abbey School	Abbey School	Station Road	Co. Tipperary			"Station Road, Co. Tipperary"	Tipperary
+St. Anne?s Secondary School	St Annes Secondary School	Convent Of Mercy	Rosanna Road	Tipperary Town		"Convent Of Mercy, Rosanna Road, Tipperary Town"	Tipperary
+St Mary?s Secondary School	St Marys Secondary School	Edenderry	Co Offaly			"Edenderry, Co Offaly, "	Offaly
+Colaiste Choilm	Coláiste Choilm	O?Moore Street	Tulach Mhor	Co. Offaly		"O?Moore Street, Tulach Mhor, Co. Offaly"	Offaly
+Sacred Heart Secondary School	Sacred Heart School	Daingean Road	Tullamore	Co. Offaly		"Daingean Road, Tullamore, Co. Offaly"	Offaly
+Killina Presentation Secondary School	Killina Presentation Secondary School	Rahan	Tullamore	Co Offaly		"Rahan, Tullamore, Co Offaly"	Offaly
+St Nathy?s College	St Nathy?s College	Ballaghaderreen	Co Roscommon			"Ballaghaderreen, Co Roscommon"	Roscommon
+Coláiste Íosagáin	Colaiste Iosagain	Portarlington	Co. Offaly R32 HV25			"Portarlington, Co. Offaly R32 HV25"	Offaly
+Mercy Secondary School Mounthawk	Mercy Mounthawk Secondary School	"Mounthawk,"	"Tralee,"	Co. Kerry		"Mounthawk,, Tralee,, Co. Kerry"	Kerry
+John Scottus Secondary School	John Scottus Secondary School	Old Conna House	Ferndale Road	Rathmichael	Co. Dublin	"Old Conna House, Ferndale Road, Rathmichael, Co. Dublin"	Dublin
+GAEL CHOLAISTE CHILL DARA	Gael Choláiste Chill Dara	Seanbhóthar Luimnigh	Nás na Ríogh		CONTAE CHILL DARA	"Seanbhóthar Luimnigh, Nás na Ríogh, CONTAE CHILL DARA"	Kildare
+St. Jarlaths College	St. Jarlath?s College	TUAM	CO GALWAY			"TUAM, CO GALWAY"	Galway
+MEAN SCOIL NUA AN LEITH TRIUIGH	Meán Scoil Nua an Leith-Triúigh	CAISLEAN GHRIAIRE	CO CHIARRAI			"CAISLEAN GHRIAIRE, CO CHIARRAI"	Kerry
+Árdscoil na Trionóide	Ardscoil na Trionoide	Rathstewart	Athy	Co Kildare		"Rathstewart, Athy, Co Kildare"	Kildare
+Gaelcholáiste Phort Láirge	Gaelcholáiste Phort Láirge	Cuirt an Easpaig	Baile Gunnair	Port Láirge		"Cuirt an Easpaig, Baile Gunnair, Port Láirge"	Waterford
+Meanscoil Gharman	Meanscoil Gharman	Brownswood	Enniscorthy			"Brownswood, Enniscorthy"	Wexford
+Temple Carrig Secondary School	Temple Carrig School	Blacklion	Greystones			"Blacklion, Greystones"	Wicklow
+Coláiste Ghlór na Mara	Coláiste Ghlór na Mara	Bóthar na hÁille	Baile Brigín	Co. Átha Cliath		"Bóthar na hÁille, Baile Brigín, Co. Átha Cliath"	Dublin
+Le Cheile Secondary School	Le Chéile Secondary School	Hollystown Road	Tyrellstown	Dublin 15		"Hollystown Road, Tyrellstown, Dublin 15"	Dublin
+Hansfield Education Together Secondary School	Hansfield Educate Together Secondary School	Hansfield	Barnwell Road	Handsfield	Dublin 15	"Hansfield, Barnwell Road, Handsfield, Dublin 15"	Dublin
+Scoil na Tríonóide Naofa	Scoil Na Tríonóide Naofa	Doon	Co Limerick			"Doon, Co Limerick"	Limerick
+Ard Scoil na Mara	Ardscoil na Mara	Tramore	Tramore			"Tramore, Tramore"	Waterford
+Gaelcholáiste an Phiarsaigh	Gaelcholáiste An Phiarsaigh	Bóthar na Gráinsí	Ráth Fearnáin	Baile Átha Cliath 14		"Bóthar na Gráinsí, Ráth Fearnáin, Baile Átha Cliath 14"	Dublin
+New Cross College	New Cross College	Cappagh	Finglas	Dublin 11		"Cappagh, Finglas, Dublin 11"	Dublin
+Stepaside Educate Together Secondary School	Stepaside Educate Together Secondary School	Belarmine	Stepaside		Dublin 18	"Belarmine, Stepaside, Dublin 18"	Dublin
+North Wicklow Educate Together Secondary School	North Wicklow Educate Together Secondary School	Putland Road	Bray	Co Wicklow		"Putland Road, Bray, Co Wicklow"	Wicklow
+Bremore Educate Together Secondary School	Bremore Educate Together Secondary School	Naul Road	Balbriggan	Co Dublin		"Naul Road, Balbriggan, Co Dublin"	Dublin
+Cork Educate Together Secondary School	Cork Educate Together Secondary School	c/o Nagle Community College	Mahon	Blackrock	Co Cork	"c/o Nagle Community College, Mahon, Blackrock, Co Cork"	Cork
+Edmund Rice College	Edmund Rice College	Carrigaline	Co. Cork			"Carrigaline, Co. Cork"	Cork
+Our Lady?s College	Our Lady?s College Galway	Presentation Road	Galway			"Presentation Road, Galway"	Galway
+Edmund Rice College	Edmund Rice College	Old School of Horology	Mill Road	Blanchardstown	Dublin 15	"Old School of Horology, Mill Road, Blanchardstown, Dublin 15"	Dublin
+Coláiste Chiaráin	Coláiste Chiaráin Athlone	Summerhill	Athlone			"Summerhill, Athlone"	Roscommon
+Balbriggan Community College	Balbriggan Community College	Pine Ridge	Chapel St.	Balbriggan	Co Dublin	"Pine Ridge, Chapel St., Balbriggan, Co Dublin"	Dublin
+Grange Community College	Grange Community College	Grange Road	Donaghmede	Dublin 13		"Grange Road, Donaghmede, Dublin 13"	Dublin
+Coláiste de hÍde	Colaiste de hIde	Br Thish Motháin Thuaidh	Br Chaisleáin Thigh Mótháin	Tamhlacht	Baile Atha Cliath 24	"Br Thish Motháin Thuaidh, Br Chaisleáin Thigh Mótháin, Tamhlacht, Baile Atha Cliath 24"	Dublin
+Deansrath Community College	Deansrath Community College	New Nangor Road	Clondalkin	Dublin 22		"New Nangor Road, Clondalkin, Dublin 22"	Dublin
+Collinstown Park Community College	Collinstown Park Community College	Neilstown Road	Rowlagh	Clondalkin	Dublin 22	"Neilstown Road, Rowlagh, Clondalkin, Dublin 22"	Dublin
+St. Kevin?s Community College	St. Kevin?s Community College	Fonthill Road	Clondalkin	Dublin 22		"Fonthill Road, Clondalkin, Dublin 22"	Dublin
+Lucan Community College	Lucan Community College	Esker Drive	Lucan	Co Dublin		"Esker Drive, Lucan, Co Dublin"	Dublin
+Colaiste Ghleann na hAbhann	Riversdale Community College	Riversdale Community College	Blanchardstown Road North	Dublin 15		"Riversdale Community College, Blanchardstown Road North, Dublin 15"	Dublin
+Coláiste Chilliain	Coláiste Chilliain	Bóthar Nangor	Cluain Dolcáin	Baile Atha Cliath 22		"Bóthar Nangor, Cluain Dolcáin, Baile Atha Cliath 22"	Dublin
+St Finians Community College	St Finian?s Community College	Swords	Co Dublin			"Swords, Co Dublin"	Dublin
+Fingal Community College	Fingal Community College.	Seatown Road	Swords	Co Dublin		"Seatown Road, Swords, Co Dublin"	Dublin
+Greenhills College	"Greenhills College, Dublin - Secondary & Further Education"	Limekiln Avenue	Greenhills	Dublin 12		"Limekiln Avenue, Greenhills, Dublin 12"	Dublin
+Firhouse Community College	Firhouse Community College	Firhouse Road	Dublin 24			"Firhouse Road, Dublin 24, "	Dublin
+Mount Seskin Community College	Mount Seskin Community College	Jobstown	Tallaght	Dublin 24		"Jobstown, Tallaght, Dublin 24"	Dublin
+Cabra Community College	Cabra Community College	Kilkieran Road	Cabra	Dublin 7		"Kilkieran Road, Cabra, Dublin 7"	Dublin
+St. Kevins College	St Kevin?s College	Clogher Road	Crumlin	Dublin 12		"Clogher Road, Crumlin, Dublin 12"	Dublin
+Coláiste Eoin	Coláiste Eoin	Cappagh Road	Finglas West	Dublin 11		"Cappagh Road, Finglas West, Dublin 11"	Dublin
+Ringsend College	Ringsend College	Cambridge Road	Ringsend	Dublin 4		"Cambridge Road, Ringsend, Dublin 4"	Dublin
+Kylemore College	Kylemore Music College	Kylemore Road	Ballyfermot	Dublin 10		"Kylemore Road, Ballyfermot, Dublin 10"	Dublin
+Marino College	Marino College	14-20 Marino Mart	Fairview	Dublin 3		"14-20 Marino Mart, Fairview, Dublin 3"	Dublin
+St Mac Dara?s Community College	St. Mac Dara?s Community College	Wellington Lane	Templeogue	Dublin 6W		"Wellington Lane, Templeogue, Dublin 6W"	Dublin
+Rathmines College	Rathmines College	Town Hall	Rathmines	Dublin 6		"Town Hall, Rathmines, Dublin 6"	Dublin
+Pearse College - Colaiste an Phiarsaigh	Pearse College of Further Education	Clogher Road	Crumlin	Dublin 12		"Clogher Road, Crumlin, Dublin 12"	Dublin
+Plunket College	Plunket College	Swords Road	Whitehall	Dublin 9		"Swords Road, Whitehall, Dublin 9"	Dublin
+Margaret Aylward Community College	Margaret Aylward Community College	The Thatch Road	Whitehall	Dublin 9		"The Thatch Road, Whitehall, Dublin 9"	Dublin
+Coláiste Dhúlaigh	Coláiste Dhúlaigh College of Further Education (CDCFE)	Barryscourt Road	Coolock	Dublin 17		"Barryscourt Road, Coolock, Dublin 17"	Dublin
+St Bricin?s College	Saint Bricin?s College	Belturbet	Co Cavan			"Belturbet, Co Cavan"	Cavan
+St. Mogue?s College	St Mogues College	Bawnboy	Belturbet	Co Cavan		"Bawnboy, Belturbet, Co Cavan"	Cavan
+Breifne College	Breifne College	Cootehill Rd	Cavan	Co Cavan		"Cootehill Rd, Cavan, Co Cavan"	Cavan
+Virginia College	Virginia College	Virginia	Co Cavan			"Virginia, Co Cavan, "	Cavan
+Borris Vocational School	Borris Vocational School	Borris	Co Carlow			"Borris, Co Carlow, "	Carlow
+Coláiste Eoin	Colaiste Eoin	Hacketstown	Co Carlow			"Hacketstown, Co Carlow, "	Carlow
+Tyndall College	Tyndall College Carlow	Mortarstown	Kilkenny Road	Co. Carlow		"Mortarstown, Kilkenny Road, Co. Carlow"	Carlow
+Coláiste Aindriú	Coláiste Aindriú Secondary School	Muine Bheag	Co Carlow			"Muine Bheag, Co Carlow"	Carlow
+Gaelcholáiste Cheatharlach	Gaelcholáiste Ceatharlach	Easca	Ceatharlach			"Easca, Ceatharlach"	Carlow
+Killarney Community College	Killarney Community College	New Road	Killarney	Co Kerry V93 NA48		"New Road, Killarney, Co Kerry V93 NA48"	Kerry
+Community College Killorglin	Community College Killorglin	Killorglin	Co Kerry			"Killorglin, Co Kerry"	Kerry
+Coláiste na Ríochta	Coláiste na Ríochta	Listowel	Co Kerry			"Listowel, Co Kerry"	Kerry
+Castleisland Community College	Castleisland Community College	Tonbwee	Castleisland	Co. Kerry		"Tonbwee, Castleisland, Co. Kerry"	Kerry
+Causeway Comprehensive School	Causeway Comprehensive School	Causeway	Tralee	Co Kerry		"Causeway, Tralee, Co Kerry"	Kerry
+Coláiste Gleann Lí Post Primary School	Coláiste Gleann Lí	Clash Road	Tralee			"Clash Road, Tralee"	Kerry
+Gaelcholáiste Chiarraí	Tralee	Tobar Mhaigh Dor	Trá Lí	Co Chiarraí		"Tobar Mhaigh Dor, Trá Lí, Co Chiarraí"	Kerry
+Scoil Aireagail	Scoil Aireagail	Ballyhale	Kilkenny			"Ballyhale, Kilkenny"	Kilkenny
+Duiske College	Duiske College	Graignamanagh	Co Kilkenny			"Graignamanagh, Co Kilkenny"	Kilkenny
+Coláiste Mhuire	Colaiste Mhuire	Johnstown	Co Kilkenny			"Johnstown, Co Kilkenny"	Kilkenny
+City Vocational School	City Vocational School	"New Street,"	Kilkenny			"New Street,, Kilkenny"	Kilkenny
+Coláiste Cois Siúire	Colaiste Cois Siuire	Mooncoin	Co Kilkenny			"Mooncoin, Co Kilkenny"	Kilkenny
+Grennan College	Grennan College	Ladywell St	Thomastown	Co Kilkenny		"Ladywell St, Thomastown, Co Kilkenny"	Kilkenny
+Coláiste Pobail Osraí	Colaiste Pobail Osrai	Bóthar Urmhumhan	Cill Chainnigh			"Bóthar Urmhumhan, Cill Chainnigh"	Kilkenny
+Athy Community College	Athy College	Tomard	Athy	Co Kildare		"Tomard, Athy, Co Kildare"	Kildare
+Curragh Post-Primary School	Curragh Post Primary School	McSwiney Road	Curragh	Co Kildare		"McSwiney Road, Curragh, Co Kildare"	Kildare
+Colaiste Lorcain	Coláiste Lorcáin	Castledermot	Co. Kildare			"Castledermot, Co. Kildare"	Kildare
+St Conleth?s Community College	Saint Conleth?s Community College	Station Road	Newbridge	Co Kildare		"Station Road, Newbridge, Co Kildare"	Kildare
+Confey Community College	Confey Community College Leixlip	Confey	Leixlip	Co Kildare		"Confey, Leixlip, Co Kildare"	Kildare
+Maynooth Post Primary School	Maynooth Post Primary	Moyglare Rd	Maynooth	Co Kildare		"Moyglare Rd, Maynooth, Co Kildare"	Kildare
+Piper?s Hill College	Piper?s Hill College	Killashee	Naas	Co. Kildare		"Killashee, Naas, Co. Kildare"	Kildare
+St Farnan?s Post Primary School	St Farnan?s Post Primary School	Prosperous	Co. Kildare			"Prosperous, Co. Kildare"	Kildare
+Ardscoil Rath Iomgháin	Ardscoil Rath Iomgháin	Rathangan	Co Kildare			"Rathangan, Co Kildare"	Kildare
+Glenart College	Glenart College	Coolgreaney Rd	Arklow	Co Wicklow		"Coolgreaney Rd, Arklow, Co Wicklow"	Wicklow
+Scoil Chonglais	Scoil Chonglais	Baltinglass	Co Wicklow			"Baltinglass, Co Wicklow"	Wicklow
+Blessington Community College	Blessington Community College	Naas Rd	Blessington	Co Wicklow		"Naas Rd, Blessington, Co Wicklow"	Wicklow
+St Thomas? Community College	Bray Institute Of Further Education	Novara Avenue	Bray	Co. Wicklow		"Novara Avenue, Bray, Co. Wicklow"	Wicklow
+Coláiste Bhríde Carnew	Coláiste Bhríde	Carnew	Co.Wicklow			"Carnew, Co.Wicklow"	Wicklow
+St Kevin?s Community College	St. Kevin?s Community College	Dunlavin	Co Wicklow			"Dunlavin, Co Wicklow"	Wicklow
+Avondale Community College	Avondale Community College	Rathdrum	Co Wicklow			"Rathdrum, Co Wicklow"	Wicklow
+Coláiste Raithín	Colaiste Raithin	Bóthar Florence	Bré	Co Chill Mhantain		"Bóthar Florence, Bré, Co Chill Mhantain"	Wicklow
+Ennis Community College	Ennis Community College	Ennis	Co Clare			"Ennis, Co Clare"	Clare
+St Michael?s Community College	St Michaels Community College	Kilmihill	Co Clare			"Kilmihill, Co Clare"	Clare
+St Joseph?s Community College	Carrigaholt	Carrigholt Rd.	Kilkee	Co. Clare		"Carrigholt Rd., Kilkee, Co. Clare"	Clare
+Scariff Community College	Community College Hall	Scariff	Co Clare			"Scariff, Co Clare"	Clare
+St Anne?s Community College	Saint Anne?s Community College	Killaloe	Co Clare			"Killaloe, Co Clare"	Clare
+"St. Brogan?s College, Bandon"	St Brogan?s College	Kilbrogan	Bandon	Co Cork		"Kilbrogan, Bandon, Co Cork"	Cork
+Colaiste Ghobnatan	Coláiste Ghobnatan	Baile Mhic Ire	Co Chorcaí			"Baile Mhic Ire, Co Chorcaí"	Cork
+Scoil Mhuire	Scoil Mhuire	Béal Atha an Ghaorthaidh	Co Chorcaí			"Béal Atha an Ghaorthaidh, Co Chorcaí"	Cork
+Clonakilty Community College	Clonakilty Community College	Clonakilty	Co Cork			"Clonakilty, Co Cork"	Cork
+Coachford College	Coachford College	Coachford	Co Cork			"Coachford, Co Cork"	Cork
+Cobh Community College	Carrignafoy Community College	Carrignafoy	Cobh	Co. Cork		"Carrignafoy, Cobh, Co. Cork"	Cork
+Coláiste an Chraoibhin	Coláiste an Chraoibhin	Duntaheen Road	Fermoy	Co Cork		"Duntaheen Road, Fermoy, Co Cork"	Cork
+Colaiste Treasa	Colaiste Treasa	Kanturk	Co Cork			"Kanturk, Co Cork"	Cork
+Davis College	Gaelscoil Thomáis Dáibhís	Summerhill	Mallow	Co Cork		"Summerhill, Mallow, Co Cork"	Cork
+McEgan College	Bishop McEgan College	Macroom	Co Cork			"Macroom, Co Cork"	Cork
+St Fanahan?s College	St Fanahans College	Mitchelstown	Mallow	Co.Cork		"Mitchelstown, Mallow, Co.Cork"	Cork
+St Colman?s Community College	St. Colmans Community College	Youghal Road	Midleton	Co Cork		"Youghal Road, Midleton, Co Cork"	Cork
+St Aidan?s Community College	St Aidans Community College	Ballincolly	Dublin Hill	Cork		"Ballincolly, Dublin Hill, Cork"	Cork
+Schull Community College	Schull Community College	Colla Road	Schull	Co Cork		"Colla Road, Schull, Co Cork"	Cork
+Coláiste Choilm	Colaiste Choilm	Ballincollig	Co. Cork			"Ballincollig, Co. Cork"	Cork
+Nagle Community College	Nagle Community College	Mahon	Blackrock	Cork		"Mahon, Blackrock, Cork"	Cork
+Cork College Of Commerce	Cork College of Commerce	Morrison?s Island	Cork			"Morrison?s Island, Cork"	Cork
+Terence Mac Swiney Community College	Cork	Hollyhill	Knocknaheeny	Cork		"Hollyhill, Knocknaheeny, Cork"	Cork
+Coláiste Daibhéid	Coláiste Daibhéid	An t-Ardán Theas	Corcaigh			"An t-Ardán Theas, Corcaigh"	Cork
+Crana College	Crana College	Crana Road	Buncrana	Co. Donegal		"Crana Road, Buncrana, Co. Donegal"	Donegal
+Coláiste na Carraige	Coláiste na Carraige	Carrick	Co. Donegal			"Carrick, Co. Donegal"	Donegal
+Abbey Vocational School	Abbey Vocational School Donegal Town	The Glebe	Donegal Town	Co.Donegal		"The Glebe, Donegal Town, Co.Donegal"	Donegal
+Errigal College	Errigal College	Windyhall	Letterkenny			"Windyhall, Letterkenny"	Donegal
+Mulroy College	Mulroy College	Milford	Letterkenny	Co Donegal		"Milford, Letterkenny, Co Donegal"	Donegal
+Deele College	Deele College Vocational School	Raphoe	Lifford	Co Donegal		"Raphoe, Lifford, Co Donegal"	Donegal
+Finn Valley College	Finn Valley College	Main Street	Stranorlar	Lifford		"Main Street, Stranorlar, Lifford"	Donegal
+St. Catherine?s Vocational School	Saint Catherine?s Vocational School	Donegal Road	Killybegs	Co. Donegal		"Donegal Road, Killybegs, Co. Donegal"	Donegal
+Gairm Scoil Chú Uladh	Gairmscoil Chú Uladh	Béal an Átha Móir	An Clochan	Leifear	Co Dhun na nGall	"Béal an Átha Móir, An Clochan, Leifear, Co Dhun na nGall"	Donegal
+Gairmscoil Mhic Diarmada	Arranmore	An Leadhbgarbh	Árainn Mhór	Co Dhún na nGall		"An Leadhbgarbh, Árainn Mhór, Co Dhún na nGall"	Donegal
+Colaiste Cholmcille	Coláiste Cholmcille	Indreabhán	Co na Gaillimhe			"Indreabhán, Co na Gaillimhe"	Galway
+Clárin College	Clarin College	Athenry	Co Galway			"Athenry, Co Galway"	Galway
+St Brigids College	St Brigid?s College	Loughrea	Co Galway			"Loughrea, Co Galway"	Galway
+Coláiste an Chreagáin	Coláiste an Chreagáin	Mountbellew	Ballinasloe	Co Galway		"Mountbellew, Ballinasloe, Co Galway"	Galway
+COLÁISTE NAOMH ÉINNE	Coláiste Naomh Éinne	Cill Rónain	Inis Mór	Árainn	Co na Gaillimhe	"Cill Rónain, Inis Mór, Árainn, Co na Gaillimhe"	Galway
+St Killian?s College (Coláiste Chilleáin Naofa)	St Killian?s College	St. Killians College	Cnoc Breac	"New Inn, Ballinasloe"	Co Galway	"St. Killians College, Cnoc Breac, New Inn, Ballinasloe, Co Galway"	Galway
+Coláiste Naomh Feichín	Coláiste Naomh Feichín	Corr na Mona	Co na Gaillimhe			"Corr na Mona, Co na Gaillimhe"	Galway
+Coláiste na Coiribe	Coláiste na Coiribe	Bóthar Bhaile na mBúrcach	Bóthar Bhaile Mhóinín	Co. na Gailimhe		"Bóthar Bhaile na mBúrcach, Bóthar Bhaile Mhóinín, Co. na Gailimhe"	Galway
+Coláiste Ghobnait	Coláiste Ghobnait	Inis Oírr	Oileáin Arann	Cuan na Gaillimhe		"Inis Oírr, Oileáin Arann, Cuan na Gaillimhe"	Galway
+Gairmscoil na bPiarsach	Coláiste na bPiarsach	Ros Muc	Co na Gaillimhe			"Ros Muc, Co na Gaillimhe"	Galway
+Archbishop McHale College	Archbishop McHale College	Dublin Road	Tuam	Co Galway		"Dublin Road, Tuam, Co Galway"	Galway
+Galway Community College	Galway Community College	Wellpark	Galway			"Wellpark, Galway"	Galway
+Athlone Community College	Athlone Community College	Retreat Road	Athlone	Co Westmeath		"Retreat Road, Athlone, Co Westmeath"	Westmeath
+Castlepollard Community College	Castlepollard Community College	Castlepollard	Mullingar	Co Westmeath		"Castlepollard, Mullingar, Co Westmeath"	Westmeath
+Columba College	Columba College	Killucan	Co Westmeath			"Killucan, Co Westmeath"	Westmeath
+Mullingar Community College	Mullingar Community College	Millmount Road	Mullingar	Co. Westmeath		"Millmount Road, Mullingar, Co. Westmeath"	Westmeath
+Clonaslee College	Clonaslee Vocational School	Clonaslee	Co. Laois			"Clonaslee, Co. Laois"	Laois
+Portlaoise College	Portlaoise College	Mountrath Road	Portlaoise	Co. Laois		"Mountrath Road, Portlaoise, Co. Laois"	Laois
+St Fergal?s College	Saint Fergal?s College	Rathdowney	Co Laois			"Rathdowney, Co Laois"	Laois
+Carrigallen Vocational School	Carrigallen Vocational School	Carrigallen	Co Leitrim H12 TD72			"Carrigallen, Co Leitrim H12 TD72"	Leitrim
+Lough Allen College	Lough Allen College	Drumkeerin	Co Leitrim			"Drumkeerin, Co Leitrim"	Leitrim
+Drumshanbo Vocational School	Drumshanbo Vocational School	Drumshanbo	Co Leitrim			"Drumshanbo, Co Leitrim"	Leitrim
+Coláiste Abbain	Coláiste Abbain	Adamstown	Enniscorthy	Co Wexford		"Adamstown, Enniscorthy, Co Wexford"	Wexford
+Bridgetown College	Colaiste Bhaile An Droichid Bridgetown College	Bridgetown	Co Wexford			"Bridgetown, Co Wexford, "	Wexford
+Vocational College Bunclody	Bunclody Vocational College	Bunclody	Enniscorthy	Co Wexford		"Bunclody, Enniscorthy, Co Wexford"	Wexford
+Vocational College	Enniscorthy Vocational College	Enniscorthy	Co Wexford			"Enniscorthy, Co Wexford"	Wexford
+Coláiste an Átha	Kilmuckridge Vocational College	Kilmuckridge	Co. Wexford			"Kilmuckridge, Co. Wexford"	Wexford
+Kennedy College	Kennedy College	New Ross	Co Wexford			"New Ross, Co Wexford"	Wexford
+Selskar College (Coláiste Sheilscire)	Selskar College	Westgate	Wexford	Co Wexford		"Westgate, Wexford, Co Wexford"	Wexford
+Ballymahon Vocational School	Ballymahon Vocational School	Ballymahon	Co Longford			"Ballymahon, Co Longford"	Longford
+Colaiste Mhuire	Colaiste Mhuire	Askeaton	Co Limerick			"Askeaton, Co Limerick"	Limerick
+Ardscoil Phadraig	Ardscoil Phadraig	Granard	Co Longford			"Granard, Co Longford"	Longford
+Lanesboro Community College	Lanesborough Community College	Lanesboro	Co Longford			"Lanesboro, Co Longford"	Longford
+Templemichael College	Templemichael College	Templemichael	Longford			"Templemichael, Longford"	Longford
+Bush Post Primary School	Bush Post Primary School	Riverstown	Dundalk	Co Louth		"Riverstown, Dundalk, Co Louth"	Louth
+St Oliver?s Community College	St Oliver?s community College	Rathmullen Road	Drogheda	Co. Louth		"Rathmullen Road, Drogheda, Co. Louth"	Louth
+Ó Fiaich College	O?Fiaich College	Dublin Road	Dundalk	Co. Louth		"Dublin Road, Dundalk, Co. Louth"	Louth
+Scoil Ui Mhuiri	Scoil Ui Mhuiri	Barn Road	Dunleer	Co. Louth		"Barn Road, Dunleer, Co. Louth"	Louth
+Desmond College	Desmond College	Station Road	Newcastle West	Co. Limerick		"Station Road, Newcastle West, Co. Limerick"	Limerick
+Colaiste Chiarain	Colaiste Chiarain	Croom	Co. Limerick			"Croom, Co. Limerick"	Limerick
+Hazelwood College	Hazelwood College	Dromcollogher	Co. Limerick			"Dromcollogher, Co. Limerick"	Limerick
+St Peter?s College	St. Peter?s College	Dunboyne	Co. Meath			"Dunboyne, Co. Meath"	Meath
+Community College Dunshaughlin	Dunshaughlin Community College	Dunshaughlin	Co Meath			"Dunshaughlin, Co Meath"	Meath
+Coláiste Clavin	Coláiste Chlavin	Longwood	Enfield	Co Meath		"Longwood, Enfield, Co Meath"	Meath
+O?Carolan College	O?Carolan College	Nobber	Co Meath			"Nobber, Co Meath"	Meath
+St Oliver Post Primary	St Oliver Post Primary	Oldcastle	Co. Meath			"Oldcastle, Co. Meath"	Meath
+Coláiste Pobail Rath Cairn	Coláiste Pobail Rathcairn	Ráth Cairn	Athboy	Co Meath		"Ráth Cairn, Athboy, Co Meath"	Meath
+Beaufort College	Beaufort College	Trim Rd	Navan	Co Meath		"Trim Rd, Navan, Co Meath"	Meath
+Moyne College	Moyne College	Ballina	Co Mayo			"Ballina, Co Mayo, "	Mayo
+St. Brendan?s College	Saint Brendan?s College	Belmullet	Co. Mayo			"Belmullet, Co. Mayo, "	Mayo
+St. Tiernan?s College	St. Tiernan?s College	Crossmolina	Ballina	Co Mayo		"Crossmolina, Ballina, Co Mayo"	Mayo
+St. Patrick?s College	Lacken Cross (Opp St Patricks)	Lacken Cross	Killala	Co Mayo		"Lacken Cross, Killala, Co Mayo"	Mayo
+Colaiste Chomain	Colaiste Chomain	Rossport	Ballina	Co Mayo		"Rossport, Ballina, Co Mayo"	Mayo
+Ballybay Community College	Ballybay Community College	Ballybay	Co Monaghan			"Ballybay, Co Monaghan"	Monaghan
+Largy College	Largy College	Analore Rd	Clones	Co Monaghan		"Analore Rd, Clones, Co Monaghan"	Monaghan
+Inver College	Inver College	Carrickmacross	Co Monaghan			"Carrickmacross, Co Monaghan"	Monaghan
+Castleblayney College	Castleblayney College	Dublin Road	Castleblayney	Co Monaghan		"Dublin Road, Castleblayney, Co Monaghan"	Monaghan
+Beech Hill College	Beech Hill College	Monaghan	Co. Monaghan			"Monaghan, Co. Monaghan"	Monaghan
+Coláiste Chathail Naofa	Colaiste Chathail Naofa	Youghal Rd	Dungarvan			"Youghal Rd, Dungarvan"	Waterford
+St Declan?s Community College	St Declans Community College	Kilmacthomas	Co Waterford			"Kilmacthomas, Co Waterford"	Waterford
+St Paul?s Community College	St Pauls Community College	Browne?s Road	Waterford City			"Browne?s Road, Waterford City"	Waterford
+Elphin Community College	Elphin Community College	Elphin	Castlerea	Co Roscommon		"Elphin, Castlerea, Co Roscommon"	Roscommon
+Roscommon Community School	Roscommon Community College	Lisnamult	Roscommon	Co. Roscommon		"Lisnamult, Roscommon, Co. Roscommon"	Roscommon
+Corran College	Corran College	Ballymote	Co Sligo			"Ballymote, Co Sligo"	Sligo
+Coola Post Primary School	Coola Post Primary School	Riverstown	Via Boyle	Co Sligo		"Riverstown, Via Boyle, Co Sligo"	Sligo
+Coláiste Iascaigh	Colaiste Iascaigh	Easkey	Co Sligo			"Easkey, Co Sligo"	Sligo
+Grange Post Primary School	Grange Post Primary School	Grange	Co Sligo			"Grange, Co Sligo"	Sligo
+Ballinode College	Sligo College of Further Education	Clarion Rd	Sligo			"Clarion Rd, Sligo"	Sligo
+Borrisokane Community College	Borrisokane Community College	Borrisokane	Co Tipperary			"Borrisokane, Co Tipperary"	Tipperary
+Comeragh College	Comeragh College	Greenside	Carrick-On-Suir			"Greenside, Carrick-On-Suir"	Tipperary
+Central Technical Institute	CTI Clonmel	Clonmel	Co Tipperary			"Clonmel, Co Tipperary"	Tipperary
+Scoil Ruain	Scoil Ruain Vocational School	Killenaule	Thurles	Co Tipperary		"Killenaule, Thurles, Co Tipperary"	Tipperary
+Nenagh Vocational School	Nenagh College	Dromin Road	Nenagh	Co Tipperary		"Dromin Road, Nenagh, Co Tipperary"	Tipperary
+Newport College	Newport College	Newport	Co Tipperary			"Newport, Co Tipperary"	Tipperary
+St. Alibe?s School	Saint Ailbe?s School	Rosanna Road	Tipperary Town			"Rosanna Road, Tipperary Town"	Tipperary
+Coláiste Mhuire Co-Ed	Colaiste Mhuire Co-Ed	Castlemeadows	Thurles	Co Tipperary		"Castlemeadows, Thurles, Co Tipperary"	Tipperary
+Coláiste Naomh Cormac	Coláiste Naomh Cormac	Kilcormac	Co Offaly			"Kilcormac, Co Offaly, "	Offaly
+Ard Scoil Chiaráin Naofa	Ard Scoil Chiaráin Naofa	Frederick St.	Clara	Co. Offaly		"Frederick St., Clara, Co. Offaly"	Offaly
+Oaklands Community College	Oaklands Community College	Sr. Senan Avenue	Edenderry	Co. Offaly		"Sr. Senan Avenue, Edenderry, Co. Offaly"	Offaly
+Tullamore College	Tullamore College	Riverside	Tullamore	Co. Offaly		"Riverside, Tullamore, Co. Offaly"	Offaly
+Davitt College	Davitt College VEC	Springfield	Castlebar			"Springfield, Castlebar"	Mayo
+Colaiste na Trocaire (Mercy Community College)	Coláiste na Trócaire	Rathkeale	Co. Limerick			"Rathkeale, Co. Limerick"	Limerick
+Castleknock Community College	Castleknock Community College	Carpenterstown Road	Castleknock	Dublin 15		"Carpenterstown Road, Castleknock, Dublin 15"	Dublin
+Colaiste Dun Iascaigh	Colaiste Dun Iascaigh	Cashel Road	Cahir	Co Tipperary		"Cashel Road, Cahir, Co Tipperary"	Tipperary
+Glanmire Community College	GLANMIRE COMMUNITY COLLEGE	Glanmire	Co. Cork			"Glanmire, Co. Cork"	Cork
+Coláiste Cois Life	Coláiste Cois Life	Gleann an Ghrífín	Leamhcán	Co Átha Cliath		"Gleann an Ghrífín, Leamhcán, Co Átha Cliath"	Dublin
+Meánscoil San Nioclás	Meánscoil san Nioclás	Rinn O gCuanach	Co. Phort Láirge			"Rinn O gCuanach, Co. Phort Láirge"	Waterford
+Colaiste Pobail Naomh Mhuire	Coláiste Pobail Noamh Mhuire	Cill na Mullach	Co Chorcaí			"Cill na Mullach, Co Chorcaí"	Cork
+Coláiste na Sceilge	Colaiste na Sceilge	Caherciveen	Co. Kerry			"Caherciveen, Co. Kerry"	Kerry
+Colaiste Phobáil Ros Cré	Colaiste Phobail Ros Cre	Corville Rd	Roscrea	Co Tipperary		"Corville Rd, Roscrea, Co Tipperary"	Tipperary
+Coláiste Ióasef	Coláiste Iósaef Community College	Kilmallock	Co. Limerick			"Kilmallock, Co. Limerick"	Limerick
+Abbey Community College	Abbey Community College	Boyle	Co Roscommon			"Boyle, Co Roscommon"	Roscommon
+Castletroy College	Castletroy College	Newtown	Castletroy	Co Limerick		"Newtown, Castletroy, Co Limerick"	Limerick
+St John Bosco Community College	St John Bosco Community College	Cahercon	Kildysart	Co Clare		"Cahercon, Kildysart, Co Clare"	Clare
+Colaiste Chraobh Abhann	Colaiste Chraobh Abhann	Creowen	Kilcoole	Co Wicklow		"Creowen, Kilcoole, Co Wicklow"	Wicklow
+Larkin Community College	Larkin Community College	Champions Avenue	Dublin 1			"Champions Avenue, Dublin 1"	Dublin
+Skerries Community College	Skerries Community College	Skerries	Co. Dublin			"Skerries, Co. Dublin"	Dublin
+Coláiste Phobail Cholmcille	Coláiste Phobail Cholmcille	Baile Úr	Oileán Thoraí	Doirí Beaga	Co. Dhún Na nGall	"Baile Úr, Oileán Thoraí, Doirí Beaga, Co. Dhún Na nGall"	Donegal
+Coláiste Ailigh	Colaiste Ailigh	Cnoc na Móna	Leitir Ceanainn	Co.Dhún na nGall		"Cnoc na Móna, Leitir Ceanainn, Co.Dhún na nGall"	Donegal
+Abbey Community College	Abbey Community College	Abbey Rd	Ferrybank	Waterford		"Abbey Rd, Ferrybank, Waterford"	Kilkenny
+Magh Ene College	Magh Ene College	Church Road	Bundoran	Co Donegal		"Church Road, Bundoran, Co Donegal"	Donegal
+Moville Community College	Moville Community College	Carrownaff	Moville	Co Donegal		"Carrownaff, Moville, Co Donegal"	Donegal
+Gaelcholáiste Reachrann	Gaelcholáiste Reachrann	Bóthar Mhainistir na Gráinsí	Domhnach Míde	Baile Atha Cliath 13		"Bóthar Mhainistir na Gráinsí, Domhnach Míde, Baile Atha Cliath 13"	Dublin
+MARIA IMMACULATA COMMUNITY COLLEGE	Maria Immaculata Community College	Dunmanway	Co Cork			"Dunmanway, Co Cork"	Cork
+Ratoath College	Ratoath College	Jamestown	Ratoath	Co. Meath		"Jamestown, Ratoath, Co. Meath"	Meath
+MOHILL COMMUNITY COLLEGE	Mohill Community College	MOHILL	CO LEITRIM			"MOHILL, CO LEITRIM"	Leitrim
+Coláiste Pobail Bheanntraí	Coláiste Pobail Bheanntraí - Bantry Community College	SESKIN	BANTRY	CO CORK		"SESKIN, BANTRY, CO CORK"	Cork
+Coláiste Oiriall	Coláiste Oiriall	Tir Chianáin	Muineachán	Co Mhuineacháin		"Tir Chianáin, Muineachán, Co Mhuineacháin"	Monaghan
+PRESENTATION COMMUNITY COLLEGE	Presentation Community College Terenure CDETB	Terenure Park	Terenure	Dublin 6 W		"Terenure Park, Terenure, Dublin 6 W"	Dublin
+COLÁISTE ÍDE AGUS IOSAEF	Colaiste Ide agus Iosef	ABBEYFEALE	CO LIMERICK			"ABBEYFEALE, CO LIMERICK"	Limerick
+Coláiste Mhuirlinne/Merlin College	Merlin College - Coláiste Mhuirlinne	Doughiska Road	Galway			"Doughiska Road, Galway"	Galway
+ADAMSTOWN COMMUNITY COLLEGE	Adamstown Community College	Station Rd	Adamstown	Co Dublin		"Station Rd, Adamstown, Co Dublin"	Dublin
+Colaiste Pobail Setanta	Coláiste Pobail Setanta College	Phibblestown Community College	Phibblestown	Dublin 15		"Phibblestown Community College, Phibblestown, Dublin 15"	Dublin
+Coláiste Chill Mhantáin	Coláiste Chill Mhantain	Burkeen	Wicklow Town	Co Wicklow		"Burkeen, Wicklow Town, Co Wicklow"	Wicklow
+GAELCHOLÁISTE LUIMNIGH	Gaelcholáiste Luimnigh	MEAL SIOR ANRAÍ	LUIMNEACH			"MEAL SIOR ANRAÍ, LUIMNEACH"	Limerick
+Coláiste an Eachréidh	Coláiste an Eachréidh	An Coiléar Bán	Baile Átha an Rí	Co na Gaillimhe		"An Coiléar Bán, Baile Átha an Rí, Co na Gaillimhe"	Galway
+Colaiste na hInse	Colaiste Na Hinse	Bettystown	Co Meath			"Bettystown, Co Meath, "	Meath
+Donabate Community College	Donabate Community College	"Olive Laffoy, Principal"	Donabate Community College	Portrane Road	"Donabate, Co. Dublin"	"Olive Laffoy, Principal, Donabate Community College, Portrane Road, Donabate, Co. Dublin"	Dublin
+Colaiste Na Sionna	Banagher College - Coláiste na Sionna	Banagher	Banagher			"Banagher, Banagher"	Offaly
+Gaelcholáiste na Mara	Gaelcholaiste na Mara	Pairc Na bPiarsach	Bothar an Ghleanntain	Arklow	Co.Wicklow	"Pairc Na bPiarsach, Bothar an Ghleanntain, Arklow, Co.Wicklow"	Wicklow
+Gaelcholáiste Chineál Eoghain	Colaiste Chineal Eoghain	Muileann Thulaigh Gharbháin	Bun Cranncha	Co. Dhún na nGall		"Muileann Thulaigh Gharbháin, Bun Cranncha, Co. Dhún na nGall"	Donegal
+Creagh College	Creagh College	Carnew Road	Gorey	Co. Wexford		"Carnew Road, Gorey, Co. Wexford"	Wexford
+Ardgillan Community College	Ardgillan Community College	Castlelands	Balbriggan		Co Dublin	"Castlelands, Balbriggan, Co Dublin"	Dublin
+Luttrellstown Community College	Luttrellstown Community College	Luttrellstown Community College	Mill Road	Blanchardstown	Dublin 15	"Luttrellstown Community College, Mill Road, Blanchardstown, Dublin 15"	Dublin
+Coláiste Pobail Acla	Coláiste Pobail Acla	Achill Sound	Westport	Co. Mayo		"Achill Sound, Westport, Co. Mayo"	Mayo
+Kishoge Community College	Kishoge Community College	Clonburris	Lucan			"Clonburris, Lucan"	Dublin
+"Colaiste na Mí, Navan, Co. Meath"	Coláiste na Mí	Navan	Navan			"Navan, Navan"	Meath
+Maynooth Community College	Coláiste Pobail Mhá Nuad | Maynooth Community College	Maynooth	Co Kildare			"Maynooth, Co Kildare"	Kildare
+Naas Community College	Naas Community College	Craddockstown	Naas	Co. Kildare		"Craddockstown, Naas, Co. Kildare"	Kildare
+Coláiste Chú Chulainn	Coláiste Lú	Dundalk	Dundalk			"Dundalk, Dundalk"	Louth
+DE LACY COLLEGE	Coláiste De Lacy	Ashbourne	Ashbourne			"Ashbourne, Ashbourne"	Meath
+Lusk Community College	Lusk Community College	Raheny Lane	Rathmore Road	Lusk	Co. Dublin	"Raheny Lane, Rathmore Road, Lusk, Co. Dublin"	Dublin
+Coláiste Bhaile Chláir	Coláiste Bhaile Chláir - Claregalway College	Claregalway	Co. Galway			"Claregalway, Co. Galway"	Galway
+Gaelcholáiste Charraig Ui Leighin	Gaelcholáiste Charraig Uí Leighin	Waterpark House	Church Road	Carrigaline		"Waterpark House, Church Road, Carrigaline"	Cork
+Kingswood Community College	Kingswood Community College	Kingswood Avenue	Tallaght	Dublin 24		"Kingswood Avenue, Tallaght, Dublin 24"	Dublin
+Dún na Rí College	Coláiste Dún an Rí	Main Street	Kingscourt	Co Cavan		"Main Street, Kingscourt, Co Cavan"	Cavan
+Carrigtwohill Post Primary	Carrigtwohill Community College	Carrigtwohill	Carrigtwohill			"Carrigtwohill, Carrigtwohill"	Cork
+St Joseph?s Community College	St Joseph?s Community College	Charlestown	Mayo			"Charlestown, Mayo"	Mayo
+Clonturk College	Clonturk Community College	Whitehall	Dublin 9			"Whitehall, Dublin 9"	Dublin
+Thomond Community College	Thomond Community College	Moylish Park	Moylish	Limerick		"Moylish Park, Moylish, Limerick"	Limerick
+Griffeen Community College	Griffeen Community College	c/o Kishogue Community CMain Street	Kishogue	Lucan	Co. Dublin	"c/o Kishogue Community CMain Street, Kishogue, Lucan, Co. Dublin"	Dublin
+Dunamase College (Colaiste Dhun Masc)	Choláiste Dhún Másc	Railway Street	Portlaoise	Co. Laois		"Railway Street, Portlaoise, Co. Laois"	Laois
+Mungret/Dooradoyle Community College	Mungret Community College	Old Stables Mungret College	Dromdarrig	Mungret	Co. Limerick	"Old Stables Mungret College, Dromdarrig, Mungret, Co. Limerick"	Limerick
+Newpark Comprehensive School	Newpark Comprehensive School	Newtown Park Avenue	Blackrock	Co Dublin		"Newtown Park Avenue, Blackrock, Co Dublin"	Dublin
+Mount Temple Comprehensive School	Mount Temple Comprehensive School	Malahide Road	Dublin 3			"Malahide Road, Dublin 3"	Dublin
+St Aidans Comprehensive School	St Aidan?s Comprehensive School	Cootehill	Co Cavan			"Cootehill, Co Cavan"	Cavan
+Tarbert Comprehensive School	Tarbert Comprehensive School	Tarbert	Listowel	Co Kerry		"Tarbert, Listowel, Co Kerry"	Kerry
+Shannon Comprehensive School	St Patricks Comprehensive School	Shannon	Co Clare			"Shannon, Co Clare"	Clare
+Ashton School	Ashton Comprehensive School	Blackrock Road	Cork			"Blackrock Road, Cork"	Cork
+Boherbue Comprehensive School	Boherbue Comprehensive School	Boherbue	Mallow	Co Cork		"Boherbue, Mallow, Co Cork"	Cork
+St Columba?s Comprehensive School	St Columbas Comprehensive School	Glenties	Co Donegal			"Glenties, Co Donegal"	Donegal
+The Royal and Prior School	Royal and Prior School Raphoe Co Donegal	Raphoe	Co Donegal			"Raphoe, Co Donegal"	Donegal
+Scoil Chuimsitheach Chiaráin	Scoil Chuimsitheach Chiaráin	An Cheathrú Rua	Co na Gaillimhe			"An Cheathrú Rua, Co na Gaillimhe"	Galway
+St. Clare?s Comprehensive School	Saint Clare?s Comprehensive School	Manorhamilton	Co. Leitrim			"Manorhamilton, Co. Leitrim"	Leitrim
+Crescent College Comprehensive	Crescent College Comprehensive	Dooradoyle Rd	Dooradoyle	Limerick		"Dooradoyle Rd, Dooradoyle, Limerick"	Limerick
+East Glendalough School	East Glendalough School	Station Road	Wicklow Town			"Station Road, Wicklow Town"	Wicklow
+TRINITY COMPREHENSIVE SCHOOL	Trinity Comprehensive School	BALLYMUN ROAD	DUBLIN 9			"BALLYMUN ROAD, DUBLIN 9"	Dublin
+Holy Family Community School	Holy Family Community School	Kilteel Road	Rathcoole	Co Dublin		"Kilteel Road, Rathcoole, Co Dublin"	Dublin
+Phobailscoil Iosolde	Palmerstown	Palmerstown	Dublin 20			"Palmerstown, Dublin 20"	Dublin
+Ballinteer Community School	Ballinteer Community School	Ballinteer	Dublin 16			"Ballinteer, Dublin 16"	Dublin
+Cabinteely Community School	Cabinteely Community School	Cabinteely	Dublin 18			"Cabinteely, Dublin 18"	Dublin
+Scoil Phobail Chuil Mhin	Coolmine Community School	Cluain Saileach	Baile Atha Cliath 15			"Cluain Saileach, Baile Atha Cliath 15"	Dublin
+Blakestown Community School	Blakestown Community School	Blanchardstown	Dublin 15			"Blanchardstown, Dublin 15"	Dublin
+The Donahies Community School	The Donahies Community School	Streamville Road	Dublin 13			"Streamville Road, Dublin 13"	Dublin
+Portmarnock Community School	Portmarnock Community School	Carrickhill Road	Portmarnock	Co Dublin		"Carrickhill Road, Portmarnock, Co Dublin"	Dublin
+Malahide Community School	Malahide Community School	Broomfield	Malahide	Co. Dublin		"Broomfield, Malahide, Co. Dublin"	Dublin
+Holy Child Community School	Holy Child Community School	Pearse Street	Sallynoggin	County Dublin		"Pearse Street, Sallynoggin, County Dublin"	Dublin
+St Marks Community School	St Marks Community School	Cookstown Rd	Tallaght	Dublin 24		"Cookstown Rd, Tallaght, Dublin 24"	Dublin
+Tallaght Community School	Tallaght Community School	Balrothery	Tallaght	Dublin 24		"Balrothery, Tallaght, Dublin 24"	Dublin
+Old Bawn Community School	Old Bawn Community School	Old Bawn	Tallaght	Dublin 24		"Old Bawn, Tallaght, Dublin 24"	Dublin
+Killinarden Community School	Killinarden Community School	Killinarden	Tallaght	Dublin 24		"Killinarden, Tallaght, Dublin 24"	Dublin
+St Aidan?s Community School	St Aidans Community School	Brookfield	Tallaght	Dublin 24		"Brookfield, Tallaght, Dublin 24"	Dublin
+Hartstown Community School	Hartstown Community School	Clonsilla	Dublin 15			"Clonsilla, Dublin 15"	Dublin
+Pobalscoil Neasáin	Pobalscoil Neasain	Baldoyle	Dublin 13			"Baldoyle, Dublin 13"	Dublin
+St. Tiernan?s Community School	St Tiernan?s Community School	Parkvale	Balally	Dublin 16		"Parkvale, Balally, Dublin 16"	Dublin
+Rosmini Community School	Rosmini Community School	Grace Park Road	Drumcondra	Dublin 9		"Grace Park Road, Drumcondra, Dublin 9"	Dublin
+Bailieborough Community School	Bailieborough Community School	Bailieborough	Co Cavan			"Bailieborough, Co Cavan"	Cavan
+Tullow Community School	Tullow Community School	The Mullawn	Tullow	Co. Carlow		"The Mullawn, Tullow, Co. Carlow"	Carlow
+Community School	Castlecomer Community School	Castlecomer	Co Kilkenny			"Castlecomer, Co Kilkenny"	Kilkenny
+Leixlip Community School	Colaiste Chiarain	Celbridge Road	Leixlip	Co. Kildare		"Celbridge Road, Leixlip, Co. Kildare"	Kildare
+Scoil Mhuire Community School	Scoil Mhuire Community School	Clane	Naas	Co Kildare		"Clane, Naas, Co Kildare"	Kildare
+Ballincollig Community School	Ballincollig Community School	Innishmore	Ballincollig	Co Cork		"Innishmore, Ballincollig, Co Cork"	Cork
+Beara Community School	Beara Community School	Castletownbere	Beara	Co Cork		"Castletownbere, Beara, Co Cork"	Cork
+Carrigaline Community School	Carrigaline Community School	Waterpark	Carrigaline	Co Cork		"Waterpark, Carrigaline, Co Cork"	Cork
+Millstreet Community School	Millstreet Community School	Millstreet Town	Co Cork			"Millstreet Town, Co Cork"	Cork
+St Peter?s Community School	St Peters Community School	Passage West	Co Cork			"Passage West, Co Cork"	Cork
+Douglas Community School	Douglas Community School	Clermont Avenue	Douglas	Cork		"Clermont Avenue, Douglas, Cork"	Cork
+Bishopstown Community School	Bishopstown Community School	Bishopstown	Cork			"Bishopstown, Cork"	Cork
+Mayfield Community School	Mayfield Community School	Old Youghal Road	Mayfield	Cork		"Old Youghal Road, Mayfield, Cork"	Cork
+Carndonagh Community School	Carndonagh Community School	Carndonagh	Lifford	Co Donegal		"Carndonagh, Lifford, Co Donegal"	Donegal
+Rosses Community School	Rosses Community School	Dungloe	Co. Donegal			"Dungloe, Co. Donegal"	Donegal
+Pobalscoil Chloich Cheannfhaola	Pobalscoil Chloich Cheannfhaola	An Fálcarrach	Leitir Ceanainn	Co. Dhún na nGall		"An Fálcarrach, Leitir Ceanainn, Co. Dhún na nGall"	Donegal
+Pobalscoil Ghaoth Dobhair	Derrybeg	Doirí Beaga	Leitir Ceannain	Tir Chonaill		"Doirí Beaga, Leitir Ceannain, Tir Chonaill"	Donegal
+Scoil Phobail Mhic Dara	Scoil Phobail Mhic Dara	Carna	Co na Gaillimhe			"Carna, Co na Gaillimhe"	Galway
+Scoil Phobail	Scoil Phobail	Clifden	Co Galway			"Clifden, Co Galway"	Galway
+Portumna Community School	Portumna Community School	Portumna	Co. Galway			"Portumna, Co. Galway"	Galway
+Dunmore Community School	Dunmore Community School	Dunmore	Co Galway			"Dunmore, Co Galway"	Galway
+Mountmellick Community School	Mountmellick Community School	Mountmellick	Co Laois			"Mountmellick, Co Laois"	Laois
+Heywood Community School	Heywood Community School	Ballinakill	Portlaoise	Co. Laois		"Ballinakill, Portlaoise, Co. Laois"	Laois
+Ramsgrange Community School	Ramsgrange Community School	Ramsgrange	New Ross	Co Wexford		"Ramsgrange, New Ross, Co Wexford"	Wexford
+Moyne Community School	Moyne Community School	Moyne	Co Longford			"Moyne, Co Longford"	Longford
+Ardee Community School	Ardee Community School	Ardee	Co Louth			"Ardee, Co Louth"	Louth
+St Caimin?s Community School	St Caimin?s Community School	Tullyvarraga	Shannon			"Tullyvarraga, Shannon"	Clare
+Kilrush Community School	Kilrush Community School	Kilrush	Co Clare			"Kilrush, Co Clare"	Clare
+St Ciaran?s Community School	St Ciarans Community School	Navan Rd	Kells	Co Meath		"Navan Rd, Kells, Co Meath"	Meath
+Ballyhaunis Community School	Ballyhaunis Community School	Knock Road	Ballyhaunis	Co.Mayo		"Knock Road, Ballyhaunis, Co.Mayo"	Mayo
+Ballinrobe Community School	Ballinrobe Community School	Convent Road	Ballinrobe	Co Mayo		"Convent Road, Ballinrobe, Co Mayo"	Mayo
+St.Brendan?s Community School	St Brendan?s Community School	Birr	Co Offaly			"Birr, Co Offaly"	Offaly
+Gorey Community School	Gorey Community School	Esmonde Street	Gorey	Co. Wexford		"Esmonde Street, Gorey, Co. Wexford"	Wexford
+Castlerea Community School	Castlerea Community School	Castlerea	Co. Roscommon			"Castlerea, Co. Roscommon"	Roscommon
+St Louis Community School	St Louis Community School	Kiltimagh	Co Mayo			"Kiltimagh, Co Mayo"	Mayo
+Ashbourne Community School	Ashbourne Community School	Deerpark	Ashbourne	Co Meath		"Deerpark, Ashbourne, Co Meath"	Meath
+Community School	Carrick-On-Shannon Community School	Carrick-On-Shannon	Leitrim			"Carrick-On-Shannon, Leitrim, "	Leitrim
+Cashel Community School	Cashel Community School	Dualla Road	Cashel	Co Tipperary		"Dualla Road, Cashel, Co Tipperary"	Tipperary
+Gort Community School	Gort Community School	Gort	Co. Galway			"Gort, Co. Galway"	Galway
+Kinsale Community School	Kinsale Community School	Kinsale	Co Cork			"Kinsale, Co Cork"	Cork
+Loreto Community School	Loreto Community School	Milford	Co Donegal			"Milford, Co Donegal"	Donegal
+Moate Community School	Moate Community School	Church Street	Moate	Co Westmeath		"Church Street, Moate, Co Westmeath"	Westmeath
+John The Baptist Community School	John the Baptist Community School	Hospital	Co Limerick			"Hospital, Co Limerick"	Limerick
+Pobalscoil Inbhear Sceine	Pobalscoil Inbhear Scéine	Kenmare	Co. Kerry			"Kenmare, Co. Kerry"	Kerry
+Scoil Phobail Sliabh Luachra	Scoil Phobail Sliabh Luachra	Rathmore	Co. Kerry			"Rathmore, Co. Kerry"	Kerry
+St Wolstan?s Community School	Wolstan?s School	Ballymakeely	Clane Rd	Celbridge	Co Kildare	"Ballymakeely, Clane Rd, Celbridge, Co Kildare"	Kildare
+Coláiste Cholmcille	Colaiste Cholmcille	College St	Ballyshannon	Co Donegal		"College St, Ballyshannon, Co Donegal"	Donegal
+Boyne Community School	Boyne Community School	Trim	Co. Meath			"Trim, Co. Meath"	Meath
+BLACKWATER COMMUNITY SCHOOL	Blackwater Community School	Ballyanchor Road	Lismore	Co Waterford		"Ballyanchor Road, Lismore, Co Waterford"	Waterford
+St. Colmcille?s Community School	"St Colmcilles Community School, Knocklyon"	Scholarstown Rd	Knocklyon	Dublin 16		"Scholarstown Rd, Knocklyon, Dublin 16"	Dublin
+Pobalscoil Chorca Dhuibhne	Pobalscoil Chorca Dhuibhne	An Grobh	An Daingean	Co. Chiarraí		"An Grobh, An Daingean, Co. Chiarraí"	Kerry
+St Attracta?s Community School	St Attractas Community School	Tubbercurry	Co. Sligo			"Tubbercurry, Co. Sligo"	Sligo
+Pobalscoil na Tríonóide	Pobalscoil Na Tríonóide	Frogmore	Youghal	Co. Cork P36 Y763		"Frogmore, Youghal, Co. Cork P36 Y763"	Cork
+GLENAMADDY COMMUNITY SCHOOL	Glenamaddy Community School	GLENAMADDY	CO GALWAY			"GLENAMADDY, CO GALWAY"	Galway
+GALLEN COMMUNITY SCHOOL	Gallen Community School	FERBANE	CO OFFALY			"FERBANE, CO OFFALY"	Offaly
+SKIBBEREEN COMMUNITY SCHOOL	Skibbereen Community School	MAIN ST	SKIBBEREEN	CO CORK		"MAIN ST, SKIBBEREEN, CO CORK"	Cork
+ATHBOY COMMUNITY SCHOOL	Athboy Community School	ATHBOY	CO MEATH			"ATHBOY, CO MEATH"	Meath
+BALLINAMORE COMMUNITY SCHOOL	Leitrim County Library	BALLINAMORE	CO LEITRIM			"BALLINAMORE, CO LEITRIM"	Leitrim
+KILDARE TOWN COMMUNITY SCHOOL	Kildare Town Community School	KILDARE	CO KILDARE			"KILDARE, CO KILDARE"	Kildare
+MOUNTRATH COMMUNITY SCHOOL	Mountrath Community School	Dysartbeigh	Mountrath	Co. Laois		"Dysartbeigh, Mountrath, Co. Laois"	Laois
+Ballymakenny College	Ballymakenny College	Ballymakenny Road	Drogheda			"Ballymakenny Road, Drogheda"	Louth
+Celbridge Community School	Celbridge Community School	Celbridge	Co Kildare			"Celbridge, Co Kildare"	Kildare

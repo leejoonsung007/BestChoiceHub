@@ -37,7 +37,7 @@ class Pro2016(db.Model):
     NCAD = db.Column(db.Integer)
     RCSI = db.Column(db.Integer)
     Total_who_accepted_CAOplace = db.Column(db.Integer)
-    Total_progression = db.Column(db.DECIMAL(10, 2))  # ?
+    Total_progression = db.Column(db.Float(10))  # ?
 
     def __init__(self, name):
         self.name = name

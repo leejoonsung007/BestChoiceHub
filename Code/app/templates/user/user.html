@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="/js/main.js"></script>
+<script src="/js/vendor/jquery-3.3.1.min.js"></script>
+<html lang="en">
+{% import "bootstrap/wtf.html" as wtf %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="../../static/css/main.css">
+    <!-- Modernizr -->
+    <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- Respond.js for IE 8 or less only -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="js/vendor/respond.src.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+{% include 'base.html' %}
+
+<div style="margin-left: 20px">
+    <div style=" padding-left: 20px; margin-top: 8px" id="imageuse">
+
+{#        <div id="errorSignUp">#}
+{#            {% for message in get_flashed_messages() %}#}
+{#                <div class="alert alert-warning">#}
+{#                    <button type="button" class="close" data-dismiss="alert">&times;</button>#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+
+       <a {% if user == current_user or current_user.is_administrator() %}
+             href="{{ url_for('operation.change_avatar') }}"{% endif %}>
+            {% if user.photo %}
+                <img style="width: 300px; position: relative;" id="image" src="{{ user.photo }}" onclick="EntryUser()">
+{#                <img class="img-rounded profile-thumbnail" src="{{ user.photo }}" height="256" width="256">#}
+            {% else %}
+                <img class="img-rounded profile-thumbnail" src="../../static/avatars/default_avatar.jpg" height="256" ,
+                 width="256">
+            {% endif %}
+       </a>
+
+
+    <h4> {{ user.username }} </h4>
+
+    <div>
+        {% if user.location %}
+            from <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if current_user.is_administrator() %}
+            <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+        {% endif %}
+    </div>
+
+    <div>
+        Member since {{ user.member_since }}
+    </div>
+
+    <div>
+        Last seen {{ user.last_seen }}
+    </div>
+
+     <div>
+         {#Number of schools that the user followed#}
+         <a href="{{ url_for('.following',username=user.username) }}">
+              Following: {{ user.followed.count() }}
+         </a>
+    </div>
+    {% if user == current_user %}
+       <div> <a class="btn btn-default" href="{{ url_for('operation.edit_profile') }}">Edit Profile
+        </a></div>
+    {% endif %}
+
+</div>
+</div>
+</body>
+</html>

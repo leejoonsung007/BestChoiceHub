@@ -6,7 +6,7 @@ from app import db, login_manager
 # from utils import log
 from datetime import datetime
 
-from app.models.User_operation import Follow
+from app.models.User_operation import Follow, Compare
 from .Roleomg import Role
 
 
@@ -26,9 +26,13 @@ class User(UserMixin, db.Model):
     # real_avatar = db.Column(db.String(128), default=None)
     login_type = db.Column(db.String(50))
     followed = db.relationship('Follow',
-                                    foreign_keys=[Follow.follower_id],
-                                    backref=db.backref('follower', lazy='joined'),
-                                    lazy='dynamic',cascade='all,delete-orphan')
+                               foreign_keys=[Follow.follower_id],
+                               backref=db.backref('follower', lazy='joined'),
+                               lazy='dynamic', cascade='all,delete-orphan')
+    compared = db.relationship('Compare',
+                               foreign_keys=[Compare.comparator_id],
+                               backref=db.backref('comparator', lazy='joined'),
+                               lazy='dynamic', cascade='all,delete-orphan')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)  # initial
@@ -90,11 +94,12 @@ class User(UserMixin, db.Model):
         user.password = new_password
         db.session.add(user)
         return True
+
     def ping(self):
         self.last_seen = datetime.utcnow()
         db.session.add(self)
 
-# Add follow function
+    # Add follow function
     def follow(self, school):
         if not self.is_following(school):
             f = Follow(follower_id=self.id, followed_id=school.place_id)
@@ -107,22 +112,24 @@ class User(UserMixin, db.Model):
             db.session.delete(f)
             db.session.commit()
 
-    def is_following(self,school):
+    def is_following(self, school):
         return self.followed.filter_by(followed_id=school.place_id).first() is not None
 
-    # whether the account is confirmed
-    # member_since = db.Column(db.DateTime(), default=datetime.utcnow)
-    # last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
+    # Add comparison function
+    def comparison(self, school):
+        if not self.is_comparing(school):
+            comparision = Compare(comparator_id=self.id, compared_id=school.place_id)
+            db.session.add(comparision)
+            db.session.commit()
 
-    # def to_json(self):
-    #     user_json = {
-    #         'url': url_for('api.get_user', id=self.id, _external=True),
-    #         'username': self.username,
-    #         'member_since': self.member_since,
-    #         'last_seen': self.last_seen,
-    #         'post_count': self.posts.count()
-    #     }
-    #     return user_json
+    def remove_comparison(self, school):
+        removal = self.compared.filter_by(compared_id=school.place_id).first()
+        if removal is not None:
+            db.session.delete(removal)
+            db.session.commit()
+
+    def is_comparing(self, school):
+        return self.compared.filter_by(compared_id=school.place_id).first() is not None
 
 
 @login_manager.user_loader

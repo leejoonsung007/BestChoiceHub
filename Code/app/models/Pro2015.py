@@ -40,7 +40,7 @@ class Pro2015(db.Model):
     RCSI = db.Column(db.Integer)
     Shannon_College_of_Hotel_Management = db.Column(db.Integer)
     Total_who_accepted_CAOplace = db.Column(db.Integer)
-    Total_progression = db.Column(db.DECIMAL(10, 2))
+    Total_progression = db.Column(db.Float(10))
     sort= db.Column(db.Integer)# ?
 
     def __init__(self, name):

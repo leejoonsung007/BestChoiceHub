@@ -9,6 +9,7 @@ from app.models.School_rank import Rank2017
 from app.models.Pro2015 import Pro2015
 from app.models.Pro2016 import Pro2016
 from app.models.Pro2017 import Pro2017
+from app.models.Rank import Rank
 from flask_script import Manager
 from flask_migrate import MigrateCommand
 
@@ -23,7 +24,7 @@ manager.add_command('db', MigrateCommand)
 def make_shell_context():
     return dict(db=db, User=User, Role=Role, School=School,
                 Rank2017=Rank2017, Pro2017=Pro2017, Pro2016=Pro2016,
-                Pro2015=Pro2015)
+                Pro2015=Pro2015, Rank=Rank)
 
 
 if __name__ == '__main__':

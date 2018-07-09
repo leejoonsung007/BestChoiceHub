@@ -31,6 +31,7 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 #For windows
 class Config:
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.googlemail.com')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '465'))
@@ -38,13 +39,14 @@ class Config:
                    ['true', 'on', '1']
     MAIL_USERNAME = "schoolselectionie@gmail.com"
     MAIL_PASSWORD = 'ABC12345!'
-    FLASKY_MAIL_SUBJECT_PREFIX = '[School Selection Helper]'
-    FLASKY_MAIL_SENDER = 'School Selection Team <schoolselectionie@gmail.com>'
+    FLASKY_MAIL_SUBJECT_PREFIX = '[BestChoice]'
+    FLASKY_MAIL_SENDER = 'BestChoice Team <schoolselectionie@gmail.com>'
     POSTS_PER_PAGE = 10
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     GOOGLE_OAUTH_CLIENT_ID = "429221528820-0876ccgupb8rjtpl0730h2koa6vrklq7.apps.googleusercontent.com"
     GOOGLE_OAUTH_CLIENT_SECRET = "q3vtKBcD8MPvT6R8TN3d0J6s"
     UPLOAD_FOLDER = os.getcwd() + '/app/static/avatars/'
+    FLASKY_ADMIN = 'school_selection@gmail.com'
 
     # FACEBOOK_OAUTH_CLIENT_ID = os.environ.get("FACEBOOK_OAUTH_CLIENT_ID")
     # FACEBOOK_OAUTH_CLIENT_SECRET = os.environ.get("FACEBOOK_OAUTH_CLIENT_SECRET")
@@ -59,7 +61,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:12345678@schools.cjakbty4kyuc.eu-west-1.rds.amazonaws.com/bestchoice'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:12345678@schools.cjakbty4kyuc.eu-west-1.rds.amazonaws.com/testing'
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
     #                           'mysql+pymysql://root:1234@localhost/school'
 
