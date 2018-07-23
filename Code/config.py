@@ -36,9 +36,8 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:12345678@schools.cjakbty4kyuc.eu-west-1.rds.amazonaws.com/bestchoice'
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-    #                           'mysql+pymysql://root:1234@localhost/school'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
+                              'mysql+pymysql://root:1234@localhost/school'
 
 
 # class TestingConfig(Config):
