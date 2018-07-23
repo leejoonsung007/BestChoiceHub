@@ -42,6 +42,7 @@ class Pro2017(db.Model):
     Total_who_accepted_CAOplace = db.Column(db.Integer)
     Total_progression = db.Column(db.Float(10))  # ?
 
+
     def __init__(self, name):
         self.name = name
 

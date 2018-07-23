@@ -77,7 +77,7 @@
 {% include 'base.html' %}
 
 
-<main role="main">
+<main role="main" style="padding-top: 0px">
     <div class="container">
 
         <div class="page-header">
@@ -90,31 +90,31 @@
             <div class="row">
                 <div id="imgholder" class="col-sm-4" >
                     <div class="row">
-                        <!-- There should be herf = school_details page addr-->
-                        <div class="col-sm-4">
-                                   {% if school.photo %}
-                                        <img style="border-radius: 10px;"
-                                             src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{ school.photo }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
-                                             width="120" height="80"/>
-                                    {% else %}
-                                        <img style="border-radius: 10px;" src="../../static/img/search/not_found.png"
-                                             width="120" height="80"/>
-                                    {% endif %}
-                                   </div>
 
-{#
-<a href="javascript:void(0)">#}
-{#                            <div class="col-sm-4">#}
-{#                                <img  style="border-radius: 10px;" src="http://www.ukschool.net/sites/default/files/styles/school_card_image/public/school/cardimage/wycombe-abbey-school-card.jpg"#}
-{#                                    height="60px" alt="BlackRock College">#}
-{#                            </div>#}
-{#                        </a>#}
+                        <div class="col-sm-4">
+                        <!-- There should be herf = school_details page addr-->
+
+                            <a href="{{ url_for('.school_detail', roll_number=school.roll_number, official_school_name=school.official_school_name) }}">
+                               {% if school.photo_ref1 %}
+                                    <img style="border-radius: 10px;"
+                                         src="../../static/img/rank/{{ school.official_school_name }}.jpeg"
+                                         width="120" height="80"/>
+                                {% else %}
+                                    <img style="border-radius: 10px;" src="../../static/img/search/not_found.png"
+                                         width="120" height="80"/>
+                                {% endif %}
+                            </a>
+
+                        </div>
 
                         <div class="col-sm-8">
-                            <!-- There should be herf = school_details page addr-->
+
 
                                 <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px";width="100">
-                                    <p><span></span>{{ school.name }}</p>
+                                    <!-- There should be herf = school_details page addr-->
+                                    <a href="">
+                                        <p><span></span>{{ school.official_school_name }}</p>
+                                    </a>
                                 </div>
 
                         </div>
@@ -123,13 +123,12 @@
 
                 <div id="addrholder" class="col-sm-6">
                         <div class="details">
-{#                            <p><span style="font-weight:bold;color: black">Address:</span>#}
-{#                                {{ school.address }}#}
-{#                            </p>#}
-
-{#                            <p><span style="font-weight:bold;color: black">Fee:</span>#}
-{#                                {{ school.fee }}#}
-{#                            </p>#}
+                            <p><span style="font-weight:bold;color: black">Address:</span>
+                                {{ school.address }}
+                            </p>
+                            <p><span style="font-weight:bold;color: black">Fee:</span>
+                                {{ school.fee }}
+                            </p>
                             <p><span style="font-weight:bold;color: black">Enrolment:</span>
                                 Boys: {{ school.boy }},
                                 Girls: {{ school.girl }}
@@ -138,7 +137,7 @@
                                 {{ school.stu_tea_ratio }}
                             </p>
                             <p><span style="font-weight:bold;color: black">Students at Third level:</span>
-                                Students at Third level:{{ school.at_third_level}}%;
+                                Students at Third level: {{ school.at_third_level}}%;
                                 <p>Students at University: {{ school.at_university }}%</p>
                             </p>
 
@@ -148,8 +147,8 @@
                 <div id="rank" class="col-sm-2">
                     <div>
                         <p><span style="font-weight:bold;color: black">Rank:</span>
-                        <p>2017: <font color ='red' size = '5px'>{{ school.rank }}</font></p>
-                            <p>2016: <font color ='#00008b' size = '5px'>{{ school.p_rank }}</font></p>
+                            <p>2017: {{ school.rank }}</p>
+                            <p>2016: {{ school.p_rank }}</p>
                         </p>
                     </div>
                 </div>
@@ -158,213 +157,7 @@
 
         </div>
 
-{#        <!-- School two-->#}
-{#        <div class="well well-lg">#}
-{#            <div class="row">#}
-{##}
-{#                <div id="imgholder" class="col-sm-4" >#}
-{#                    <div class="row">#}
-{#                        <!-- There should be herf = school_details page addr-->#}
-{#                        <a href="javascript:void(0)">#}
-{#                            <div class="col-sm-4">#}
-{#                                <img  style="border-radius: 10px;" src="http://www.ukschool.net/sites/default/files/styles/school_card_image/public/school/cardimage/wycombe-abbey-school-card.jpg"#}
-{#                                    height="60px" alt="BlackRock College">#}
-{#                            </div>#}
-{#                        </a>#}
-{##}
-{#                        <div class="col-sm-8">#}
-{#                            <!-- There should be herf = school_details page addr-->#}
-{#                            <a href="javascript:void(0)">#}
-{#                                <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px">#}
-{#                                    <span>BlackRock College </span>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div id="addrholder" class="col-sm-6">#}
-{#                        <div class="details">#}
-{#                            <span style="font-weight:bold;color: black">Address:</span>#}
-{#                            Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4#}
-{#                            <br>#}
-{##}
-{#                            <span style="font-weight:bold;color: black">Free:</span>#}
-{#                            €6799 ;&nbsp&nbsp#}
-{#                            <span style="font-weight:bold;color: black">Enrolment:</span>#}
-{#                            Boys: 78#}
-{#                            Girls: 89 ;#}
-{#                            <br>#}
-{##}
-{#                        </div>#}
-{#                </div>#}
-{##}
-{#                <div id="rank" class="col-sm-2">#}
-{#                    <div>#}
-{#                        <span style="font-weight:bold;color: black">Rank:</span><br>#}
-{#                        2018: # 1 <br>#}
-{#                        2017: # 1#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <!-- School three-->#}
-{#        <div class="well well-lg">#}
-{#            <div class="row">#}
-{##}
-{#                <div id="imgholder" class="col-sm-4" >#}
-{#                    <div class="row">#}
-{#                        <!-- There should be herf = school_details page addr-->#}
-{#                        <a href="javascript:void(0)">#}
-{#                            <div class="col-sm-4">#}
-{#                                <img  style="border-radius: 10px;" src="http://www.ukschool.net/sites/default/files/styles/school_card_image/public/school/cardimage/wycombe-abbey-school-card.jpg"#}
-{#                                    height="60px" alt="BlackRock College">#}
-{#                            </div>#}
-{#                        </a>#}
-{##}
-{#                        <div class="col-sm-8">#}
-{#                            <!-- There should be herf = school_details page addr-->#}
-{#                            <a href="javascript:void(0)">#}
-{#                                <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px">#}
-{#                                    <span>BlackRock College </span>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div id="addrholder" class="col-sm-6">#}
-{#                        <div class="details">#}
-{#                            <span style="font-weight:bold;color: black">Address:</span>#}
-{#                            Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4#}
-{#                            <br>#}
-{##}
-{#                            <span style="font-weight:bold;color: black">Free:</span>#}
-{#                            €6799 ;&nbsp&nbsp#}
-{#                            <span style="font-weight:bold;color: black">Enrolment:</span>#}
-{#                            Boys: 78#}
-{#                            Girls: 89 ;#}
-{#                            <br>#}
-{##}
-{#                        </div>#}
-{#                </div>#}
-{##}
-{#                <div id="rank" class="col-sm-2">#}
-{#                    <div>#}
-{#                        <span style="font-weight:bold;color: black">Rank:</span><br>#}
-{#                        2018: # 1 <br>#}
-{#                        2017: # 1#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <!-- School four-->#}
-{#        <div class="well well-lg">#}
-{#            <div class="row">#}
-{##}
-{#                <div id="imgholder" class="col-sm-4" >#}
-{#                    <div class="row">#}
-{#                        <!-- There should be herf = school_details page addr-->#}
-{#                        <a href="javascript:void(0)">#}
-{#                            <div class="col-sm-4">#}
-{#                                <img  style="border-radius: 10px;" src="http://www.ukschool.net/sites/default/files/styles/school_card_image/public/school/cardimage/wycombe-abbey-school-card.jpg"#}
-{#                                    height="60px" alt="BlackRock College">#}
-{#                            </div>#}
-{#                        </a>#}
-{##}
-{#                        <div class="col-sm-8">#}
-{#                            <!-- There should be herf = school_details page addr-->#}
-{#                            <a href="javascript:void(0)">#}
-{#                                <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px">#}
-{#                                    <span>BlackRock College </span>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div id="addrholder" class="col-sm-6">#}
-{#                        <div class="details">#}
-{#                            <span style="font-weight:bold;color: black">Address:</span>#}
-{#                            Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4#}
-{#                            <br>#}
-{##}
-{#                            <span style="font-weight:bold;color: black">Free:</span>#}
-{#                            €6799 ;&nbsp&nbsp#}
-{#                            <span style="font-weight:bold;color: black">Enrolment:</span>#}
-{#                            Boys: 78#}
-{#                            Girls: 89 ;#}
-{#                            <br>#}
-{##}
-{#                        </div>#}
-{#                </div>#}
-{##}
-{#                <div id="rank" class="col-sm-2">#}
-{#                    <div>#}
-{#                        <span style="font-weight:bold;color: black">Rank:</span><br>#}
-{#                        2018: # 1 <br>#}
-{#                        2017: # 1#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <!-- School five-->#}
-{#        <div class="well well-lg">#}
-{#            <div class="row">#}
-{##}
-{#                <div id="imgholder" class="col-sm-4" >#}
-{#                    <div class="row">#}
-{#                        <!-- There should be herf = school_details page addr-->#}
-{#                        <a href="javascript:void(0)">#}
-{#                            <div class="col-sm-4">#}
-{#                                <img  style="border-radius: 10px;" src="http://www.ukschool.net/sites/default/files/styles/school_card_image/public/school/cardimage/wycombe-abbey-school-card.jpg"#}
-{#                                    height="60px" alt="BlackRock College">#}
-{#                            </div>#}
-{#                        </a>#}
-{##}
-{#                        <div class="col-sm-8">#}
-{#                            <!-- There should be herf = school_details page addr-->#}
-{#                            <a href="javascript:void(0)">#}
-{#                                <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px">#}
-{#                                    <span>BlackRock College </span>#}
-{#                                </div>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#                <div id="addrholder" class="col-sm-6">#}
-{#                        <div class="details">#}
-{#                            <span style="font-weight:bold;color: black">Address:</span>#}
-{#                            Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4 Rock Rd, Blackrock, Dublin 4#}
-{#                            <br>#}
-{##}
-{#                            <span style="font-weight:bold;color: black">Free:</span>#}
-{#                            €6799 ;&nbsp&nbsp#}
-{#                            <span style="font-weight:bold;color: black">Enrolment:</span>#}
-{#                            Boys: 78#}
-{#                            Girls: 89 ;#}
-{#                            <br>#}
-{##}
-{#                        </div>#}
-{#                </div>#}
-{##}
-{#                <div id="rank" class="col-sm-2">#}
-{#                    <div>#}
-{#                        <span style="font-weight:bold;color: black">Rank:</span><br>#}
-{#                        2018: # 1 <br>#}
-{#                        2017: # 1#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
+
 {##} {% endfor %}
     <div class="row pagination-wrap">
                     {% if pagination %}

@@ -1,13 +1,13 @@
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
-from flask_login import UserMixin
+from flask_login import UserMixin, AnonymousUserMixin
 from app import db, login_manager
-# from utils import log
 from datetime import datetime
-
-from app.models.User_operation import Follow, Compare
+from .Permission import Permission
+from .User_operation import Compare, Follow, Comment
 from .Roleomg import Role
+import socket
 
 
 class User(UserMixin, db.Model):
@@ -25,14 +25,13 @@ class User(UserMixin, db.Model):
     photo = db.Column(db.String(256))
     # real_avatar = db.Column(db.String(128), default=None)
     login_type = db.Column(db.String(50))
-    followed = db.relationship('Follow',
-                               foreign_keys=[Follow.follower_id],
+    followed = db.relationship('Follow', foreign_keys=[Follow.follower_id],
                                backref=db.backref('follower', lazy='joined'),
                                lazy='dynamic', cascade='all,delete-orphan')
-    compared = db.relationship('Compare',
-                               foreign_keys=[Compare.comparator_id],
+    compared = db.relationship('Compare', foreign_keys=[Compare.comparator_id],
                                backref=db.backref('comparator', lazy='joined'),
                                lazy='dynamic', cascade='all,delete-orphan')
+    comments = db.relationship('Comment', backref=db.backref('author', lazy='joined'), lazy='dynamic')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)  # initial
@@ -40,15 +39,16 @@ class User(UserMixin, db.Model):
             if self.role is None:
                 if self.email == current_app.config['FLASKY_ADMIN']:  #
                     self.role = Role.query.filter_by(name='Administrator').first()  # admin
-                # elif self.email == current_app.config['MODERATOR']:
-                #     self.role = Role.query.filter_by(name='Moderator').first()
                 else:
                     self.role = Role.query.filter_by(default=True).first()  # default user
 
-    def is_administrator(self):
-        if self.role_id == 3:
-            return True
+    def can(self, perm):
+        return self.role is not None and self.role.has_permission(perm)
 
+    def is_administrator(self):
+        return self.can(Permission.ADMIN)
+
+    # password function
     @property
     def password(self):
         raise AttributeError('password is not a readable attribute')
@@ -60,6 +60,21 @@ class User(UserMixin, db.Model):
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    @staticmethod
+    def reset_password(token, new_password):
+        s = Serializer(current_app.config['SECRET_KEY'])
+        try:
+            data = s.loads(token.encode('utf-8'))
+        except:
+            return False
+        user = User.query.get(data.get('reset'))
+        if user is None:
+            return False
+        user.password = new_password
+        db.session.add(user)
+        return True
+
+    # confirm account
     def generate_confirmation_token(self, expiration=3600):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
         return s.dumps({'confirm': self.id}).decode('utf-8')
@@ -80,26 +95,27 @@ class User(UserMixin, db.Model):
         s = Serializer(current_app.config['SECRET_KEY'], expiration)
         return s.dumps({'reset': self.id}).decode('utf-8')
 
-    #
-    @staticmethod
-    def reset_password(token, new_password):
-        s = Serializer(current_app.config['SECRET_KEY'])
-        try:
-            data = s.loads(token.encode('utf-8'))
-        except:
-            return False
-        user = User.query.get(data.get('reset'))
-        if user is None:
-            return False
-        user.password = new_password
-        db.session.add(user)
-        return True
-
     def ping(self):
         self.last_seen = datetime.utcnow()
         db.session.add(self)
 
-    # Add follow function
+    # anonymous user
+    @staticmethod
+    def create_anonymous():
+        device_name = socket.getfqdn(socket.gethostname())
+        username = device_name
+        email = device_name
+        new_anonymous = User(username=username, email=email)
+        db.session.add(new_anonymous)
+        db.session.commit()
+
+    @staticmethod
+    def current_anonymous_user():
+        device_name = socket.getfqdn(socket.gethostname())
+        current_anonymous_user = User.query.filter_by(username=device_name).first()
+        return current_anonymous_user
+
+    # follow function
     def follow(self, school):
         if not self.is_following(school):
             f = Follow(follower_id=self.id, followed_id=school.place_id)
@@ -115,12 +131,12 @@ class User(UserMixin, db.Model):
     def is_following(self, school):
         return self.followed.filter_by(followed_id=school.place_id).first() is not None
 
-    # Add comparison function
+    # comparison function
     def comparison(self, school):
         if not self.is_comparing(school):
             comparision = Compare(comparator_id=self.id, compared_id=school.place_id)
-            db.session.add(comparision)
-            db.session.commit()
+        db.session.add(comparision)
+        db.session.commit()
 
     def remove_comparison(self, school):
         removal = self.compared.filter_by(compared_id=school.place_id).first()
@@ -131,6 +147,27 @@ class User(UserMixin, db.Model):
     def is_comparing(self, school):
         return self.compared.filter_by(compared_id=school.place_id).first() is not None
 
+    # comment function
+    def remove_comment(self, school):
+        remove_comment = self.comments.filter_by(school_id=school.place_id).first()
+        if remove_comment is not None:
+            db.session.delete(remove_comment)
+            db.session.commit()
+
+    def has_commented(self, school):
+        return self.comments.filter_by(school_id=school.place_id).first() is not None
+
+
+class Anonymous(AnonymousUserMixin):
+
+    def can(self, permission):
+        return False
+
+    def is_administrator(self):
+        return False
+
+
+login_manager.anonymous_user = Anonymous
 
 @login_manager.user_loader
 def load_user(user_id):

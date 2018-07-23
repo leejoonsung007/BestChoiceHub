@@ -3,9 +3,9 @@ from app import db
 
 class Rank(db.Model):
     __tablename__ = 'rank'
-
-    place_id = db.Column(db.String(50))
+    place_id = db.Column(db.String(50), db.ForeignKey('school.place_id'), primary_key=True)
     name = db.Column(db.String(255), nullable=False, primary_key=True)
+    official_school_name = db.Column(db.String(255))
     rank = db.Column(db.Integer)
     p_rank = db.Column(db.Integer)
     gender_type = db.Column(db.String(50))

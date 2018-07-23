@@ -64,6 +64,7 @@
                 }
 
             });
+
             $("input[name='field_religion_value']").click(function () {
                 if ($(this).checked == true) {
                     $(this).checked = false;
@@ -75,6 +76,7 @@
                 }
 
             });
+
             $("input[name='field_boarders_value']").click(function () {
                 if ($(this).checked == true) {
                     $(this).checked = false;
@@ -122,27 +124,27 @@
         });
 
 
-        function loadSchool(datas, s_religion, s_sex,s_fees, s_paimingstart, s_paimingend, s_jieduan) {
+        function loadSchool(datas, s_religion, s_sex, s_fees, s_paimingstart, s_paimingend, s_jieduan) {
 
-              var html = "";
-              for(var i = 0; i < datas.length; i++) {
+            var html = "";
+            for (var i = 0; i < datas.length; i++) {
                 var flag = true;
-                if(!(s_religion == datas[i].religion || s_religion == "")) {
-                  flag = false;
+                if (!(s_religion == datas[i].religion || s_religion == "")) {
+                    flag = false;
                 }
-                if(!(s_sex == datas[i].sex || s_sex == "")) {
-                  flag = false;
+                if (!(s_sex == datas[i].sex || s_sex == "")) {
+                    flag = false;
                 }
-                if(!(s_fees == datas[i].fees || s_fees == "")) {
-                  flag = false;
+                if (!(s_fees == datas[i].fees || s_fees == "")) {
+                    flag = false;
                 }
-                var rank=datas[i].paiming;
-                if(rank=="None"){
-                  rank=9999;
+                var rank = datas[i].paiming;
+                if (rank == "None") {
+                    rank = 9999;
                 }
 
-                if(!(s_paimingstart <= rank && rank < s_paimingend)) {
-                  flag = false;
+                if (!(s_paimingstart <= rank && rank < s_paimingend)) {
+                    flag = false;
                 }
 
                 if (flag) {
@@ -173,12 +175,12 @@
                 var data = {};
                 data.name = '{{ school.official_school_name }}';
                 {% if school.photo_ref1 %}
-                    data.img = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=300&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0';
+                    data.img = '../../static/img/school_img/{{ school.official_school_name }}.jpeg';
                 {% else %}
                     data.img = '../../static/img/search/not_found.png';
                 {% endif %}
 
-                process  = '{{school.official_school_name}}';
+                process = '{{school.official_school_name}}';
                 process = process.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\、|\，|\；|\。|\？|\！|\“|\”|\‘|\’|\：|\（|\）|\─|\…|\—|\·|\《|\》]/g, "");
 
                 data.id = process
@@ -189,7 +191,7 @@
                         data.status = "ajax_follow('{{school.official_school_name}}')"
                         data.class = "like no"
                     {% else %}
-                        data.status ="ajax_unfollow('{{school.official_school_name}}')"
+                        data.status = "ajax_unfollow('{{school.official_school_name}}')"
                         data.class = "like yes"
                     {% endif %}
                 {% endif %}
@@ -215,8 +217,8 @@
                 url: "/follow/" + name,
                 success: function (data) {
                     if (data.result == 'success') {
-                        $("#" + newname).attr('onclick', "ajax_unfollow("+ "'" + name + "'"+ ")");
-                        $("#" + newname).attr('class', 'like yes'); 
+                        $("#" + newname).attr('onclick', "ajax_unfollow(" + "'" + name + "'" + ")");
+                        $("#" + newname).attr('class', 'like yes');
                     }
                 }
             });
@@ -227,7 +229,7 @@
             req = $.ajax({
                 url: "/unfollow/" + name, success: function (data) {
                     if (data.result == 'success') {
-                        $("#" + newname).attr('onclick', "ajax_follow("+ "'" + name + "'"+ ")");
+                        $("#" + newname).attr('onclick', "ajax_follow(" + "'" + name + "'" + ")");
                         $("#" + newname).attr('class', 'like no');
                     }
                 }
@@ -579,28 +581,28 @@
         <div class="region region-sidebar-first">
 
 
-        <div id="block-views-exp-schools-page" class="block block-views">
-            <div class="block-content">
-                <div class="cd-filter">
-                    <div class="mainleftbox">
-                        <div class="whiteinnboxbg">
-                            <form class="ctools-auto-submit-full-form" action="/zh-hans/schools" method="get"
-                                  id="views-exposed-form-schools-page" accept-charset="UTF-8">
-                                <div>
-                                    <div class="views-exposed-form">
-                                        <div class="views-exposed-widgets clearfix">
-                                            <div id="edit-field-boarders-value-wrapper"
-                                                 class="views-exposed-widget views-widget-filter-field_boarders_value">
-                                                <label for="edit-field-boarders-value">
-                                                    <span>Religion  </span> </label>
-                                                <div class="views-widget">
-                                                    <div id="edit-field-boarders-value" class="form-radios">
-                                                        <div class="form-item input-field form-type-radio form-item-field-boarders-value">
-                                                            <input type="radio" id="edit-field-boarders-value-1"
-                                                                   name="field_religion_value" value=""
-                                                                   class="form-radio" checked="checked"/> <label
-                                                                class="option" for="edit-field-boarders-value-1">No
-                                                            Restriction </label>
+            <div id="block-views-exp-schools-page" class="block block-views">
+                <div class="block-content">
+                    <div class="cd-filter">
+                        <div class="mainleftbox">
+                            <div class="whiteinnboxbg">
+                                <form class="ctools-auto-submit-full-form" action="/zh-hans/schools" method="get"
+                                      id="views-exposed-form-schools-page" accept-charset="UTF-8">
+                                    <div>
+                                        <div class="views-exposed-form">
+                                            <div class="views-exposed-widgets clearfix">
+                                                <div id="edit-field-boarders-value-wrapper"
+                                                     class="views-exposed-widget views-widget-filter-field_boarders_value">
+                                                    <label for="edit-field-boarders-value">
+                                                        <span>Religion  </span> </label>
+                                                    <div class="views-widget">
+                                                        <div id="edit-field-boarders-value" class="form-radios">
+                                                            <div class="form-item input-field form-type-radio form-item-field-boarders-value">
+                                                                <input type="radio" id="edit-field-boarders-value-1"
+                                                                       name="field_religion_value" value=""
+                                                                       class="form-radio" checked="checked"/> <label
+                                                                    class="option" for="edit-field-boarders-value-1">No
+                                                                Restriction </label>
 
                                                             </div>
                                                             <div class="form-item input-field form-type-radio form-item-field-boarders-value">

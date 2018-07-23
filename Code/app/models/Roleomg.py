@@ -13,25 +13,35 @@ class Role(db.Model):
     @staticmethod
     def insert_roles():
         roles = {
-            'User': [Permission.USER_LIKE, Permission.COMMENTS],
-            'Moderator': [Permission.USER_LIKE, Permission.COMMENTS, Permission.COMMENTS_MANAGEMENT,
-                          Permission.POST_SCHOOL_INFORMATION, Permission.SCHOOL_INFORMATION_MANAGEMENT,
-                          Permission.MODERATE
-                          ],
-            'Administrator': [Permission.USER_LIKE, Permission.COMMENTS, Permission.COMMENTS_MANAGEMENT,
-                              Permission.POST_SCHOOL_INFORMATION, Permission.SCHOOL_INFORMATION_MANAGEMENT,
-                              Permission.MODERATE, Permission.ACCOUNT_MANAGEMENT, Permission.ADMINISTRATOR
-                              ],
+            'User': [Permission.FOLLOW, Permission.COMMENT, Permission.COMPARE],
+            'Administrator': [Permission.FOLLOW, Permission.COMMENT,
+                              Permission.MODERATE_COMMENT,Permission.COMPARE,Permission.ADMIN],
         }
+        default_role = 'User'
         for r in roles:
             role = Role.query.filter_by(name=r).first()
             if role is None:
                 role = Role(name=r)
-            role.permissions = sum(roles[r])
-            if role.name == 'User':
-                role.default = True
+            role.reset_permissions()
+            for perm in roles[r]:
+                role.add_permission(perm)
+            role.default = (role.name == default_role)
             db.session.add(role)
         db.session.commit()
+
+    def add_permission(self, perm):
+        if not self.has_permission(perm):
+            self.permissions += perm
+
+    def remove_permission(self, perm):
+        if self.has_permission(perm):
+            self.permissions -= perm
+
+    def reset_permissions(self):
+        self.permissions = 0
+
+    def has_permission(self, perm):
+        return self.permissions & perm == perm
 
     def __repr__(self):
         return '<Role %r>' % self.name

@@ -5,7 +5,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" xmlns:Followers="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html"> <!--<![endif]-->
-
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macro.html" as macros %}
 <head>
 
     <meta charset="utf-8">
@@ -15,18 +16,24 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="../../static/css/main.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap3/bootstrap.css">
     <link rel="stylesheet" href="../../static/css/like.css">
+    <link rel="stylesheet" href="../../static/css/star-rating/star-rating.css">
+
     <!-- Modernizr -->
     <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>#}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="../../static/js/pagination/jquery.twbsPagination.js"></script>
+    <script src="../../static/js/star-rating/star-rating.js"></script>
+
     <!-- Respond.js for IE 8 or less only -->
     <!--[if (lt IE 9) & (!IEMobile)]>
   <script src="js/vendor/respond.min.js"></script>
   <![endif]-->
     <link href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/details.css">
 
-    <link rel="stylesheet" href="http://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
     {#    <link rel="stylesheet" href="Airbnb.css">#}
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.1.0/echarts.common.min.js"></script>
@@ -37,8 +44,7 @@
     <style>
         .jumbotron {
         {% if school.photo_ref1 %}
-            background-image: url('https://maps.googleapis.com/maps/api/place/photo?maxwidth=2400&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0')
-            ;
+            background-image: url('../../static/img/school_img1/{{ school.official_school_name }}.jpeg');
         {% else %}
             background-image: url('https://dubsism.files.wordpress.com/2017/12/image-not-found.png');
         {% endif %}
@@ -246,13 +252,7 @@
     <script>
 
 
-
-
-
-
-
-</script>
-
+    </script>
 
 
 </head>
@@ -264,7 +264,7 @@
 
 {% include 'base.html' %}
 
-<main role="main" id='#app'> <!--
+<main role="main" id='#app' style="padding-top: 0px;"> <!--
   <div id="homepage-feature" class="carousel slide">
     <ol class="carousel-indicators">
       <li data-target="#homepage-feature" data-slide-to="0" class="active"></li>
@@ -273,7 +273,7 @@
       <li data-target="#homepage-feature" data-slide-to="3"></li>
     </ol> -->
 
-    <!-- Wrapper for slides --><!--
+<!-- Wrapper for slides --><!--
     <div class="carousel-inner">
       <div class="item active">
         <img width="1600" height="500" src="http://bartlesvillecf.org/files/2016/04/Woolaroc_Museum_ext2_0340.jpg" class="attachment-full size-full wp-post-image" alt="" srcset="http://bartlesvillecf.org/files/2016/04/Woolaroc_Museum_ext2_0340.jpg 1600w, http://bartlesvillecf.org/files/2016/04/Woolaroc_Museum_ext2_0340-300x94.jpg 300w, http://bartlesvillecf.org/files/2016/04/Woolaroc_Museum_ext2_0340-768x240.jpg 768w, http://bartlesvillecf.org/files/2016/04/Woolaroc_Museum_ext2_0340-1024x320.jpg 1024w" sizes="(max-width: 1600px) 100vw, 1600px">
@@ -289,7 +289,7 @@
       </div>
     </div><!-- /.carousel-inner -->
 
-    <!-- Controls --> <!--
+<!-- Controls --> <!--
     <a class="left carousel-control" href="#homepage-feature" data-slide="prev">
       <span class="icon fa fa-chevron-left"></span>
     </a>
@@ -299,336 +299,576 @@
   </div><!-- /#homepage-feature.carousel -->
 
 
+<div class="jumbotron" style="position: relative;">
+    <!--   <img src="" class="banner"> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>{{ school.official_school_name }}</h1>
+                {% if school.photo_ref2 %}
+                    <a href='#' id='view'>View more</a>
+                {% endif %}
+
+                <br>
 
 
+                <!-- Compare module Start ------------------------------------------------------------------------->
+                <button type="compare_btn" class="btn btn-primary btn-lg" onclick="showModal();">Compare</button>
+                <script>
+                    function showModal() {
+
+                        info = ajax_compare("{{ school.official_school_name }}");
+                        if (info == "success") {
+                            $("#myModal").modal();
+                        }
+
+                    };
 
 
+                    function ajax_compare(name) {
+                        req = $.ajax({
+                            url: "/add_comparison/" + name,
+                            success: function (data) {
+                                console.log(data.result);
+                                if (data.result == 'success') {
+                                    // data.increasable = 'True' or 'False'
+                                    if (data.increasable == 'False') {
+                                        $("#warning").show();
+                                    } else {
+                                        $("#warning").hide();
+                                        // data.diverse = 'True'
+                                        if (data.diverse == 'True') {
+                                            $("#compare-list").append(
+                                                '<li id="{{ school.official_school_name }}" class="list-group-item">' +
+                                                '<div class="row">' +
+                                                '<div class="col-sm-8">' +
+                                                '{{ school.official_school_name }}' +
+                                                '</div>' +
+                                                '<div class="col-sm-4">' +
+                                                '<button type="button" onclick="remove(this)" class="btn btn-default" data-dismiss="modal">' +
+                                                'Remove' +
+                                                '</button>' +
+                                                '</div>' +
+                                                '</div>' +
+                                                '</li>'
+                                            );
+                                        }// -- end if
+                                        if ($("#compare-list").children().length > 0) {
+                                            $("#no-record").hide();
+                                        }
+                                    }
+                                }// -- end if success
+                            } // -- end success data
+                        });
+                        return "success";
+                    };
 
-    <div class="jumbotron" style="position: relative;">
-        <!--   <img src="" class="banner"> -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>{{ school.official_school_name }}</h1>
-                    {% if school.photo_ref2 %}
-                        <a href='#' id='view'>View more</a>
-                    {% endif %}
-
-                    <br>
-
-
-                    <!-- Compare module Start ------------------------------------------------------------------------->
-                    <button type="compare_btn" class="btn btn-primary btn-lg" onclick="showModal();">Compare</button>
-                    <script>
-                        function showModal(){
-
-                            info = ajax_compare("{{ school.official_school_name }}");
-                            if(info == "success"){
-                                $("#myModal").modal();
+                    function ajax_uncompare(name) {
+                        req = $.ajax({
+                            url: "/remove_comparison/" + name,
+                            success: function (data) {
+                                if (data.result == 'success') {
+                                    console.log("Removed!")
+                                }
                             }
+                        });
 
-                        };
+                        req.done();
+                    }
 
-
-                        function ajax_compare(name) {
-                                req = $.ajax({
-                                        url: "/add_comparison/" + name,
-                                        success: function (data) {
-                                            console.log(data.result);
-                                            if (data.result == 'success') {
-                                                // data.increasable = 'True' or 'False'
-                                                if(data.increasable == 'False'){
-                                                    $("#warning").show();
-                                                } else {
-                                                    $("#warning").hide();
-                                                    // data.diverse = 'True'
-                                                    if(data.diverse == 'True'){
-                                                        $("#compare-list").append(
-                                                            '<li id="{{ school.official_school_name }}" class="list-group-item">' +
-                                                                '<div class="row">' +
-                                                                    '<div class="col-sm-8">' +
-                                                                        '{{ school.official_school_name }}' +
-                                                                    '</div>' +
-                                                                    '<div class="col-sm-4">' +
-                                                                        '<button type="button" onclick="remove(this)" class="btn btn-default" data-dismiss="modal">' +
-                                                                            'Remove'+
-                                                                        '</button>'+
-                                                                    '</div>' +
-                                                                '</div>' +
-                                                            '</li>'
-                                                        );
-                                                    }// -- end if
-                                                    if($("#compare-list").children().length > 0){
-                                                        $("#no-record").hide();
-                                                    }
-                                                }
-                                            }// -- end if success
-                                        } // -- end success data
-                                    });
-                                return "success";
-                        };
-
-                        function ajax_uncompare(name) {
-                            req = $.ajax({
-                                url: "/remove_comparison/" + name,
-                                success: function (data) {
-                                    if (data.result == 'success') {
-                                         console.log("Removed!")
-                                    }
+                    function ajax_clearAll() {
+                        req = $.ajax({
+                            url: "/compare/clear_all",
+                            success: function (data) {
+                                if (data.result == 'success') {
+                                    console.log("Removed!")
                                 }
-                            });
-
-                            req.done();
-                        }
-
-                        function ajax_clearAll(){
-                            req = $.ajax({
-                                url: "/compare/clear_all",
-                                success: function (data) {
-                                    if (data.result == 'success') {
-                                         console.log("Removed!")
-                                    }
-                                }
-                            });
-
-                            req.done();
-                        }
-
-
-                        function ajax_follow(name) {
-                            req = $.ajax({
-                                url: "/follow/" + name,
-                                success: function (data) {
-                                    if (data.result == 'success') {
-                                        $("#follow").text("Unfollow")
-                                        $("#follow").attr('onclick', 'ajax_unfollow("{{ school.official_school_name }}")')
-                                    }
-                                }
-                            });
-
-                            req.done(function (data) {
-                                $("#followers").fadeOut(500).fadeIn(500);
-                                $("#followers").text(data.school_followers);
-
-                            });
-                        }
-
-
-                        function ajax_unfollow(name) {
-                            req1 = $.ajax({
-                                url: "/unfollow/" + name,
-                                success: function (data) {
-                                    if (data.result == 'success') {
-                                        $("#follow").text("Follow");
-                                        $("#follow").attr('onclick', 'ajax_follow("{{ school.official_school_name }}")')
-                                    }
-                                }
-                            });
-
-                            req1.done(function (data) {
-                                $("#followers").fadeOut(500).fadeIn(500);
-                                $("#followers").text(data.school_followers);
-
-                            });
-                        }
-
-
-                        function remove(self){
-                            var li = $(self).parent().parent().parent();
-                            console.log(li.attr("id"));
-                            ajax_uncompare(li.attr("id"));
-                            li.remove();
-
-                            if($("#compare-list").children().length <= 0){
-                                $("#no-record").show();
                             }
-                        }
+                        });
 
-                        function clearAll() {
-                            var lis = $("#compare-list").children();
-                            $.each(lis, function (i, val) {
-                                console.log(val.id);
-                                val.remove();
-                            });
-                            ajax_clearAll();
+                        req.done();
+                    }
 
-                            if ($('#compare-list').children().length <= 0){
-                                $("#no-record").css('display','block');
+                    function ajax_follow(name) {
+                        req = $.ajax({
+                            url: "/follow/" + name,
+                            success: function (data) {
+                                if (data.result == 'success') {
+                                    $("#follow").text("Unfollow")
+                                    $("#follow").attr('onclick', 'ajax_unfollow("{{ school.official_school_name }}")')
+                                }
                             }
+                        });
+
+                        req.done(function (data) {
+                            $("#followers").fadeOut(500).fadeIn(500);
+                            $("#followers").text(data.school_followers);
+
+                        });
+                    }
+
+
+                    function ajax_unfollow(name) {
+                        req1 = $.ajax({
+                            url: "/unfollow/" + name,
+                            success: function (data) {
+                                if (data.result == 'success') {
+                                    $("#follow").text("Follow");
+                                    $("#follow").attr('onclick', 'ajax_follow("{{ school.official_school_name }}")')
+                                }
+                            }
+                        });
+
+                        req1.done(function (data) {
+                            $("#followers").fadeOut(500).fadeIn(500);
+                            $("#followers").text(data.school_followers);
+
+                        });
+                    }
+
+
+                    function remove(self) {
+                        var li = $(self).parent().parent().parent();
+                        console.log(li.attr("id"));
+                        ajax_uncompare(li.attr("id"));
+                        li.remove();
+
+                        if ($("#compare-list").children().length <= 0) {
+                            $("#no-record").show();
                         }
+                    }
 
-                    </script>
+                    function clearAll() {
+                        var lis = $("#compare-list").children();
+                        $.each(lis, function (i, val) {
+                            console.log(val.id);
+                            val.remove();
+                        });
+                        ajax_clearAll();
+
+                        if ($('#compare-list').children().length <= 0) {
+                            $("#no-record").css('display', 'block');
+                        }
+                    }
+
+                </script>
 
 
-                    <!-- （Modal） -->
-                    <div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <!-- （Modal） -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    Schools for Comparison
+                                </h4>
+                            </div><!--modal-header -->
+
+
+                            <div class="modal-body">
+                                <div id="no-record" style="display: none;"
+                                     class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">
                                         &times;
                                     </button>
-                                    <h4 class="modal-title" id="myModalLabel">
-                                        Schools for Comparison
-                                    </h4>
-                                </div><!--modal-header -->
+                                    No record added yet for comparisons.
+                                </div>
 
-                                <div class="modal-body">
-                                    <div id="no-record" style="display: none;" class="alert alert-info alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert"
-                                                aria-hidden="true">
-                                            &times;
-                                        </button>
-                                        No record added yet for comparisons.
-                                    </div>
-
-                                    <ul id="compare-list" class="list-group">
-                                        {% for school in school_names %}
+                                <ul id="compare-list" class="list-group">
+                                    {% for school in school_names %}
                                         <li id="{{ school }}" class="list-group-item">
                                             <div class="row">
                                                 <div class="col-sm-8">
                                                     {{ school }}
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <button type="button" onclick="remove(this)" class="btn btn-default" >
+                                                    <button type="button" onclick="remove(this)"
+                                                            class="btn btn-default">
                                                         Remove
                                                     </button>
                                                 </div>
                                             </div>
                                         </li>
-                                        {% endfor %}
+                                    {% endfor %}
 
-                                    </ul>
+                                </ul>
 
-                                    <div id="warning" style="display: none;" class="alert alert-warning alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert"
-                                                aria-hidden="true">
-                                            &times;
-                                        </button>
-                                        Warning: You can only add no more than 4 schools in your comparison list!
-                                    </div>
-
-                                </div><!--modal-body -->
-
-
-                                <div class="modal-footer">
-                                    <button type="button" onclick="clearAll()" class="btn btn-default" >
-                                        Clear All
+                                <div id="warning" style="display: none;"
+                                     class="alert alert-warning alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">
+                                        &times;
                                     </button>
-                                    <button type="button" class="btn btn-primary"  onclick="window.open('{{ url_for('operation.compare') }}')">
-                                        Compare
-                                    </button>
-                                </div><!-- /.modal-footer -->
+                                    Warning: You can only add no more than 4 schools in your comparison list!
+                                </div>
 
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- myModal-->
-                    <!-- Compare module End ------------------------------------------------------------------------->
-
-                </div><!-- col-sm 6 School name-->
-
-            </div><!-- col row-->
+                            </div><!--modal-body -->
 
 
-        </div>
+                            <div class="modal-footer">
+                                <button type="button" onclick="clearAll()" class="btn btn-default">
+                                    Clear All
+                                </button>
+                                <button type="button" class="btn btn-primary"
+                                        onclick="window.open('{{ url_for('operation.compare') }}')">
+                                    Compare
+                                </button>
+                            </div><!-- /.modal-footer -->
+
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- myModal-->
+                <!-- Compare module End ------------------------------------------------------------------------->
+
+            </div><!-- col-sm 6 School name-->
+
+        </div><!-- col row-->
+
+
     </div>
+</div>
 
 
-
-
-
-
-    <div class="page-contents">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>{{ school.official_school_name }}</h3>
-                <p>{% if current_user.is_anonymous %}
-                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Follow</a>
-                    <b><font color="navy">&nbsp;&nbsp;&nbsp;View: <span class="badge">{{ school.add }}</span></font></b>
+<div class="page-contents">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>{{ school.official_school_name }}</h3>
+            <p>{% if current_user.is_anonymous %}
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Follow</a>
+                <p><b><font color="navy">View: <span class="badge">{{ school.add }}</span></font></b></p>
+            {% else %}
+                {% if not current_user.is_following(school) %}
+                    <button id="follow" onclick='ajax_follow("{{ school.official_school_name }}")'
+                            class="btn btn-primary">Follow
+                    </button>
                 {% else %}
-                    {% if not current_user.is_following(school) %}
-                        <button id="follow" onclick='ajax_follow("{{ school.official_school_name }}")'
-                                class="btn btn-primary">Follow
-                        </button>
-                    {% else %}
-                        <button id="follow" onclick='ajax_unfollow("{{ school.official_school_name }}")'
-                                class="btn btn-primary">Unfollow
-                        </button>
-                    {% endif %}
-
-                    <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Followers: </font></b>
-                    <span id="followers" class="badge">{{ school.followers.count() }}</span>
-
-                    <b><font color="navy">&nbsp;&nbsp;&nbsp;View: <span class="badge">{{ school.add }}</span></font></b>
-                    </p>{% endif %}
-
-                {% if school.address4 %}
-                    <p>
-                        Address: {{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}, {{ school.address4 }}</p>
-                {% elif school.address3 %}
-                    <p>Address: {{ school.address1 }}, {{ school.address2 }}, {{ school.address3 }}</p>
-                {% elif school.address2 %}
-                    <p>Address: {{ school.address1 }}, {{ school.address2 }}</p>
-                {% else %}
-                    <p>Address: {{ school.address1 }}}</p>
+                    <button id="follow" onclick='ajax_unfollow("{{ school.official_school_name }}")'
+                            class="btn btn-primary">Unfollow
+                    </button>
                 {% endif %}
+                <b><font color="navy"> &nbsp;&nbsp;&nbsp;&nbsp;Followers: </font></b>
+                {#                    <span id="followers" class="badge">{{ school.followers.count() }}</span>#}
+                <b><font color="navy">&nbsp;&nbsp;&nbsp;View: <span class="badge">{{ school.add }}</span></font></b>
+                </p>{% endif %}
 
-                <span class='rank'><p>Rank: {{ school.rank }}</p></span>
-                <p>School gender: {{ school.school_gender }}</p>
-                <p>Religion: {{ school.religion }}</p>
-                <p>Irish classification: {{ school.irish_classification }}</p>
-                <p>Fee: {{ school.fee }}</p>
-                <p>Website: <a target="_blank" href="{{ school.website }}">{{ school.website }}/</a></p>
-            </div>
+            <p>{{ school.address }}</p>
 
-            <div class="col-sm-8">
-                <div id="allmap" style="width: 100%;height: 300px; margin-top: 20px"></div>
-                <script type="text/javascript">
-                    // Map
-                    $(function () {
-                        initMap();
+            <span class='rank'><p>Rank: {{ rank.rank }}</p></span>
+            <p>School gender: {{ school.school_gender }}</p>
+            <p>Religion: {{ school.religion }}</p>
+            <p>Irish classification: {{ school.irish_classification }}</p>
+            <p>Fee: {{ school.fee }}</p>
+            <p>Website: <a target="_blank" href="{{ school.website }}">{{ school.website }}/</a></p>
+        </div>
+
+        <div class="col-sm-8">
+            <div id="allmap" style="width: 100%;height: 300px; margin-top: 20px"></div>
+            <script type="text/javascript">
+                // Map
+                $(function () {
+                    initMap();
+                });
+
+                function initMap() {
+                    var myLatLng = {lat: {{ school.lat }}, lng: {{ school.lng }}};
+
+                    var map = new google.maps.Map(document.getElementById('allmap'), {
+                        zoom: 15,
+                        center: myLatLng,
+                        gestureHandling: 'greedy'
                     });
 
-                    function initMap() {
-                        var myLatLng = {lat: {{ school.lat }}, lng: {{ school.lng }}};
-
-                        var map = new google.maps.Map(document.getElementById('allmap'), {
-                            zoom: 15,
-                            center: myLatLng,
-                            gestureHandling: 'greedy'
-                        });
-
-                        var marker = new google.maps.Marker({
-                            position: myLatLng,
-                            map: map,
-                            title: '{{ school.official_school_name }}'
-                        });
-                    }
-                </script>
-            </div>
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map,
+                        title: '{{ school.official_school_name }}'
+                    });
+                }
+            </script>
         </div>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-sm-6">
-                <div id="tu1" style="width: 100%;height:400px;"></div>
-            </div>
-            <div class="col-sm-6">
-                <div id="tu2" style="width: 100%;height:400px;"></div>
-                <div class="col-sm-5">
-                    <select class="form-control" id='selyear'>
-                        <option value='2015'>2015</option>
-                        <option value='2016'>2016</option>
-                        <option value='2017'>2017</option>
-                    </select></div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-6">
+            <div id="tu1" style="width: 100%;height:400px;"></div>
+        </div>
+        <div class="col-sm-6">
+            <div id="tu2" style="width: 100%;height:400px;"></div>
+            <div class="col-sm-5">
+                <select class="form-control" id='selyear'>
+                    <option value='2015'>2015</option>
+                    <option value='2016'>2016</option>
+                    <option value='2017'>2017</option>
+                </select></div>
 
-                <div class="col-sm-5">
-                    <select class="form-control" id='seltype'>
-                        <option value='0'>All institution</option>
-                        <option value='1'>University only</option>
-                    </select></div>
+            <div class="col-sm-5">
+                <select class="form-control" id='seltype'>
+                    <option value='0'>All institution</option>
+                    <option value='1'>University only</option>
+                </select></div>
+        </div>
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+
+
+<div style="margin-left: 15px;">
+    <h3>{{ count }} Reviews</h3>
+
+    <div class="row" >
+        <div class="col-md-9">
+            <ul class="media-list">
+             {% for comment in comments %}
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-circle" style="height: 70px; width: 70px" src="{{ comment.author_avatar }}" alt="photo">
+                        </a>
+                    </div>
+
+                    <div class="media-body">
+                        <h4 class="media-heading inline">{{ comment.author_name }}</h4>
+
+                        <div class="caption inline" ><span class="label label-success">{{ comment.user_rating }} Stars</span></div>
+                        <input value="{{ comment.user_rating }}" type="number" class="rating-loading star-show" min=0 max=5 step=0.1 data-size="xs">
+
+                        <p class="inline">{{ comment.user_review }}</p>
+                        <a userid= "userIdxxx" class="inline" href="javascript:void(0)" onclick="removeByUserId(this)">
+                            <div class="caption inline" ><span class="label label-danger">Remove</span></div>
+                        </a>
+
+                        <p>
+                            <div class="ds-comment-footer">
+                                <span class="ds-time" datetime="{{ comment.time }}" title="{{ comment.time }}">{{ comment.time }}</span>&nbsp;
+                            </div>
+                        </p>
+                    </div>
+                </li>
+                <hr/>
+                {% endfor %}
+
+                <li class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-circle" src="../../static/img/review/b.png" alt="photo">
+                        </a>
+                    </div>
+
+                    <div class="media-body">
+                        <h4 class="media-heading inline">Li Juncheng</h4>
+
+                        <div class="caption inline" ><span class="label label-success">3.2 Stars</span></div>
+                        <input value="3.2" type="number" class="rating-loading star-show" min=0 max=5 step=0.1 data-size="xs">
+
+                        <p class="inline">How about this comment plugin, which can be used as a comment on my blog, berman?I'll give it to group manager. Let him give me the source code</p>
+                        <a userid= "userId" class="inline" href="javascript:void(0)" onclick="removeByUserId(this)">
+                            <div class="caption inline" ><span class="label label-danger">Remove</span></div>
+                        </a>
+
+                        <p>
+                            <div class="ds-comment-footer">
+                                <span class="ds-time" datetime="2016-01-28T20:13:29+08:00" title="21 July 2018 8:13:29">2018-04-24 18:42:59</span>&nbsp;
+                            </div>
+                        </p>
+                    </div>
+                </li>
+
+                <script>
+                    $(".star-show").rating({displayOnly: true});
+
+                    {#$(document).on('ready', function(){
+
+                    });#}
+                </script>
+
+
+                {#<li class="media"> <!-- the first floor entry-->
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object img-circle" src="../../static/img/review/a.png" alt="photo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">LiJuncheng</h4>
+
+                        <p>Love it, this plugin works really well...Let me see if his comments section looks good!</p>
+
+                        <div class="ds-comment-footer">
+                            <span class="ds-time" datetime="2016-01-28T20:13:29+08:00" title="21 July 2018 8:13:29">21 July 2018</span>&nbsp;
+                            <a> <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> reply </a>
+                        </div>
+                        <hr/>
+
+                        <ul class="media-list"> <!-- the second floor -->
+                            <li class="media"> <!-- the second floor entry-->
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object img-circle" src="../../static/img/review/b.png" alt="photo">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Chen Pengyu 2rd</h4>
+
+                                    <p>How about this comment plugin, which can be used as a comment on my blog, berman?I'll give it to group manager. Let him give me the source code.</p>
+
+                                    <div class="ds-comment-footer">
+                                        <span class="ds-time" datetime="2016-01-28T20:13:29+08:00"
+                                              title="21 July 2018 8:13:29">21 July 2018</span>&nbsp;
+                                        <a>
+                                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> reply
+                                        </a>
+                                    </div>
+                                    <hr/><!-- second floor line-->
+
+                                    <!-- 第三层 要放在 media-body 里-->
+                                    <ul class="media-list">
+                                        <li class="media">
+                                            <div class="media-left">
+                                                <a href="#">
+                                                    <img class="media-object img-circle" src="../../static/img/review/c.png" alt="photo">
+                                                </a>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">Hongyuan 3rd</h4>
+
+                                                <p>How about this comment plugin, which can be used as a comment on my blog, berman?I'll give it to group manager. Let him give me the source code.</p>
+
+                                                <div class="ds-comment-footer">
+                                                    <span class="ds-time" datetime="2016-01-28T20:13:29+08:00"
+                                                          title="21 July 2018 8:13:29">21 July 2018</span>&nbsp;
+                                                    <a>
+                                                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> reply
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul><!-- the third floor  end-->
+
+                                </div>
+
+                            </li> <!-- the second floor entry-->
+                            <hr/>
+
+
+
+                            <li class="media"> <!-- the second floor entry-->
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object img-circle" src="../../static/img/review/b.png" alt="photo">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Chen Pengyu 2rd</h4>
+
+                                    <p>How about this comment plugin, which can be used as a comment on my blog, berman?I'll give it to group manager. Let him give me the source code.</p>
+
+                                    <div class="ds-comment-footer">
+                                        <span class="ds-time" datetime="2016-01-28T20:13:29+08:00"
+                                              title="21 July 2018 8:13:29">21 July 2018</span>&nbsp;
+                                        <a>
+                                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> reply
+                                        </a>
+                                    </div>
+                                </div>
+                            </li> <!-- the second floor entry-->
+                        </ul><!-- the second floor  end -->
+
+                    </div>
+                </li> <!-- the first floor entry-->#}
+
+            </ul>
+            <hr/>
+
+            <div class="row">
+
+                <div class="col-md-3"></div>
+
+                <div id="pagination-row" class="row pagination-wrap col-md-6">
+                    <nav style="margin-left:20px" aria-label="Page navigation">
+                        <ul class="pagination" id="pagination"></ul>
+                    </nav>
+
+                </div><!-- /.row.pagination-wrap -->
+
+                <div class="col-md-3"></div>
+
             </div>
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+
+            <form id="review-form" role="form">
+                <h3>Ranking and Review </h3>
+                <div class="form-group">
+                     <input name="ranks" id="stars" value="2.5" type="number" class="rating rating-loading" min=0 max=5 step=0.1 data-size="xs">
+                </div>
+
+                <div class="form-group">
+                    <span class="input input--isao">
+                        <textarea style="border:1px solid darkgrey;border-radius:5px;" name="comment_content" placeholder="Your comments here" class="input__field input__field--isao form-control" type="text" rows="3"></textarea>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-4">
+                        <a id="addcommentbutton" href="javascript:void(0)" onclick="submitReviews()" type="button" class="btn btn-primary btn-block ladda-button" title="" data-style="expand-right" data-original-title="comments">
+                            <span class="ladda-label">
+                                Submit
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+
+            </form>
+            <p></p>
+
+
+        </div><!-- col-md-9 end -->
+
+        <div class="col-md-3"></div>
+
+
+
+<script>
+
+    $('#pagination').twbsPagination({
+        totalPages: 4,
+        visiblePages: 4,
+        onPageClick: function (event, page) {
+
+
+        }
+    });
+
+    function removeByUserId(obj){
+        var userId = obj.getAttributeNode("userid").value;
+        console.log("userId: " + userId);
+    }
+
+    function submitReviews(){
+        var initialData = $("#review-form").serialize();
+        var formData = decodeURIComponent(initialData,true);
+        console.log("formData: " + formData);
+
+    }
+
+</script>
+
+    </div><!-- row end -->
+</div>
+
+
 </main>
+
+
+
+
+
 
 <div class="slider_contain">
     <span class="slider_close">X</span>
@@ -645,9 +885,9 @@
             {% if school.photo_ref1 %}
                 <div data-p="144.50" style="display: none;">
                     <img data-u="image"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                         src="../../static/img/school_img1/{{ school.official_school_name }}.jpeg"/>
                     <img data-u="thumb"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         src="../../static/img/school_img1/{{ school.official_school_name }}.jpeg"
                          height="72px" width="72px">
                 </div>
             {% endif %}
@@ -655,9 +895,9 @@
             {% if school.photo_ref2 %}
                 <div data-p="144.50" style="display: none;">
                     <img data-u="image"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref2 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                         src="../../static/img/school_img2/{{ school.official_school_name }}.jpeg"/>
                     <img data-u="thumb"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref2 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         src="../../static/img/school_img2/{{ school.official_school_name }}.jpeg"
                          height="72px" width="72px"/>
                 </div>
             {% endif %}
@@ -665,9 +905,9 @@
             {% if school.photo_ref3 %}
                 <div data-p="144.50" style="display: none;">
                     <img data-u="image"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref3 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                         src="../../static/img/school_img3/{{ school.official_school_name }}.jpeg"/>
                     <img data-u="thumb"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref3 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         src="../../static/img/school_img3/{{ school.official_school_name }}.jpeg"
                          height="72px" width="72px"/>
                 </div>
             {% endif %}
@@ -675,9 +915,9 @@
             {% if school.photo_ref4 %}
                 <div data-p="144.50" style="display: none;">
                     <img data-u="image"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref4 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                         src="../../static/img/school_img4/{{ school.official_school_name }}.jpeg"/>
                     <img data-u="thumb"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref4 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         src="../../static/img/school_img4/{{ school.official_school_name }}.jpeg"
                          height="72px" width="72px"/>
                 </div>
             {% endif %}
@@ -685,9 +925,9 @@
             {% if school.photo_ref5 %}
                 <div data-p="144.50" style="display: none;">
                     <img data-u="image"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref5 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"/>
+                         src="../../static/img/school_img5/{{ school.official_school_name }}.jpeg"/>
                     <img data-u="thumb"
-                         src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=1200&photoreference={{ school.photo_ref5 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
+                         src="../../static/img/school_img5/{{ school.official_school_name }}.jpeg"
                          height="72px" width="72px"/>
                 </div>
             {% endif %}
@@ -728,8 +968,6 @@
 
     </div>
 </div>
-
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -1025,39 +1263,39 @@
         series: [{
             name: "School's raise of progression to 3rd level",
             type: 'line',
-        {% if university_going %}
-            {% set university_going_a = 100 * university_going.Total_progression // 1 %}
+            {% if university_going %}
+                {% set university_going_a = 100 * university_going.Total_progression // 1 %}
             {% endif %}
-        {% if university_going1 %}
-            {% set university_going_b = 100 * university_going1.Total_progression // 1 %}
+            {% if university_going1 %}
+                {% set university_going_b = 100 * university_going1.Total_progression // 1 %}
             {% endif %}
-        {% if university_going2 %}
-            {%set university_going_c = 100 * university_going2.Total_progression // 1 %}
+            {% if university_going2 %}
+                {%set university_going_c = 100 * university_going2.Total_progression // 1 %}
             {% endif %}
-                data: [{{university_going_a}}, {{university_going_b}}, {{university_going_c}}],
-{#            {% else %}#}
-{#                data: [0, 96, 97]#}
-{#            {% endif %}#}
+            data: [{{university_going_a}}, {{university_going_b}}, {{university_going_c}}],
+            {#            {% else %}#}
+            {#                data: [0, 96, 97]#}
+            {#            {% endif %}#}
         },
             {
                 name: "School's raise of progression to university only",
                 type: 'line',
-            {% if university_going %}
-                {% set university_only_a = (100* (university_going.UCD+university_going.TCD+university_going.UCC+university_going.DCU+
-    university_going.UL +university_going.Maynooth_University + university_going.NUIG))//university_going.Number_who_sat_Leaving_Cert_2015 %}
-            {% endif %}
-            {% if university_going1 %}
-                {% set university_only_b = (100* (university_going1.UCD+university_going1.TCD+university_going1.UCC+university_going1.DCU+
-    university_going1.UL +university_going1.Maynooth_University + university_going1.NUIG))//university_going1.Number_who_sat_Leaving_Cert_2015%}
+                {% if university_going %}
+                    {% set university_only_a = (100* (university_going.UCD+university_going.TCD+university_going.UCC+university_going.DCU+
+        university_going.UL +university_going.Maynooth_University + university_going.NUIG))//university_going.Number_who_sat_Leaving_Cert_2015 %}
                 {% endif %}
-            {% if university_going2 %}
-                {% set university_only_c =(100* (university_going2.UCD+university_going2.TCD+university_going2.UCC+university_going2.DCU+
-    university_going2.UL +university_going2.Maynooth_University + university_going2.NUIG))//university_going2.Number_who_sat_Leaving_Cert_2015   %}
+                {% if university_going1 %}
+                    {% set university_only_b = (100* (university_going1.UCD+university_going1.TCD+university_going1.UCC+university_going1.DCU+
+        university_going1.UL +university_going1.Maynooth_University + university_going1.NUIG))//university_going1.Number_who_sat_Leaving_Cert_2015%}
                 {% endif %}
-                  data: [{{ university_only_a }},{{ university_only_b }},{{ university_only_c }}]
-{#                {% else %}#}
-{#                    data: [0, 85, 80]#}
-{#                {% endif %}#}
+                {% if university_going2 %}
+                    {% set university_only_c =(100* (university_going2.UCD+university_going2.TCD+university_going2.UCC+university_going2.DCU+
+        university_going2.UL +university_going2.Maynooth_University + university_going2.NUIG))//university_going2.Number_who_sat_Leaving_Cert_2015   %}
+                {% endif %}
+                data: [{{ university_only_a }}, {{ university_only_b }}, {{ university_only_c }}]
+                {#                {% else %}#}
+                {#                    data: [0, 85, 80]#}
+                {#                {% endif %}#}
             },]
     });
 

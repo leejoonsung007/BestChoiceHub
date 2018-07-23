@@ -1,24 +1,104 @@
+//Execute when initializing the page
 $(document).ready(function () {
 
-    // Set carousel options
-    $('.carousel').carousel({
-        interval: 8000 // 8 seconds vs. default 5
-    });
-
 });
 
-var markers = [];
+var selectedData = [];
+var totalData = [];
+var currentPage = 1;
+var pageSize = 6;
+var totalPage = 29;
 
-var latlng = new google.maps.LatLng(53.3498118, -6.2711979);
+var school_ids = [];
 
-var map = new google.maps.Map(document.getElementById('mapholder'), {
-    center: latlng,
-    zoom: 12,
-    gestureHandling: 'greedy'
-});
+
+function ajax_getSchoolDataByLatlng(){
+    navigator.geolocation.getCurrentPosition(function (position){
+        var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+        req = $.ajax({
+            type: 'POST',
+            url: 'http://localhost:5000/distance_computing/'+ pos.lat + ','+ pos.lng,
+            contentType: 'application/json; charset=UTF-8',
+            dataType: 'json',
+            success: function (data) {
+                console.log("ajax data:");
+                console.log(data);
+
+                totalData = data.result;
+                totalPage = data.page_counte;
+                drawSchoolCardsByPage(currentPage);
+
+
+
+            }
+        });
+
+    } );
+}
+
+function drawSchoolCardsByPage(page){
+    $("#loadgif").hide();
+    var holder = $("#school-holder");
+    holder.empty();
+    //这里一定要在每次循环前初始化为空
+    school_ids = [];
+    selectedData = [];
+
+    currentPage = page;
+
+    for (var i = (currentPage-1)*pageSize; i < currentPage*pageSize; i++){
+        if(i < totalData.length){
+            selectedData.push(totalData[i]);
+        }
+    }
+
+    console.log("ajax_getSchoolDataByLatlng -- selectedData: ");
+    console.log(selectedData);
+
+    $.each(selectedData, function(i,school){
+        var img_src = "";
+        if(null != school.photo_ref1){
+            //低分辨率
+            img_src = '"../../static/img/home/'+school.official_school_name+'.jpeg"'
+        }else{
+            img_src = '"../../static/img/search/not_found.png"';
+        }
+        school_ids.push(school.place_id);
+
+        holder.append(
+            '<div class="product-item col-xs-6 col-md-4">' +
+                '<a target="_blank" href=\"http://localhost:5000/school/'+ school.official_school_name+'/'+school.roll_number+'\">' +
+                    '<img style="height: 150px;"' +
+                         'src=' + img_src +
+                         'alt="sample school"/>' +
+                '</a>'+
+
+                '<h2 style="font-weight:bold"><a target="_blank" href=\"http://localhost:5000/school/'+ school.official_school_name+'/'+school.roll_number+'\">' +
+                                                 school.official_school_name+'</a><br>' +
+
+                                                '<a class="'+ school.place_id + '" href="javascript:void(0)"' +
+                                                'onclick="showLocation(this)"> <span style="color: black;font-size: 14px; font-style: italic">☞ Show Location </span> </a>' +
+                '</h2>' +
+
+                '<p><span style="font-weight:bold;color: black">Address:</span>' + school.address +
+                '</p>' +
+
+            '</div>'
+        );
+    });// end -- each
+
+    addCustomMarkers(school_ids);
+
+}
+
 
 //Gets the province and city of the current location and sends it to the server side
-function geocodeLocation(geocoder, position) {
+/*function geocodeLocation(position) {
+    var geocoder = new google.maps.Geocoder;
     geocoder.geocode({'location': position}, function (results, status) {
         if (status === 'OK') {
             if (results[0]) {
@@ -36,27 +116,14 @@ function geocodeLocation(geocoder, position) {
 
                 console.log(position);
 
-                req = $.ajax({
-                    type: 'POST',
-                    url: 'http://localhost:5000',
-                    data: JSON.stringify(position),
-                    contentType: 'application/json; charset=UTF-8',
-                    dataType: 'json',
-                    success: function (data) {
-                        // if (data.result == 'success'){
-                            console.log(data.result)
-                            // console.log(data.pagination)
-                            console.log(data.schools);
-                        // }
-
-                     }
-                });
-
-                // req.done(function(data){
-                //     $('#trying').fadeOut(1000).fadeIn(1000),
-                //     $('#trying').html(data)
-                //     console.log(JSON.stringify(data))
-                // });
+                //设置下拉选框对应到当前所属城市
+                var myselect = document.getElementById("county");
+                for(var i=0; i < myselect.options.length; i++){
+                    if(city.toLowerCase().indexOf(myselect.options[i].text.toLowerCase()) != -1){
+                        myselect.options[i].selected = true;
+                        break;
+                    }
+                }
 
 
             } else {
@@ -67,10 +134,27 @@ function geocodeLocation(geocoder, position) {
             console.log('Geocoder failed due to: ' + status);
         }
     });
-}
+}*/
 
 
-function initMap(placeID) {
+
+// GoogleMap intinazing elements
+var markers = [];
+var latlng ;
+var map ;
+var service ;
+
+var school_ids = [];
+
+function initMap() {
+
+    latlng = new google.maps.LatLng(53.3498118, -6.2711979);
+    map = new google.maps.Map(document.getElementById('mapholder'), {
+        center: latlng,
+        zoom: 12,
+        gestureHandling: 'greedy'
+    });
+    service = new google.maps.places.PlacesService(map);
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -81,12 +165,9 @@ function initMap(placeID) {
                 lng: position.coords.longitude
             };
 
+            latlng = pos;
 
-            var infowindow = new google.maps.InfoWindow();
-            var service = new google.maps.places.PlacesService(map);
-            var geocoder = new google.maps.Geocoder;
-
-            geocodeLocation(geocoder, pos);
+            //geocodeLocation(geocoder, pos);
 
             map.setCenter(pos);
             var marker = new google.maps.Marker({
@@ -95,116 +176,6 @@ function initMap(placeID) {
             });
 
 
-            /*service.getDetails({
-                placeId: 'ChIJleUXFNAIZ0gRhNzwSNpWkw0'
-            }, function (place, status) {
-                if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: place.geometry.location,
-                        title: place.name,
-                        icon: place.photos[0].getUrl({
-                            'maxWidth': 40,
-                            'maxHeight': 40
-                        })
-                    });
-                    google.maps.event.addListener(marker, 'click', function () {
-                        infowindow.setContent("<div style='width: 220px'><img class= 'img' src='" + place.photos[0].getUrl({
-                                'maxWidth': 350,
-                                'maxHeight': 350
-                            }) + "' alt='Smiley face' width='80'><br><strong>" + place.name + '</strong><br>' +
-                            'Place ID: ' + place.place_id + '<br>' +
-                            place.formatted_address + '</div>');
-                        infowindow.open(map, this);
-                    });
-                }
-            });*/
-
-
-            // Create an array of alphabetical characters used to label the markers.
-            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-            var locations = placeID; /*[
-                "ChIJHYkHCdsIZ0gRXz4yLREmvHQ",
-                "ChIJpzxxr9AIZ0gRa69sULj9zYs",
-                "ChIJ-UioQdsIZ0gRwAHOnjq8sko",
-                "ChIJh1EtkpEIZ0gR1lMjFQUd-zc",
-                "ChIJZzaAiGMIZ0gRozqf8i7vMnU",
-                "ChIJibOyH2IOZ0gRtWMz9SQQDas",
-                "ChIJ6fclDJEOZ0gRzisvsLddjNo",
-                "ChIJ07tFM9gIZ0gRd87tXEv6POw",
-                "ChIJTcaPW4cOZ0gRVgqU3H63398",
-                "ChIJt9cchZgOZ0gRwW78_VEIEXw",
-                "ChIJn3rZp-wIZ0gRDC17B3XLZkw",
-                "ChIJ_3kBDcMOZ0gRNFzZqN7YWmI",
-                "ChIJA5XXN9IOZ0gR7HGnIVFQrI8",
-                "ChIJXa4Sy7AOZ0gRJLi1wQFCeGM",
-                "ChIJjXO-8JgOZ0gR1KHY3XocqDU",
-                "ChIJ34uYDdUNZ0gRwBp3Fy-23Jo",
-                "ChIJzZS7sB0MZ0gRnVtm8nw3UB8",
-                "ChIJgTCQFoYOZ0gRq3gV0jEBcuo",
-                "ChIJiRUcslMJZ0gRVqRmjJY1ZVE"
-            ]*/
-
-
-            locations.map(function (location, i) {
-
-
-                service.getDetails({
-                    placeId: location
-                }, function (place, status) {
-                    if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-                        var marker;
-                        if (typeof(place.photos) == "undefined") {
-                            marker = new google.maps.Marker({
-                                map: map,
-                                position: place.geometry.location,
-                                title: place.name,
-                                // label: labels[i % labels.length],
-                                icon: "../../static/img/search/not_found-small.png"
-                            });
-
-                            google.maps.event.addListener(marker, 'click', function () {
-                                infowindow.setContent("<div id='" + place.place_id + "' style='width: 220px'><img class= 'img' src='" +
-                                    "../../static/img/search/not_found.jpg" + "' alt='Smiley face' width='80'><br><strong>" + place.name + '</strong><br>' +
-                                    '<strong>Place ID: </strong>' + place.place_id + '<br>' +
-                                    '<strong>Address: </strong>' + place.formatted_address + '</div>');
-                                infowindow.open(map, this);
-                            });
-
-
-                        } else {
-                            marker = new google.maps.Marker({
-                                map: map,
-                                position: place.geometry.location,
-                                title: place.name,
-                                //label: labels[i % labels.length],
-                                icon: place.photos[0].getUrl({
-                                    'maxWidth': 30,
-                                    'maxHeight': 30
-                                })
-                            });
-
-                            google.maps.event.addListener(marker, 'click', function () {
-                                infowindow.setContent("<div id='" + place.place_id + "' style='width: 220px'><img class= 'img' src='" + place.photos[0].getUrl({
-                                        'maxWidth': 350,
-                                        'maxHeight': 350
-                                    }) + "' alt='Smiley face' width='80'><br><strong>" + place.name + '</strong><br>' +
-                                    '<strong>Place ID: </strong>' + place.place_id + '<br>' +
-                                    '<strong>Address: </strong>' + place.formatted_address + '</div>');
-                                infowindow.open(map, this);
-                            });
-
-                        }
-
-
-                    }
-                });
-
-                markers.push(marker);
-
-            });
 
             /*//Add a marker clusterer to manage the markers.
             var markerCluster = new MarkerClusterer(map, markers,
@@ -215,8 +186,6 @@ function initMap(placeID) {
         });
     } else {
         //if get user location failed
-
-        geocodeLocation(geocoder, latlng);
 
 
         // Browser doesn't support Geolocation
@@ -231,6 +200,85 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: The Geolocation service failed.' :
         'Error: Your browser doesn\'t support geolocation.');
 }
+
+function addCustomMarkers(placeIds){
+    /*if (markers.length == 6){
+         for(var j=0; j < markers.length; j++){
+            markers[j].setMap(null);
+        }
+    }*/
+    for(var j=0; j < markers.length; j++){
+        markers[j].setMap(null);
+    }
+    markers = [];
+
+    placeIds.map(function (id, i) {
+        service.getDetails({
+            placeId: id
+        }, function (place, status) {
+            console.log(id);
+            var marker;
+            var infowindow = new google.maps.InfoWindow();
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    console.log("addMarkers: placeID "+i+"  "+id);
+                    if (typeof(place.photos) == "undefined") {
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location,
+                            title: place.name,
+                            // label: labels[i % labels.length],
+                            icon: "../../static/img/search/not_found-small.png"
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.setContent("<div id='" + place.place_id + "' style='width: 220px'><img class= 'img' src='" +
+                                "../../static/img/search/not_found.jpg" + "' alt='Smiley face' width='80'><br><strong>" + place.name + '</strong><br>' +
+                                '<strong>Place ID: </strong>' + place.place_id + '<br>' +
+                                '<strong>Address: </strong>' + place.formatted_address + '</div>');
+                            infowindow.open(map, this);
+                        });
+
+                    } else {
+                        marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location,
+                            title: place.name,
+                            //label: labels[i % labels.length],
+                            icon: place.photos[0].getUrl({
+                                'maxWidth': 30,
+                                'maxHeight': 30
+                            })
+                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.setContent("<div id='" + place.place_id + "' style='width: 220px'><img class= 'img' src='" + place.photos[0].getUrl({
+                                    'maxWidth': 350,
+                                    'maxHeight': 350
+                                }) + "' alt='Smiley face' width='80'><br><strong>" + place.name + '</strong><br>' +
+                                '<strong>Place ID: </strong>' + place.place_id + '<br>' +
+                                '<strong>Address: </strong>' + place.formatted_address + '</div>');
+                            infowindow.open(map, this);
+                        });
+
+                    }
+            }
+
+            /*if(markers.length >= 0 && markers.length < 6){
+                markers.push(marker);
+            }else{
+                markers[i] = marker;
+            }*/
+            markers.push(marker);
+
+        });//--function (place, status) end
+
+
+    });
+
+
+}
+
+
 
 
 var currentMarker = null;
@@ -342,4 +390,22 @@ function refresh() {
         url += "#"; // add #
         self.location.replace(url); // refresh the page
     }
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+    }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+    setMapOnAll(null);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+    clearMarkers();
+    markers = [];
 }

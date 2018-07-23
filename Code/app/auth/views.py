@@ -5,7 +5,7 @@ from app.email import send_email
 # from utils import log
 from flask_dance.contrib.google import google
 from flask_dance.contrib.facebook import facebook
-import os
+from ..models.Roleomg import Role
 from flask import (render_template,
                    redirect,
                    request,
@@ -147,17 +147,19 @@ def password_reset(token):
 def login_with_google():
     if not google.authorized:
         return redirect(url_for("google.login"))
-
     # get google user information
     google_user = google.get("/plus/v1/people/me").json()
+    print(google_user)
     # log("what is in resp", google_user)
     email = google_user["emails"][0]["value"]
     username = google_user['displayName']
     picture = google_user['image']['url']
     picture_resized = picture.split("?sz=50")[0] + "?sz=" + "512"
+    role_id = Role.query.filter_by(name='user').first().id
     confirmed = True
     login_type = 'google'
-    user = User(email=email, username=username, confirmed=confirmed, photo=picture_resized, login_type=login_type)
+    user = User(email=email, username=username, confirmed=confirmed,
+                photo=picture_resized, login_type=login_type, role_id=role_id)
 
     user_now = User.query.filter_by(username=username).first()
 
@@ -187,11 +189,12 @@ def login_with_facebook():
     facebook_id = facebook_user['id']
     username = facebook_user['name']
     picture = facebook_user['picture']['data']['url']
-    email = "0"
+    email = 'M'+ facebook_user['id']
     login_type = 'facebook'
+    role_id = Role.query.filter_by(name='user').first().id
     confirmed = True
     user = User(facebook_id=facebook_id, username=username, confirmed=confirmed,
-                photo=picture, email=email, login_type=login_type)
+                photo=picture, email=email, login_type=login_type, role_id=role_id)
 
     user_now = User.query.filter_by(username=username).first()
 

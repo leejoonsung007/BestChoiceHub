@@ -16,32 +16,43 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="../../static/css/main.css">
+    <!-- Main Style Sheet-->
+    <link rel="stylesheet" href="../../static/css/bootstrap3/bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap3/bootstrap-theme.css">
     <link rel="stylesheet" href="../../static/css/home.css">
     <!-- Modernizr -->
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>#}
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
+    {#<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH0Wx6JXUwJxDRMEgZfj7MmkbOulY2q2s&libraries=places&language=en">
+    </script>#}
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGOu1MCWVAvOQ24l6-tOdRpXgKXEDWvYs&language=en&libraries=places">
+    </script>
+    <script src="../../static/js/bootstrap3/bootstrap.js"></script>
+
     <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../../static/js/pagination/jquery.twbsPagination.js"></script>
+    <script src="../../static/js/main.js"></script>
     <!-- Respond.bootstrap for IE 8 or less only -->
     <!--[if (lt IE 9) & (!IEMobile)]>
     <script src="bootstrap/vendor/respond.min.bootstrap"></script>
     <![endif]-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGOu1MCWVAvOQ24l6-tOdRpXgKXEDWvYs&libraries=places&language=en">
-    </script>
+
 
 </head>
-<body class="products">
-{% import "_macro.html" as macros %}
 
+<body class="products">
+{% include 'base.html' %}
 <!--[if lte IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
     improve your experience.</p>
 <![endif]-->
 
-{% include 'base.html' %}
+
 
 <main role="main">
 
@@ -53,34 +64,32 @@
                 <form role="form" method="post">
                     {{ form.hidden_tag() }}
                     {# {{ wtf.form_errors(form, hiddens="only") }}#}
-                    <div class="row">
 
-                        <div class="form-group rightLine col-lg-2 col-sm-2 col-md-2">
-                            <input type="text" name="location" placeholder="Your City" value="Co.Dublin"
-                                   readonly="readonly" id="location">
+
+                    <div class="row">
+                        <!--<div class="form-group rightLine col-lg-2 col-sm-2 col-md-2">
+                            <input id="location" type="text" name="location" placeholder="Your City" value="Co.Dublin"
+                                   readonly="readonly" >
                             <label for="location" class="location"><i class="fa fa-dot-circle-o"></i></label>
-                        </div>
+                        </div>-->
                         <div class="form-group rightLine col-lg-2  col-sm-2 col-md-2">
                             <div class="btn-group bootstrap-select listing-categories dropdown">
-                                <button class="btn dropdown-toggle bs-placeholder btn-default" type="button"
-                                        id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="true"><span id="locationtext">Dublin 4</span></button>
-                                <ul class="dropdown-menu locationLink" aria-labelledby="dropdownMenu1">
-                                    <li><p>Dublin 2</p></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><p>Dublin 4</p></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><p>Dublin 6</p></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><p>Dublin 8</p></li>
-                                </ul>
+{#                                <select id="county" class="form-control">#}
+{#                                    <option value ="Dublin"><span id="locationtext">Cork</span></option>#}
+{#                                    <option value ="Galway"><span id="locationtext">Galway</span></option>#}
+{#                                    <option value ="Cork"><span id="locationtext">Dublin</span></option>#}
+{#                                    <option value ="Limerick"><span id="locationtext">Limerick</span></option>#}
+{#                                    <option value ="Waterford"><span id="locationtext">Waterford</span></option>#}
+{#                                </select>#}
+                                {{ wtf.form_field(form.select, class='form-control', id = 'county') }}
                             </div>
                         </div>
 
-                        <div class="form-group col-lg-6  col-sm-6 col-md-6">
+                        <div class="form-group col-lg-8  col-sm-8 col-md-8">
 
-                            {{ wtf.form_field(form.search, class='search') }}
+                            {{ wtf.form_field(form.search, class='search-text') }}
                         </div>
+
                         <div class="form-group col-lg-2  col-sm-2 col-md-2">
                             <input type="submit" value="Search" class="submit">
                         </div>
@@ -115,16 +124,10 @@
 
             <script>
                 $(function () {
-                    var id = '';
-                    var placeID = [];
-                    {% for school in schools %}
-                        placeID.push('{{ school.place_id }}')
-                    {% endfor %}
 
-                    console.log(placeID)
+                    initMap();//执行函数
 
-                    initMap(placeID);//执行函数
-
+                    //geocodeLocation(latlng);//定位当前所属County
 
                     $("#map").on("mouseover", ".marker-container", function () {
                         $(this).find(".detail-info").show();
@@ -138,55 +141,40 @@
 
 
             <div class="products-grid col-sm-8">
-                <div class="row">
-                    <!-- first row -->
-                    {% if schools %}
-                        {% for school in schools %}
-                            <div class="product-item col-xs-6 col-md-4">
-                                <a href="{{ url_for('.school_detail', roll_number=school.roll_number, official_school_name=school.official_school_name) }}">
-                                    {% if school.photo_ref1 %}
-                                        <img style="height: 150px;"
-                                             src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={{ school.photo_ref1 }}&key=AIzaSyDL_YVLa4qg-Pi4Q_W_10e1Kiih_b8Hmv0"
-                                             alt="sample school"/>
-                                    {% else %}
-                                        <img style="height: 150px;" src="../../static/img/search/not_found.png"
-                                             alt="sample school"/>
-                                    {% endif %}
-                                </a>
-
-                                <h2 style="font-weight:bold"><a class="{{ school.place_id }}" href="javascript:void(0)"
-                                                                onclick="showLocation(this)">{{ school.official_school_name }}</a>
-                                </h2>
-                                <p><span style="font-weight:bold;color: black">Enrolment:</span>
-                                    Boys: {{ school.total_boy }}
-                                    Girls: {{ school.total_girl }} (2017/18); </p>
-
-                                <span style="font-weight:bold;color: black">Address:</span>
-                                <p>{{ school.address }}</p>
-
-                                <p><span style="font-weight:bold;color: black">Fees:</span> {{ school.fee }}</p>
-
-                                {% if school.Total_progression %}
-                                    <p><span
-                                            style="font-weight:bold;color: black">University going-rate(2017):</span> {{ school.Total_progression*100 }}%
-                                    </p>
-                                {% else %}
-                                    <p><span style="font-weight:bold;color: black">University going-rate(2017):</span>
-                                        No Data</p>
-                                {% endif %}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-
+                <div id="loadgif" style="text-align: center; width: 100%;"> 　　
+                            <img style="display: inline-block;width:200px; height:200px; top:50%; left:50%;" alt="loading..." src="../../static/img/search/loader.gif"/>
                 </div>
 
-                <div class="row pagination-wrap">
-                    {% if pagination %}
-                        <ul class="pagination">
-                            {{ macros.pagination_widget(pagination, '.index') }}
-                        </ul>
-                    {% endif %}
+                <!-- school list-->
+                <div id="school-holder" class="row">
+
+
+                </div><!-- row-->
+
+                <div id="pagination-row" class="row pagination-wrap">
+                    <nav style="margin-left:20px" aria-label="Page navigation">
+                        <ul class="pagination" id="pagination"></ul>
+                    </nav>
+
                 </div><!-- /.row.pagination-wrap -->
+
+                <script>
+
+                    ajax_getSchoolDataByLatlng();
+
+                    $('#pagination').twbsPagination({
+                        totalPages: totalPage,
+                        visiblePages: 8,
+                        onPageClick: function (event, page) {
+                            $("#loadgif").hide();
+                            drawSchoolCardsByPage(page);
+                        }
+                    });
+
+                </script>
+
+
+
 
             </div><!-- /.products-grid -->
 
@@ -195,7 +183,7 @@
 </main>
 <footer role="contentinfo">
     <div class="container">
-        <div class="row">
+        <!--<div class="row">
 
             <div class="col-sm-4 col-md-2">
                 <h3>Content</h3>
@@ -229,7 +217,7 @@
             </div>
 
             <!-- Add the extra clearfix for only the required viewport -->
-            <div class="clearfix visible-sm"></div>
+            <!-- A<div class="clearfix visible-sm"></div>
 
             <div class="about col-sm-12 col-md-6">
                 <h3>About Us</h3>
@@ -243,6 +231,8 @@
             </div>
         </div><!-- /.row -->
 
+
+        <!--
         <ul class="social">
             <li><a href="#" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>
             <li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
@@ -250,7 +240,7 @@
             <li><a href="#" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>
             <li><a href="#" title="GitHub Profile"><span class="icon fa fa-github-alt"></span></a></li>
         </ul>
-
+        -->
         <p class="footer-brand"><a href="index.html"><img src="../../static/img/logo.png" width="80"
                                                           alt="Bootstrappin'"></a></p>
 
@@ -266,7 +256,7 @@
 
 <!-- Essential Plugins and Main JavaScript File -->
 <script src="../../static/js/plugins.js"></script>
-<script src="../../static/js/main.js"></script>
+
 
 
 {#<script language="JavaScript">#}
@@ -279,6 +269,11 @@
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
+
+
+
+
+
     var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
     (function (d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];

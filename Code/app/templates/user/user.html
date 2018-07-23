@@ -16,37 +16,35 @@
     <!--[if (lt IE 9) & (!IEMobile)]>
     <script src="js/vendor/respond.src.js"></script>
     <![endif]-->
+
+    <style>
+        .content {
+            padding-left: 5%;
+            margin-top: 5%;
+        }
+    </style>
 </head>
+
 <body>
 
 {% include 'base.html' %}
 
-<div style="margin-left: 20px">
-    <div style=" padding-left: 20px; margin-top: 8px" id="imageuse">
-
-{#        <div id="errorSignUp">#}
-{#            {% for message in get_flashed_messages() %}#}
-{#                <div class="alert alert-warning">#}
-{#                    <button type="button" class="close" data-dismiss="alert">&times;</button>#}
-{#                    {{ message }}#}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-
-       <a {% if user == current_user or current_user.is_administrator() %}
-             href="{{ url_for('operation.change_avatar') }}"{% endif %}>
+<div class="content">
+    <div id="imageuse">
+        <a {% if user == current_user or current_user.is_administrator() %}
+            href="{{ url_for('operation.change_avatar') }}"{% endif %}>
             {% if user.photo %}
                 <img style="width: 300px; position: relative;" id="image" src="{{ user.photo }}" onclick="EntryUser()">
-{#                <img class="img-rounded profile-thumbnail" src="{{ user.photo }}" height="256" width="256">#}
+                {#                <img class="img-rounded profile-thumbnail" src="{{ user.photo }}" height="256" width="256">#}
             {% else %}
                 <img class="img-rounded profile-thumbnail" src="../../static/avatars/default_avatar.jpg" height="256" ,
-                 width="256">
+                     width="256">
             {% endif %}
-       </a>
-
-
-    <h4> {{ user.username }} </h4>
-
+        </a>
+    </div>
+    <div>
+        <h3>{{ user.username }}</h3>
+    </div>
     <div>
         {% if user.location %}
             from <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a>
@@ -58,27 +56,47 @@
             <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
         {% endif %}
     </div>
-
     <div>
-        Member since {{ user.member_since }}
+        <label>Member since</label> {{ user.member_since }}
     </div>
-
     <div>
-        Last seen {{ user.last_seen }}
+        <label>Last seen</label> {{ user.last_seen }}
     </div>
-
-     <div>
-         {#Number of schools that the user followed#}
-         <a href="{{ url_for('.following',username=user.username) }}">
-              Following: {{ user.followed.count() }}
-         </a>
-    </div>
-    {% if user == current_user %}
-       <div> <a class="btn btn-default" href="{{ url_for('operation.edit_profile') }}">Edit Profile
-        </a></div>
+    <br>
+    {% if current_user.is_administrator() %}
+    <a class="btn btn-danger"
+       href="{{ url_for('.edit_profile_admin', id=user.id) }}">
+        Edit Profile [Admin]
+    </a>
+    {% else %}
+        {% if user == current_user %}
+            <div>
+                <a class="btn btn-default" href="{{ url_for('operation.edit_profile') }}">Edit Profile</a>
+            </div>
+        {% endif %}
     {% endif %}
 
+    <table class="table table-hover followers">
+        <thead>
+        <tr>
+            <th>School you have followed</th>
+            <th></th>
+        </tr>
+        </thead>
+        {% for follow in follows %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('main.school_detail', roll_number=follow.school.roll_number, official_school_name = follow.school.official_school_name) }}">
+                        <span class="badge">  {{ follow.school.official_school_name }} </span>
+                    </a>
+                </td>
+                <td>{{ moment(follow.timestamp).format('L') }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
 </div>
-</div>
+
 </body>
 </html>

@@ -34,7 +34,7 @@ def create_app(config_name):
     #     db.create_all()
     app.wsgi_app = ProxyFix(app.wsgi_app)
     sentry = Sentry(app)
-    google_bp = make_google_blueprint(scope=["profile", "email"],
+    google_bp = make_google_blueprint(scope=['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
                                       offline=True, reprompt_consent=True,
                                       redirect_url='http://localhost:5000/auth/login_with_google')
 
