@@ -2,9 +2,7 @@ from . import auth
 from app import db
 from app.models.User import User
 from app.email import send_email
-# from utils import log
 from flask_dance.contrib.google import google
-from flask_dance.contrib.facebook import facebook
 from ..models.Roleomg import Role
 from flask import (render_template,
                    redirect,
@@ -21,6 +19,8 @@ from .forms import (LoginForm,
                     PasswordResetForm,
                     PasswordResetRequestForm,
                     )
+
+last_page = None
 
 
 @auth.before_app_request
@@ -42,8 +42,22 @@ def unconfirmed():
     return render_template('auth/login/unconfirmed.html')
 
 
-@auth.route('/login', methods=['GET', 'POST'])
-def login():
+@auth.route('/login/<type>', methods=['GET', 'POST'])
+def login(type):
+    # judge what the last page is
+    global last_page
+    if 'school_detail' in type:
+        processing = type.split(',')
+        last_page = url_for('main.' + processing[0], official_school_name=processing[1], place_id=processing[2])
+    elif 'result' in type:
+        processing = type.split(',')
+        last_page = url_for('main.'+ processing[0], like=processing[1], coordination='53.3498123,-6.2624488')
+    elif 'compare' in type:
+        last_page = url_for('operation.' + type)
+    else:
+        last_page = url_for('main.' + type)
+
+    # login web form
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
@@ -52,14 +66,45 @@ def login():
             next = request.args.get('next')
             if next is None or not next.startswith('/'):
                 next = url_for('main.index')
-            return redirect(next)
+                return redirect(last_page)
         flash('Invalid username or password.')
     return render_template('auth/login/login.html', form=form)
 
+@auth.route("/login_with_google")
+def login_with_google():
+    global last_page
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+    # get google user information
+    google_user = google.get("/plus/v1/people/me").json()
+    # log("what is in resp", google_user)
+    email = google_user["emails"][0]["value"]
+    username = google_user['displayName']
+    picture = google_user['image']['url']
+    picture_resized = picture.split("?sz=50")[0] + "?sz=" + "512"
+    role_id = Role.query.filter_by(name='user').first().id
+    confirmed = True
+    login_type = 'google'
+    user = User(email=email, username=username, confirmed=confirmed,
+                photo=picture_resized, login_type=login_type, role_id=role_id)
+
+    user_now = User.query.filter_by(username=username).first()
+    # add google user information to Database
+    if user_now is None:
+        db.session.add(user)
+        db.session.commit()
+
+    user1 = User.query.filter_by(username=username).first()
+    login_user(user1)
+    next = request.args.get('next')
+    if next is None or not next.startswith('/'):
+        next = last_page
+    return redirect(next)
 
 @auth.route('/logout')
 @login_required
 def logout():
+    # clear session when user log out
     logout_user()
     session.clear()
     flash('You have been logged out.')
@@ -80,7 +125,7 @@ def register():
         send_email(user.email, 'Confirm Your Account',
                    'auth/email/confirm', user=user, token=token)
         flash('A confirmation email has been sent to you by email, please check your mail')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.login', type='index'))
     return render_template('auth/login/register.html', form=form)
 
 
@@ -114,7 +159,6 @@ def password_reset_request():
     form = PasswordResetRequestForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        # log("check whether it works", user)
         if user:
             token = user.generate_reset_token()
             send_email(user.email, 'Reset Your Password',
@@ -123,8 +167,7 @@ def password_reset_request():
                        next=request.args.get('next'))
         flash('An email with instructions to reset your password has been '
               'sent to you.')
-        # here need to add a page
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.login', type='index'))
     return render_template('auth/login/forgot.html', form=form)
 
 
@@ -137,78 +180,10 @@ def password_reset(token):
         if User.reset_password(token, form.new_password1.data):
             db.session.commit()
             flash('Your password has been updated.')
-            return redirect(url_for('auth.login'))
+            return redirect(url_for('auth.login', type='index'))
         else:
             return redirect(url_for('main.index'))
     return render_template('auth/login/reset.html', form=form)
 
 
-@auth.route("/login_with_google")
-def login_with_google():
-    if not google.authorized:
-        return redirect(url_for("google.login"))
-    # get google user information
-    google_user = google.get("/plus/v1/people/me").json()
-    print(google_user)
-    # log("what is in resp", google_user)
-    email = google_user["emails"][0]["value"]
-    username = google_user['displayName']
-    picture = google_user['image']['url']
-    picture_resized = picture.split("?sz=50")[0] + "?sz=" + "512"
-    role_id = Role.query.filter_by(name='user').first().id
-    confirmed = True
-    login_type = 'google'
-    user = User(email=email, username=username, confirmed=confirmed,
-                photo=picture_resized, login_type=login_type, role_id=role_id)
 
-    user_now = User.query.filter_by(username=username).first()
-
-    # add google user information to Database
-    if user_now is None:
-        db.session.add(user)
-        db.session.commit()
-        # log("what the type of db.session", type(db.session))
-        # log("what is db session", db.session)
-
-    user1 = User.query.filter_by(username=username).first()
-    login_user(user1)
-    next = request.args.get('next')
-    if next is None or not next.startswith('/'):
-        next = url_for('main.index')
-    return redirect(next)
-
-
-@auth.route("/login_with_facebook")
-def login_with_facebook():
-    if not facebook.authorized:
-        return redirect(url_for("facebook.login"))
-    facebook_user = facebook.get('me?fields=id, name, picture.width(512).height(512)').json()
-    # facebook_picture = facebook.get('/me/picture?width=180&height=180').json()
-    # log("test1", facebook_picture)
-
-    facebook_id = facebook_user['id']
-    username = facebook_user['name']
-    picture = facebook_user['picture']['data']['url']
-    email = 'M'+ facebook_user['id']
-    login_type = 'facebook'
-    role_id = Role.query.filter_by(name='user').first().id
-    confirmed = True
-    user = User(facebook_id=facebook_id, username=username, confirmed=confirmed,
-                photo=picture, email=email, login_type=login_type, role_id=role_id)
-
-    user_now = User.query.filter_by(username=username).first()
-
-    if user_now is None:
-        db.session.add(user)
-        db.session.commit()
-
-    user1 = User.query.filter_by(username=username).first()
-    login_user(user1)
-    next = request.args.get('next')
-    if next is None or not next.startswith('/'):
-        next = url_for('main.index')
-    return redirect(next)
-
-# @auth.route('/collection', method=['GET','POST'])
-# def collection_list():
-#     data = db.session.query(user.id,school.roll_number,)

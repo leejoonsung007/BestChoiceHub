@@ -1,10 +1,48 @@
+$(document).ready(function () {
+    var defaultBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(51.58666, -9.70264),
+    new google.maps.LatLng(55.13333, -6.04944));
+
+    var input = document.getElementById('search');
+    var searchBox = new google.maps.places.SearchBox(input,{bounds: defaultBounds});
+
+    searchBox.addListener('places_changed', function(){
+        var places = searchBox.getPlaces();
+    })
+
+    var windowWidth = $(window).width();
+    if(windowWidth < 640){
+        $('#options-panel').collapse('hide')
+    }
+
+    if(windowWidth >= 640){
+        var listholderHeight = $("#listholder").height();
+        var optionHeight = $('#options-panel').height();
+        if(optionHeight < listholderHeight){
+            $('#options-panel').height(listholderHeight);
+        }
+
+    }
+
+});
+
+
+
 // GoogleMap intinazing elements
 var markers = [];
-var latlng ;
+var latlng ; // current user latlng
+var userMark;
 var map ;
 var service ;
 
-function initMap() {
+var cityList = ['dublin', 'cork','galway', 'wicklow','limerick','antrim', 'armagh',
+                'carlow', 'cavan', 'clare', 'derry', 'donegal', 'down',
+                'fermanagh', 'kerry', 'kildare', 'kilkenny', 'laois', 'leitrim',
+                'Longford', 'Louth', 'Mayo', 'Meath', 'Monaghan', 'Offaly', 'Roscommon',
+                'sligo', 'tipperary', 'tyrone', 'waterford', 'westmeath', 'wexford'];
+
+
+function initMap(mylatlng) {
 
     latlng = new google.maps.LatLng(53.3498118, -6.2711979);
     map = new google.maps.Map(document.getElementById('map'), {
@@ -17,19 +55,45 @@ function initMap() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
 
-            var pos = {
+            latlng = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
 
-            latlng = pos;
+            if(mylatlng.lat){
+                latlng = mylatlng;
+            }
 
             map.setCenter(latlng);
 
-            var marker = new google.maps.Marker({
+            userMark = new google.maps.Marker({
                 position: latlng,
                 map: map,
                 title:"You are here!"
+            });
+
+            map.addListener('click', function(e){
+
+                userMark.setMap(null);
+                userMark = null;
+
+                latlng.lat = e.latLng.lat();
+                latlng.lng = e.latLng.lng();
+
+                //map.setCenter(e.latLng);
+
+                userMark = new google.maps.Marker({
+                      position: latlng,
+                      map: map
+                });
+
+                console.log("initMap map.addListener e.latLng:");
+                console.log(latlng);
+
+                //function here
+                geocodeProcessCityAndGetSchools(latlng);
+
+
             });
 
         }, function () {
@@ -39,6 +103,144 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
+
+function geocodeProcessCityAndGetSchools(pos){
+    var schools = {};
+    var city = "Ireland";
+
+    var geocoder = new google.maps.Geocoder;
+    geocoder.geocode({'location': pos}, function (results, status) {
+        if (status === 'OK') {
+
+            if (results[0]) {
+                var addr = results[0].formatted_address;
+
+                console.log("ajax_clickMapGetSchoolsByLatlng geocoder.geocode addr:");
+                console.log(addr);
+
+                $("#keywords").html(addr);
+
+                for(var i=0; i < cityList.length; i++){
+                    if(addr.toLowerCase().indexOf(cityList[i].toLowerCase()) >= 0){
+                        city = cityList[i];
+                        break;
+                    }
+                }
+                //注意：google map的方法是异步的，所以必须在里面放置方法，在外面会 导致执行顺序不可控
+                ajax_getSchoolsByLatLng(pos, city);
+                //return schools;
+
+            } else {
+                console.log('geocoder.geocode No results found');
+                schools = ajax_getSchoolsByLatLng(pos, city);
+                return schools;
+            }
+        } else {
+            console.log('Geocoder failed due to: ' + status);
+            schools = ajax_getSchoolsByLatLng(pos, city);
+            return schools;
+        }
+    });
+}
+
+
+
+function ajax_getSchoolsByLatLng(latlng,city){
+    console.log('your current hostname',window.location.hostname)
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://www.bestchoicehub.com/click_on_map/'+ latlng.lat + ','+ latlng.lng + '/' + city,
+        contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
+        success: function (data) {
+
+            totalSchools = afterClickMap_initdata(data.result);
+
+            console.log("ajax_getSchoolsByLatLng totalSchools:");
+            console.log(totalSchools);
+
+            currentPage = 1;
+            superLinkLocked(false);
+            loadSchools(totalSchools, filters);
+
+        }
+    });
+
+}
+
+
+function afterClickMap_initdata(array) {
+        var schools = [];
+
+        for(var i=0; i < array.length; i++){
+
+                var school = {};
+                school.name = array[i].official_school_name ;
+
+                if(array[i].photo_ref1){
+                    school.img = '../../static/img/home/'+ array[i].official_school_name +'.jpeg';
+                }else{
+                    school.img = '../../static/img/search/not_found.png';
+                }
+
+                school.id =  array[i].official_school_name.replace(/[\ |\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\、|\，|\；|\。|\？|\！|\“|\”|\‘|\’|\：|\（|\）|\─|\…|\—|\·|\《|\》]/g, "");
+                school.url = 'https://www.bestchoicehub.com/school/'+ array[i].official_school_name +'/' + array[i].place_id;
+                school.address = array[i].address ;
+                school.religion = array[i].religion;
+                school.sex = array[i].school_gender;
+                school.rank = array[i].rank;
+                school.fee = array[i].fee;
+                school.rate = array[i].Total_progression;
+                school.boys = array[i].total_boy ;
+                school.girls = array[i].total_girl;
+                school.distance = array[i].distance;
+
+                if (array[i].at_third_level){
+                    school.third_level = array[i].at_third_level; // school.third_level
+                }else{
+                    school.third_level = -1;
+                }
+
+                if (array[i].at_university){
+                    school.university_rate = array[i].at_university;// school.university_rate
+                } else {
+                    school.university_rate = -1;
+                }
+
+                school.placeid = array[i].place_id;
+
+                schools.push(school);
+        }
+
+        console.log("function afterClickMap_initdata totalSchools: ");
+        console.log(schools);
+        return schools;
+}
+
+
+function ajax_getSchoolsByLatLng(latlng,city){
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://www.bestchoicehub.com/click_on_map/'+ latlng.lat + ','+ latlng.lng + '/' + city,
+        contentType: 'application/json; charset=UTF-8',
+        dataType: 'json',
+        success: function (data) {
+
+            totalSchools = afterClickMap_initdata(data.result);
+
+            console.log("ajax_getSchoolsByLatLng totalSchools:");
+            console.log(totalSchools);
+
+            loadSchools(totalSchools, filters);
+
+        }
+    });
+
+}
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -145,7 +347,7 @@ function showSelectedLocation(obj) {
 
 }
 
-function drawMarkersByplaceIds(){
+/*function drawMarkersByplaceIds(){
     for(var i=0; i<markers.length; i++){
         markers[i].setMap(null);
     }
@@ -155,7 +357,7 @@ function drawMarkersByplaceIds(){
         console.log(e);
         drawSingleMarker(e.name);
     });
-}
+}*/
 
 function drawSingleMarker(placeid){
     service.getDetails(
@@ -215,6 +417,8 @@ function drawSingleMarker(placeid){
                 }
 
                 markers.push(marker);
+            }else{
+                console.log("google Map failed: "+ placeid);
             }
         });
 }

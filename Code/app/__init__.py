@@ -22,6 +22,7 @@ login_manager.login_view = 'auth.login'
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
+    app.wsgi_app = ProxyFix(app.wsgi_app)
     config[config_name].init_app(app)
 
     bootstrap.init_app(app)
@@ -32,14 +33,14 @@ def create_app(config_name):
     login_manager.init_app(app)
     # with app.test_request_context():
     #     db.create_all()
-    app.wsgi_app = ProxyFix(app.wsgi_app)
+
     sentry = Sentry(app)
     google_bp = make_google_blueprint(scope=['https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email'],
                                       offline=True, reprompt_consent=True,
-                                      redirect_url='http://localhost:5000/auth/login_with_google')
+                                      redirect_url='https://www.bestchoicehub.com/auth/login_with_google')
 
     facebook_bp = make_facebook_blueprint(scope=['email'],
-                                          redirect_url='http://localhost:5000/auth/login_with_facebook',
+                                          redirect_url='https://www.bestchoicehub.com/auth/login_with_facebook',
                                           client_id='171456803533554', client_secret='f549e71623d6c266bbce9a78a54b62b0')
 
     from .main import main as main_blueprint

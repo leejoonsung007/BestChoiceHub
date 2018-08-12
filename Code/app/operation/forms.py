@@ -69,7 +69,11 @@ class EditProfileAdminForm(FlaskForm):
             raise ValidationError('Username already in use.')
 
 
-
+class CommentForm(FlaskForm):
+    body = StringField('your comment', validators=[DataRequired(),Length(5,255)])
+    rating = SelectField('rating', choices=[('5','5'), ('4.5', '4.5'), ('4', '4'), ('3.5', '3.5'),
+                                      ('3', '3'), ('2.5', '2.5'), ('2', '2'), ('1.5', '1.5'), ('1', '1')])
+    submit = SubmitField('Submit')
 
 
 

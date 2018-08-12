@@ -17,6 +17,7 @@
     padding: 20px 0 15px;
     width: 100%;
 }
+
 .form-group{
     margin-bottom:0;
 }
@@ -40,6 +41,22 @@
     border: none;
     padding: 20px 0 15px;
     width: 100%;
+    font-family: "Vidaloka",serif;
+}
+
+.centre {
+    text-align: center;
+}
+
+
+.map-guide {
+    display: inline-block;
+    margin: 20px 0 20px 0;
+    font-size: 20px;
+    border-radius: 100px;
+    color: #ff0000;
+    font-weight: bold;
+    font-family: "Vidaloka",serif;
 }
 
 /*Location之后的定位图标*/
@@ -118,8 +135,41 @@ label {
     color:#000; margin: 0 10px; cursor:pointer;
 }
 
+.jumbotron {
+
+    background-image: url('../../static/img/search/background1.jpg');
+    background-repeat: no-repeat;
+    /*background-attachment:fixed;*/
+    background-position: 0px -295px;
+    background-size: cover;
+    height: 360px;
+    margin: 0;
+
+}
 
 @media (min-device-width : 375px) and (max-device-width : 667px) and (-webkit-min-device-pixel-ratio : 2){
+
+
+    .mypagination {
+        text-align: center;
+    }
+
+    /*nav {*/
+        /*display: inline-block;*/
+    /*}*/
+
+
+     .jumbotron {
+
+        background-image: url('../../static/img/search/background1.jpg');
+        background-repeat: no-repeat;
+        /*background-attachment:fixed;*/
+        background-position: 0px 0px;
+        background-size: cover;
+        height: 250px;
+        margin: 0;
+
+    }
 
     .search-bar {
         border-radius: 70px;
@@ -128,7 +178,6 @@ label {
         padding: 5px;
         margin-top: 0px;
         padding-left: 30px;
-        opacity: 0.8;
     }
 
     #county {
@@ -185,6 +234,10 @@ label {
         border-style:solid;
     }
 
+    .search-text::-webkit-input-placeholder {
+        font-size: 90%;
+    }
+
 
     .search-bar .submit {
         background: #4dcb44; /*按钮的背景色*/
@@ -195,13 +248,30 @@ label {
         cursor: pointer;
         height: 50px;
         width: 220px;
-        margin-left: 35px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .form-group {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .products-grid{
         margin-top: 10px;
     }
+
+    #mapholder{
+        margin-left: 10px;
+        height: 300px;
+    }
+
+
+
 }
 
 .product-item {
-    height: 360px;
+    height: 310px;
     overflow: hidden;
     padding-bottom: 32px
 }
@@ -243,4 +313,28 @@ label {
 footer[role=contentinfo] .footer-brand {
     text-align: center;
     margin-top: 6px
+}
+
+
+
+input{
+    background-color:#FFFFFF;
+    font-size:20px;
+}
+
+input::-webkit-input-placeholder{
+    color:#D3D3D3;
+    font-size: 20px;
+}
+input:-moz-placeholder{
+    color:#D3D3D3;
+    font-size: 20px;
+}
+input::-moz-placeholder{
+    color:#D3D3D3;
+    font-size: 20px;
+}
+input:-ms-input-placeholder{
+    color:#D3D3D3;
+    font-size: 20px;
 }

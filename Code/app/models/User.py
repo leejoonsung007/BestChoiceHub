@@ -8,6 +8,10 @@ from .Permission import Permission
 from .User_operation import Compare, Follow, Comment
 from .Roleomg import Role
 import socket
+import urllib.parse
+import urllib.request
+import simplejson
+
 
 
 class User(UserMixin, db.Model):
@@ -150,6 +154,7 @@ class User(UserMixin, db.Model):
     # comment function
     def remove_comment(self, school):
         remove_comment = self.comments.filter_by(school_id=school.place_id).first()
+        print(remove_comment)
         if remove_comment is not None:
             db.session.delete(remove_comment)
             db.session.commit()
@@ -157,6 +162,51 @@ class User(UserMixin, db.Model):
     def has_commented(self, school):
         return self.comments.filter_by(school_id=school.place_id).first() is not None
 
+    @staticmethod
+    def get_coordination(query, from_sensor=False):
+        geo_list = []
+        # if 'ireland' not in query:
+        #     query = query + " " + "Ireland"
+        params = {
+            'address': query,
+            'sensor': "true" if from_sensor else "false",
+            'key':"AIzaSyBuvPcSplTFiZEc0eKSutMEGrQf_LeIIyY"
+        }
+        print(urllib.parse.urlencode(params))
+        url = 'https://maps.googleapis.com/maps/api/geocode/json?' + urllib.parse.urlencode(params)
+        json_response = urllib.request.urlopen(url)
+        response = simplejson.loads(json_response.read())
+        if response['results']:
+            location = response['results'][0]['geometry']['location']
+            latitude, longitude = location['lat'], location['lng']
+            geo_list.append(latitude)
+            geo_list.append(longitude)
+            print(query, latitude, longitude)
+        else:
+            print(query, "<no results>")
+        return geo_list
+
+    @staticmethod
+    def get_city(lat, lon):
+        url = "https://maps.googleapis.com/maps/api/geocode/json?"
+        url += "latlng=%s,%s&sensor=false" % (lat, lon)
+        url += "&key=AIzaSyBuvPcSplTFiZEc0eKSutMEGrQf_LeIIyY"
+        json_response = urllib.request.urlopen(url).read()
+        response = simplejson.loads(json_response)
+        if response['results']:
+            print("success")
+            components = response['results'][0]['address_components']
+            city = ''
+            for c in components:
+                if "County" in c['long_name']:
+                    city = c['long_name'].replace("County ", "")
+
+            if city == '':
+                city = 'unknown'
+        else:
+            print("<no result>")
+            city = 'unknown'
+        return city
 
 class Anonymous(AnonymousUserMixin):
 

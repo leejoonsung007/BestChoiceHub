@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="../../static/css/main.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap3/bootstrap.css">
 
     <!-- Modernizr -->
     <script src="../../static/js/vendor/modernizr-2.6.2.min.js"></script>
@@ -74,7 +74,71 @@
     improve your experience.</p>
 <![endif]-->
 
-{% include 'base.html' %}
+<header role="banner">
+    <nav role="navigation" class="navbar navbar-static-top navbar-default" style="margin-bottom:0px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">
+                    <img src="../../static/img/logo.png" alt="BestChoice'" width="120" style="margin-top:-9px">
+                </a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-left">
+                    <li ><a href="{{ url_for('main.index') }}">
+                        <span class="glyphicon glyphicon-home"></span> Home
+                    </a></li>
+                    <li><a href="{{ url_for('main.result', like='%Dublin%', coordination ='53.3498123,-6.2624488') }}">
+                        <span class="glyphicon glyphicon-search"></span> Search
+                    </a></li>
+                    <li class="active"><a href="{{ url_for('main.rank') }}">
+                        <span class="glyphicon glyphicon-sort-by-order"></span> Rank
+                    </a></li>
+                    <li><a href="{{ url_for('operation.compare') }}">
+                        <span class="glyphicon glyphicon-tasks"></span> Compare
+                    </a></li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown">
+                        {% if current_user.is_authenticated %}
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                {% if current_user.photo %}
+                                    <img src="{{ current_user.photo }}" height="23" width="23">
+                                {% else %}
+                                    <img class="img-rounded profile-thumbnail"
+                                         src="../../static/avatars/default_avatar.jpg" height="23"
+                                         width="23">
+                                {% endif %}
+                                {{ current_user.username }} <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                {% if current_user.login_type != 'website' %}
+                                    <li><a href="{{ url_for('operation.user', username=current_user.username) }}">Profile</a></li>
+{#                                    <li><a href="{{ url_for('operation.following', username=current_user.username)}}">Watching List</a></li>#}
+                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+                                {% else %}
+                                    <li><a href="{{ url_for('operation.user', username=current_user.username) }}">Profile</a></li>
+{#                                    <li><a href="{{ url_for('operation.following', username=current_user.username)}}">Watching List</a></li>#}
+                                    <li><a href="{{ url_for('operation.change_password') }}">Change password</a></li>
+                                    <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+                                {% endif %}
+                            </ul>
+
+                        </li>
+                    {% else %}
+                        <li><a href="{{ url_for('auth.login', type='rank') }}">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container -->
+    </nav>
+</header>
 
 
 <main role="main" style="padding-top: 0px">
@@ -94,15 +158,15 @@
                         <div class="col-sm-4">
                         <!-- There should be herf = school_details page addr-->
 
-                            <a href="{{ url_for('.school_detail', roll_number=school.roll_number, official_school_name=school.official_school_name) }}">
-                               {% if school.photo_ref1 %}
-                                    <img style="border-radius: 10px;"
-                                         src="../../static/img/rank/{{ school.official_school_name }}.jpeg"
-                                         width="120" height="80"/>
-                                {% else %}
-                                    <img style="border-radius: 10px;" src="../../static/img/search/not_found.png"
-                                         width="120" height="80"/>
-                                {% endif %}
+                            <a href="{{ url_for('.school_detail', place_id=school.place_id, official_school_name=school.official_school_name) }}" target="_blank">
+{#                               {% if school.photo_ref1 %}#}
+                                <img style="border-radius: 10px;"
+                                     src="../../static/img/rank/{{ school.official_school_name }}.jpeg"
+                                     width="120" height="80"/>
+{#                                {% else %}#}
+{#                                    <img style="border-radius: 10px;" src="../../static/img/search/not_found.png"#}
+{#                                         width="120" height="80"/>#}
+{#                                {% endif %}#}
                             </a>
 
                         </div>
@@ -112,7 +176,7 @@
 
                                 <div class="schools" style="margin-left:0px; margin-top:10px; font-weight:bold; font-size:25px";width="100">
                                     <!-- There should be herf = school_details page addr-->
-                                    <a href="">
+                                    <a href="{{ url_for('.school_detail', place_id=school.place_id, official_school_name=school.official_school_name) }}" target="_blank">
                                         <p><span></span>{{ school.official_school_name }}</p>
                                     </a>
                                 </div>
@@ -137,9 +201,10 @@
                                 {{ school.stu_tea_ratio }}
                             </p>
                             <p><span style="font-weight:bold;color: black">Students at Third level:</span>
-                                Students at Third level: {{ school.at_third_level}}%;
-                                <p>Students at University: {{ school.at_university }}%</p>
-                            </p>
+                                 {{ school.at_third_level}}%;</p>
+                            <p><span style="font-weight:bold;color: black">Students at University:</span>
+                            {{ school.at_university }}%</p>
+
 
                         </div>
                 </div>
@@ -157,93 +222,24 @@
 
         </div>
 
+{% endfor %}
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-7 pagination-wrap">
+                {% if pagination %}
+                    <ul class="pagination">
+                        {{ macros.pagination_widget(pagination, '.rank') }}
+                    </ul>
+                {% endif %}
+            </div><!-- /.row.pagination-wrap -->
+        </div>
 
-{##} {% endfor %}
-    <div class="row pagination-wrap">
-                    {% if pagination %}
-                        <ul class="pagination">
-                            {{ macros.pagination_widget(pagination, '.rank') }}
-                        </ul>
-                    {% endif %}
-                </div><!-- /.row.pagination-wrap -->
-{#        <div class="row pagination-wrap">#}
-{#          <ul class="pagination">#}
-{#            <li><a href="#"><span class="fa fa-chevron-left"></span> Prev</a></li>#}
-{#            <li><a href="#">1</a></li>#}
-{#            <li><a href="#">2</a></li>#}
-{#            <li><a href="#">3</a></li>#}
-{#            <li><a href="#">4</a></li>#}
-{#            <li><a href="#">Next <span class="fa fa-chevron-right"></span></a></li>#}
-{#          </ul>#}
-{#        </div><!-- /.row.pagination-wrap -->#}
 
     </div>
 </main>
 
 <!-- The following is the footer -->
-<footer role="contentinfo">
-    <div class="container">
-        <div class="row">
 
-            <div class="col-sm-4 col-md-2">
-                <h3>Content</h3>
-                <ul>
-                    <li><a href="#">content1</a></li>
-                    <li><a href="#">content2</a></li>
-                    <li><a href="#">content3</a></li>
-                    <li><a href="#">content4</a></li>
-                    <li><a href="#">content5</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <h3>Styles</h3>
-                <ul>
-                    <li><a href="#">StyleA</a></li>
-                    <li><a href="#">StyleB</a></li>
-                    <li><a href="#">StyleC</a></li>
-                    <li><a href="#">StyleD</a></li>
-                    <li><a href="#">StyleE</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-4 col-md-2">
-                <h3>Other</h3>
-                <ul>
-                    <li><a href="#">Link</a></li>
-                    <li><a href="#">Another link</a></li>
-                    <li><a href="#">Link again</a></li>
-                    <li><a href="#">Try this</a></li>
-                    <li><a href="#">Don't you dare</a></li>
-                </ul>
-            </div>
-
-            <!-- Add the extra clearfix for only the required viewport -->
-            <div class="clearfix visible-sm"></div>
-
-            <div class="about col-sm-12 col-md-6">
-                <h3>About Us</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue bibendum. Aliquam
-                    erat volutpat. Phasellus eget justo lacus. Vivamus pharetra ullamcorper massa, nec ultricies metus
-                    gravida egestas. Duis congue viverra arcu, ac aliquet turpis rutrum a. Donec semper vestibulum
-                    dapibus. Integer et sollicitudin metus. Vivamus at nisi turpis. Phasellus vel tellus id felis cursus
-                    hendrerit.</p>
-                <p><a class="btn btn-default btn-xs pull-right" href="#">Learn more <span
-                        class="fa fa-arrow-circle-right"></span></a></p>
-            </div>
-        </div><!-- /.row -->
-
-        <ul class="social">
-            <li><a href="#" title="Twitter Profile"><span class="icon fa fa-twitter"></span></a></li>
-            <li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
-            <li><a href="#" title="LinkedIn Profile"><span class="icon fa fa-linkedin"></span></a></li>
-            <li><a href="#" title="Google+ Profile"><span class="icon fa fa-google-plus"></span></a></li>
-            <li><a href="#" title="GitHub Profile"><span class="icon fa fa-github-alt"></span></a></li>
-        </ul>
-
-        <p class="footer-brand"><a href="index.html"><img src="../../static/img/logo.png" width="80"
-                                                          alt="Bootstrappin'"></a></p>
-
-    </div><!-- /.container -->
-</footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../static/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -254,7 +250,7 @@
 
 <!-- Essential Plugins and Main JavaScript File -->
 <script src="../../static/js/plugins.js"></script>
-<script src="../../static/js/main.js"></script>
+{#<script src="../../static/js/home.js"></script>#}
 
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,5 +1,5 @@
 from app import db
-import googlemaps
+import re
 import mpu
 from ..models.User_operation import Compare, Follow
 
@@ -131,6 +131,118 @@ class School(db.Model):
     def distance_calculator(school_lat1,school_lng1, user_lat2,user_lng2):
         distance = mpu.haversine_distance((school_lat1, school_lng1), (user_lat2, user_lng2))
         return distance
+
+    @staticmethod
+    def make_json(schools):
+        json_list = []
+        for school in schools:
+            dict1 = {}
+            dict2 = school[0].__dict__
+            dict2.pop('_sa_instance_state')
+            if school[1] is not None:
+                dict3 = school[1].__dict__
+                dict3.pop('_sa_instance_state')
+            else:
+                dict3 = {'Total_progression2': 'No Data', 'Total_progression': 'No data'}
+
+            if school[2] is not None:
+                dict4 = school[2].__dict__
+                dict4.pop('_sa_instance_state')
+            else:
+                dict4 = {'rank': 'No Data', 'p_rank': 'No data'}
+
+            dict1.update(dict2)
+            dict1.update(dict3)
+            dict1.update(dict4)
+            json_list.append(dict1)
+
+        return json_list
+
+    @staticmethod
+    def process_punctuation(input_keyword):
+        if ',' in input_keyword:
+            new_input = input_keyword.replace(',', ' ')
+            input_split = new_input.split()
+        elif '.' in input_keyword:
+            new_input = input_keyword.replace('.', ' ')
+            input_split = new_input.split()
+        else:
+            input_split = input_keyword.split()
+        return input_split
+
+    @staticmethod
+    def make_query_statement(input, area):
+        if len(input) > 1:
+            print(1)
+            like = ''
+            for split in input:
+                like += '%' + split + '%'
+            like = like + area
+        elif len(input) == 0:
+            like = area
+            print(2)
+        else:
+            print(3)
+            like = '%' + input[0] + '%' + area
+        return like
+
+    @staticmethod
+    def process_city_plus_area(user_input):
+        print('input_', user_input)
+        user_input1 = user_input.replace(' ', '')
+
+        # GET THE NUMBER IN STRING, process input keyword like Dublin1 and Dublin 1(has space and no space)
+        # Fuzzy Query Statement should be like '%dublin% 1' which can match all schools in Dublin 1.
+        num = re.findall('\d+', user_input1)
+        print('num', num)
+
+        # change Dublin1 to Dublin 1(no space -> has space)
+        if len(user_input) < 10:
+            if len(num) >= 1:
+                input_process = user_input1.split(num[0])
+                print('process1', input_process)
+                input_process1 = input_process[0] + num[0]
+                input_process2 = input_process1.replace(num[0], (' ' + num[0]))
+                print('1process2', input_process2)
+            else:
+                # NO NUMBER IN KEYWORD
+                input_process2 = user_input
+                print('input_process2', input_process2)
+        else:
+            input_process2 = user_input
+        print('input_process2', input_process2)
+
+        return input_process2
+
+    @staticmethod
+    def process_dublin_with_region_number(input):
+        # process dublin 1-24 in address, like Enniskerry Road, Sandyford, Dublin 18
+        input_processed_split = input.split()
+        print("temp_split", input_processed_split)
+
+        if len(input_processed_split) > 1:
+            a = input_processed_split[-2] + ' ' + input_processed_split[-1]
+        else:
+            a = 'not in address'
+
+        print('a', a)
+
+        input = input
+        area = ''
+        for i in range(0, 24):
+            if ("dublin " + str(i + 1)) == a:
+                area += '%dublin% ' + str(i + 1)
+                first = input.replace(('dublin ' + str(i + 1)), '')
+                second = first.replace(('dublin  ' + str(i + 1)), '')
+                input = second
+
+        print('area', area)
+        print('input', input)
+        alist = []
+        alist.append(area)
+        alist.append(input)
+        return alist
+
 
     def is_followed_by(self, user):
         return self.followers.filter_by(

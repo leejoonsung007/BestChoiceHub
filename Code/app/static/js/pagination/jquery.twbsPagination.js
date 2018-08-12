@@ -125,9 +125,9 @@
         buildListItems: function (pages) {
             var listItems = [];
 
-            if (this.options.first) {
-                listItems.push(this.buildItem('first', 1));
-            }
+            // if (this.options.first) {
+            //     listItems.push(this.buildItem('first', 1));
+            // }
 
             if (this.options.prev) {
                 var prev = pages.currentPage > 1 ? pages.currentPage - 1 : this.options.loop ? this.options.totalPages  : 1;
@@ -143,9 +143,9 @@
                 listItems.push(this.buildItem('next', next));
             }
 
-            if (this.options.last) {
-                listItems.push(this.buildItem('last', this.options.totalPages));
-            }
+            // if (this.options.last) {
+            //     listItems.push(this.buildItem('last', this.options.totalPages));
+            // }
 
             return listItems;
         },
@@ -207,12 +207,12 @@
                             $this.addClass(_this.options.activeClass);
                         }
                         break;
-                    case 'first':
-                            $this.toggleClass(_this.options.disabledClass, pages.currentPage === 1);
-                        break;
-                    case 'last':
-                            $this.toggleClass(_this.options.disabledClass, pages.currentPage === _this.options.totalPages);
-                        break;
+                    // case 'first':
+                    //         $this.toggleClass(_this.options.disabledClass, pages.currentPage === 1);
+                    //     break;
+                    // case 'last':
+                    //         $this.toggleClass(_this.options.disabledClass, pages.currentPage === _this.options.totalPages);
+                    //     break;
                     case 'prev':
                             $this.toggleClass(_this.options.disabledClass, !_this.options.loop && pages.currentPage === 1);
                         break;
@@ -323,17 +323,17 @@
         pageVariable: '{{page}}',
         totalPagesVariable: '{{total_pages}}',
         page: null,
-        first: 'First',
+        // first: 'First',
         prev: 'Previous',
         next: 'Next',
-        last: 'Last',
+        // last: 'Last',
         loop: false,
         onPageClick: null,
         paginationClass: 'pagination',
         nextClass: 'page-item next',
         prevClass: 'page-item prev',
-        lastClass: 'page-item last',
-        firstClass: 'page-item first',
+        // lastClass: 'page-item last',
+        // firstClass: 'page-item first',
         pageClass: 'page-item',
         activeClass: 'active',
         disabledClass: 'disabled',

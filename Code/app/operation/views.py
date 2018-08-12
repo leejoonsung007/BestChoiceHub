@@ -14,13 +14,14 @@ from flask import (render_template,
                    url_for,
                    flash,
                    jsonify,
-                   g)  # json conversion
+                    )  # json conversion
 from flask_login import (login_required,
                          current_user, )
 from .forms import (EditForm,
                     ChangePasswordForm,
                     ChangeAvatars,
-                    EditProfileAdminForm,)
+                    EditProfileAdminForm,
+                    )
 from ..decorators import admin_required
 from ..models.Permission import Permission
 from ..models.User_operation import Comment
@@ -32,13 +33,13 @@ def user(username):
     if user is None:
         abort(404)
     page = request.args.get('page', 1, type=int)
-    pagination = current_user.followed.paginate(
+    pagination = user.followed.paginate(
         page, per_page=current_app.config['POSTS_PER_PAGE'], error_out=False)
     follows = [{'school': School.query.filter_by(place_id=item.followed_id).first(), 'timestamp': item.timestamp}
                for item in pagination.items]
     return render_template('/user/user.html', user=user, title='',
                            endpoint='.following', pagination=pagination,
-                           follows=follows )
+                           follows=follows)
 
 
 @operation.route('/edit_profile', methods=['GET', 'POST'])
@@ -131,46 +132,47 @@ def change_password():
 
 
 # Add following function
-@operation.route('/follow/<official_school_name>', methods=['GET', 'POST'])
+@operation.route('/follow/<place_id>', methods=['GET', 'POST'])
 @login_required
-def follow(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+def follow(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
     if current_user.is_following(school):
         flash('You have already followed this school.')
-        return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
-                                roll_number=school.roll_number))
+        return redirect(url_for('main.school_detail', official_school_name=school.official_school_name,
+                                place_id=school.place_id))
     if current_user.can(Permission.FOLLOW):
         current_user.follow(school)
     # flash('You are now following %s.' % official_school_name)
+
     return jsonify({'result': 'success', 'school_followers': school.followers.count()})
 
 
-@operation.route('/unfollow/<official_school_name>', methods=['GET', 'POST'])
+@operation.route('/unfollow/<place_id>', methods=['GET', 'POST'])
 @login_required
-def unfollow(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+def unfollow(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
     if not current_user.is_following(school):
         flash('You have not followed this school.')
-        return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
-                                roll_number=school.roll_number))
+        return redirect(url_for('main.school_detail', official_school_name=school.official_school_name,
+                                place_id=school.place_id))
     current_user.unfollow(school)
     return jsonify({'result': 'success', 'school_followers': school.followers.count()})
 
 
-@operation.route('/add_comparison/<official_school_name>', methods=['GET', 'POST'])
-def add_to_comparison_list(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+@operation.route('/add_comparison/<place_id>', methods=['GET', 'POST'])
+def add_to_comparison_list(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
     anonymous_user = User.current_anonymous_user()
 
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
 
     diverse = 'True'
     increasable = 'True'
@@ -204,26 +206,26 @@ def add_to_comparison_list(official_school_name):
     return jsonify({'result': 'success', 'comparison_list': name_list, 'increasable': increasable, 'diverse': diverse})
 
 
-@operation.route('/remove_comparison/<official_school_name>', methods=['GET', 'POST'])
-def remove_from_comparison_list(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+@operation.route('/remove_comparison/<place_id>', methods=['GET', 'POST'])
+def remove_from_comparison_list(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
     anonymous_user = User.current_anonymous_user()
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
 
     if current_user.is_anonymous:
         if not anonymous_user.is_comparing(school):
             # flash('You have not followed this school.')
-            return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
-                                    roll_number=school.roll_number))
+            return redirect(url_for('main.school_detail', official_school_name=school.official_school_name,
+                                    place_id=school.place_id))
         anonymous_user.remove_comparison(school)
         comparison_list = anonymous_user.compared.all()
     else:
         if not current_user.is_comparing(school):
             # flash('You have not followed this school.')
-            return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
-                                    roll_number=school.roll_number))
+            return redirect(url_for('main.school_detail', official_school_name=school.official_school_name,
+                                    place_id=school.place_id))
         current_user.remove_comparison(school)
         comparison_list = current_user.compared.all()
 
@@ -280,58 +282,128 @@ def compare():
 
     for school_ in comparison_list:
         comparison_school = School.query.filter_by(place_id=school_.compared_id).first()
-        comparison_school_collection.append(comparison_school)
+
 
         school_rank = Rank.query.filter_by(place_id=school_.compared_id).first()
         rank_collection.append(school_rank)
+        if school_rank:
+            comparison_school.ST_ratio = school_rank.stu_tea_ratio
+            comparison_school.rank2017 = school_rank.rank
+            comparison_school.rank2016 = school_rank.p_rank
+
+        else:
+            comparison_school.ST_ratio = ""
+            comparison_school.rank2017 = "No Data"
+            comparison_school.rank2016 = "No Data"
 
         progression2015 = Pro2015.query.filter_by(place_id=school_.compared_id).first()
         progression2015_collection.append(progression2015)
+        if progression2015 :
+            comparison_school.progression2015 = progression2015.Total_progression
+        else:
+            comparison_school.progression2015 = "No Data"
 
         progression2016 = Pro2016.query.filter_by(place_id=school_.compared_id).first()
         progression2016_collection.append(progression2016)
+        if progression2016 :
+            comparison_school.progression2016 = progression2016.Total_progression
+        else:
+            comparison_school.progression2016 = "No Data"
 
         progression2017 = Pro2017.query.filter_by(place_id=school_.compared_id).first()
         progression2017_collection.append(progression2017)
+        if progression2017 :
+            comparison_school.progression2017 = progression2017.Total_progression
+        else:
+            comparison_school.progression2017 = "No Data"
+
+        comparison_school_collection.append(comparison_school)
 
     return render_template('user/compare.html', schools=comparison_school_collection, ranks=rank_collection,
                            pro2015=progression2015_collection, pro2016=progression2016_collection,
                            pro2017=progression2017_collection)
 
 
-@operation.route('/comment/<official_school_name>', methods=['GET', 'POST'])
+@operation.route('/add_comment/<place_id>', methods=['GET', 'POST'])
 @login_required
-def comment(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+def comment(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
+
+    current_user_info = current_user._get_current_object()
+    json = request.get_json()
+
+    has_commented = False
+    if current_user.has_commented(school):
+        has_commented = True
+    else:
+        user_review = json['comment_content']
+        if '<' or '>' in user_review:
+            user_review = user_review.replace('<', '')
+            user_review = user_review.replace('>', '')
+        comment = Comment(
+            author = current_user_info,
+            author_avatar=current_user_info.photo,
+            user_review=json['comment_content'], user_rating=json['ranks'],
+            commented_official_school_name=place_id,
+            school_id=school.place_id,
+            author_name=current_user_info.username
+        )
+        db.session.add(comment)
+        db.session.commit()
+
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
-    comments = school.comments.all()
+        return redirect(url_for('main.index'))
+    comments = Comment.query.filter_by(school_id=place_id) \
+        .order_by(Comment.time.desc())
+
     comment_list = []
+    rate_list = []
     for comment in comments:
+        rate_list.append(comment.user_rating)
         single_comment = comment.__dict__
         single_comment.pop('_sa_instance_state')
+        single_comment.pop('author')
+        single_comment['time'] = str(single_comment['time'])
         comment_list.append(single_comment)
-    print(comment_list)
-    return jsonify({'result':'success', 'comments': comment_list})
+
+    # compute the overll_rate
+    overall_rate = Comment.compute_overall_rate(rate_list)
+    overall_rate = round(overall_rate,2)
+
+    return jsonify({'has_commented': has_commented, 'comment_list': comment_list, 'overall_rate':overall_rate})
 
 
-@operation.route('/remove_comment/<official_school_name>', methods=['GET', 'POST'])
+@operation.route('/remove_comment/<place_id>', methods=['GET', 'POST'])
 @login_required
-def remove_comment(official_school_name):
-    school = School.query.filter_by(official_school_name=official_school_name).first()
+def remove_comment(place_id):
+    school = School.query.filter_by(place_id=place_id).first()
     if school is None:
         # flash('Invalid school name.')
-        return redirect(url_for('.index'))
+        return redirect(url_for('main.index'))
+
+    has_commented = True
+    has_removed = False
     if not current_user.has_commented(school):
-        flash('You have not commented this school.')
-        return redirect(url_for('.school_detail', official_school_name=school.official_school_name,
-                                roll_number=school.roll_number))
-    current_user.remove_comment(school)
-    comments = school.comments
+        has_commented = False
+    else:
+        current_user.remove_comment(school)
+        has_removed = True
+
+    comments = Comment.query.filter_by(school_id=place_id) \
+        .order_by(Comment.time.desc())
+
     comment_list = []
+    rate_list = []
     for comment_ in comments:
+        rate_list.append(comment_.user_rating)
         single_comment = comment_.__dict__
         single_comment.pop('_sa_instance_state')
+        single_comment.pop('author')
         comment_list.append(single_comment)
-    return jsonify({'result':'success', 'comments': comment_list})
+
+    # compute the overll_rate
+    overall_rate = Comment.compute_overall_rate(rate_list)
+    overall_rate = round(overall_rate,2)
+
+    return jsonify({'has_commented': has_commented, 'has_remove': has_removed,  'comments': comment_list, 'overall_rate':overall_rate})
