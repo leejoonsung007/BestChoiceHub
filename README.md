@@ -1,8 +1,8 @@
 # BestChoice
 
 ## Table of Contents
-1. [Tip](https://github.com/leejoonsung007/School/#Tip)
-2. [Usage](https://github.com/leejoonsung007/School/#Usage)
+1. [Tip](https://github.com/leejoonsung007/School/#tip)
+2. [Usage](https://github.com/leejoonsung007/School/#usage)
 3. [Structure](https://github.com/leejoonsung007/School/#structure)
 4. [Features](https://github.com/leejoonsung007/School/#features)
 
