@@ -8,7 +8,7 @@
 
 
 ## Tip
-The website has been deployed by **Ngix** and **Gunicorn**, it can be accessed by 'www.bestchoicehub.com', If you want to run it locally, follow the introduction of [Usage](https://github.com/leejoonsung007/School/#Usage)
+The website has been deployed by **Ngix** and **Gunicorn**, it can be accessed by 'www.bestchoicehub.com', If you want to run it locally, follow the introduction of Usage
 
 ## Demo
 [![Default Type on Strap blog](https://github.com/leejoonsung007/School/blob/master/Picture/home.png)](https://www.bestchoicehub.com/)
