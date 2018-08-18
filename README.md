@@ -1,6 +1,5 @@
 # BestChoice
 [![Visit Website](https://img.shields.io/badge/website-open-blue.svg)](https://bestchoicehub.com) 
-[![View Report](https://img.shields.io/badge/Report-view-green.svg)](https://bestchoicehub.com) 
 
 ## Table of Contents
 1. [Tip](https://github.com/leejoonsung007/School/#tip)
