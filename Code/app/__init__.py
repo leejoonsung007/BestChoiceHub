@@ -41,7 +41,7 @@ def create_app(config_name):
 
     facebook_bp = make_facebook_blueprint(scope=['email'],
                                           redirect_url='https://www.bestchoicehub.com/auth/login_with_facebook',
-                                          client_id='171456803533554', client_secret='f549e71623d6c266bbce9a78a54b62b0')
+                                          client_id='', client_secret='')
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
